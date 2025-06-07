@@ -3,10 +3,10 @@ services:
     name: devrim-web
     env: python
     buildCommand: ""
-    startCommand: gunicorn myproject.wsgi:application
+    startCommand: gunicorn devrim_website.wsgi:application
     autoDeploy: true
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: myproject.settings
+        value: devrim_website.settings
       - key: PYTHON_VERSION
         value: 3.11
