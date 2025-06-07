@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "clinic-jwxn.onrender.com"
-    "devrimbirikensipahi.com.tr"
+    "devrimbirikensipahi.com.tr",
+    "www.devrimbirikensipahi.com.tr",
 ]
 
 
