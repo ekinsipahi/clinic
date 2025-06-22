@@ -152,7 +152,45 @@
   <!-- Google Maps  -->
 
   <!-- Google Maps End  -->
+
+  <style>
+    .slide-track {
+      display: flex;
+      flex-direction: column;
+      animation: scroll 30s linear infinite;
+    }
+
+    .comment-box {
+      height: 9rem;
+      /* h-36 = 144px ≈ 9rem */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: white;
+      font-style: italic;
+      border-radius: 0.75rem;
+      background-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-50%);
+      }
+
+      /* yarısını yukarı kaydır */
+    }
+  </style>
+
 </head>
+
+
 
 <body class="bg-white text-gray-800">
   <!-- Google Tag Manager (noscript) -->
@@ -162,27 +200,143 @@
 
   <!-- Hero -->
   <section class="relative h-screen bg-cover bg-center">
-    <!-- style="background-image: url('/static/disler.jpg');"> -->
-    <div class="bg-black bg-opacity-50 w-full h-full flex items-center justify-center">
-      <div class="text-center text-white px-4">
+    <div class="bg-black bg-opacity-60 w-full h-full flex items-center justify-center">
+
+
+      <div class="text-center text-white px-6 max-w-3xl">
         <h1 class="text-4xl md:text-6xl font-bold mb-4">Dr. Dt. Devrim Biriken Sipahi</h1>
-        <p class="text-lg md:text-xl">Dr. Dt. Devrim Biriken Sipahi, implanttan estetik tedavilere, kanal tedavisinden
-          radyolojik analizlere kadar geniş hizmet yelpazesiyle Şişli, Mecidiyeköy ve çevresinde güvenilir bir isim.</p>
-        <div class="mt-6 text-white">
-          <h2 class="text-2xl md:text-3xl font-bold mb-2">Yüzlerce Memnun Hastamız Anlatıyor</h2>
-          <p class="mb-4 text-lg">Gerçek hasta deneyimlerini görmek için Instagram sayfamızı ziyaret edin.</p>
-          <a href="https://instagram.com/drdevrimbirikensipahi" id="hero-instagram-button" target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-semibold py-2 px-6 rounded-full shadow-xl transition">
-            Bizi Hastalarımızdan Dinleyin
-            <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-              xmlns="https://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
+        <p class="text-lg md:text-xl mb-6">İstanbul Şişli'de, implant, estetik gülüş tasarımı, kanal tedavisi ve daha
+          fazlasıyla güvenilir diş hekimliği hizmeti sunuyoruz.</p>
+
+        <!-- "Hasta Yorumları" Sahte Slider -->
+        <div class="relative h-36 overflow-hidden mt-6 mb-6">
+          <div class="slide-track">
+
+            <!-- 1. tur -->
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“İmplantlarım tam istediğim gibi oldu, sıfır acı. Devrim hocaya minnettarım.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Selin A.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Diş estetiğinde gerçekten bir numara. Gülüşüm tamamen değişti.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Burak Y.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Diş çekimi süreci bile rahat geçti, anesteziyi bile hissetmedim.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Derya K.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Kanal tedavisinden korkuyordum ama çok konforluydu.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Mehmet T.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Gülüş tasarımı tam hayal ettiğim gibi oldu. Çok teşekkür ederim.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Zeynep E.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“20’lik diş çekimim 5 dakikada bitti. Ellerinize sağlık.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Arda B.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Dişlerime uygulanan lamina estetik olarak harikaydı.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Melis Ç.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Hijyen, ilgi ve zamanında randevu — her şey mükemmeldi.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Okan D.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Tedavi sürecim boyunca tüm detaylar açıklandı, çok rahattım.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Yasemin L.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-box">
+              <div>
+                <p class="text-base">“Artık özgüvenle gülümsüyorum. Çok teşekkür ederim hocam.”</p>
+                <div class="flex items-center justify-between mt-2">
+                  <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+                  <div class="text-xs text-white italic">– Emre G.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. tur (aynı yorumlar tekrar başa sarmak için) -->
+            <!-- Kopyala-yapıştır yukarıdakilerle birebir aynı 10 kutuyu tekrar buraya yapıştır -->
+          </div>
         </div>
-        <a href="randevu-al" id="hero-randevu-button"
-          class="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-xl text-lg font-semibold">Randevu
+
+        <h2 class="text-2xl md:text-3xl font-bold mb-3">Hasta Deneyimlerini Keşfedin</h2>
+        <p class="mb-4 text-lg">Siz de önce hastaların neler söylediğine kulak verin. 👇</p>
+
+        <!-- Instagram Butonu -->
+        <a href="https://instagram.com/drdevrimbirikensipahi" id="hero-instagram-button" target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-3 px-7 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5c3.176 0 5.75-2.574 5.75-5.75v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm5.25-.25a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z" />
+          </svg>
+          Instagram’da Bizi Görün
+        </a>
+
+        <br><br>
+
+        <!-- Randevu Butonu -->
+        <a href="/randevu-al" id="hero-randevu-button"
+          class="inline-block bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-xl text-lg font-semibold mt-4">Randevu
           Al</a>
       </div>
     </div>
