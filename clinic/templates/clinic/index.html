@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -200,8 +201,16 @@
 
   <!-- Hero -->
   <section class="relative h-screen bg-cover bg-center">
-    <div class="bg-black bg-opacity-60 w-full h-full flex items-center justify-center">
+    <!-- 🎥 Video background -->
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+      <source src="{% static '/videos/devrim-arka-plan.mp4' %}" type="video/mp4" />
+    </video>
+    <!-- 🔲 Siyah karartma (video üstüne) -->
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 z-10"></div>
 
+    <!-- 🌟 İçerik katmanı -->
+    <div class="relative z-20 w-full h-full flex items-center justify-center">
+      <!-- BURASI SENİN TÜM MEVCUT İÇERİĞİN -->
 
       <div class="text-center text-white px-6 max-w-3xl">
         <h1 class="text-4xl md:text-6xl font-bold mb-4">Dr. Dt. Devrim Biriken Sipahi</h1>
@@ -215,60 +224,63 @@
             <!-- 1. tur -->
             <div class="comment-box">
               <div>
-                <p class="text-base">“İmplantlarım tam istediğim gibi oldu, sıfır acı. Devrim hocaya minnettarım.”</p>
+                <p class="text-base">“Kanal tedavim acısız ve başarılı gecti ellerine sağlık”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Selin A.</div>
+                  <div class="text-xs text-white italic">– Melih E.</div>
                 </div>
               </div>
             </div>
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“Diş estetiğinde gerçekten bir numara. Gülüşüm tamamen değişti.”</p>
+                <p class="text-base">“38 yaşındayım, korkumu yenmeme neden bir doktordur kendisi.
+İşini özenle ve TEMİZ yapan, eli hafif, güler yüzlü ve güvende hissetmenizi sağlayan bir doktor. Aynı anda 3 dolgu ve temizleme yaptık, 2 gün sonra 4 dolgu yaptırdım, hiç ağrım olmadı :) - maşallah- Devrim Hanım iyi ki sizin gibi hekimler var”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Burak Y.</div>
+                  <div class="text-xs text-white italic">– Ece Y.</div>
                 </div>
               </div>
             </div>
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“Diş çekimi süreci bile rahat geçti, anesteziyi bile hissetmedim.”</p>
+                <p class="text-base">“Devrim hocamız güler yüzü ile yaptığı işlemlerde acı hiss etmiyorsunuz anlaşılmıyor ve çok sağlam oluyor”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Derya K.</div>
+                  <div class="text-xs text-white italic">– Süleyman B.</div>
                 </div>
               </div>
             </div>
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“Kanal tedavisinden korkuyordum ama çok konforluydu.”</p>
+                <p class="text-base">“Ufacık dişten dolgu ile diş yaptı ve çok güzel oldu daha önce 3 doktora gittim hepsi çekilmesinin gerektiği söylemesine rağmen Devrim hanım zamanından alarak emek harçayarak diş yaptı.
+Ellerine kollarına sağlık hocam bulduğumuz ve tanıdığımız için çok mutlu olduk.
+Güvenle gidebilirsiniz.”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Mehmet T.</div>
+                  <div class="text-xs text-white italic">– Cem T.</div>
                 </div>
               </div>
             </div>
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“Gülüş tasarımı tam hayal ettiğim gibi oldu. Çok teşekkür ederim.”</p>
+                <p class="text-base">“Devrim hocam yıllardır güvendiğim, işini özenle yapan bir hekim. Yaptırdığım dolgular ve tedavi süreçleri hep çok iyi sonuç verdi . Eli de hafif ve gerçekten hızlı bir şekilde tedaviyi tamamlıyor, kesinlikle öneriyorum”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Zeynep E.</div>
+                  <div class="text-xs text-white italic">– Buse Y.</div>
                 </div>
               </div>
             </div>
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“20’lik diş çekimim 5 dakikada bitti. Ellerinize sağlık.”</p>
+                <p class="text-base">“devrim hocaya çocukluğumdan beri gidiyorum bugün de dolgularımı yaptı eli çok temiz herhangi bir sıkıntı olmadan halletti kesinlikle öneriyorum”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Arda B.</div>
+                  <div class="text-xs text-white italic">– Hüseyin U. Y.</div>
                 </div>
               </div>
             </div>
@@ -285,30 +297,30 @@
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“Hijyen, ilgi ve zamanında randevu — her şey mükemmeldi.”</p>
+                <p class="text-base">“Devrim hoca ile 2020 yılında tanıştık yirmilik dişimi çektirmiştim okadar güler yüzlü eli hafif bir doktor ki beni kendisine hayran bıraktı hemen sonrasında ön dişlerimi kaplama yaptırdım yıllardır sorunsuz kullanıyorum 🙏☺️”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Okan D.</div>
+                  <div class="text-xs text-white italic">– Ceren S.</div>
                 </div>
               </div>
             </div>
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“Tedavi sürecim boyunca tüm detaylar açıklandı, çok rahattım.”</p>
+                <p class="text-base">“Devrim hanım sayesinde 20'lik dişim sorunsuz çekildi, ön dişlerim daha temiz ve güzel oldu. En son yaptığı kanal tedavi sayesinde yemek yerken artık canım acımıyor. Kesinlikle gözüm kapalı tavsiye ederim. Yıllardır tüm dişlerimi emanet ettiğim canım hekimim Devrim hanım, iyi ki varsınız!”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Yasemin L.</div>
+                  <div class="text-xs text-white italic">– Merve A.</div>
                 </div>
               </div>
             </div>
 
             <div class="comment-box">
               <div>
-                <p class="text-base">“Artık özgüvenle gülümsüyorum. Çok teşekkür ederim hocam.”</p>
+                <p class="text-base">“Yıllardır hekimliğine, tecrübesine, tedavisine güvendiğim, her gittiğimde temizlik konusunda en ufak bir şüphe duymadığım işinin ehli bir diş doktorudur kendisi.”</p>
                 <div class="flex items-center justify-between mt-2">
                   <div class="text-yellow-400 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
-                  <div class="text-xs text-white italic">– Emre G.</div>
+                  <div class="text-xs text-white italic">– Özlem H.</div>
                 </div>
               </div>
             </div>
