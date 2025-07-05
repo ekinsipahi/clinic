@@ -10,5 +10,6 @@ from django.views.generic import TemplateView
 
 urlpatterns += [
     path('robots.txt', TemplateView.as_view(template_name="clinic/robots.txt", content_type="text/plain")),
+    path('llms.txt', TemplateView.as_view(template_name="clinic/llms.txt", content_type="text/plain")),
     path('sitemap.xml', TemplateView.as_view(template_name="clinic/sitemap.xml", content_type="application/xml")),
 ]
