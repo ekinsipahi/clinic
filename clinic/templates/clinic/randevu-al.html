@@ -38,6 +38,40 @@
     gtag('config', 'G-KGS2PYPNYG');
   </script>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17150773342">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17150773342');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Sadece butona tıklanınca dönüşüm tetikle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const whatsappButton = document.getElementById('whatsapp-button');
+      const phoneButton = document.getElementById('phone-button');
+
+      function triggerConversion() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
+        });
+      }
+
+      if (whatsappButton) {
+        whatsappButton.addEventListener('click', triggerConversion);
+      }
+
+      if (phoneButton) {
+        phoneButton.addEventListener('click', triggerConversion);
+      }
+    });
+  </script>
+
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <style>
@@ -77,7 +111,39 @@
       </iframe>
     </div>
   </main>
+  <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
 
+    <!-- Instagram Butonu -->
+    <a href="https://instagram.com/drdevrimbirikensipahi" id="instagram-button" target="_blank"
+      aria-label="Instagram profiline git"
+      class="bg-pink-500 hover:bg-pink-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center w-14 h-14 md:w-16 md:h-16">
+      <!-- Instagram SVG ikonu -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5Z" />
+      </svg>
+    </a>
+
+
+    <!-- WhatsApp Butonu -->
+    <a href="https://wa.me/905055771883" id="whatsapp-button" target="_blank" aria-label="WhatsApp ile iletişime geç"
+      class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center w-14 h-14 md:w-16 md:h-16">
+      <!-- WhatsApp resmi SVG logosu -->
+      <svg viewBox="0 0 32 32" fill="white" class="w-8 h-8" xmlns="https://www.w3.org/2000/svg">
+        <path
+          d="M16 .396C7.164.396.005 7.555.005 16.39c0 2.885.756 5.712 2.194 8.198L.3 31.711l7.32-1.921a15.85 15.85 0 0 0 7.986 2.056h.002c8.834 0 15.993-7.158 15.993-15.993 0-4.272-1.664-8.288-4.688-11.312C24.288 2.06 20.272.396 16 .396zm0 29.075a13.01 13.01 0 0 1-6.614-1.767l-.474-.277-4.348 1.143 1.162-4.234-.306-.499a13.08 13.08 0 0 1-1.999-6.992c0-7.24 5.892-13.132 13.132-13.132 3.51 0 6.813 1.368 9.295 3.849s3.837 5.785 3.837 9.295c0 7.24-5.892 13.132-13.132 13.132zm7.216-9.967c-.395-.197-2.338-1.152-2.701-1.284-.363-.132-.627-.197-.89.197s-1.02 1.284-1.252 1.547c-.231.264-.462.296-.856.099-.395-.197-1.668-.614-3.177-1.956-1.175-1.047-1.965-2.342-2.195-2.737-.231-.396-.025-.609.172-.805.177-.177.395-.462.592-.693.198-.231.264-.396.396-.66.132-.264.066-.495-.033-.693-.098-.198-.89-2.147-1.22-2.938-.321-.772-.647-.667-.89-.678-.231-.009-.495-.011-.76-.011s-.693.099-1.056.495c-.363.396-1.385 1.354-1.385 3.3s1.419 3.827 1.615 4.092c.198.264 2.791 4.268 6.768 5.982.947.409 1.686.654 2.262.837.95.302 1.814.259 2.498.157.762-.113 2.338-.953 2.67-1.875.33-.923.33-1.713.231-1.875-.099-.165-.363-.264-.76-.462z" />
+      </svg>
+    </a>
+
+    <!-- Telefon Butonu -->
+    <a href="tel:+905055771883" id="phone-button" aria-label="Telefonla ara"
+      class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center w-14 h-14 md:w-16 md:h-16">
+      <svg xmlns="https://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 16 16">
+        <path
+          d="M3.654 1.328a.678.678 0 0 1 .58-.07c.577.192 1.41.67 2.387 1.646.976.976 1.453 1.81 1.645 2.387a.678.678 0 0 1-.07.58l-1.017 1.528a.678.678 0 0 0 .145.89l2.457 1.966a.678.678 0 0 0 .89-.145l1.528-1.017a.678.678 0 0 1 .58-.07c.577.192 1.41.67 2.387 1.646.976.976 1.453 1.81 1.645 2.387a.678.678 0 0 1-.07.58c-.548.927-1.636 2.184-3.458 3.459C9.258 18.2 5.376 16.775 2.827 14.227 0.278 11.678-1.147 7.796 1.094 4.342c1.275-1.822 2.532-2.91 3.46-3.458z" />
+      </svg>
+    </a>
+  </div>
   <footer class="mt-16 py-6 text-center text-gray-500 text-sm">
     © 2025 Dr. Dt. Devrim Biriken Sipahi | Abide-i Hürriyet Cd No:148 D:11 kat 4, Şişli/İstanbul
   </footer>
