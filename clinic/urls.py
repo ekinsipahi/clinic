@@ -3,7 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
-    path('randevu-al/', views.randevu_al, name='randevu-als'),
+    path('randevu-al/', views.randevu_al, name='randevu-al'),
+    path('whatsapp-yonlendirme/', views.whatsapp_yonlendir, name='whatsapp-yonlendirme'),
+    path('telefon-yonlendirme/', views.telefon_yonlendir, name='telefon-yonlendirme'),
 ]
 
 from django.views.generic import TemplateView
