@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    "rest_framework",  # Rest Framework
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,6 +45,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Custom apps
     "clinic",
+    
+    # Rest Framework Based
+    "conversion_tracking"
 ]
 
 MIDDLEWARE = [
@@ -130,6 +134,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+CSRF_TRUSTED_ORIGINS = ['https://devrimbirikensipahi.com.tr', 'https://www.devrimbirikensipahi.com.tr']
 
 
 # Default primary key field type

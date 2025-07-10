@@ -1,9 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <meta charset="UTF-8">
   <title>Telefonla Randevu | Dr. Dt. Devrim Biriken Sipahi</title>
-  <meta name="description" content="Dr. Dt. Devrim Biriken Sipahi'yi arayarak hızlıca randevu alın. İstanbul Şişli, Mecidiyeköy ve Beşiktaş'ta hizmet veren kliniğimiz ile iletişime geçin.">
+  <meta name="description"
+    content="Dr. Dt. Devrim Biriken Sipahi'yi arayarak hızlıca randevu alın. İstanbul Şişli, Mecidiyeköy ve Beşiktaş'ta hizmet veren kliniğimiz ile iletişime geçin.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://devrimbirikensipahi.com.tr/telefonla-ara" />
 
@@ -29,12 +32,20 @@
     window.onload = triggerConversionAndRedirect;
   </script>
 
+  <script>
+    document.cookie = "csrftoken={{ csrf_token }}; path=/";
+  </script>
+
+
+  <script src="{% static 'js/ads-tracking-backend.js' %}"></script>
+
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       margin-top: 100px;
     }
+
     a {
       display: inline-block;
       padding: 14px 24px;
@@ -46,6 +57,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <h1>Telefonla Randevu Alınıyor...</h1>
@@ -57,4 +69,5 @@
 
 
 </body>
+
 </html>
