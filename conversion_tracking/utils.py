@@ -7,7 +7,7 @@ def export_conversions_to_csv(filepath='converted_conversions.csv'):
 
     with open(filepath, mode='w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Google Click ID', 'Conversion Name', 'Conversion Time', 'Conversion Value', 'Conversion Currency'])
+        writer.writerow(['Google_Click_ID', 'Conversion_Name', 'Conversion_Time', 'Conversion_Value', 'Conversion_Currency'])
 
         for obj in queryset:
             writer.writerow([
