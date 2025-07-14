@@ -132,29 +132,28 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const video = document.querySelector('video');
+      const video = document.getElementById('bg-video');
       const fallback = document.getElementById('bg-fallback');
 
-      if (video) {
-        video.muted = true;
+      if (!video) return;
 
-        // Oynatmayı dene
-        video.play().catch(() => {
-          // play() başarısızsa direkt fallback
-          video.classList.add('hidden');
-          fallback.classList.remove('hidden');
-        });
+      video.muted = true;
 
-        // 1 saniye sonra video gerçekten oynuyor mu diye kontrol et
+      // Oynatmayı dene
+      video.play().then(() => {
+        // 1 saniye sonra hala paused mı diye bak
         setTimeout(() => {
-          if (video.paused || video.readyState < 3) {
-            // paused = başlamamış veya durmuş
-            // readyState < 3 = yeterince buffer yok (iOS bazen böyle takılır)
+          if (video.paused || video.currentTime === 0 || video.readyState < 3) {
+            // video görünmesin, fallback aç
             video.classList.add('hidden');
             fallback.classList.remove('hidden');
           }
         }, 1000);
-      }
+      }).catch(() => {
+        // play() başarısızsa direkt fallback'e geç
+        video.classList.add('hidden');
+        fallback.classList.remove('hidden');
+      });
     });
 
   </script>
@@ -271,7 +270,7 @@
   <section class="relative h-screen bg-cover bg-center">
     <!-- 🎥 Video background -->
     <div>
-      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+      <video id="bg-video" autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
         <source src="{% static 'videos/devrim-arka-plan.mp4' %}" type="video/mp4" />
       </video>
       <img id="bg-fallback" src="{% static 'videos/devrim-arka-plan.webp' %}" alt="arka plan"
