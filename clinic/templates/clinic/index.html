@@ -189,28 +189,6 @@
 
   <script src="{% static 'js/gclid-tracking.js' %}"></script>
 
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const video = document.getElementById("hero-video");
-
-  const tryPlay = () => {
-    if (video.readyState >= 2) {
-      video.play().catch(err => console.warn("play() failed:", err));
-    } else {
-      // Bazı tarayıcılarda readyState hemen hazır olmuyor, tekrar dene
-      setTimeout(tryPlay, 200);
-    }
-  };
-
-  // Hem suspend hem metadata geldiyse başlat
-  video.addEventListener("loadedmetadata", tryPlay);
-  video.addEventListener("canplay", tryPlay);
-});
-
-
-
-  </script>
-
   <style>
     .slide-track {
       display: flex;
@@ -265,8 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <section class="relative h-screen bg-cover bg-center">
     <!-- 🎥 Video background -->
     <div>
-      <video id="hero-video" muted playsinline preload="auto"
-        class="absolute top-0 left-0 w-full h-full object-cover z-0">
+      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
         <source src="{% static 'videos/devrim-arka-plan.mp4' %}" type="video/mp4" />
       </video>
     </div>
