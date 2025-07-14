@@ -130,40 +130,6 @@
     }
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const video = document.querySelector('video');
-      const fallback = document.getElementById('bg-fallback');
-
-      const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        // Mobil cihazsa direkt fallback göster
-        video.classList.add('hidden');
-        fallback.classList.remove('hidden');
-      } else {
-        // Desktop ise autoplay kontrolü yapılır
-        video.muted = true;
-        video.play().catch(() => {
-          video.classList.add('hidden');
-          fallback.classList.remove('hidden');
-        });
-
-        // Ekstra kontrol: autoplay oldu mu?
-        setTimeout(() => {
-          const isPaused = video.paused;
-          const notLoaded = video.readyState < 3;
-          const notMoving = video.currentTime === 0;
-
-          if (isPaused || notLoaded || notMoving) {
-            video.classList.add('hidden');
-            fallback.classList.remove('hidden');
-          }
-        }, 1000);
-      }
-    });
-
-  </script>
 
 
   <script async onload="document.documentElement.classList.add('tailwind-loaded')" src="https://cdn.tailwindcss.com">
@@ -280,8 +246,6 @@
       <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
         <source src="{% static 'videos/devrim-arka-plan.mp4' %}" type="video/mp4" />
       </video>
-      <img id="bg-fallback" src="{% static 'videos/devrim-arka-plan.webp' %}" alt="arka plan"
-        class="absolute top-0 left-0 w-full h-full object-cover z-0 hidden" />
     </div>
 
     <!-- 🔲 Siyah karartma (video üstüne) -->
