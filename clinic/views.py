@@ -15,3 +15,5 @@ def whatsapp_yonlendir(request):
 
 def telefon_yonlendir(request):
     return render(request, 'clinic/telefon-yonlendir.html')
+
+

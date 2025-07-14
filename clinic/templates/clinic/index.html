@@ -229,6 +229,98 @@
     }
   </style>
 
+
+  <!-- in-page javascript -->
+  <script>
+    function getDeviceType() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/iPad|iPhone|iPod/.test(ua)) {
+        return "iOS";
+      } else if (/Android/.test(ua)) {
+        return "Android";
+      } else if (/Windows NT/.test(ua)) {
+        return "Windows";
+      } else if (/Macintosh/.test(ua)) {
+        return "macOS";
+      } else {
+        return "Unknown";
+      }
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      async function isLowPowerMode() {
+        return new Promise((resolve) => {
+          const div = document.createElement('div');
+          div.style.display = 'none';
+          div.innerHTML = `
+        <video playsinline preload autoplay muted
+          src="data:video/mp4;base64,AAAAIGZ0eXBtcDQyAAAAAG1wNDFtcDQyaXNvbQAAAAhmcmVlAAAAA21kYXQAAAAA">
+        </video>
+      `;
+          const video = div.querySelector('video');
+
+          const videoPlay = async () => {
+            let isLowPower = false;
+            try {
+              await video.play();  // ✅ Eğer çalışmazsa Low Power Mode olabilir
+            } catch (error) {
+              if (error.name === 'NotAllowedError') {
+                isLowPower = true;
+              }
+            }
+            div.remove(); // ✅ Test bittikten sonra DOM'dan kaldır
+            resolve(isLowPower);
+          };
+
+          document.body.appendChild(div);
+          requestAnimationFrame(() => {
+            videoPlay();
+          });
+        });
+      }
+
+      isLowPowerMode().then((lowPower) => {
+        const video = document.getElementById("hero-video");
+
+        if (lowPower) {
+          console.log("⚠️ Low Power Mode aktif. Video gizleniyor, WebP gösteriliyor.");
+        } else {
+          console.log("✅ Low Power Mode değil. Video gösteriliyor.");
+        }
+
+        // 🎯 localStorage'a kaydet
+        const deviceType = getDeviceType();
+        const clientInfo = {
+          device_type: deviceType,
+          low_power_mode: lowPower
+        };
+        localStorage.setItem("client_info", JSON.stringify(clientInfo));
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const video = document.getElementById("hero-video");
+
+      const startVideo = () => {
+        if (video && video.paused) {
+          video.play().catch(() => { });
+        }
+        // Sadece 1 kere tetiklensin
+        document.body.removeEventListener("click", startVideo);
+        document.body.removeEventListener("touchstart", startVideo);
+        document.body.removeEventListener("scroll", startVideo);
+      };
+
+      // Etkileşimleri body'e dinletiyoruz
+      document.body.addEventListener("click", startVideo);
+      document.body.addEventListener("touchstart", startVideo);
+      document.body.addEventListener("scroll", startVideo);
+    });
+  </script>
+
+
+
+
 </head>
 
 
@@ -242,11 +334,14 @@
   <!-- Hero -->
   <section class="relative h-screen bg-cover bg-center">
     <!-- 🎥 Video background -->
-    <div>
-      <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+    <div id="video-wrapper">
+      <video id="hero-video" muted loop autoplay playsinline
+        class="absolute top-0 left-0 w-full h-full object-cover z-0">
         <source src="{% static 'videos/devrim-arka-plan.mp4' %}" type="video/mp4" />
       </video>
     </div>
+
+
 
     <!-- 🔲 Siyah karartma (video üstüne) -->
     <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 z-10"></div>

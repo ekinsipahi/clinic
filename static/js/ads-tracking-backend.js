@@ -25,6 +25,15 @@
     }
     return null;
   }
+  
+  function getClientInfo() {
+    try {
+      const info = localStorage.getItem('client_info');
+      return info ? JSON.parse(info) : {};
+    } catch (err) {
+      return {};
+    }
+  }
 
   function sendGclidToBackend(conversionName, gclid, page) {
     const csrfToken = getCsrfToken();
@@ -39,7 +48,8 @@
       body: JSON.stringify({
         gclid: gclid,
         conversion_name: conversionName,
-        page: page
+        page: page,
+        client_info: getClientInfo(),
       })
     }).then(response => {
       if (!response.ok) {
