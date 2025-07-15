@@ -6,6 +6,8 @@ urlpatterns = [
     path('randevu-al/', views.randevu_al, name='randevu-al'),
     path('whatsapp-yonlendirme/', views.whatsapp_yonlendir, name='whatsapp-yonlendirme'),
     path('telefon-yonlendirme/', views.telefon_yonlendir, name='telefon-yonlendirme'),
+    path('maps-yonlendirme/', views.maps_yonlendir, name='maps-yonlendirme'),
+    path('instagram-yonlendirme/', views.instagram_yonlendir, name='instagram-yonlendirme'),
 ]
 
 from django.views.generic import TemplateView

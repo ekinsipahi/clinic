@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Yol Tarifi | Dr. Dt. Devrim Biriken Sipahi</title>
+  <meta name="description"
+    content="Dr. Dt. Devrim Biriken Sipahi kliniğine Google Haritalar üzerinden kolayca yol tarifi alın.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://devrimbirikensipahi.com.tr/maps" />
+
+  <!-- Google Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17150773342"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'AW-17150773342');
+
+    function triggerConversionAndRedirect() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_' // Contact event olarak geçer
+      });
+
+      setTimeout(function () {
+        window.location.href = "https://maps.app.goo.gl/nVmTfMKXq2jTeNvy5";
+      }, 500);
+    }
+
+    window.onload = triggerConversionAndRedirect;
+  </script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 14px 24px;
+      background-color: #34a853;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Dr. Devrim Biriken Sipahi Kliniği</h1>
+  <h1>Google Haritalar Açılıyor...</h1>
+  <p>Yol tarifi için lütfen bekleyin...</p>
+
+  <a href="https://maps.app.goo.gl/nVmTfMKXq2jTeNvy5" target="_blank" rel="noopener noreferrer">
+    Haritada Görüntüle
+  </a>
+</body>
+
+</html>
