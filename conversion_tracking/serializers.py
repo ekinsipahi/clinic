@@ -17,13 +17,14 @@ class ConversionSerializer(serializers.ModelSerializer):
         validated_data['client_info'] = device_info
 
         # Eğer aynı GCLID varsa kaydı güncelle
-        print("kayıt güncelleniyor")
+        
         existing = Conversion.objects.filter(gclid=gclid).first()
         if existing:
+            print("kayıt güncelleniyor")
             for attr, value in validated_data.items():
                 setattr(existing, attr, value)
             existing.save()
             return existing
-
+        print("yeni kayıt oluşturuluyor")
         # Yoksa yeni kayıt oluştur
         return super().create(validated_data)
