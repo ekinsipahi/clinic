@@ -16,15 +16,16 @@ class ConversionSerializer(serializers.ModelSerializer):
         validated_data['conversion_time'] = timezone.now()
         validated_data['client_info'] = device_info
 
-        # Eğer aynı GCLID varsa kaydı güncelle
-        
         existing = Conversion.objects.filter(gclid=gclid).first()
         if existing:
             print("kayıt güncelleniyor")
             for attr, value in validated_data.items():
                 setattr(existing, attr, value)
+            
+            # 👇 timestamp'ı manuel güncelle
+            existing.timestamp = timezone.now()
             existing.save()
             return existing
+
         print("yeni kayıt oluşturuluyor")
-        # Yoksa yeni kayıt oluştur
         return super().create(validated_data)
