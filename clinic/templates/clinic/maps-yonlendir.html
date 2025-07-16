@@ -20,15 +20,11 @@
 
     function triggerConversionAndRedirect() {
       gtag('event', 'conversion', {
-        'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
+        'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_' // Contact event olarak geçer
       });
 
-      // Haritayı yeni sekmede aç
-      window.open("https://maps.app.goo.gl/nVmTfMKXq2jTeNvy5", '_blank');
-
-      // 2.5 saniye sonra bu sekmeyi ana sayfaya yönlendir
       setTimeout(function () {
-        window.location.href = "/";
+        window.location.href = "https://maps.app.goo.gl/nVmTfMKXq2jTeNvy5";
       }, 2500);
     }
 
