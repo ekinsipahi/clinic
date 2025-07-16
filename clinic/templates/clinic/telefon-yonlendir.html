@@ -23,9 +23,12 @@
         'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
       });
 
-      // 500ms sonra Telefon uygulamasını tetikle
+      // Telefonu yeni sekmede aç
+      window.open("tel:+905055771883", '_blank');
+
+      // Bu sekmeyi anasayfaya yönlendir
       setTimeout(function () {
-        window.location.href = "tel:+905055771883";
+        window.location.href = "/";
       }, 2500);
     }
 

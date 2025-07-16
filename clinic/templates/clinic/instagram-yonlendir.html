@@ -20,16 +20,21 @@
 
     function triggerConversionAndRedirect() {
       gtag('event', 'conversion', {
-        'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_' // Opsiyonel: Contact event'ine bağlayabilirsin
+        'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
       });
 
+      // Yeni sekmede Instagram'ı aç
+      window.open("https://www.instagram.com/devrimbirikensipahi/", '_blank');
+
+      // 2.5 saniye sonra ana sayfaya yönlendir
       setTimeout(function () {
-        window.location.href = "https://www.instagram.com/devrimbirikensipahi/";
+        window.location.href = "/";
       }, 2500);
     }
 
     window.onload = triggerConversionAndRedirect;
   </script>
+
 
   <style>
     body {

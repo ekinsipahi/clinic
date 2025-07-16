@@ -23,14 +23,18 @@
         'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
       });
 
-      // 500ms sonra WhatsApp'a yönlendir
+      // Yeni sekmede WhatsApp'ı aç
+      window.open("https://wa.me/905055771883", "_blank");
+
+      // 2.5 saniye sonra ana sayfaya yönlendir
       setTimeout(function () {
-        window.location.href = "https://wa.me/905055771883";
+        window.location.href = "/";
       }, 2500);
     }
 
     window.onload = triggerConversionAndRedirect;
   </script>
+
   <script>
     document.cookie = "csrftoken={{ csrf_token }}; path=/";
   </script>
