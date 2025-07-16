@@ -38,6 +38,12 @@
     });
   </script>
 
+  <script>
+    document.cookie = "csrftoken={{ csrf_token }}; path=/";
+  </script>
+
+  <script src="{% static 'js/ads-tracking-backend.js' %}"></script>
+
   <style>
     body {
       font-family: sans-serif;
