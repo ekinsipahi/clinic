@@ -17,22 +17,25 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'AW-17150773342');
+  </script>
 
-    function triggerConversionAndRedirect() {
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const visitedHome = localStorage.getItem("visited_home");
+
+      if (!visitedHome) {
+        window.location.href = "/";
+        return;
+      }
+
       gtag('event', 'conversion', {
         'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
       });
 
-      // Yeni sekmede WhatsApp'ı aç
-      window.open("https://wa.me/905055771883", "_blank");
-
-      // 2.5 saniye sonra ana sayfaya yönlendir
       setTimeout(function () {
-        window.location.href = "/";
+        window.location.href = "https://wa.me/905055771883";
       }, 2500);
-    }
-
-    window.onload = triggerConversionAndRedirect;
+    });
   </script>
 
   <script>
@@ -69,8 +72,6 @@
   <a href="https://wa.me/905055771883" target="_blank" rel="noopener noreferrer">
     WhatsApp'a Git
   </a>
-
-
 </body>
 
 </html>

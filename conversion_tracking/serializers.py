@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Conversion
-from datetime import datetime
+from django.utils import timezone
+
 
 class ConversionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,10 +11,19 @@ class ConversionSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         gclid = validated_data.get('gclid')
         device_info = validated_data.get('client_info', {})
-        print("New device:", device_info) # Debugging line to check device info
-        if gclid and Conversion.objects.filter(gclid=gclid).exists():
-            raise serializers.ValidationError({'gclid': 'This GCLID has already been recorded.'})
-        
-        validated_data['conversion_time'] = datetime.utcnow()  # Google Ads UTC ister
+        print("New device:", device_info)
+
+        validated_data['conversion_time'] = timezone.now()
         validated_data['client_info'] = device_info
+
+        # Eğer aynı GCLID varsa kaydı güncelle
+        print("kayıt güncelleniyor")
+        existing = Conversion.objects.filter(gclid=gclid).first()
+        if existing:
+            for attr, value in validated_data.items():
+                setattr(existing, attr, value)
+            existing.save()
+            return existing
+
+        # Yoksa yeni kayıt oluştur
         return super().create(validated_data)

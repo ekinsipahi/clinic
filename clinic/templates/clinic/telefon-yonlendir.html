@@ -17,30 +17,26 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'AW-17150773342');
+  </script>
 
-    function triggerConversionAndRedirect() {
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const visitedHome = localStorage.getItem("visited_home");
+
+      if (!visitedHome) {
+        window.location.href = "/";
+        return;
+      }
+
       gtag('event', 'conversion', {
         'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
       });
 
-      // Telefonu yeni sekmede aç
-      window.open("tel:+905055771883", '_blank');
-
-      // Bu sekmeyi anasayfaya yönlendir
       setTimeout(function () {
-        window.location.href = "/";
+        window.location.href = "tel:+905055771883";
       }, 2500);
-    }
-
-    window.onload = triggerConversionAndRedirect;
+    });
   </script>
-
-  <script>
-    document.cookie = "csrftoken={{ csrf_token }}; path=/";
-  </script>
-
-
-  <script src="{% static 'js/ads-tracking-backend.js' %}"></script>
 
   <style>
     body {
@@ -70,8 +66,6 @@
   <a href="tel:+905055771883" target="_blank" rel="noopener noreferrer">
     Telefonla Ara
   </a>
-
-
 </body>
 
 </html>
