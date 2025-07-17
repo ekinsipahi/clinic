@@ -8,7 +8,7 @@ class Conversion(models.Model):
     phone_number = models.CharField(max_length=20, null=True, blank=True)
     
     # Timestamp kaydı
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     # Google Ads için gerekli alanlar
     gclid = models.CharField(max_length=255, null=True, blank=True)
