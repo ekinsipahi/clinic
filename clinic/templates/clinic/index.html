@@ -174,6 +174,111 @@
   <script src="{% static 'js/gclid-tracking.js' %}"></script>
 
   <style>
+    .comparison-container {
+      position: relative;
+      max-width: 800px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      --position: 50%;
+    }
+
+    .comparison-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .comparison-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .comparison-before {
+      z-index: 2;
+      clip-path: inset(0 calc(100% - var(--position)) 0 0);
+    }
+
+    .comparison-after {
+      z-index: 1;
+    }
+
+    /* Beyaz çizgi */
+    .slider-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: white;
+      left: var(--position);
+      transform: translateX(-50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Range input */
+    .comparison-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 4;
+      cursor: ew-resize;
+      top: 50%;
+    }
+
+    .slider-icon {
+      position: absolute;
+      top: 50%;
+      left: var(--position);
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      font-size: 14px;
+      font-weight: bold;
+      background-color: white;
+      color: black;
+      padding: 0.4rem;
+      border-radius: 9999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+    }
+
+    /* Track görünmesin */
+    .comparison-slider::-webkit-slider-runnable-track {
+      background: transparent;
+      height: 100%;
+    }
+
+    .comparison-slider::-moz-range-track {
+      background: transparent;
+      height: 100%;
+    }
+
+    /* Thumb: Yuvarlak ortadaki buton */
+    .comparison-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 0;
+      width: 0;
+      border: none;
+    }
+
+    .comparison-slider::-moz-range-thumb {
+      height: 0;
+      width: 0;
+      border: none;
+    }
+
+
+
+
+
+    /* Sliding-Testimonials hero section */
     .slide-track {
       display: flex;
       flex-direction: column;
@@ -211,8 +316,87 @@
 
       /* yarısını yukarı kaydır */
     }
+
+    #hasta-yorumlari {
+      min-height: 100vh;
+    }
+
+    @media (max-width: 400px) {
+      #hasta-yorumlari {
+        min-height: unset;
+        height: 50vh;
+      }
+    }
+
+    .comparison-slideshow {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      height: auto;
+      /* Zorunlu değil ama güvenli olur */
+    }
+
+
+    .comparison-container {
+      position: absolute;
+      inset: 0;
+      /* Tüm kenarlara sıfır mesafe */
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      animation: fadeComparison 45s infinite;
+    }
+
+
+    /* Slayt sırası ve z-index değerleri */
+    .comparison-container:nth-child(1) {
+      animation-delay: 0s;
+      z-index: 3;
+    }
+
+    .comparison-container:nth-child(2) {
+      animation-delay: 15s;
+      z-index: 2;
+    }
+
+    .comparison-container:nth-child(3) {
+      animation-delay: 30s;
+      z-index: 1;
+    }
+
+    @keyframes fadeComparison {
+      0% {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      5% {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      30% {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      35% {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      100% {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
   </style>
 
+  <link rel="stylesheet" href="{% static 'css/ai-box.css' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <meta name="csrf-token" content="{{ csrf_token }}">
 
   <!-- in-page javascript -->
   <script>
@@ -301,7 +485,11 @@
       document.body.addEventListener("touchstart", startVideo);
       document.body.addEventListener("scroll", startVideo);
     });
+
+
   </script>
+
+
 
 </head>
 
@@ -496,31 +684,189 @@
   </section>
 
   <!-- Hakkımızda -->
-  <section class="py-16 px-4 md:px-20">
+  <!-- <section class="py-16 px-4 md:px-20">
     <h2 class="text-3xl font-bold mb-6">Dr. Devrim Sipahi Kimdir?</h2>
     <p class="text-lg">Dr. Dt. Devrim Biriken Sipahi, İstanbul Şişli'de uzun yıllardır hizmet veren deneyimli bir diş
       hekimidir. Diş estetiği, implant tedavisi ve gülüş tasarımı alanlarında yüzlerce başarılı vaka yönetmiştir.</p>
-  </section>
+  </section> -->
 
 
+
+
+
+  <!-- <section class="container py-24 bg-white" id="hasta-yorumlari">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 font-manrope">Yılları Aşan Deneyim</h2>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        Herkesin ayrı bir hikâyesi, her gülüşün kendine has bir dili var. <br>
+        Dr. Dt. Devrim Biriken Sipahi’nin yıllara dayanan klinik deneyimi, radyoloji uzmanlığı ve kurduğu içten bağ,
+        bugünkü anlayışımızın temelini oluşturuyor.
+      </p>
+      <p class="mt-4 text-md text-indigo-700">
+        Şişli ve Mecidiyeköy çevresinden gelen onlarca hastamızın yorumları ve sürece dair tüm içerikler <a
+          href="/instagram-yonlendirme" target="_blank" class="underline font-semibold">Instagram</a> sayfamızda.
+      </p>
+    </div> -->
   <!-- Hasta Deneyimleri -->
-  <section class="py-16 px-4 md:px-20 bg-blue-50">
-    <h2 class="text-3xl font-bold mb-6">Yılları Aşan Deneyim</h2>
-    <p class="text-lg mb-4">
-      Herkesin ayrı bir hikâyesi, her gülüşün kendine has bir dili var.<br>
-      Dr. Dt. Devrim Biriken Sipahi’nin yıllara dayanan klinik deneyimi, radyoloji uzmanlığı ve kurduğu içten
-      bağ, bugünkü anlayışımızın temelini oluşturuyor.
-      <br><br>
-    </p>
-    <p class="text-lg mb-6">
-      Şişli ve Mecidiyeköy çevresinden gelen onlarca hastamızın yorumları ve sürece dair tüm
-      içerikler <strong>Instagram sayfamızda</strong>.
-    </p>
-    <a href="/instagram-yonlendirme" target="_blank" rel="noopener noreferrer"
-      class="inline-block bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition">
-      Hastalarımızdan Dinleyin
-    </a>
+  <section class="grid justify-center items-center relative lg:hidden">
+    <!-- Üst yazı -->
+    <div class="top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none z-10">
+      <h2
+        class="text-black text-center px-4 text-xl md:text-3xl lg:text-4xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
+        Sadece diş değil, özgüven kazandırıyoruz.
+      </h2>
+    </div>
+
+    <!-- Görsel Karşılaştırma -->
+    <div class="comparison-slideshow relative">
+      <!-- İlk slayt -->
+      <div class="comparison-container absolute">
+        <div class="comparison-image comparison-before">
+          <img src="{% static 'images/sanem-once.jpg' %}" alt="Before" />
+        </div>
+        <div class="comparison-image comparison-after">
+          <img src="{% static 'images/sanem-sonra.jpg' %}" alt="After" />
+        </div>
+
+        <!-- Ortadaki slider ikon -->
+        <div class="slider-icon">&lt;|&gt;</div>
+
+        <!-- Ortadaki çizgi -->
+        <div class="slider-line"></div>
+
+        <!-- Slider -->
+        <input type="range" min="0" max="100" value="50" class="comparison-slider">
+
+        <!-- Baloncuk yazı: resmin içinde -->
+        <div class="absolute bottom-0 left-0 w-full z-10">
+          <div
+            class="bg-gray-700/50 text-white text-sm py-3 pl-4 rounded-none backdrop-blur-sm border-t border-gray-500/20 shadow-sm text-left">
+            Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha estetik hale getirildi.
+          </div>
+        </div>
+
+      </div>
+      <!-- İkinci slayt -->
+      <div class="comparison-container absolute">
+        <div class="comparison-image comparison-before">
+          <img src="{% static 'images/hazan-once.jpg' %}" alt="Before" />
+        </div>
+        <div class="comparison-image comparison-after">
+          <img src="{% static 'images/hazan-sonra.jpg' %}" alt="After" />
+        </div>
+
+        <!-- Ortadaki slider ikon -->
+        <div class="slider-icon">&lt;|&gt;</div>
+
+        <!-- Ortadaki çizgi -->
+        <div class="slider-line"></div>
+
+        <!-- Slider -->
+        <input type="range" min="0" max="100" value="50" class="comparison-slider">
+
+        <!-- Baloncuk yazı: resmin içinde -->
+        <div class="absolute bottom-0 left-0 w-full z-10">
+          <div
+            class="bg-gray-700/50 text-white text-sm py-3 pl-4 rounded-none backdrop-blur-sm border-t border-gray-500/20 shadow-sm text-left">
+            Hazan geçirdiği travma sonucu, dişi pembe olarak kliniğimize geldi estetik olarak dişlerini hiç bozmadan
+            eski halinden daha iyi duruma getirdik.
+          </div>
+        </div>
+
+      </div>
+      <!-- Üçüncü slayt -->
+      <div class="comparison-container absolute">
+        <div class="comparison-image comparison-before">
+          <img src="{% static 'images/sanem-once.jpg' %}" alt="Before" />
+        </div>
+        <div class="comparison-image comparison-after">
+          <img src="{% static 'images/sanem-sonra.jpg' %}" alt="After" />
+        </div>
+
+        <!-- Ortadaki slider ikon -->
+        <div class="slider-icon">&lt;|&gt;</div>
+
+        <!-- Ortadaki çizgi -->
+        <div class="slider-line"></div>
+
+        <!-- Slider -->
+        <input type="range" min="0" max="100" value="50" class="comparison-slider">
+
+        <!-- Baloncuk yazı: resmin içinde -->
+        <div class="absolute bottom-0 left-0 w-full z-10">
+          <div
+            class="bg-gray-700/50 text-white text-sm py-3 pl-4 rounded-none backdrop-blur-sm border-t border-gray-500/20 shadow-sm text-left">
+            Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha estetik hale getirildi.
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
+
+
+    <!-- BURASI ÇOK İYİ -->
+  <form action="https://fabform.io/f/xxxxx" method="post" aria-label="İletişim Formu">
+    <section class="py-16" id="iletisim-formu">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 grid-cols-1">
+
+          <article class="lg:mb-0 mb-10">
+            <div class="relative h-full w-full min-h-[400px]">
+              <img src="{% static 'images/devrim-contact.jpg' %}" alt="Diş kliniği iletişim görseli"
+                class="object-cover w-full h-full aspect-video lg:rounded-l-2xl rounded-2xl" loading="lazy">
+              <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">Bize Ulaşın</h1>
+
+              <div class="absolute bottom-0 w-full lg:p-11 p-5">
+                <div class="bg-white rounded-lg p-6 block grid items-center">
+                  <a href="/telefon-yonlendirme" class="flex items-center" aria-label="Telefon ile ara">
+                    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24">
+                      <path
+                        d="M2 2h4l2 7-4 1 5 5 1-4 7 2v4a2 2 0 0 1-2 2h-1a17.65 17.65 0 0 1-8-3.5A17.65 17.65 0 0 1 2 4v-1a2 2 0 0 1 2-2z" />
+                    </svg>
+                    <span class="ml-3 text-lg text-gray-800 font-medium">+90 505 577 1883</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- <article class="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl">
+            <h2 class="text-indigo-600 font-manrope text-3xl font-semibold mb-8">Biz Sizi Arayalım</h2>
+
+            <label for="name" class="sr-only">Ad Soyad</label>
+            <input id="name" name="name" type="text" required aria-label="Ad Soyad" autocomplete="name"
+              placeholder="Ad Soyad"
+              class="w-full h-12 mb-6 pl-4 rounded-full border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400">
+
+            <label for="phone" class="sr-only">Telefon</label>
+            <input id="phone" name="phone" type="tel" required aria-label="Telefon Numaranız" autocomplete="tel"
+              placeholder="Telefon Numaranız"
+              class="w-full h-12 mb-6 pl-4 rounded-full border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400">
+
+            <label for="message" class="sr-only">Mesaj</label>
+            <textarea id="message" name="message" rows="4" aria-label="Mesajınız (isteğe bağlı)"
+              placeholder="İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)"
+              class="w-full mb-6 p-4 rounded-xl border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400"></textarea>
+
+            <button type="submit"
+              class="w-full h-12 rounded-full bg-indigo-600 hover:bg-indigo-800 text-white font-semibold text-base transition duration-300 shadow-sm">Gönder</button>
+          </article> -->
+
+        </div>
+      </div>
+    </section>
+  </form>
+
+
+
+
+
+
+
+
+
 
   <!-- Hizmetler -->
   <section class="py-16 bg-gray-100 px-4 md:px-20">
@@ -552,12 +898,14 @@
   </section>
 
   <!-- Randevu -->
-  <section id="randevu" class="py-16 bg-blue-50 px-4 md:px-20">
+  <!-- <section id="randevu" class="py-16 bg-blue-50 px-4 md:px-20">
     <h2 class="text-3xl font-bold mb-6">Randevu Alın</h2>
     <p class="text-lg mb-4">Randevu almak için <a href="https://www.devrimbirikensipahi.com.tr/randevu-al"
         class="text-blue-600 font-semibold">randevu sayfamıza</a> gidin ya da <strong>+90 505 577 1883</strong>
       numarasından bize ulaşın.</p>
-  </section>
+  </section> -->
+
+
 
   <!-- Harita -->
   <div class="mt-8 w-full h-96 shadow-lg rounded-xl overflow-hidden">
@@ -568,7 +916,33 @@
     </iframe>
   </div>
 
+  <!-- Sohbet Kutusu -->
+  <div>
+    <section class="chatbox js-chatbox" style="z-index: 999;">
+      <div class="chatbox__header">
+        <h3 class="chatbox__header-cta-text"><span class="chatbox__header-cta-icon"><i
+              class="fas fa-comments"></i></span>7/24 Canlı Destek Hattı Tıkla Konuş</h3>
+        <button class="js-chatbox-toggle chatbox__header-cta-btn u-btn" style="z-index: 999;"><i
+            class="fas fa-chevron-up"></i></button>
+      </div>
+      <!-- End of .chatbox__header -->
+      <div class="js-chatbox-display chatbox__display">
+
+      </div>
+      <!-- End of .chatbox__display -->
+      <form class="js-chatbox-form chatbox__form">
+        <input type="text" class="js-chatbox-input chatbox__form-input" placeholder="Mesajınızı yazın..." required>
+        <button class="chatbox__form-submit u-btn bg-gray-600"><i class="fas fa-paper-plane"></i></button>
+      </form>
+      <!-- End of .chatbox__form -->
+    </section>
+    <!-- End of .chatbox -->
+  </div>
+
   <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+
+
+
 
     <!-- Instagram Butonu -->
     <a href="/instagram-yonlendirme" id="instagram-button" target="_blank" rel="noopener nofollow"
@@ -580,6 +954,7 @@
           d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5Z" />
       </svg>
     </a>
+
 
 
     <!-- WhatsApp Butonu -->
@@ -611,6 +986,7 @@
   </footer>
 
 
-  <script src="{% static 'js/carousel.js' %}"></script>
+  <script src="{% static 'js/before-after.js' %}"></script>
+  <script src="{% static 'js/chatbox.js' %}"></script>
 
 </html>
