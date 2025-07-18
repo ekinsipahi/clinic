@@ -80,7 +80,14 @@ chatboxForm.addEventListener("submit", async (e) => {
 
     createChatBubble("👤 Siz: " + userInput);
     messages.push({ role: "user", content: userInput });
-    inputElement.value = ""; // input temizle
+    inputElement.value = "";
+
+    // System mesajını sabit al
+    const systemMessage = messages[0];
+    // Son 8 kullanıcı/asistan mesajını al (sondan 8)
+    const recentMessages = messages.slice(-8);
+    // API'ye gidecek final mesaj listesi
+    const messagesToSend = [systemMessage, ...recentMessages];
 
     try {
         const response = await fetch("/api/ai-agent/", {
@@ -89,7 +96,7 @@ chatboxForm.addEventListener("submit", async (e) => {
                 "Content-Type": "application/json",
                 "X-CSRFToken": getCSRFToken()
             },
-            body: JSON.stringify({ messages })
+            body: JSON.stringify({ messages: messagesToSend })
         });
 
         const data = await response.json();
@@ -98,13 +105,11 @@ chatboxForm.addEventListener("submit", async (e) => {
             messages.push({ role: "assistant", content: data.response });
             localStorage.setItem("chat_history", JSON.stringify(messages));
 
-            // Action kontrolü (telefon/whatsapp yönlendirme)
             if (data.response.includes("action: telefon-yonlendirme")) {
                 window.location.href = "/telefon-yonlendirme";
             } else if (data.response.includes("action: whatsapp-yonlendirme")) {
                 window.location.href = "/whatsapp-yonlendirme";
             }
-
         } else {
             createChatBubble("🤖 Asistan: Şu an bir hata oluştu.");
         }
