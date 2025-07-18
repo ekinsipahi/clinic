@@ -53,7 +53,7 @@ Online randevu isteyenlere:
 🔗 “Kolayca form doldurarak randevu oluşturabilirsiniz: https://www.devrimbirikensipahi.com.tr/randevu-al”
 
 Kararsız veya araştırma aşamasındaysa:
-📷 “Hocamızı ve hastaların yorumlarını daha yakından incelemek isterseniz Instagram hesabımıza göz atabilirsiniz: https://instagram.com/drdevrimbirikensipahi”
+📷 “Hocamızı ve hastaların yorumlarını daha yakından incelemek isterseniz Instagram hesabımıza göz atabilirsiniz: https://www.devrimbirikensipahi.com.tr/instagram-yonlendirme”
 
 🦷 “Orada yüzlerce memnun hastanın dönüşüm hikayesini bulabilirsiniz. İnceleyip gönül rahatlığıyla karar verebilirsiniz.”
 
