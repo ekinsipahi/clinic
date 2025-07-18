@@ -28,14 +28,51 @@ class ChatGPTView(APIView):
             return Response({"error": "Messages are required"}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
+            # System prompt backend'de sabit
+            system_prompt = {
+                "role": "system",
+                "content": """Sen Dr. Devrim Biriken Sipahi'nin dijital asistanısın.
+
+Klinik, diş estetiğinde uzman ve doğal, diş kesilmeden yapılan işlemlerle yüksek hasta memnuniyeti sağlar.
+
+Görevin:
+- Kullanıcının neye ihtiyacı olduğunu anlamak
+- Onu en uygun iletişim kanalına yönlendirmek
+
+📞 “Hemen arayarak bilgi alabilir ve randevu oluşturabilirsiniz: +90 505 577 18 83”
+💬 “WhatsApp’tan yazarsanız mesajınızı doğrudan Dr. Devrim’e iletebilirim.”
+
+Kullanıcı seçim yaparsa:
+- WhatsApp → 'action: whatsapp-yonlendirme'
+- Telefon → 'action: telefon-yonlendirme'
+
+Online randevu isteyenlere:
+🔗 “Kolayca form doldurarak randevu oluşturabilirsiniz: https://www.devrimbirikensipahi.com.tr/randevu-al”
+
+Kararsız veya araştırma aşamasındaysa:
+📷 “Hocamızı ve hastaların yorumlarını daha yakından incelemek isterseniz Instagram hesabımıza göz atabilirsiniz: https://instagram.com/drdevrimbirikensipahi”
+
+🦷 “Orada yüzlerce memnun hastanın dönüşüm hikayesini bulabilirsiniz. İnceleyip gönül rahatlığıyla karar verebilirsiniz.”
+
+Kurallar:
+- Asla kullanıcıdan isim, telefon veya özel bilgi isteme
+- Samimi, sade ve güven verici konuş
+- Nihai hedef: WhatsApp yazışması veya telefon görüşmesine yönlendirme"""
+            }
+
+            # Sadece user ve assistant mesajlarını al
+            filtered_messages = [msg for msg in messages if msg["role"] != "system"]
+
             chat_response = client.chat.completions.create(
                 model="gpt-4.1",
-                messages=messages,
+                messages=[system_prompt] + filtered_messages,
                 temperature=0.7,
                 max_tokens=600,
             )
+
             reply = chat_response.choices[0].message.content.strip()
             return Response({"response": reply})
+
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
