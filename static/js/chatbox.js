@@ -2,11 +2,13 @@ const toggleChatboxBtn = document.querySelector(".js-chatbox-toggle");
 const chatbox = document.querySelector(".js-chatbox");
 const chatboxMsgDisplay = document.querySelector(".js-chatbox-display");
 const chatboxForm = document.querySelector(".js-chatbox-form");
+const chatboxAlert = document.getElementById("chatbox-alert");
+
 
 const linkify = (text) => {
-  return text.replace(/(https:\/\/[^\s\)\]\}]+)/g, url => {
-    return `<a href="${url}" target="_blank" style="color:#2a6edb;">${url}</a>`;
-  });
+    return text.replace(/(https:\/\/[^\s\)\]\}]+)/g, url => {
+        return `<a href="${url}" target="_blank" style="color:#2a6edb;">${url}</a>`;
+    });
 };
 
 const createChatBubble = input => {
@@ -30,11 +32,68 @@ toggleChatboxBtn.addEventListener("click", () => {
         : '<i class="fas fa-chevron-up"></i>';
 });
 
+/* Normal kutucuk */
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleChatboxBtn = document.querySelector(".chatbox__header");
+    const chatbox = document.querySelector(".chatbox");
+
+    if (!toggleChatboxBtn || !chatbox) {
+        console.warn("Chatbox veya buton bulunamadı.");
+        return;
+    }
+
+    const toggleChatbox = () => {
+        chatbox.classList.toggle("chatbox--is-visible");
+        // Chatbox açıldığında uyarı balonunu gizle
+        if (chatboxAlert) {
+            chatboxAlert.style.display = "none";
+        }
+    };
+
+    // Hem mobil hem desktop için olayları destekle
+    toggleChatboxBtn.addEventListener("click", toggleChatbox);
+    toggleChatboxBtn.addEventListener("touchstart", (e) => {
+        // iOS'ta çift tetiklenme riskine karşı sadece dokunmaya özel çağır
+        e.preventDefault();
+        toggleChatbox();
+    }, { passive: false });
+});
+
+
+/* Zıplayan alert */
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleChatboxBtn = document.querySelector(".js-chatbox-toggle");
+    const chatbox = document.querySelector(".js-chatbox");
+    const chatboxAlert = document.getElementById("chatbox-alert");
+
+    if (!chatboxAlert || !chatbox || !toggleChatboxBtn) {
+        console.warn("Gerekli elementler bulunamadı.");
+        return;
+    }
+
+    const openChatbox = () => {
+        if (!chatbox.classList.contains("chatbox--is-visible")) {
+            chatbox.classList.add("chatbox--is-visible");
+            toggleChatboxBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        }
+        chatboxAlert.style.display = "none";
+    };
+
+    // Masaüstü tıklama
+    chatboxAlert.addEventListener("click", openChatbox);
+
+    // Mobil dokunma
+    chatboxAlert.addEventListener("touchstart", function (e) {
+        e.preventDefault(); // scroll bozulmasın
+        openChatbox();
+    }, { passive: false });
+});
+
 // Mesaj geçmişini al veya başlat
 let messages = JSON.parse(localStorage.getItem("chat_history")) || [
     {
         role: "system",
-content: `Sen Dr. Devrim Biriken Sipahi'nin dijital asistanısın.
+        content: `Sen Dr. Devrim Biriken Sipahi'nin dijital asistanısın.
 
 Klinik, diş estetiğinde uzman ve doğal, diş kesilmeden yapılan işlemlerle yüksek hasta memnuniyeti sağlar.
 
@@ -62,7 +121,7 @@ Kurallar:
 - Samimi, sade ve güven verici konuş
 - Nihai hedef: WhatsApp yazışması veya telefon görüşmesine yönlendirme`
 
-}
+    }
 ];
 
 const getCSRFToken = () => {
@@ -105,11 +164,23 @@ chatboxForm.addEventListener("submit", async (e) => {
             messages.push({ role: "assistant", content: data.response });
             localStorage.setItem("chat_history", JSON.stringify(messages));
 
+            // Gecikmeli yönlendirme sistemi
             if (data.response.includes("action: telefon-yonlendirme")) {
-                window.location.href = "/telefon-yonlendirme";
+                setTimeout(() => {
+                    createChatBubble("📞 Sizi telefon arama ekranına yönlendiriyorum...");
+                    setTimeout(() => {
+                        window.location.href = "/telefon-yonlendirme";
+                    }, 1500); // 1.5 saniye sonra yönlendir
+                }, 500); // 0.5 saniye sonra yanıtı göster
             } else if (data.response.includes("action: whatsapp-yonlendirme")) {
-                window.location.href = "/whatsapp-yonlendirme";
+                setTimeout(() => {
+                    createChatBubble("💬 Sizi WhatsApp’a yönlendiriyorum, oradan doğrudan mesaj atabilirsiniz.");
+                    setTimeout(() => {
+                        window.location.href = "/whatsapp-yonlendirme";
+                    }, 1500);
+                }, 500);
             }
+
         } else {
             createChatBubble("🤖 Asistan: Şu an bir hata oluştu.");
         }

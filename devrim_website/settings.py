@@ -30,7 +30,6 @@ ALLOWED_HOSTS = [
     "devrimbirikensipahi.com.tr",
     "www.devrimbirikensipahi.com.tr",
     "127.0.0.1",
-    "13adb860544c.ngrok-free.app"
 ]
 
 
