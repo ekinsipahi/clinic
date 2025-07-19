@@ -32,6 +32,18 @@ toggleChatboxBtn.addEventListener("click", () => {
         : '<i class="fas fa-chevron-up"></i>';
 });
 
+// Sohbet kutusu kapandığında zıplayan balonu geri göster
+const observer = new MutationObserver(() => {
+  const isVisible = chatbox.classList.contains("chatbox--is-visible");
+  if (!isVisible) {
+    chatboxAlert.style.display = "block";
+  }
+});
+
+// chatbox elementindeki class değişimini izle
+observer.observe(chatbox, { attributes: true, attributeFilter: ["class"] });
+
+
 /* Normal kutucuk */
 document.addEventListener("DOMContentLoaded", function () {
     const toggleChatboxBtn = document.querySelector(".chatbox__header");

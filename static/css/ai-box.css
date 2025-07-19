@@ -14,11 +14,13 @@ body {
   transform: translatey(23.5em);
   transition: all 300ms ease;
   width: 19.5em;
+  bottom: 25px;
 }
 
 .chatbox--is-visible {
   transform: translatey(0);
 }
+
 .chatbox__header {
   background: #4e4e4e;
   border-top-right-radius: 0.5em;
@@ -27,19 +29,22 @@ body {
   justify-content: space-between;
   padding: 0 0.75em;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
 .chatbox__header-cta-text {
   color: #fff;
   font-weight: 300;
   font-size: 1.025rem;
 }
+
 .chatbox__header-cta-icon {
   color: #fff;
   margin-right: 0.75em;
 }
+
 .chatbox__header-cta-btn {
   background: none;
   border: none;
@@ -47,15 +52,18 @@ body {
   padding: 0.5em;
   transition: all 300ms ease;
 }
+
 .chatbox__header-cta-btn:hover {
   color: #fff;
 }
+
 .chatbox__display {
   background: #ededed;
   height: 20em;
   overflow: auto;
   padding: 0.75em;
 }
+
 .chatbox__display-chat {
   background: #fff;
   border-radius: 0.5em;
@@ -66,9 +74,11 @@ body {
   padding: 0.75em;
   text-align: justify;
 }
+
 .chatbox__form {
   display: flex;
 }
+
 .chatbox__form-input {
   border: none;
   color: #222;
@@ -77,9 +87,11 @@ body {
   padding: 1.25em 1em;
   width: 100%;
 }
+
 .chatbox__form-input:required {
   box-shadow: none;
 }
+
 .chatbox__form-submit {
   background: none;
   border: none;
