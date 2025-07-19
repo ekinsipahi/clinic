@@ -21,7 +21,7 @@ class ConversionTrackingView(APIView):
 
 # chatboxun altına her yazılan harf sayılcak şekilde minik detay eklicez. 600 keyword geçemicek input
 # bizim ai agent isterse kullanıcı için direkt randevu oluşturabilcek dentsoft arayüz apisi üzerinden
-# yada dentsoft üzerinden biz sizi arayalım tarzında telefon numarası bırakılabilcek şekilde ayarlanacak
+# yada dentsoft üzerinden biz sizi arayalım tarzında telefon numarası bırakılabilcek şekilde ayarlanacak dentsofta
 
 
 class ChatGPTView(APIView):

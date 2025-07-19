@@ -13,7 +13,7 @@ body {
   position: fixed;
   transform: translatey(23.5em);
   transition: all 300ms ease;
-  width: 19.5em;
+  width: 18.5em;
   bottom: 25px;
 }
 
