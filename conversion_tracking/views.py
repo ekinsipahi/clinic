@@ -19,6 +19,10 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# chatboxun altına her yazılan harf sayılcak şekilde minik detay eklicez. 600 keyword geçemicek input
+# bizim ai agent isterse kullanıcı için direkt randevu oluşturabilcek dentsoft arayüz apisi üzerinden
+# yada dentsoft üzerinden biz sizi arayalım tarzında telefon numarası bırakılabilcek şekilde ayarlanacak
+
 
 class ChatGPTView(APIView):
     def post(self, request):
