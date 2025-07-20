@@ -19,10 +19,18 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# google sheets api bağlantısı yapılıp otomatik gün sonu yap dememiz daha sağlıklı olabilir ordan.
+
 # chatboxun altına her yazılan harf sayılcak şekilde minik detay eklicez. 600 keyword geçemicek input
 # bizim ai agent isterse kullanıcı için direkt randevu oluşturabilcek dentsoft arayüz apisi üzerinden
-# yada dentsoft üzerinden biz sizi arayalım tarzında telefon numarası bırakılabilcek şekilde ayarlanacak dentsofta
+# yada dentsoft üzerinden biz sizi arayalım tarzında telefon numarası bırakılabilcek şekilde ayarlanacak dentsofta (2030-1-1)
 
+
+# interactions diye başlıyor
+# raw lead ise bize arama yapan, whatsapptan yazanlar, randvusunu kendi oluşturanlar veya beni arayın diye form dolduranlar
+
+# qualified lead farklı bişey dostum randevu formu verilip konuşulan demek oluyor
+# converted lead olması randevu almış herhangi bi channel üzerinden sonra bize ulaşmış demek oluyor
 
 class ChatGPTView(APIView):
     def post(self, request):
