@@ -34,10 +34,10 @@ toggleChatboxBtn.addEventListener("click", () => {
 
 // Sohbet kutusu kapandığında zıplayan balonu geri göster
 const observer = new MutationObserver(() => {
-  const isVisible = chatbox.classList.contains("chatbox--is-visible");
-  if (!isVisible) {
-    chatboxAlert.style.display = "block";
-  }
+    const isVisible = chatbox.classList.contains("chatbox--is-visible");
+    if (!isVisible) {
+        chatboxAlert.style.display = "block";
+    }
 });
 
 // chatbox elementindeki class değişimini izle
@@ -147,7 +147,14 @@ chatboxForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const inputElement = document.querySelector(".js-chatbox-input");
     const userInput = inputElement.value.trim();
+
+    // Kullanıcı girişi kontrolleri
     if (!userInput) return;
+
+    if (userInput.length > 600) {
+        alert("Mesajınız 600 karakteri geçemez.");
+        return;
+    }
 
     createChatBubble("👤 Siz: " + userInput);
     messages.push({ role: "user", content: userInput });
@@ -200,3 +207,23 @@ chatboxForm.addEventListener("submit", async (e) => {
         createChatBubble("🤖 Asistan: Sunucuya ulaşılamıyor.");
     }
 });
+
+// Karakter sayacı
+document.addEventListener("DOMContentLoaded", () => {
+    const inputEl = document.querySelector(".js-chatbox-input");
+    const counterEl = document.querySelector(".char-counter");
+
+    if (inputEl && counterEl) {
+        inputEl.addEventListener("input", () => {
+            const len = inputEl.value.length;
+            counterEl.textContent = `${len} / 600`;
+
+            if (len > 600) {
+                counterEl.classList.add("text-red-600", "font-bold");
+            } else {
+                counterEl.classList.remove("text-red-600", "font-bold");
+            }
+        });
+    }
+});
+

@@ -176,6 +176,7 @@
   <script src="{% static 'js/gclid-tracking.js' %}"></script>
 
   <style>
+    /* Öncesi sonrası kaydırmaca */
     .comparison-container {
       position: relative;
       max-width: 800px;
@@ -400,6 +401,8 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <meta name="csrf-token" content="{{ csrf_token }}">
 
+  <link rel="stylesheet" href="{% static 'css/slideshow.css' %}">
+
   <!-- in-page javascript -->
   <script>
     localStorage.setItem("visited_home", "true");
@@ -488,7 +491,25 @@
       document.body.addEventListener("scroll", startVideo);
     });
 
+    // Lazy backround image
+    document.addEventListener("DOMContentLoaded", function () {
+      const lazyBackgrounds = document.querySelectorAll(".lazy-bg");
 
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const bgUrl = el.dataset.bg;
+            if (bgUrl) {
+              el.style.backgroundImage = `url('${bgUrl}')`;
+              obs.unobserve(el);
+            }
+          }
+        });
+      });
+
+      lazyBackgrounds.forEach(el => observer.observe(el));
+    });
   </script>
 
 
@@ -522,8 +543,8 @@
     <div class="relative z-20 w-full h-full flex items-center justify-center">
       <!-- BURASI SENİN TÜM MEVCUT İÇERİĞİN -->
 
-      <div class="text-center text-white px-6 max-w-3xl">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">Dr. Dt. Devrim Biriken Sipahi</h1>
+      <div class="text-center text-white px-6 max-w-3xl" style="margin-top: 2rem;">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 mt-4">Dr. Dt. Devrim Biriken Sipahi</h1>
         <p class="text-lg md:text-xl mb-6">İstanbul Şişli'de, implant, estetik gülüş tasarımı, kanal tedavisi ve daha
           fazlasıyla güvenilir diş hekimliği hizmeti sunuyoruz.</p>
 
@@ -701,8 +722,14 @@
 
           <article class="lg:mb-0 mb-10">
             <div class="relative h-full w-full min-h-[400px]">
-              <img src="{% static 'images/devrim-contact.jpg' %}" alt="Diş kliniği iletişim görseli"
+              <img src="{% static 'images/devrim-contact.webp' %}" alt="Diş kliniği iletişim görseli"
                 class="object-cover w-full h-full aspect-video lg:rounded-l-2xl rounded-2xl" loading="lazy">
+              <div
+                class="absolute top-1 right-1 bg-gradient-to-t from-white/70 via-white/50 to-transparent text-gray-800 text-sm font-semibold px-4 py-2 rounded-lg shadow-md backdrop-blur-sm">
+                Dr. Dt. Devrim Biriken Sipahi
+              </div>
+
+
               <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">Bize Ulaşın</h1>
 
               <div class="absolute bottom-0 w-full lg:p-11 p-5">
@@ -736,10 +763,20 @@
             <label for="message" class="sr-only">Mesaj</label>
             <textarea id="message" name="message" rows="4" aria-label="Mesajınız (isteğe bağlı)"
               placeholder="İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)"
-              class="w-full mb-6 p-4 rounded-xl border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400"></textarea>
+              class="w-full mb-4 p-4 rounded-xl border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400"></textarea>
+
+            <label class="flex items-start gap-3 mb-6 text-sm text-gray-700 leading-snug">
+              <input type="checkbox" required
+                class="mt-1 shrink-0 w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+              <span>
+                KVKK Aydınlatma Metni’ni okudum ve
+                <strong>kişisel verilerimin işlenmesine açık rıza veriyorum.</strong>
+              </span>
+            </label>
 
             <button type="submit"
               class="w-full h-12 rounded-full bg-indigo-600 hover:bg-indigo-800 text-white font-semibold text-base transition duration-300 shadow-sm">Gönder</button>
+
           </article> -->
 
         </div>
@@ -777,10 +814,10 @@
       <!-- İlk slayt -->
       <div class="comparison-container absolute">
         <div class="comparison-image comparison-before">
-          <img src="{% static 'images/sanem-once.jpg' %}" alt="Before" />
+          <img loading="lazy" src="{% static 'images/sanem-once.jpg' %}" alt="Before" />
         </div>
         <div class="comparison-image comparison-after">
-          <img src="{% static 'images/sanem-sonra.jpg' %}" alt="After" />
+          <img loading="lazy" src="{% static 'images/sanem-sonra.jpg' %}" alt="After" />
         </div>
 
         <!-- Ortadaki slider ikon -->
@@ -804,10 +841,10 @@
       <!-- İkinci slayt -->
       <div class="comparison-container absolute">
         <div class="comparison-image comparison-before">
-          <img src="{% static 'images/hazan-once.jpg' %}" alt="Before" />
+          <img loading="lazy" src="{% static 'images/hazan-once.jpg' %}" alt="Before" />
         </div>
         <div class="comparison-image comparison-after">
-          <img src="{% static 'images/hazan-sonra.jpg' %}" alt="After" />
+          <img loading="lazy" src="{% static 'images/hazan-sonra.jpg' %}" alt="After" />
         </div>
 
         <!-- Ortadaki slider ikon -->
@@ -832,10 +869,10 @@
       <!-- Üçüncü slayt -->
       <div class="comparison-container absolute">
         <div class="comparison-image comparison-before">
-          <img src="{% static 'images/sanem-once.jpg' %}" alt="Before" />
+          <img loading="lazy" src="{% static 'images/sanem-once.jpg' %}" alt="Before" />
         </div>
         <div class="comparison-image comparison-after">
-          <img src="{% static 'images/sanem-sonra.jpg' %}" alt="After" />
+          <img loading="lazy" src="{% static 'images/sanem-sonra.jpg' %}" alt="After" />
         </div>
 
         <!-- Ortadaki slider ikon -->
@@ -859,17 +896,155 @@
     </div>
   </section>
 
+  <!-- Hizmetlerimiz -->
+  <section class="py-24 ">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="mb-10 lg:mb-16 flex justify-center items-center flex-col gap-x-0 gap-y-6 lg:gap-y-0 lg:flex-row lg:justify-between max-md:max-w-lg max-md:mx-auto">
+        <div class="relative w-full text-center lg:text-left lg:w-2/4">
+          <h2 class="text-4xl font-bold text-gray-900 leading-[3.25rem] lg:mb-6 mx-auto max-w-max lg:max-w-md lg:mx-0">
+            Hizmetlerimiz
+          </h2>
+        </div>
+        <div class="relative w-full text-center  lg:text-left lg:w-2/4">
+          <p class="text-lg font-normal text-gray-500 mb-5">
+            Dr. Dt. Devrim Biriken Sipahi’nin kliniğinde sunduğumuz tüm modern diş tedavi hizmetlerini keşfedin.
+          </p>
+          <a href="/randevu-al"
+            class="flex flex-row items-center justify-center gap-2 text-base font-semibold text-indigo-600 lg:justify-start hover:text-indigo-700 ">
+            Randevu Al
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
+                stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div
+        class="flex justify-center items-center  gap-x-5 gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8">
+        <div style="height: -webkit-fill-available;"
+          class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-indigo-600">
+          <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
+            <img src="{% static 'images/svg/implant.svg' %}" alt="implant ikonu" class="w-8 h-8">
+
+          </div>
+          <h4
+            class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+            İmplant Tedavisi
+          </h4>
+          <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
+            3D printer destekli altyapılar ve dijital gülüş tasarımı ile implant tedavilerimizi planlıyoruz. Bu sayede
+            hem estetik hem de fonksiyonel sonuçlar elde ediyoruz.
+          </p>
+        </div>
+        <div style="height: -webkit-fill-available;"
+          class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-indigo-600">
+          <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
+            <img src="{% static 'images/svg/estetik.svg' %}" alt="Estetik ikonu" class="w-8 h-8">
+          </div>
+          <h4
+            class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+            Estetik Diş Uygulamaları
+          </h4>
+          <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
+            Zirkonyum ve lamine gibi modern çözümlerle doğal ve beyaz bir gülüş sunuyoruz. Diş kesimini en aza indirerek
+            estetik müdahaleleri kişiye özel planlıyoruz.
+          </p>
+        </div>
+        <div style="height: -webkit-fill-available;"
+          class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-indigo-600">
+          <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
+            <img src="{% static 'images/svg/smile-design.svg' %}" alt="gülüş tasarımı ikonu" class="w-8 h-8">
 
 
+          </div>
+          <h4
+            class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+            Gülüş Tasarımı
+          </h4>
+          <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
+            Kompozit uygulamalarla, diş kesmeden minimal dokunuşlarla etkileyici gülüşler tasarlıyoruz. Ufak
+            değişikliklerle bambaşka estetik sonuçlar elde ediyoruz.
+          </p>
+        </div>
+        <div style="height: -webkit-fill-available;"
+          class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-indigo-600">
+          <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
+            <img src="{% static 'images/svg/kanal.svg' %}" alt="kanal tedavisi ikonu" class="w-8 h-8">
+          </div>
+          <h4
+            class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+            Kanal Tedavisi
+          </h4>
+          <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
+            Ağrının kaynağını hızla tespit edip mümkün olan en kısa sürede tedaviye başlıyoruz. Diş çekimi son çare
+            olarak düşünülür; hedefimiz doğal dişi korumak.
+          </p>
+        </div>
+        <div style="height: -webkit-fill-available;"
+          class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-indigo-600">
+          <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
+            <img src="{% static 'images/svg/dis-tasi.svg' %}" alt="Detertraj ikonu" class="w-8 h-8">
+          </div>
+          <h4
+            class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+            Diş Taşı Temizliği
+          </h4>
+          <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
+            Tüm diş taşlarınızı ortalama 10 dakika içinde temizliyor, dişlerinizi ilk seansa göre daha beyaz ve sağlıklı
+            bir görünüme kavuşturuyoruz.
+          </p>
+        </div>
+        <div style="height: -webkit-fill-available;"
+          class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-indigo-600">
+          <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
+            <img src="{% static 'images/svg/dis-dolgu.svg' %}" alt="Diş dolgu ikonu" class="w-8 h-8">
+
+          </div>
+          <h4
+            class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+            Diş Dolgusu
+          </h4>
+          <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
+            Kliniğimizde uyguladığımız kompozit ve bonding dolgular, yalnızca estetik değil aynı zamanda dayanıklıdır.
+            Doğru teknikle yapılan dolgular, uzun yıllar boyunca sorunsuz şekilde kullanılabilir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-
-
-
-
+  <!-- Devrim Slaytlar -->
+  <div class="wrapper">
+    <div class="slideshows">
+      <div class="slideshow slideshow--hero">
+        <div class="slides">
+          <div class="slide slide1 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide1.webp"></div>
+          <div class="slide slide2 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide2.webp"></div>
+          <div class="slide slide3 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide3.webp"></div>
+        </div>
+      </div>
+      <div class="slideshow slideshow--contrast slideshow--contrast--before">
+        <div class="slides">
+          <div class="slide slide1"></div>
+          <div class="slide slide2"></div>
+          <div class="slide slide3"></div>
+        </div>
+      </div>
+      <div class="slideshow slideshow--contrast slideshow--contrast--after">
+        <div class="slides">
+          <div class="slide slide1"></div>
+          <div class="slide slide2"></div>
+          <div class="slide slide3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Hizmetler -->
-  <section class="py-16 bg-gray-100 px-4 md:px-20">
+  <!-- <section class="py-16 bg-gray-100 px-4 md:px-20">
     <h2 class="text-3xl font-bold mb-6">Hizmetlerimiz</h2>
     <ul class="grid md:grid-cols-3 gap-6 text-lg">
       <li><strong>İmplant Tedavisi</strong><br>Şişli implant tedavisi, vidasız implant ve flepsiz
@@ -883,7 +1058,7 @@
         eğitimi.</li>
       <li><strong>Estetik Dolgular</strong><br>Kompozit ve seramik dolgu çözümleri ile doğal görünümlü sonuçlar.</li>
     </ul>
-  </section>
+  </section> -->
 
   <!-- SEO Rich FAQ -->
   <section class="py-16 px-4 md:px-20">
@@ -936,7 +1111,12 @@
       </div>
       <!-- End of .chatbox__display -->
       <form class="js-chatbox-form chatbox__form">
-        <input type="text" class="js-chatbox-input chatbox__form-input" placeholder="Mesajınızı yazın..." required>
+        <div class="relative w-full">
+          <input type="text" maxlength="600" class="js-chatbox-input chatbox__form-input pr-20"
+            placeholder="Mesajınızı yazın..." required>
+          <span class="char-counter absolute bottom-1 right-2 text-xs text-gray-500">0 / 600</span>
+        </div>
+
         <button class="chatbox__form-submit u-btn bg-gray-600"><i class="fas fa-paper-plane"></i></button>
       </form>
       <!-- End of .chatbox__form -->
@@ -986,10 +1166,11 @@
 
 
   <!-- Footer -->
-  <footer class="py-6 text-center text-gray-600">
-    © 2025 Dr. Dt. Devrim Biriken Sipahi | Merkez, Abide-i Hürriyet Cd No:148 D:11 kat 4, 34360 Şişli/İstanbul
+  <footer class="py-6 text-center text-gray-600 mb-32 mt-32">
+    © 2025 Dr. Dt. Devrim Biriken Sipahi | Merkez, Abide-i Hürriyet Cd No:148 D:11 kat 4, 34360 Şişli/İstanbul<br>
+    <a href="/kvkk" class="underline hover:text-gray-800 transition">KVKK Aydınlatma Metni’ne buradan
+      erişebilirsiniz.</a>
   </footer>
-
 
   <script src="{% static 'js/before-after.js' %}"></script>
   <script src="{% static 'js/chatbox.js' %}"></script>

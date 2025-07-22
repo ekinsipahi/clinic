@@ -8,6 +8,7 @@ urlpatterns = [
     path('telefon-yonlendirme/', views.telefon_yonlendir, name='telefon-yonlendirme'),
     path('maps-yonlendirme/', views.maps_yonlendir, name='maps-yonlendirme'),
     path('instagram-yonlendirme/', views.instagram_yonlendir, name='instagram-yonlendirme'),
+    path('kvkk/', views.kvkk, name="kvkk-bilgilendirme")
 ]
 
 from django.views.generic import TemplateView
