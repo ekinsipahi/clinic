@@ -26,6 +26,8 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# resimlerin bi ksmında hala lazy loading animasyonu yok.
+
 # spam trafiğe karşı korumamız yok! gpt bot kafayı yiyebilir.
 
 # ip addresleride toplayalım bence.
