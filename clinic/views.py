@@ -1,9 +1,34 @@
-from django.shortcuts import render
-
-# Create your views here.
-
+from django.shortcuts import render, redirect
+from .models import CallMeLead
+from django.utils.timezone import now
+import json
 
 def homepage(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        message = request.POST.get("message")
+        gclid = request.POST.get("gclid")
+        page = request.POST.get("page")  # <-- gelen sayfa bilgisi
+        client_info_raw = request.POST.get("client_info")
+
+        try:
+            client_info = json.loads(client_info_raw) if client_info_raw else {}
+        except json.JSONDecodeError:
+            client_info = {}
+
+        if name and phone:
+            lead = CallMeLead.objects.create(
+                name=name,
+                phone=phone,
+                message=message,
+                gclid=gclid,
+                client_info=client_info,  # <-- EKLENDİ!
+                page=page or "Beni Ara Lead",  # <-- EKLENDİ!
+            )
+
+            return redirect("/tesekkur")
+
     return render(request, "clinic/index.html")
 
 
@@ -26,5 +51,10 @@ def instagram_yonlendir(request):
 def maps_yonlendir(request):
     return render(request, "clinic/maps-yonlendir.html")
 
+
 def kvkk(request):
     return render(request, "clinic/kvkk.html")
+
+
+def tesekkurler(request):
+    return render(request, "clinic/tesekkur.html")

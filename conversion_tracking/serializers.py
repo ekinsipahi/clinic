@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Conversion
 from django.utils import timezone
+from clinic.models import CallMeLead
 
 
 class ConversionSerializer(serializers.ModelSerializer):
@@ -29,3 +30,21 @@ class ConversionSerializer(serializers.ModelSerializer):
 
         print("yeni kayıt oluşturuluyor")
         return super().create(validated_data)
+
+
+class CallMeLeadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CallMeLead
+        fields = [
+            'id',
+            'name',
+            'phone',
+            'message',
+            'gclid',
+            'client_info',
+            'page',
+            'created_at',
+            'convert_to_conversion',
+        ]
+        read_only_fields = ['id', 'created_at', 'convert_to_conversion']
+

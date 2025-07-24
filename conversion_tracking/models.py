@@ -30,3 +30,5 @@ class Conversion(models.Model):
         if 'is_converted' in form.changed_data and obj.is_converted:
             obj.conversion_time = now()
         super().save_model(request, obj, form, change)
+        
+

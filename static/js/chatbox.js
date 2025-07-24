@@ -178,19 +178,69 @@ chatboxForm.addEventListener("submit", async (e) => {
         });
 
         const data = await response.json();
-        if (data.response) {
+        // 1. Öncelik: callme-lead-action varsa önce onu işle
+        if (data.response && data.response.includes("action: callme-lead-action")) {
+            const jsonMatch = data.response.match(/```json\s*({[\s\S]*?})\s*```/);
+            if (jsonMatch && jsonMatch[1]) {
+                createChatBubble("🤖 Asistan: Bilgilerinizi kaydediyorum, lütfen bekleyin...");
+                try {
+                    const parsed = JSON.parse(jsonMatch[1]);
+
+                    const gclid = localStorage.getItem("gclid") || null;
+                    const clientInfo = JSON.parse(localStorage.getItem("client_info") || "{}");
+                    console.log("Gelen veriler:", parsed)
+                    await fetch("/api/ai-callme-lead/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": getCSRFToken()
+                        },
+                        body: JSON.stringify({
+                            name: parsed.name,
+                            phone: parsed.phone,
+                            message: parsed.message || "",
+                            gclid: gclid,
+                            client_info: clientInfo,
+                            page: "AI Beni Ara Lead"
+                        })
+                    });
+
+                    createChatBubble("📞 Bilgilerinizi başarıyla kaydettik. Sabah en kısa sürede sizinle iletişime geçilecektir.");
+
+                    // 1 saniye beklet, sonra yönlendir
+                    setTimeout(() => {
+                        createChatBubble("🔁 Sizi teşekkür sayfasına yönlendiriyorum, lütfen bekleyin...");
+                        setTimeout(() => {
+                            window.location.href = "/tesekkur";
+                        }, 1500);
+                    }, 500);
+
+
+                    messages.push({ role: "assistant", content: data.response });
+                    localStorage.setItem("chat_history", JSON.stringify(messages));
+                } catch (err) {
+                    console.error("JSON parse hatası:", err);
+                    createChatBubble("🤖 Asistan: Bilgileri işlerken bir hata oluştu.");
+                }
+            } else {
+                console.warn("JSON formatı bulunamadı.");
+                createChatBubble("🤖 Asistan: Lütfen bilgilerinizi tekrar paylaşır mısınız?");
+            }
+
+            // 2. Aksiyon içeriyorsa kontrol et: telefon ya da whatsapp yönlendirme
+        } else if (data.response) {
             createChatBubble("🤖 Asistan: " + data.response);
             messages.push({ role: "assistant", content: data.response });
             localStorage.setItem("chat_history", JSON.stringify(messages));
 
-            // Gecikmeli yönlendirme sistemi
             if (data.response.includes("action: telefon-yonlendirme")) {
                 setTimeout(() => {
                     createChatBubble("📞 Sizi telefon arama ekranına yönlendiriyorum...");
                     setTimeout(() => {
                         window.location.href = "/telefon-yonlendirme";
-                    }, 1500); // 1.5 saniye sonra yönlendir
-                }, 500); // 0.5 saniye sonra yanıtı göster
+                    }, 1500);
+                }, 500);
+
             } else if (data.response.includes("action: whatsapp-yonlendirme")) {
                 setTimeout(() => {
                     createChatBubble("💬 Sizi WhatsApp’a yönlendiriyorum, oradan doğrudan mesaj atabilirsiniz.");
@@ -200,6 +250,7 @@ chatboxForm.addEventListener("submit", async (e) => {
                 }, 500);
             }
 
+            // 3. data.response yoksa:
         } else {
             createChatBubble("🤖 Asistan: Şu an bir hata oluştu.");
         }

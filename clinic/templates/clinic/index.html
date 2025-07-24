@@ -170,8 +170,10 @@
     gtag('event', 'conversion', {
       'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
     });
+
   </script>
-  <!-- End Google Tag Manager -->
+
+
 
   <script src="{% static 'js/gclid-tracking.js' %}"></script>
 
@@ -500,9 +502,19 @@
           if (entry.isIntersecting) {
             const el = entry.target;
             const bgUrl = el.dataset.bg;
+
             if (bgUrl) {
-              el.style.backgroundImage = `url('${bgUrl}')`;
-              obs.unobserve(el);
+              const img = new Image();
+              img.src = bgUrl;
+
+              img.onload = () => {
+                el.style.backgroundImage = `url('${bgUrl}')`;
+
+                const spinner = el.querySelector(".spinner");
+                if (spinner) spinner.remove();
+
+                obs.unobserve(el);
+              };
             }
           }
         });
@@ -510,6 +522,105 @@
 
       lazyBackgrounds.forEach(el => observer.observe(el));
     });
+
+    // Lazy Img element
+    document.addEventListener("DOMContentLoaded", function () {
+      const images = document.querySelectorAll("img.lazy-js-img");
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const spinner = img.parentElement.querySelector(".spinner");
+
+            const dataSrc = img.dataset.src;
+            if (!dataSrc) {
+              console.warn("data-src boş:", img);
+              if (spinner) spinner.remove();
+              return;
+            }
+
+            const tempImage = new Image();
+            tempImage.src = dataSrc;
+
+            tempImage.onload = () => {
+              img.src = dataSrc;
+              img.classList.remove("opacity-0");
+              if (spinner) spinner.remove();
+            };
+
+            tempImage.onerror = () => {
+              console.error("Görsel yüklenemedi:", dataSrc);
+              if (spinner) spinner.remove();
+            };
+
+            obs.unobserve(img);
+          }
+        });
+      });
+
+      images.forEach(img => observer.observe(img));
+    });
+
+    // GCLID ve client_info inputlarını doldur
+    document.addEventListener("DOMContentLoaded", function () {
+      const gclid = localStorage.getItem("gclid");
+      if (gclid) {
+        const gclidInput = document.getElementById("gclid");
+        if (gclidInput) gclidInput.value = gclid;
+      }
+
+      let parsedClientInfo = {};
+
+      try {
+        const rawClientInfo = localStorage.getItem("client_info");
+        parsedClientInfo = rawClientInfo ? JSON.parse(rawClientInfo) : {};
+      } catch (e) {
+        parsedClientInfo = {};
+      }
+
+      const clientInfo = {
+        device_type: getDeviceType() || "Unknown",
+        low_power_mode: (typeof parsedClientInfo.low_power_mode !== "undefined")
+          ? parsedClientInfo.low_power_mode
+          : "Unknown"
+      };
+
+      const clientInfoInput = document.getElementById("client_info_input");
+      if (clientInfoInput) {
+        try {
+          clientInfoInput.value = JSON.stringify(clientInfo);
+        } catch (err) {
+          clientInfoInput.value = JSON.stringify({
+            device_type: "Unknown",
+            low_power_mode: "Unknown"
+          });
+        }
+      }
+    });
+
+    // HERO VIDEO AUTOPLAY BAĞLANTI SORUNUNDA
+    document.addEventListener("DOMContentLoaded", () => {
+      const video = document.getElementById("hero-video");
+
+      if (video) {
+        // Video tamamen yüklenince otomatik başlat
+        video.addEventListener("canplaythrough", () => {
+          if (video.paused) {
+            video.play().catch(() => { });
+          }
+        });
+
+        // 10 saniye sonra hâlâ başlamadıysa zorla başlat
+        setTimeout(() => {
+          if (video.paused) {
+            video.play().catch(() => { });
+          }
+        }, 10000);
+      }
+    });
+
+
   </script>
 
 
@@ -715,19 +826,23 @@
 
 
   <!-- BURASI ÇOK İYİ -->
-  <form action="https://fabform.io/f/xxxxx" method="post" aria-label="İletişim Formu">
+  <form method="post" aria-label="İletişim Formu">
+    {% csrf_token %}
     <section class="py-16" id="iletisim-formu">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 grid-cols-1">
 
           <article class="lg:mb-0 mb-10">
             <div class="relative h-full w-full min-h-[400px]">
-              <img src="{% static 'images/devrim-contact.webp' %}" alt="Diş kliniği iletişim görseli"
-                class="object-cover w-full h-full aspect-video lg:rounded-l-2xl rounded-2xl" loading="lazy">
+              <img data-src="{% static 'images/devrim-contact.webp' %}" alt="Diş kliniği iletişim görseli"
+                class="lazy-js-img object-cover w-full h-full aspect-video lg:rounded-l-2xl rounded-2xl opacity-0 transition-opacity duration-500">
+              <div class="spinner absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
+
               <div
                 class="absolute top-1 right-1 bg-gradient-to-t from-white/70 via-white/50 to-transparent text-gray-800 text-sm font-semibold px-4 py-2 rounded-lg shadow-md backdrop-blur-sm">
                 Dr. Dt. Devrim Biriken Sipahi
               </div>
+
 
 
               <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">Bize Ulaşın</h1>
@@ -747,7 +862,7 @@
             </div>
           </article>
 
-          <!-- <article class="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl">
+          <article class="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl">
             <h2 class="text-indigo-600 font-manrope text-3xl font-semibold mb-8">Biz Sizi Arayalım</h2>
 
             <label for="name" class="sr-only">Ad Soyad</label>
@@ -765,19 +880,28 @@
               placeholder="İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)"
               class="w-full mb-4 p-4 rounded-xl border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400"></textarea>
 
-            <label class="flex items-start gap-3 mb-6 text-sm text-gray-700 leading-snug">
+
+            <input type="hidden" name="gclid" id="gclid" />
+            <input type="hidden" name="client_info" id="client_info_input">
+            <input type="hidden" name="page" value="Beni Ara Lead">
+
+
+
+            <!-- <label class="flex items-start gap-3 mb-6 text-sm text-gray-700 leading-snug">
               <input type="checkbox" required
                 class="mt-1 shrink-0 w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
               <span>
                 KVKK Aydınlatma Metni’ni okudum ve
                 <strong>kişisel verilerimin işlenmesine açık rıza veriyorum.</strong>
               </span>
-            </label>
+            </label> -->
+
+
 
             <button type="submit"
               class="w-full h-12 rounded-full bg-indigo-600 hover:bg-indigo-800 text-white font-semibold text-base transition duration-300 shadow-sm">Gönder</button>
 
-          </article> -->
+          </article>
 
         </div>
       </div>
@@ -1021,9 +1145,15 @@
     <div class="slideshows">
       <div class="slideshow slideshow--hero">
         <div class="slides">
-          <div class="slide slide1 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide1.webp"></div>
-          <div class="slide slide2 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide2.webp"></div>
-          <div class="slide slide3 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide3.webp"></div>
+          <div class="slide slide1 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide1.webp">
+            <div class="spinner"></div>
+          </div>
+          <div class="slide slide2 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide2.webp">
+            <div class="spinner"></div>
+          </div>
+          <div class="slide slide3 lazy-bg" data-bg="/static/images/devrim-slide/devrim-slide3.webp">
+            <div class="spinner"></div>
+          </div>
         </div>
       </div>
       <div class="slideshow slideshow--contrast slideshow--contrast--before">
