@@ -26,7 +26,6 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# seo rich faq eklencek, schema.org ile
 # 404 sayfası eklenecek, indexlenebilir gene schema.org ile search console'a eklencek.
 # dentsoft ile randevu-al kısmı eklendikten sonra
 # son olarak blog kısmına başlayacağız ve otomatize edeceğiz bu blog yazılarını.
@@ -44,9 +43,6 @@ class ConversionTrackingView(APIView):
 
 # bizim ai agent isterse kullanıcı için direkt randevu oluşturabilcek dentsoft arayüz apisi üzerinden
 # randevu-al kısmını komple yenileyip direkt olarak dentsofta yönlendirelim, calendly çıkartıyoruz.
-
-# FAQ kısmını ui/ux düzelt daha çok içerik ekle
-# faq kısmına içerik eklersen en az 30 soru ozaman seo rankingin artmaya başlar emin ol.
 
 # blog kısmını aktif etcez ama şu şekilde altda yazı olacak o videoya özel aynı zamanda
 # isterse video şeklindede oynatabilcek oyüzden çift yönlü trafik baya iyi olucak.
