@@ -26,11 +26,18 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# seo rich faq eklencek, schema.org ile
+# 404 sayfası eklenecek, indexlenebilir gene schema.org ile search console'a eklencek.
+# dentsoft ile randevu-al kısmı eklendikten sonra
+# son olarak blog kısmına başlayacağız ve otomatize edeceğiz bu blog yazılarını.
+
+
+
+
 # resimlerin bi ksmında hala lazy loading animasyonu yok.
-
 # spam trafiğe karşı korumamız yok! gpt bot kafayı yiyebilir.
-
 # ip addresleride toplayalım bence.
+
 
 # sol üste Randevu Oluştur butonu ekle, tıklanınca /randevu-olustur sayfasına yönlendir
 # randevu-olustur sayfasında formu doldurunca direkt dentsoft api üzerinden randevu oluşturulacak
