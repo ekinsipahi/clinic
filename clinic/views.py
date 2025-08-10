@@ -58,3 +58,5 @@ def kvkk(request):
 
 def tesekkurler(request):
     return render(request, "clinic/tesekkur.html")
+
+

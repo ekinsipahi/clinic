@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+
+
 urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('randevu-al/', views.randevu_al, name='randevu-al'),

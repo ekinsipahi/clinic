@@ -26,16 +26,30 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# twilio yönlendirme yaparsan ve doğru düzgün bir ai sistemi kurarsan oraya, conversionlar otomatik yazılmaya başlanabilir.
+# ayrıca hasta gerçekten aradı mı aramadı mı onunda kesin garanti takibi yapılmış olur.
+# telefon otomatik eşleştirme yapılır ve sonrasında sana sadece 2 tık yapmak kalır.
+# mesela mesaj tarafında ai bizim için QULIFIED olanları otomatik olarak yazabilir.
+# telefon üzerinden gelmek istiyorum diyenleride otomatik olarak dinleyip yapabilir ama zor bu.
+
+# EPIC FRAMEWORK kullanarak markanın tanımı için özel sayfa oluşturulacak.
+
+# ip adresleride toplayalım bence. ama ipyi backend arka planda ülkesini söylesin bence, SPAM OLASILIKLARI GÖRÜRÜZ
+
+# timestamp'lar liste halinde tutulsa eskiden yeniye daha iyi olabilir.
+
 # 404 sayfası eklenecek, indexlenebilir gene schema.org ile search console'a eklencek.
 # dentsoft ile randevu-al kısmı eklendikten sonra
 # son olarak blog kısmına başlayacağız ve otomatize edeceğiz bu blog yazılarını.
 
+# chatbotdan gelen arkadaşlar farklı bi conversion olması gerekicek. daha sağlıklı olur farklı bi faktör var, Salesman-AI gibi.
 
+# artık gelen cihazların marka/model ne olduğunu çıkartacağız. pip device-detector ile
+# bot olması yüksek olanları captchaya sokacağız.
 
 
 # resimlerin bi ksmında hala lazy loading animasyonu yok.
 # spam trafiğe karşı korumamız yok! gpt bot kafayı yiyebilir.
-# ip addresleride toplayalım bence.
 
 
 # sol üste Randevu Oluştur butonu ekle, tıklanınca /randevu-olustur sayfasına yönlendir
