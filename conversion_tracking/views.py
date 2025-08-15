@@ -31,6 +31,7 @@ class ConversionTrackingView(APIView):
 # telefon otomatik eşleştirme yapılır ve sonrasında sana sadece 2 tık yapmak kalır.
 # mesela mesaj tarafında ai bizim için QULIFIED olanları otomatik olarak yazabilir.
 # telefon üzerinden gelmek istiyorum diyenleride otomatik olarak dinleyip yapabilir ama zor bu.
+# CONVERSION TAKIBI EN AZINDAN TELEFON ARAMASI YAPTI MI YAPMADIMI ONU DOĞRULAYICI OLUR.
 
 # EPIC FRAMEWORK kullanarak markanın tanımı için özel sayfa oluşturulacak.
 

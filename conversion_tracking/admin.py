@@ -93,7 +93,7 @@ class ConversionAdmin(admin.ModelAdmin):
         'gclid', 'conversion_name', 'conversion_value', 'currency',
         'is_qualified', 'is_converted', 'phone_number', 'display_client_info'
     )
-    list_filter = ('is_converted', 'page', 'currency', TodayFilter)
+    list_filter = ('is_converted', 'page', 'currency', TodayFilter, 'is_qualified')
     search_fields = ('gclid', 'phone_number',)
     ordering = ('-timestamp',)
     readonly_fields = ('timestamp', 'display_client_info', 'gclid', 'page', 'conversion_name', 'currency',)
