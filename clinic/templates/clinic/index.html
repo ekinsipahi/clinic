@@ -1066,7 +1066,7 @@
 
 
 
- <!-- Fonts -->
+  <!-- Fonts -->
   <!-- <link rel="stylesheet" href="{% static 'css/fonts.css' %}"> -->
 
 </head>
@@ -1350,43 +1350,91 @@
 
 
   <!-- Hakkımızda -->
-  <section class="bg-gray-50 py-20 px-6 md:px-24 rounded-xl shadow-md">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl font-extrabold text-gray-800 mb-8 border-b pb-4 border-gray-300">
-        Dr. Dt. Devrim Biriken Sipahi Kimdir?
-      </h2>
+  <section class="py-16 md:py-20 px-6 md:px-12">
+    <article class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+      <!-- Üst görsel alanı: annemle birlikte fotoğrafını buraya koy -->
+      <div class="relative h-56 sm:h-72 md:h-96">
+        <picture>
+          <img src="{% static 'images/IMG_0543.jpg' %}"
+            alt="Dr. Dt. Devrim Biriken Sipahi ve Dt. Ekin Sipahi – Şişli Kliniği"
+            class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async">
+        </picture>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
+        <div
+          class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-semibold text-gray-800 shadow">
+          “Doğru tanı, doğru tedavi, dişi koru.”
+        </div>
+      </div>
 
-      <p class="text-lg leading-relaxed text-gray-700 mb-6">
-        <strong>Dr. Dt. Devrim Biriken Sipahi</strong>, 35 yılı aşkın tecrübesiyle İstanbul Şişli'de hizmet veren köklü
-        bir diş hekimidir.
-        Ankara Üniversitesi Diş Hekimliği Fakültesi mezunudur. Akademik kariyerini Marmara Üniversitesi'nde
-        Ağız, Diş ve Çene Radyolojisi alanında tamamlamıştır.
-      </p>
+      <div class="bg-gray-50 md:bg-white px-5 sm:px-8 md:px-12 py-8 md:py-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 md:mb-8 border-b pb-4 border-gray-200">
+          Dr. Dt. Devrim Biriken Sipahi Kimdir?
+        </h2>
 
-      <p class="text-lg leading-relaxed text-gray-700 mb-6">
-        Radyolojik destekli tanı koyma yetkinliği sayesinde, estetik diş tedavilerinden implant uygulamalarına kadar
-        birçok alanda yüksek başarı oranına sahiptir. Özellikle
-        <span class="font-semibold text-gray-900">gülüş tasarımı</span>,
-        <span class="font-semibold text-gray-900">estetik lamina</span> ve
-        <span class="font-semibold text-gray-900">kanal tedavisi</span>
-        gibi konularda hasta memnuniyetiyle öne çıkar.
-      </p>
+        <!-- Background (SEO dostu, senin metnin temel alınarak) -->
+        <p class="text-lg leading-relaxed text-gray-700 mb-6">
+          <strong>Dr. Dt. Devrim Biriken Sipahi</strong>, 35 yılı aşkın tecrübesiyle İstanbul Şişli’de hizmet veren
+          köklü bir diş hekimidir.
+          Ankara Üniversitesi Diş Hekimliği Fakültesi mezunudur; akademik yolculuğunu Marmara Üniversitesi’nde
+          <em>Ağız, Diş ve Çene Radyolojisi</em> alanında tamamlamıştır. Radyoloji temelli tanı yaklaşımı sayesinde
+          planlar net, sürpriz minimumdur.
+        </p>
 
-      <p class="text-lg leading-relaxed text-gray-700 mb-6">
-        Dr. Sipahi, estetik kaygıları olan hastalara doğal ve kişiye özel çözümler sunarken,
-        tüm süreçlerde ağrısız ve konforlu tedavi prensibini benimsemektedir.
-      </p>
+        <!-- Purpose (dişi koru + konservatif felsefe) -->
+        <p class="text-lg leading-relaxed text-gray-700 mb-6">
+          Bizim çizgimiz net: <span class="font-semibold text-gray-900">dişi kurtarmak</span>.
+          Gereksiz işlem yok, doğru endikasyonda <span class="font-semibold text-gray-900">konservatif</span> tedavi
+          var.
+          Gülüş tasarımından estetik lamina ve <span class="font-semibold text-gray-900">kanal tedavisine</span> kadar
+          her adım,
+          “doğru tanı → doğru plan → konforlu süreç” formülüyle ilerler. Amaç güzel görünen değil,
+          <span class="font-semibold">sağlıklı ve uzun ömürlü</span> sonuç.
+        </p>
 
-      <p class="text-lg leading-relaxed text-gray-700">
-        Kliniği Şişli Merkez'de, <strong>Abide-i Hürriyet Caddesi</strong> üzerinde konumlanmıştır.
-        Randevu ve bilgi için
-        <a href="/telefon-yonlendirme"
-          class="inline-block ml-1 text-white bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded-md">
-          Hemen Ulaşın
-        </a>
-      </p>
-    </div>
+        <!-- İmplant (çekici ama kontrollü anlatım) -->
+        <p class="text-lg leading-relaxed text-gray-700 mb-6">
+          Peki implant? Önce şunu söyleyelim: <span class="font-semibold">İmplant son seçenek</span>tir—kurtarılabilecek
+          dişi koruruz.
+          Fakat ihtiyaç doğduğunda, radyolojik (CBCT) destekli <span class="font-semibold">3D planlama</span>,
+          kemik kalitesi/yoğunluğu analizi ve dijital cerrahi kılavuzlarla
+          <span class="font-semibold">estetik ve fonksiyon</span> odaklı, öngörülebilir bir yol izleriz.
+          Yeri geldiğinde geçici dişle sosyal hayat kopmadan süreç tamamlanır.*
+        </p>
+
+        <!-- Existence (hikâye: bilgi aktarımı & ikinci nesil) -->
+        <p class="text-lg leading-relaxed text-gray-700 mb-6">
+          Kliniğin kuruluş motivasyonu sadece “tedavi” değil, bir <span class="font-semibold">miras</span>tır:
+          Dr. Sipahi’nin bilgi ve tecrübesinin <span class="font-semibold">gelecek nesle</span> aktarılması.
+          Bu nedenle klinik yapılanması, <span class="font-semibold">Dt. Ekin Sipahi</span> ile birlikte
+          aynı kalite standartlarını sürdürecek şekilde kurgulandı. İki nesil, tek çizgi: doğru, sade, etkin hekimlik.
+        </p>
+
+        <!-- Kısa değer çipleri -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700 font-medium">Konservatif Yaklaşım</span>
+          <span class="px-3 py-1 rounded-full text-sm bg-emerald-50 text-emerald-700 font-medium">Radyoloji Destekli
+            Tanı</span>
+          <span class="px-3 py-1 rounded-full text-sm bg-purple-50 text-purple-700 font-medium">Kişiye Özel Plan</span>
+          <span class="px-3 py-1 rounded-full text-sm bg-rose-50 text-rose-700 font-medium">Ağrısız & Konforlu
+            Süreç</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p class="text-lg leading-relaxed text-gray-700">
+            Kliniğimiz Şişli Merkez’de, <strong>Abide-i Hürriyet Caddesi</strong> üzerinde yer alır.
+          </p>
+          <a href="/telefon-yonlendirme"
+            class="inline-flex items-center justify-center text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition px-5 py-3 rounded-lg font-semibold shadow">
+            Hemen Ulaşın
+          </a>
+        </div>
+
+        <p class="text-xs text-gray-500 mt-4">*Tedavi planları kişiye özeldir; uygunluk klinik ve radyolojik
+          değerlendirme ile belirlenir.</p>
+      </div>
+    </article>
   </section>
+
 
 
   <!-- <section class="container py-24 bg-white" id="hasta-yorumlari">
