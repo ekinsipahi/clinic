@@ -1,0 +1,85 @@
+{% load static %}
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Geliş Onayı</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        function getClientInfo() {
+            try {
+                const info = localStorage.getItem('client_info');
+                console.log(info);
+                return info ? JSON.parse(info) : {};
+            } catch (err) {
+                return {};
+            }
+        }
+        function qp(k) {
+            const m = location.search.match(new RegExp('[?&]' + k + '=([^&]+)'));
+            return m ? decodeURIComponent(m[1]) : null;
+        }
+        function getStoredGclid() {
+            const fromQuery = qp('gclid');
+            if (fromQuery) { console.log('GCLID (query):', fromQuery); return fromQuery; }
+            const fromLS = localStorage.getItem('gclid');
+            console.log('GCLID (localStorage):', fromLS);
+            return fromLS || '';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // gclid -> hidden
+            var g = getStoredGclid();
+            var gEl = document.getElementById('gclid');
+            if (gEl) gEl.value = g;
+
+            // client_info (raw JSON) -> hidden
+            var ciEl = document.getElementById('client_info');
+            if (ciEl) ciEl.value = JSON.stringify(getClientInfo());
+        });
+
+    </script>
+</head>
+
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <main class="w-full max-w-sm">
+        <div class="bg-white shadow-2xl rounded-2xl p-6 sm:p-7">
+            <h1 class="text-2xl font-semibold tracking-tight text-gray-900 text-center">Geliş Onayı</h1>
+            <p class="mt-2 text-sm text-gray-600 text-center">Lütfen bilgilerinizi girin.</p>
+
+            <form method="post" class="mt-6 space-y-4" action="">
+                {% csrf_token %}
+
+                <!-- Ad Soyad -->
+                <div>
+                    <label for="full_name" class="block text-sm font-medium text-gray-800 mb-1">Ad Soyad</label>
+                    <input type="text" id="full_name" name="full_name" autocomplete="name" required class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-gray-900 placeholder:text-gray-400
+                        focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        placeholder="Adınız Soyadınız" />
+                </div>
+
+                <!-- Telefon -->
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-800 mb-1">Telefon</label>
+                    <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" required class="w-full rounded-xl border border-gray-300 px-3 py-2.5 text-gray-900 placeholder:text-gray-400
+                        focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        placeholder="+90 5XX XXX XX XX" />
+                </div>
+
+                <input type="hidden" id="gclid" name="gclid" value="" />
+                <input type="hidden" id="client_info" name="client_info" value="{}" />
+
+                <!-- Onayla -->
+                <button type="submit" class="w-full rounded-xl bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white
+                       font-medium py-2.5 mt-2 transition-colors">
+                    Onayla
+                </button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 
 
-
 urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('randevu-al/', views.randevu_al, name='randevu-al'),
@@ -12,6 +11,10 @@ urlpatterns = [
     path('instagram-yonlendirme/', views.instagram_yonlendir, name='instagram-yonlendirme'),
     path('kvkk/', views.kvkk, name="kvkk-bilgilendirme"),
     path('tesekkur/', views.tesekkurler, name='tesekkurler'),
+    
+    # yeni:
+    path('onay/', views.onay, name='onay'),
+    path('onay-tesekkur/', views.onay_tesekkur, name='onay-tesekkur'),
 ]
 
 from django.views.generic import TemplateView

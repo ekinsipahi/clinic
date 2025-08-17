@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import CallMeLead
+from .models import CallMeLead, ArrivalConfirmation
 from django.utils.timezone import now
 import json
 
@@ -57,6 +57,38 @@ def kvkk(request):
 
 
 def tesekkurler(request):
-    return render(request, "clinic/tesekkur.html")
+    return render(request, "clinic/callme-tesekkur.html")
 
 
+def onay(request):
+    if request.method == "POST":
+        name = request.POST.get("full_name")
+        phone = request.POST.get("phone")
+        gclid = request.POST.get("gclid")
+        page = "Manuel Onay"
+        client_info_raw = request.POST.get("client_info")
+        print("ISIM: ",name)
+        print("Telefon: ", phone)
+        print("GCLID", gclid)
+        print("Sayfa: ", page)
+        print("Client Info: ", client_info_raw)
+        
+        try:
+            client_info = json.loads(client_info_raw) if client_info_raw else {}
+        except json.JSONDecodeError:
+            client_info = {}
+        
+        if name and phone:
+            ArrivalConfirmation.objects.create(
+                full_name=name,
+                phone=phone,
+                gclid=gclid,
+                page=page,
+                client_info=client_info
+            )
+            return redirect("/onay-tesekkur")
+
+    return render(request, "clinic/onay.html")
+
+def onay_tesekkur(request):
+    return render(request, "clinic/onay-tesekkur.html")
