@@ -1111,8 +1111,7 @@
   </div> -->
 
   <!-- Hero -->
-  <section class="relative h-screen bg-cover bg-center max-[389px]:h-[120vh]">
-    <!-- 🎥 Video background -->
+  <!-- <section class="relative h-screen bg-cover bg-center max-[389px]:h-[120vh]">
     <div id="video-wrapper">
       <video id="hero-video" muted loop autoplay playsinline
         class="absolute top-0 left-0 w-full h-full object-cover z-0">
@@ -1122,23 +1121,18 @@
 
 
 
-    <!-- 🔲 Siyah karartma (video üstüne) -->
     <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 z-10"></div>
 
-    <!-- 🌟 İçerik katmanı -->
     <div class="relative z-20 w-full h-full flex items-center justify-center">
-      <!-- BURASI SENİN TÜM MEVCUT İÇERİĞİN -->
 
       <div class="text-center text-white px-6 max-w-3xl" style="margin-top: 2rem;">
         <h1 class="text-4xl md:text-6xl font-bold mb-4 mt-4">Dr. Dt. Devrim Biriken Sipahi</h1>
         <p class="text-lg md:text-xl mb-6">İstanbul Şişli'de, implant, estetik gülüş tasarımı, kanal tedavisi ve daha
           fazlasıyla güvenilir diş hekimliği hizmeti sunuyoruz.</p>
 
-        <!-- "Hasta Yorumları" Sahte Slider -->
         <div class="relative h-36 overflow-hidden mt-6 mb-6">
           <div class="slide-track">
 
-            <!-- 1. tur -->
             <div class="comment-box">
               <div>
                 <p class="text-base">“Kanal tedavim acısız ve başarılı gecti ellerine sağlık”</p>
@@ -1262,7 +1256,6 @@
         <h2 class="text-2xl md:text-3xl font-bold mb-3">Hasta Deneyimlerini Keşfedin</h2>
         <p class="mb-4 text-lg">Siz de önce hastaların neler söylediğine kulak verin. 👇</p>
 
-        <!-- Instagram Butonu -->
         <a href="/instagram-yonlendirme" id="hero-instagram-button" target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600 text-white font-bold py-3 px-7 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -1271,7 +1264,6 @@
           </svg>
           Instagram’da Bizi Görün
         </a>
-        <!-- Google Maps Yol Tarifi Butonu -->
         <a href="/maps-yonlendirme" target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-7 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 mt-4">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -1286,7 +1278,341 @@
 
       </div>
     </div>
+  </section> -->
+
+  <!-- HERO / PREMIUM GİRİŞ + SLIDER -->
+  <section class="relative h-screen bg-cover bg-center max-[389px]:h-[120vh] overflow-hidden">
+    <!-- 🎥 Video background -->
+    <div id="video-wrapper">
+      <video id="hero-video" muted loop autoplay playsinline
+        class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="{% static 'videos/devrim-arka-plan.mp4' %}" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- 🌗 Gradyan karartma (daha okunaklı) -->
+    <div class="absolute inset-0 z-10 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/70"></div>
+    </div>
+
+    <!-- 🌟 İçerik -->
+    <div
+      class="relative z-20 w-full h-full flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto">
+
+      <!-- ⭐ 35+ YILLIK HEKİMLİK (daha büyük, spotlight ve tamamen ortada) -->
+      <div class="inline-flex items-center gap-3 rounded-full px-6 py-2.5
+             text-base md:text-lg font-bold text-white
+             bg-gradient-to-r from-blue-600 to-blue-500
+             shadow-lg ring-2 ring-white/30 backdrop-blur-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white/95" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 6l2.39 4.84 5.34.78-3.86 3.76.91 5.32L12 17.77 7.22 20.7l.91-5.32L4.27 11.6l5.34-.78L12 6z" />
+        </svg>
+        <span>35+ Yıllık Hekimlik • Şişli / İstanbul</span>
+      </div>
+
+      <!-- Başlıklar -->
+      <h1 class="mt-5 text-4xl md:text-6xl font-bold leading-tight text-white"
+        style="text-shadow:0 2px 10px rgba(0,0,0,.55)">
+        Dr. Dt. Devrim Biriken Sipahi
+      </h1>
+
+      <h2 class="mt-3 text-2xl md:text-4xl font-semibold text-white" style="text-shadow:0 2px 10px rgba(0,0,0,.55)">
+        Doğru Hekimlik ile <span class="text-blue-300">Uzun Ömürlü</span> & <span class="text-blue-300">Estetik</span>
+        Sonuçlar
+      </h2>
+
+      <!-- Açıklama -->
+      <p class="mt-5 text-base md:text-lg text-white/90 max-w-3xl">
+        Bilimsel protokoller, kişiye özel dijital planlama ve steril süreçlerle;
+        yıllarca güvenle kullanabileceğiniz <strong>kaliteli diş hekimliği</strong>.
+      </p>
+
+      <!-- Hızlı güven rozetleri -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <div class="rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm text-white/90 backdrop-blur">
+          10.000+ Vaka Deneyimi</div>
+        <div class="rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm text-white/90 backdrop-blur">
+          Konforlu & Şeffaf Süreç</div>
+        <div class="rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm text-white/90 backdrop-blur">
+          Dijital Planlama & Doğal Estetik</div>
+      </div>
+
+      <!-- CTA'lar: Google Maps & Telefon -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/maps-yonlendirme" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-white text-sm md:text-base font-semibold shadow-lg hover:bg-blue-700 transition">
+          <!-- maps icon -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 11.5A2.5 2.5 0 1 1 12 8a2.5 2.5 0 0 1 0 5.5z" />
+          </svg>
+          Yol Tarifi (Google Maps)
+        </a>
+
+        <a href="/telefon-yonlendirme"
+          class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-white text-sm md:text-base font-semibold hover:bg-white/20 backdrop-blur transition">
+          <!-- phone icon -->
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.3 21 3 13.7 3 4a1 1 0 011-1h2.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z" />
+          </svg>
+          Hemen Ara
+        </a>
+      </div>
+
+    </div>
+
+
+    <!-- Motion fallback -->
+    <style>
+      /* Metin okunurluğu */
+      .text-glow {
+        text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
+      }
+
+      /* Animasyonlar */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeUp 1s ease-out forwards;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .tracking-in {
+        animation: trackingIn .9s ease both;
+      }
+
+      @keyframes trackingIn {
+        0% {
+          letter-spacing: .35em;
+          opacity: 0;
+          filter: blur(.8px);
+        }
+
+        60% {
+          opacity: .85;
+        }
+
+        100% {
+          letter-spacing: normal;
+          opacity: 1;
+          filter: blur(0);
+        }
+      }
+
+      .badge-glow {
+        animation: pulseGlow 3s ease-in-out infinite;
+      }
+
+      @keyframes pulseGlow {
+
+        0%,
+        100% {
+          box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        }
+
+        50% {
+          box-shadow: 0 0 16px rgba(255, 255, 255, .35);
+        }
+      }
+    </style>
   </section>
+
+
+  <!-- ⭐ Hasta Yorumları Slider (tek track / beyaz-mavi) -->
+  <div class="text-center text-gray-900 bg-white px-6 relative">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/043/994/716/small_2x/dental-hygiene-and-oral-health-care-concept-photo.jpg"
+        alt="Dental clinic background" class="w-full h-full object-cover" />
+      <!-- overlay -->
+      <div class="absolute inset-0 bg-white/80"></div>
+    </div>
+
+    <div class="relative h-40 overflow-hidden max-w-3xl mx-auto">
+      <div class="slide-track">
+
+        <!-- Melih -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Kanal tedavim acısız ve başarılı gecti ellerine sağlık”</p>
+          <div class="mt-3 space-y-1 flex">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Melih E.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ece -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“38 yaşındayım, korkumu yenmeme neden bir doktordur kendisi.
+            İşini özenle ve TEMİZ yapan, eli hafif, güler yüzlü ve güvende hissetmenizi sağlayan bir doktor. Aynı
+            anda 3 dolgu ve temizleme yaptık, 2 gün sonra 4 dolgu yaptırdım, hiç ağrım olmadı :) - maşallah-
+            Devrim Hanım iyi ki sizin gibi hekimler var”</p>
+          <div class="mt-3 space-y-1 flex">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Ece Y.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Süleyman -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Devrim hocamız güler yüzü ile yaptığı işlemlerde acı hiss etmiyorsunuz,
+            anlaşılmıyor ve çok sağlam oluyor”</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Süleyman B.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cem -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Ufacık dişten dolgu ile diş yaptı ve çok güzel oldu daha önce 3 doktora
+            gittim
+            hepsi çekilmesinin gerektiği söylemesine rağmen Devrim hanım zamanından alarak emek harçayarak diş yaptı.
+            Ellerine kollarına sağlık hocam bulduğumuz ve tanıdığımız için çok mutlu olduk.
+            Güvenle gidebilirsiniz.”</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Cem T.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buse -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Devrim hocam yıllardır güvendiğim, işini özenle yapan bir hekim.
+            Yaptırdığım
+            dolgular ve tedavi süreçleri hep çok iyi sonuç verdi. Eli de hafif ve gerçekten hızlı bir şekilde
+            tedaviyi tamamlıyor, kesinlikle öneriyorum”</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Buse Y.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hüseyin -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Devrim hocaya çocukluğumdan beri gidiyorum bugün de dolgularımı yaptı eli
+            çok
+            temiz herhangi bir sıkıntı olmadan halletti kesinlikle öneriyorum”</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Hüseyin U. Y.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Melis -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Dişlerime uygulanan lamina estetik olarak harikaydı.”</p>
+          <div class="mt-3 space-y-1 flex">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Melis Ç.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ceren -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Devrim hoca ile 2020 yılında tanıştık yirmilik dişimi çektirmiştim okadar
+            güler
+            yüzlü eli hafif bir doktor ki beni kendisine hayran bıraktı hemen sonrasında ön dişlerimi kaplama
+            yaptırdım yıllardır sorunsuz kullanıyorum 🙏☺️”</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Ceren S.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Merve -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Devrim hanım sayesinde 20'lik dişim sorunsuz çekildi, ön dişlerim daha
+            temiz ve
+            güzel oldu. En son yaptığı kanal tedavi sayesinde yemek yerken artık canım acımıyor. Kesinlikle gözüm
+            kapalı tavsiye ederim. Yıllardır tüm dişlerimi emanet ettiğim canım hekimim Devrim hanım, iyi ki
+            varsınız!”</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Merve A.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Özlem -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">“Yıllardır hekimliğine, tecrübesine, tedavisine güvendiğim, her gittiğimde
+            temizlik
+            konusunda en ufak bir şüphe duymadığım işinin ehli bir diş doktorudur kendisi.”</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– Özlem H.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -1312,7 +1638,8 @@
 
 
 
-              <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">Bize Ulaşın</h1>
+              <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">Bize Ulaşın
+              </h1>
 
               <div class="absolute bottom-0 w-full lg:p-11 p-5">
                 <div class="bg-white rounded-lg p-6 block grid items-center">
@@ -1531,7 +1858,8 @@
 
         <!-- İmplant (çekici ama kontrollü anlatım) -->
         <p class="text-lg leading-relaxed text-gray-700 mb-6">
-          Peki implant? Önce şunu söyleyelim: <span class="font-semibold">İmplant son seçenek</span>tir—kurtarılabilecek
+          Peki implant? Önce şunu söyleyelim: <span class="font-semibold">İmplant son
+            seçenek</span>tir—kurtarılabilecek
           dişi koruruz.
           Fakat ihtiyaç doğduğunda, radyolojik (CBCT) destekli <span class="font-semibold">3D planlama</span>,
           kemik kalitesi/yoğunluğu analizi ve dijital cerrahi kılavuzlarla
@@ -1549,10 +1877,12 @@
 
         <!-- Kısa değer çipleri -->
         <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700 font-medium">Konservatif Yaklaşım</span>
+          <span class="px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700 font-medium">Konservatif
+            Yaklaşım</span>
           <span class="px-3 py-1 rounded-full text-sm bg-emerald-50 text-emerald-700 font-medium">Radyoloji Destekli
             Tanı</span>
-          <span class="px-3 py-1 rounded-full text-sm bg-purple-50 text-purple-700 font-medium">Kişiye Özel Plan</span>
+          <span class="px-3 py-1 rounded-full text-sm bg-purple-50 text-purple-700 font-medium">Kişiye Özel
+            Plan</span>
           <span class="px-3 py-1 rounded-full text-sm bg-rose-50 text-rose-700 font-medium">Ağrısız & Konforlu
             Süreç</span>
         </div>
@@ -1737,7 +2067,8 @@
             Estetik Diş Uygulamaları
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            Zirkonyum ve lamine gibi modern çözümlerle doğal ve beyaz bir gülüş sunuyoruz. Diş kesimini en aza indirerek
+            Zirkonyum ve lamine gibi modern çözümlerle doğal ve beyaz bir gülüş sunuyoruz. Diş kesimini en aza
+            indirerek
             estetik müdahaleleri kişiye özel planlıyoruz.
           </p>
         </div>
@@ -1781,7 +2112,8 @@
             Diş Taşı Temizliği
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            Tüm diş taşlarınızı ortalama 10 dakika içinde temizliyor, dişlerinizi ilk seansa göre daha beyaz ve sağlıklı
+            Tüm diş taşlarınızı ortalama 10 dakika içinde temizliyor, dişlerinizi ilk seansa göre daha beyaz ve
+            sağlıklı
             bir görünüme kavuşturuyoruz.
           </p>
         </div>
@@ -1864,7 +2196,8 @@
           <div class="mt-4 space-y-4 lg:mt-8">
             <button class="block text-blue-500 hover:underline faq-category" data-target="general">Genel Klinik
               Soruları</button>
-            <button class="block text-gray-500 hover:underline faq-category" data-target="trust">Diş Ağrısı & Kırık Diş
+            <button class="block text-gray-500 hover:underline faq-category" data-target="trust">Diş Ağrısı & Kırık
+              Diş
               Soruları</button>
             <button class="block text-gray-500 hover:underline faq-category" data-target="services">İmplant Tedavisi
               Soruları</button>
@@ -1923,7 +2256,8 @@
               </button>
               <div class="faq-content hidden flex mt-4 md:mx-10">
                 <span class="border border-blue-500"></span>
-                <p class="max-w-3xl px-4 text-gray-500">Evet, haftanın 7 günü açığız. Pazar dahil hizmet veriyoruz.</p>
+                <p class="max-w-3xl px-4 text-gray-500">Evet, haftanın 7 günü açığız. Pazar dahil hizmet veriyoruz.
+                </p>
               </div>
             </div>
             <hr class="my-8 border-gray-200" />
@@ -2287,7 +2621,8 @@
               </button>
               <div class="faq-content hidden flex mt-4 md:mx-10">
                 <span class="border border-blue-500"></span>
-                <p class="max-w-3xl px-4 text-gray-500">İltihap çok ilerlememişse genelde kanal tedavisiyle kurtarılır.
+                <p class="max-w-3xl px-4 text-gray-500">İltihap çok ilerlememişse genelde kanal tedavisiyle
+                  kurtarılır.
                   Ama gerekirse çekim yapılır. Net karar için muayeneye bekleriz.</p>
                 </p>
               </div>
@@ -2582,7 +2917,8 @@
               </button>
               <div class="faq-content hidden flex mt-4 md:mx-10">
                 <span class="border border-blue-500"></span>
-                <p class="max-w-3xl px-4 text-gray-500">Dişin yüzeyine özel bir estetik dolgu materyali eklenerek şekil,
+                <p class="max-w-3xl px-4 text-gray-500">Dişin yüzeyine özel bir estetik dolgu materyali eklenerek
+                  şekil,
                   renk ve form düzeltmesi yapılan işlemdir.</p>
               </div>
             </div>
@@ -2665,7 +3001,8 @@
               </button>
               <div class="faq-content hidden flex mt-4 md:mx-10">
                 <span class="border border-blue-500"></span>
-                <p class="max-w-3xl px-4 text-gray-500">Porselen lamineler yüzey olarak leke tutmaz. Uzun yıllar boyunca
+                <p class="max-w-3xl px-4 text-gray-500">Porselen lamineler yüzey olarak leke tutmaz. Uzun yıllar
+                  boyunca
                   beyazlığını korur. Ancak doğal dişlerde sararma olursa kontrast farkı oluşabilir.</p>
               </div>
             </div>
@@ -2681,7 +3018,8 @@
               <div class="faq-content hidden flex mt-4 md:mx-10">
                 <span class="border border-blue-500"></span>
                 <p class="max-w-3xl px-4 text-gray-500">
-                  İlk birkaç gün alışma süreci olabilir ama sonrasında konuşmanız tamamen normale döner. Dişlerin formu
+                  İlk birkaç gün alışma süreci olabilir ama sonrasında konuşmanız tamamen normale döner. Dişlerin
+                  formu
                   ağız yapınıza özel tasarlanır.
 
                 </p>
@@ -2712,7 +3050,8 @@
                 <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
                 </svg>
-                <h3 class="mx-4 text-xl text-gray-700">Dişlerim küçük, daha büyük ve estetik görünmesi için ne yapılır?
+                <h3 class="mx-4 text-xl text-gray-700">Dişlerim küçük, daha büyük ve estetik görünmesi için ne
+                  yapılır?
                 </h3>
               </button>
               <div class="faq-content hidden flex mt-4 md:mx-10">
@@ -2789,7 +3128,8 @@
               </button>
               <div class="faq-content hidden flex mt-4 md:mx-10">
                 <span class="border border-blue-500"></span>
-                <p class="max-w-3xl px-4 text-gray-500">We sanitize our clinic after every patient and deep clean daily.
+                <p class="max-w-3xl px-4 text-gray-500">We sanitize our clinic after every patient and deep clean
+                  daily.
                 </p>
               </div>
             </div>
