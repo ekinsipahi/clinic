@@ -26,11 +26,6 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# bence en mantıklısı bir link üretme mantığı hasta geldiğinde şu formu doldurur musunuz 
-# tarzı bişey söyliceksin ordan gelince işaretliceksin bukadar basit
-# ama burda bizi bulan kişi kim onun doldurması gerekiyor diceksin bukadar basit
-# veya hasta kim o doldurmak zorunda dicez.
-
 
 # ana sayfayı ziyaret edenleri bence yaz bi tarafa.
 # çünkü sonra kayboluyor pezevenkler. 
@@ -38,7 +33,8 @@ class ConversionTrackingView(APIView):
 # telefon component üzerinde kaldıysa ozaman direkt dicez telefon component üzerinde diye.
 # buraya şöyle bir ai desteği atabiliriz kullanıcı davranışlarından bizi belkide kaydetti bıraktı sonra aradı.
 
-# timestamp'lar liste halinde tutulsa eskiden yeniye daha iyi olabilir.
+# timestamp'lar liste halinde tutulsa eskiden yeniye daha iyi olabilir. 
+# (Yeni bitane oluşturcaksın timestamp_list) diye eskiyi bozmadan
 
 # ip adresleride toplayalım bence. ama ipyi backend arka planda ülkesini söylesin bence, SPAM OLASILIKLARI GÖRÜRÜZ
 
@@ -48,8 +44,6 @@ class ConversionTrackingView(APIView):
 # mesela mesaj tarafında ai bizim için QUALIFIED olanları otomatik olarak yazabilir.
 # telefon üzerinden gelmek istiyorum diyenleride otomatik olarak dinleyip yapabilir ama zor bu.
 # CONVERSION TAKIBI EN AZINDAN TELEFON ARAMASI YAPTI MI YAPMADIMI ONU DOĞRULAYICI OLUR.
-
-# EPIC FRAMEWORK kullanarak markanın tanımı için özel sayfa oluşturulacak.
 
 
 
@@ -64,7 +58,7 @@ class ConversionTrackingView(APIView):
 # bu veriyi doğrulama amaçlı kullanacağız
 
 
-# resimlerin bi ksmında hala lazy loading animasyonu yok.
+# resimlerin bi kısmında hala lazy loading animasyonu yok.
 # spam trafiğe karşı korumamız yok! gpt bot kafayı yiyebilir.
 
 
