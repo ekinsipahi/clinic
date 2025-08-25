@@ -63,7 +63,7 @@ def export_to_google_sheets(modeladmin, request, queryset):
         qualified_row = [
             obj.gclid or '',
             obj.qualification_time.isoformat() if obj.qualification_time else '',
-            f"{obj.conversion_value}",
+            "0",
             obj.currency,
             hashed_phone
         ]

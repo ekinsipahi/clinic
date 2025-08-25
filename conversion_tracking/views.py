@@ -26,6 +26,13 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# Arrival Confirmationda 
+# email ekleyelim bence forma
+# sonrasında gclid kontrolü yapsın varsa conversionlarada atsın ama şöyle yapsın
+# eğer gclid varsa, conversionları güncellesin
+# hee eğer yoksa direkt sheetse bizim yeni açtığımız telefon odaklı olana eklesin.
+# Ayrıca bence api üzerinden geldiğine dair onay vermiş olsun?
+
 
 # ana sayfayı ziyaret edenleri bence yaz bi tarafa.
 # çünkü sonra kayboluyor pezevenkler. 
