@@ -26,6 +26,7 @@ class ConversionTrackingView(APIView):
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+#1 İLK BUNU YAPALIM.
 # Arrival Confirmationda 
 # email ekleyelim bence forma
 # sonrasında gclid kontrolü yapsın varsa conversionlarada atsın ama şöyle yapsın
@@ -39,6 +40,9 @@ class ConversionTrackingView(APIView):
 # api ile 5snde 1 kontrol sağlıcaz 
 # telefon component üzerinde kaldıysa ozaman direkt dicez telefon component üzerinde diye.
 # buraya şöyle bir ai desteği atabiliriz kullanıcı davranışlarından bizi belkide kaydetti bıraktı sonra aradı.
+# ana sayfada componentler üzerinde ne kadar durduğunu hangi sayfaları saat kaçta değiştiği
+# vs. hepsini koontrol edeceksin.
+
 
 # timestamp'lar liste halinde tutulsa eskiden yeniye daha iyi olabilir. 
 # (Yeni bitane oluşturcaksın timestamp_list) diye eskiyi bozmadan

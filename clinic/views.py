@@ -3,7 +3,20 @@ from .models import CallMeLead, ArrivalConfirmation
 from django.utils.timezone import now
 import json
 
+PEDO_CAMPAIGN_ID = "22663185094"
+
+
 def homepage(request):
+    # 1) campaign_id'yi URL'den oku (ValueTrack: {campaignid})
+    campaign_id = (
+        request.GET.get("campaign_id")
+        or request.GET.get("campaignid")
+        or request.GET.get("utm_campaignid")
+        or request.COOKIES.get("campaign_id")  # opsiyonel: cookie fallback
+    )
+    pedodonti_ad = (campaign_id == PEDO_CAMPAIGN_ID)
+
+    
     if request.method == "POST":
         name = request.POST.get("name")
         phone = request.POST.get("phone")
@@ -28,8 +41,10 @@ def homepage(request):
             )
 
             return redirect("/tesekkur")
-
-    return render(request, "clinic/index.html")
+    ctx = {
+        "pedodonti_ad": pedodonti_ad,
+    }
+    return render(request, "clinic/index.html", ctx)
 
 
 def randevu_al(request):
