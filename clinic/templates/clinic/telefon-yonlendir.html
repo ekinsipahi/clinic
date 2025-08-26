@@ -22,6 +22,20 @@
   </script>
 
   <script>
+    function getStoredGclid() {
+      return localStorage.getItem('gclid');
+    }
+    function getCsrfToken() {
+      const name = 'csrftoken';
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    }
     document.addEventListener("DOMContentLoaded", function () {
       const visitedHome = localStorage.getItem("visited_home");
 
@@ -29,6 +43,21 @@
         window.location.href = "/";
         return;
       }
+      function markActualCall(gclid) {
+        const csrfToken = getCsrfToken(); // senin fonksiyon
+        if (!csrfToken || !gclid) return;
+
+        fetch('/api/conversion-tracking/actual-call/', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken,
+          },
+          body: JSON.stringify({ gclid: gclid, actually_called: true })
+        }).catch(console.error);
+      }
+      markActualCall(getStoredGclid());
+
       gtag('event', 'conversion', {
         'send_to': 'AW-17150773342/xvxFCKyW6_QaEN6QkPI_',
         'value': 5.0,

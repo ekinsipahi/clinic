@@ -2,6 +2,7 @@ from datetime import datetime
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from .models import Conversion
 from .serializers import ConversionSerializer
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
@@ -9,6 +10,7 @@ from clinic.models import CallMeLead
 from .serializers import CallMeLeadSerializer
 from datetime import datetime
 import pytz
+from .serializers import ConversionActualCallSerializer
 
 
 from openai import OpenAI
@@ -25,6 +27,30 @@ class ConversionTrackingView(APIView):
             serializer.save()
             return Response({"success": True}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ConversionActuallyCalledView(APIView):
+    """
+    Yalnızca gclid ile en güncel kaydı bulur ve actually_called günceller.
+    """
+    def patch(self, request):
+        gclid = request.data.get("gclid")
+        if not gclid:
+            return Response({"error": "gclid gerekli"}, status=status.HTTP_400_BAD_REQUEST)
+
+        instance = (Conversion.objects
+                    .filter(gclid=gclid)
+                    .order_by("-timestamp")
+                    .first())
+        if not instance:
+            return Response({"error": "gclid ile Conversion bulunamadı"}, status=status.HTTP_404_NOT_FOUND)
+
+        ser = ConversionActualCallSerializer(instance, data=request.data, partial=True)
+        if ser.is_valid():
+            ser.save()
+            return Response({"success": True, "id": instance.id}, status=status.HTTP_200_OK)
+        return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 #1 İLK BUNU YAPALIM.
 # Arrival Confirmationda 
@@ -43,11 +69,32 @@ class ConversionTrackingView(APIView):
 # ana sayfada componentler üzerinde ne kadar durduğunu hangi sayfaları saat kaçta değiştiği
 # vs. hepsini koontrol edeceksin.
 
+# GCLID SORUNU GARANTİ ÇÖZÜM
+# kökten gclid sorununa çözüm getirdim twilio ile 30-35 tane numara alıyorsun bunları
+# session based veriyoruz 
+# sonrasında en uzun süre sessiondan haber alınamayanları tekrar gün içerisnde kullanıyoruz geri kalan hepsi 
+# orda kalıyor 
+# telefon conversionları garanti yazılmış olunuyor site üzerinden gelenler bu şekilde.
+
+# DYNAMIC NUMBER INSERTION
+# 30 tane numara alıyorsun twiliodan
+# session based veriyorsun tamam mı eğer baktın arama olmayan sonuncuyu tekrar yeni sessiona veriyorsun
+# twiliodan yani arama varmı yok mu diye kontrol edebiliriz zaten arama olmayan sonuncuyu yeni sessiona atıyorsun
+# sonrasında diyelimki arama geldi
+# admin panel üzerinden bu numara convert oldu diye ogün için işaretliyorsun
+# Customers diye bi yer yapabiliriz bunun için direkt oraya atıyor tamam mı
+# sonrasında o numara zaten kullanıldığı için gün içerisinde tekrar kullanıma açılabilir hale geliyor
+# sonrasında diyelimki arama geldi
+# ama qualifed olamadı tam ozaman beklemeye alıyorsun o numarayı o günlüğüne.
+# eğer o günde qualifed olmuyorsa başka güne geliyorsa converionu onu beklemeye alıyorsun şu numaradan aradı diye
+# customers database kısmında.
 
 # timestamp'lar liste halinde tutulsa eskiden yeniye daha iyi olabilir. 
 # (Yeni bitane oluşturcaksın timestamp_list) diye eskiyi bozmadan
 
+
 # ip adresleride toplayalım bence. ama ipyi backend arka planda ülkesini söylesin bence, SPAM OLASILIKLARI GÖRÜRÜZ
+
 
 # twilio yönlendirme yaparsan ve doğru düzgün bir ai sistemi kurarsan oraya, conversionlar otomatik yazılmaya başlanabilir.
 # ayrıca hasta gerçekten aradı mı aramadı mı onunda kesin garanti takibi yapılmış olur.

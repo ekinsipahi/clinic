@@ -1,8 +1,5 @@
 from django.contrib import admin
 from .models import Conversion
-from .forms import ConversionForm
-from django.utils.timezone import now
-from django.utils.html import format_html
 
 from django.contrib.admin import SimpleListFilter
 from django.utils import timezone
@@ -87,16 +84,15 @@ def export_to_google_sheets(modeladmin, request, queryset):
 
 @admin.register(Conversion)
 class ConversionAdmin(admin.ModelAdmin):
-    form = ConversionForm
     list_display = (
-        'timestamp',
-        'gclid', 'conversion_name', 'conversion_value', 'currency',
-        'is_qualified', 'is_converted', 'phone_number', 'display_client_info'
+        'timestamp', 'actually_called_icon',
+        'conversion_name', 'conversion_value', 'currency',
+        'is_qualified', 'is_converted', 'phone_number', 'display_client_info', 
     )
     list_filter = ('is_converted', 'page', 'currency', TodayFilter, 'is_qualified')
     search_fields = ('gclid', 'phone_number',)
     ordering = ('-timestamp',)
-    readonly_fields = ('timestamp', 'display_client_info', 'gclid', 'page', 'conversion_name', 'currency',)
+    readonly_fields = ('timestamp', 'display_client_info', 'gclid', 'page', 'conversion_name', 'currency', 'actually_called')
     exclude = ('client_info',)
     actions = [export_selected_to_csv, export_to_google_sheets]
 
@@ -107,6 +103,10 @@ class ConversionAdmin(admin.ModelAdmin):
         low_power = obj.client_info.get('low_power_mode', False)
         return f"{device} | Low Power Mode: {'✅' if low_power else '❌'}"
     display_client_info.short_description = "Cihaz Bilgisi"
+    
+    @admin.display(boolean=True, description="Aradı mı?")
+    def actually_called_icon(self, obj):
+        return bool(getattr(obj, "actually_called", False))
 
 
 

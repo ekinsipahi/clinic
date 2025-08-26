@@ -21,7 +21,7 @@ class Conversion(models.Model):
     
     # Additional client info
     client_info = models.JSONField(null=True, blank=True)
-
+    actually_called = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.gclid} - {self.page}"
