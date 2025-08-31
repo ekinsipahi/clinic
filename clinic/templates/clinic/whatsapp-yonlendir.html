@@ -20,6 +20,14 @@
     gtag('config', 'AW-17150773342');
   </script>
 
+
+
+  <script>
+    document.cookie = "csrftoken={{ csrf_token }}; path=/";
+  </script>
+
+  <script src="{% static 'js/ads-tracking-backend.js' %}"></script>
+
   <script>
     function getStoredGclid() {
       return localStorage.getItem('gclid');
@@ -69,12 +77,6 @@
       }, 2500);
     });
   </script>
-
-  <script>
-    document.cookie = "csrftoken={{ csrf_token }}; path=/";
-  </script>
-
-  <script src="{% static 'js/ads-tracking-backend.js' %}"></script>
 
   <style>
     body {

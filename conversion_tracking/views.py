@@ -104,6 +104,8 @@ class ConversionActuallyCalledView(APIView):
 # CONVERSION TAKIBI EN AZINDAN TELEFON ARAMASI YAPTI MI YAPMADIMI ONU DOĞRULAYICI OLUR.
 
 
+# google_sheets_sent ve first_referrer diye alanlarıda koy conversionsa
+
 
 # 404 sayfası eklenecek, indexlenebilir gene schema.org ile search console'a eklencek.
 # dentsoft ile randevu-al kısmı eklendikten sonra
