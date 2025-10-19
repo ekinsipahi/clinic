@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import CallMeLead, ArrivalConfirmation
 from django.utils.timezone import now
 import json
+from django.utils.translation import gettext as _  # <-- EKLENDİ
 
 PEDO_CAMPAIGN_ID = "22663185094"
 
@@ -107,3 +108,18 @@ def onay(request):
 
 def onay_tesekkur(request):
     return render(request, "clinic/onay-tesekkur.html")
+
+
+def page_not_found_view(request, exception=None):
+    """
+    Global 404 handler.
+    - DEBUG=False iken Django bu fonksiyonu çağırır.
+    - App-scope catch-all ile manuel de çağrılabilir.
+    """
+    ctx = {
+        "title": _("Sayfa bulunamadı"),
+        "home_url": "/",
+        "randevu_url": "/randevu-al",
+        "whatsapp_url": "https://wa.me/905055771883?text=Merhaba%2C%20randevu%20almak%20istiyorum.",
+    }
+    return render(request, "clinic/404.html", ctx, status=404)
