@@ -8,7 +8,7 @@ __pycache__/
 *.pot
 *.pyc
 
-
+.venv
 # VSCode
 .vscode/
 
