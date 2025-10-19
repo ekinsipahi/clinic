@@ -1081,12 +1081,15 @@
 
 
 <body class="bg-white text-gray-800">
+  
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTNPC78M" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  {% include 'partials/navbar.html' %}
+  
   <!-- PROMO BUBBLE -->
-  <div id="promo-bubble" class="fixed top-3 inset-x-0 z-[99999] mx-2 sm:mx-auto sm:max-w-xl">
+  <!-- <div id="promo-bubble" class="fixed top-3 inset-x-0 z-[99999] mx-2 sm:mx-auto sm:max-w-xl">
     <div class="relative overflow-hidden rounded-xl shadow-lg ring-1 ring-black/10 bg-white/95 backdrop-blur">
       <div class="relative px-3 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2">
         <div class="shrink-0 h-8 w-8 grid place-items-center rounded-full bg-indigo-600 text-white shadow">🧒</div>
@@ -1106,7 +1109,7 @@
                      hover:bg-gray-100 focus:outline-none">✕</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Hero -->
   <!-- <section class="relative h-screen bg-cover bg-center max-[389px]:h-[120vh]">
@@ -1279,7 +1282,7 @@
   </section> -->
 
   <!-- HERO / PREMIUM GİRİŞ + SLIDER -->
-  <section class="relative h-screen bg-cover bg-center max-[600px]:h-[155vh] overflow-hidden">
+  <section class="relative h-screen bg-cover bg-center max-[600px]:h-[110vh] overflow-hidden">
     <!-- 🎥 Video background -->
     <div id="video-wrapper">
       <video id="hero-video" muted loop autoplay playsinline
@@ -1605,18 +1608,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
   <!-- BURASI ÇOK İYİ -->
   <form method="post" aria-label="İletişim Formu">
@@ -3140,7 +3131,7 @@
 
       </div>
 
-
+  </section>
 
       <!-- Randevu -->
       <!-- <section id="randevu" class="py-16 bg-blue-50 px-4 md:px-20">
@@ -3152,17 +3143,17 @@
 
 
 
-      <!-- Harita -->
-      <div class="mt-8 w-full h-96 shadow-lg rounded-xl overflow-hidden">
+  <!-- Harita -->
+  <div class="mt-8 w-full h-96 shadow-lg rounded-xl overflow-hidden">
         <iframe title="Dr. Dt. Devrim Biriken Sipahi Diş Kliniği Konumu"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.129955534435!2d28.982098085114472!3d41.06615189745108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab763e965bb4b%3A0x13b23dc999f216f8!2sDi%C5%9F%20hekimi%20Devrim%20Biriken%20Sipahi!5e0!3m2!1sen!2us!4v1749301527909!5m2!1sen!2us"
           width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
-      </div>
+  </div>
 
-      <!-- Sohbet Kutusu -->
-      <div>
+  <!-- Sohbet Kutusu -->
+  <div>
         <div id="chatbox-alert"
           class="fixed bottom-20 left-1 bg-blue-600 text-white text-sm px-4 py-2 rounded-full shadow-lg animate-bounce z-[9999] cursor-pointer">
           <span>💬 Canlı destek aktif! Tıklayın</span>
@@ -3192,9 +3183,9 @@
           <!-- End of .chatbox__form -->
         </section>
         <!-- End of .chatbox -->
-      </div>
+  </div>
 
-      <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-[9999]">
+  <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-[9999]">
 
 
 
@@ -3232,18 +3223,18 @@
               d="M3.654 1.328a.678.678 0 0 1 .58-.07c.577.192 1.41.67 2.387 1.646.976.976 1.453 1.81 1.645 2.387a.678.678 0 0 1-.07.58l-1.017 1.528a.678.678 0 0 0 .145.89l2.457 1.966a.678.678 0 0 0 .89-.145l1.528-1.017a.678.678 0 0 1 .58-.07c.577.192 1.41.67 2.387 1.646.976.976 1.453 1.81 1.645 2.387a.678.678 0 0 1-.07.58c-.548.927-1.636 2.184-3.458 3.459C9.258 18.2 5.376 16.775 2.827 14.227 0.278 11.678-1.147 7.796 1.094 4.342c1.275-1.822 2.532-2.91 3.46-3.458z" />
           </svg>
         </a>
-      </div>
+  </div>
 
 
 
-      <!-- Footer -->
-      <footer class="py-6 text-center text-gray-600 mb-32 mt-32">
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-600 mb-32 mt-32">
         © 2025 Dr. Dt. Devrim Biriken Sipahi | Merkez, Abide-i Hürriyet Cd No:148 D:11 kat 4, 34360 Şişli/İstanbul<br>
         <a href="/kvkk" class="underline hover:text-gray-800 transition">KVKK Aydınlatma Metni’ne buradan
           erişebilirsiniz.</a>
-      </footer>
+  </footer>
 
-      <script src="{% static 'js/before-after.js' %}"></script>
-      <script src="{% static 'js/chatbox.js' %}"></script>
+  <script src="{% static 'js/before-after.js' %}"></script>
+  <script src="{% static 'js/chatbox.js' %}"></script>
 
 </html>

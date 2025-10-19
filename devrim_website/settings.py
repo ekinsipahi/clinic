@@ -32,6 +32,11 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
 ]
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 
 
 # Application definition
@@ -46,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Custom apps
     "clinic",
+    "blog",
     
     # Rest Framework Based
     "conversion_tracking"
@@ -67,7 +73,7 @@ ROOT_URLCONF = "devrim_website.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [ BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

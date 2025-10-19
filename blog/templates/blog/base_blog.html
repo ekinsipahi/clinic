@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+  <title>{% block title %}{% block blog_title %}Blog{% endblock blog_title %}{% endblock title %}</title>
+  <meta name="description" content="{% block meta_description %}{% block blog_description %}Kanal tedavisi, dolgu, implant ve estetik diş hekimliği hakkında güncel rehber yazıları.{% endblock blog_description %}{% endblock meta_description %}">
+  {% block canonical %}{% block blog_canonical %}<link rel="canonical" href="https://www.devrimbirikensipahi.com.tr/blog/">{% endblock blog_canonical %}{% endblock canonical %}
+
+  {# Open Graph / Twitter defaults (sayfa özelinde override edebilirsin) #}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dr. Dt. Devrim Biriken Sipahi">
+  <meta property="og:title" content="{% block og_title %}{% block og_title_fallback %}Blog{% endblock og_title_fallback %}{% endblock og_title %}">
+  <meta property="og:description" content="{% block og_description %}{% block og_desc_fallback %}Diş tedavileri ve ipuçları.{% endblock og_desc_fallback %}{% endblock og_description %}">
+  <meta property="og:url" content="{% block og_url %}https://www.devrimbirikensipahi.com.tr/blog/{% endblock og_url %}">
+  {% block og_image %}{% comment %}Detayda post cover ile override et{% endcomment %}{% endblock og_image %}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}Blog{% endblock twitter_title %}">
+  <meta name="twitter:description" content="{% block twitter_description %}Diş tedavileri ve ipuçları.{% endblock twitter_description %}">
+  {% block twitter_image %}{% endblock twitter_image %}
+
+  {# Tailwind #}
+  <script async onload="document.documentElement.classList.add('tailwind-loaded')" src="https://cdn.tailwindcss.com"></script>
+
+  {# JSON-LD: Website + CollectionPage (Blog) #}
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Dr. Dt. Devrim Biriken Sipahi",
+    "url":"https://www.devrimbirikensipahi.com.tr/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://www.devrimbirikensipahi.com.tr/blog/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Blog",
+    "url":"https://www.devrimbirikensipahi.com.tr/blog/",
+    "about":{"@type":"MedicalSpecialty","name":"Dentistry"},
+    "isPartOf":{"@type":"WebSite","url":"https://www.devrimbirikensipahi.com.tr/"}
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7595979990993512"
+     crossorigin="anonymous"></script>
+
+  {% block extra_head %}{% endblock extra_head %}
+</head>
+<body class="bg-zinc-50 text-zinc-900">
+  {# Üst menü #}
+  {% include "partials/navbar.html" %}
+
+  {# Spacer: fixed header yüksekliği (header’ında ~72px kullanıyorduk) #}
+  <div class="h-[72px]"></div>
+
+  {# İçerik #}
+  <main id="main" class="relative">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+      {% block blog_content %}{% endblock blog_content %}
+    </div>
+  </main>
+
+  {% block extra_body %}{% endblock extra_body %}
+</body>
+</html>

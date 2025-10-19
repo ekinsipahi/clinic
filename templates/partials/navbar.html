@@ -1,0 +1,183 @@
+{% load static %}
+<header x-data="{ open:false, scrolled:false }"
+    :class="{'shadow-lg': scrolled}"
+    class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <!-- Arka plan -->
+    <div
+        class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-transparent"></div>
+
+    <nav class="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <!-- Floating glass bar -->
+        <div class="mt-3">
+            <div class="relative">
+                <div
+                    class="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-emerald-400/50 via-teal-300/40 to-indigo-400/50 blur-[6px] opacity-50"></div>
+
+                <div
+                    class="relative flex h-14 items-center justify-between rounded-2xl border border-white/10 bg-zinc-900/70 backdrop-blur-xl px-3 sm:px-5">
+                    <!-- Brand -->
+                    <a href="/"
+                        class="group relative flex items-center gap-2 text-white">
+                        <img src="{% static 'images/favicon.ico' %}" alt="Logo"
+                            class="h-7 w-7 rounded-lg ring-1 ring-white/10">
+                        <span class="font-semibold tracking-tight">
+                            Dr. Devrim <span
+                                class="font-normal text-white/70">Klinik</span>
+                        </span>
+                        <span
+                            class="absolute -bottom-2 left-0 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+
+                    <!-- Desktop -->
+                    <div class="hidden md:flex items-center gap-4">
+                        <a href="/blog"
+                            class="relative inline-flex items-center px-3 py-1.5 text-sm font-medium text-white/90
+                      rounded-lg transition-all duration-200 cursor-pointer
+                      hover:text-white hover:bg-white/10 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-emerald-300">
+                            Blog
+                        </a>
+
+                        <a
+                            href="https://wa.me/905055771883?text=Merhaba%2C%20randevu%20almak%20istiyorum."
+                            class="group relative inline-flex items-center gap-2 rounded-full">
+                            <span
+                                class="absolute -inset-[1px] rounded-full bg-gradient-to-r from-emerald-400 to-indigo-500 opacity-90 blur-[3px] transition-opacity duration-200 group-hover:opacity-100"></span>
+                            <span
+                                class="relative inline-flex items-center gap-2 rounded-full bg-zinc-900 px-4 py-2 text-sm font-semibold text-white">
+                                <svg class="h-4 w-4" viewBox="0 0 24 24"
+                                    fill="currentColor" aria-hidden="true"><path
+                                        d="M19.05 4.91A9.93 9.93 0 0012.06 2C6.5 2 2 6.5 2 12.06c0 1.77.46 3.44 1.27 4.9L2 22l5.2-1.27a9.98 9.98 0 004.85 1.24h.01c5.56 0 10.06-4.5 10.06-10.06 0-2.68-1.04-5.2-2.94-7zm-7 15.65h-.01a8.35 8.35 0 01-4.26-1.16l-.31-.18-3.08.75.82-3-.2-.32a8.36 8.36 0 01-1.27-4.4c0-4.63 3.77-8.39 8.4-8.39 2.24 0 4.34.87 5.92 2.45a8.32 8.32 0 012.46 5.93c0 4.63-3.77 8.39-8.47 8.39zm4.78-6.28c-.26-.13-1.53-.75-1.77-.83-.24-.09-.42-.13-.6.13-.18.26-.69.83-.85 1.01-.16.18-.31.2-.57.07-.26-.13-1.12-.41-2.13-1.31-.79-.7-1.32-1.56-1.48-1.82-.16-.26-.02-.41.11-.54.12-.12.26-.31.39-.46.13-.16.18-.26.26-.44.08-.18.04-.33-.02-.46-.06-.13-.6-1.44-.82-1.98-.22-.53-.44-.46-.6-.46h-.51c-.18 0-.46.07-.69.33-.24.26-.9.88-.9 2.14 0 1.26.92 2.48 1.05 2.65.13.18 1.81 2.76 4.4 3.87.62.27 1.1.43 1.48.55.62.2 1.18.17 1.62.1.5-.08 1.53-.62 1.75-1.22.22-.6.22-1.12.15-1.22-.06-.1-.24-.16-.5-.29z" /></svg>
+                                WhatsApp
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile: belirgin menü butonu -->
+                    <div class="flex md:hidden items-center">
+                        <button @click="open = true"
+                            class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-3 py-2
+                           text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                            aria-label="Menüyü aç" aria-haspopup="dialog"
+                            :aria-expanded="open">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24"
+                                fill="currentColor" aria-hidden="true"> <path
+                                    d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
+                            </svg> <span class="text-sm">Menü</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile drawer -->
+        <div x-cloak x-show="open" @keydown.escape.window="open=false"
+            class="md:hidden fixed inset-0 z-[60]" aria-modal="true"
+            role="dialog">
+            <!-- backdrop -->
+            <div @click="open=false"
+                class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+
+            <!-- panel -->
+            <div x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="translate-x-full opacity-0"
+                x-transition:enter-end="translate-x-0 opacity-100"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="translate-x-0 opacity-100"
+                x-transition:leave-end="translate-x-full opacity-0"
+                class="absolute right-0 top-0 h-full w-[86%] max-w-[360px] bg-zinc-950 text-white shadow-2xl border-l border-white/10 flex flex-col">
+
+                <!-- sticky header -->
+                <div
+                    class="sticky top-0 z-10 flex items-center justify-between px-5 h-16 bg-zinc-950/95 backdrop-blur">
+                    <span class="font-semibold tracking-tight">Menü</span>
+                    <button @click="open=false"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                        aria-label="Menüyü kapat" autofocus>
+                        <svg class="h-5 w-5" viewBox="0 0 24 24"
+                            fill="currentColor" aria-hidden="true"> <path
+                                d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
+                        </svg> </button>
+                </div>
+
+                <!-- scrollable content -->
+                <div class="min-h-0 flex-1 overflow-y-auto px-4 pb-4">
+                    <!-- Üst WhatsApp CTA -->
+                    <a
+                        href="/whatsapp-yonlendirme"
+                        class="group relative flex items-center justify-center gap-2 rounded-2xl mb-4">
+                        <span
+                            class="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-emerald-400 to-indigo-500 opacity-90 blur-[3px] transition-opacity duration-200 group-hover:opacity-100"></span>
+                        <span
+                            class="relative inline-flex items-center gap-2 rounded-2xl bg-zinc-900 px-5 py-3 text-base font-semibold">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M19.05 4.91A9.93 9.93 0 0012.06 2C6.5 2 2 6.5 2 12.06c0 1.77.46 3.44 1.27 4.9L2 22l5.2-1.27a9.98 9.98 0 004.85 1.24h.01c5.56 0 10.06-4.5 10.06-10.06 0-2.68-1.04-5.2-2.94-7z" /></svg>
+                            WhatsApp
+                        </span>
+                    </a>
+
+                    <!-- Menü listesi -->
+                    <nav class="space-y-2">
+                        <!-- Blog item -->
+                        <a href="/blog"
+                            class="group block rounded-xl border border-white/10 bg-zinc-900/60 px-4 py-3
+                      hover:bg-zinc-800 transition-colors">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10">
+                                        <!-- book icon -->
+                                        <svg class="h-5 w-5 text-white"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"><path
+                                                d="M6 4a2 2 0 00-2 2v12a2 2 0 002 2h12v-2H6V6h12V4H6zm4 4h6v2h-6V8zm0 4h6v2h-6v-2z" /></svg>
+                                    </div>
+                                    <div>
+                                        <div
+                                            class="text-base font-medium">Blog</div>
+                                        <div
+                                            class="text-sm text-white/60">Tedaviler,
+                                            ipuçları, sık sorulanlar</div>
+                                    </div>
+                                </div>
+                                <svg
+                                    class="h-5 w-5 text-white/50 group-hover:text-white/80 transition-colors"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"><path
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" /></svg>
+                            </div>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- bottom WhatsApp CTA -->
+                <div class="px-4 pb-6">
+                    <a
+                        href="/whatsapp-yonlendirme"
+                        class="group relative flex items-center justify-center gap-2 rounded-full">
+                        <span
+                            class="absolute -inset-[1px] rounded-full bg-gradient-to-r from-emerald-400 to-indigo-500 opacity-90 blur-[3px] transition-opacity duration-200 group-hover:opacity-100"></span>
+                        <span
+                            class="relative inline-flex items-center gap-2 rounded-full bg-zinc-900 px-5 py-3 text-sm font-semibold text-white">
+                            WhatsApp
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Alpine (scroll için) -->
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script>
+  document.addEventListener('alpine:init', () => {
+    const onScroll = () => {
+      const el = document.querySelector('header[x-data]');
+      if (!el) return;
+      el.__x.$data.scrolled = window.scrollY > 2;
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  });
+</script>

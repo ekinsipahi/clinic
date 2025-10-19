@@ -1,0 +1,105 @@
+{% extends "blog/base_blog.html" %}
+{% load static %}
+
+{% block blog_title %}{{ post.meta_title|default:post.title }}{% endblock %}
+{% block blog_description %}{{ post.meta_description|default:post.excerpt|default:post.title }}{% endblock %}
+{% block blog_canonical %}
+  <link rel="canonical" href="{{ post.canonical_url|default:'https://www.devrimbirikensipahi.com.tr'|add:post.get_absolute_url }}">
+{% endblock %}
+
+{% block blog_content %}
+  <!-- Prev/Next üst bar -->
+  <div class="mb-4 flex items-center justify-between gap-2">
+    <div>
+      {% if prev_post %}
+        <a href="{{ prev_post.get_absolute_url }}" class="text-sm text-emerald-700 hover:underline">← Önceki: {{ prev_post.title|truncatechars:40 }}</a>
+      {% endif %}
+    </div>
+    <div>
+      {% if next_post %}
+        <a href="{{ next_post.get_absolute_url }}" class="text-sm text-emerald-700 hover:underline">Sonraki: {{ next_post.title|truncatechars:40 }} →</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <article>
+    <header class="mb-6">
+      <h1 class="text-2xl md:text-3xl font-bold text-zinc-900">{{ post.title }}</h1>
+      <div class="mt-2 text-sm text-zinc-500 flex items-center gap-3">
+        {% if post.category %}<a href="{{ post.category.get_absolute_url }}" class="hover:underline">{{ post.category.name }}</a>·{% endif %}
+        <time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"d M Y" }}</time>·
+        <span>{{ post.reading_time_minutes }} dk okuma</span>
+      </div>
+
+{# --- HERO GÖRSEL (wide poster + lazy) --- #}
+{% if post.hero_src %}
+  <figure class="mt-5 relative w-full overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100">
+    <div class="w-full aspect-[21/9] md:aspect-[21/7] lg:aspect-[21/6]">
+      <img
+        src="{{ post.hero_src }}"
+        alt="{{ post.title }}"
+        class="w-full h-full object-cover object-center"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+        width="1600" height="700">
+    </div>
+  </figure>
+{% endif %}
+    </header>
+
+    <div class="prose prose-zinc max-w-none">
+      {{ content_html|safe }}
+    </div>
+
+    {% if post.faqs.all %}
+      <section class="mt-10">
+        <h2 class="text-xl font-semibold text-zinc-900 mb-3">Sık Sorulan Sorular</h2>
+        <div class="space-y-4">
+          {% for f in post.faqs.all %}
+            <div class="rounded-xl border border-zinc-200 p-4 bg-white">
+              <h3 class="font-medium text-zinc-900">{{ f.question }}</h3>
+              <div class="mt-2 prose prose-zinc max-w-none">{{ f.answer_html|safe }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </article>
+
+  {# ---------------- JSON-LD: BlogPosting ---------------- #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ post.title|escapejs }}",
+    "datePublished": "{{ post.published_at|date:'c' }}",
+    "dateModified": "{{ post.updated_at|date:'c' }}",
+    {% if hero_abs_url %}"image": ["{{ hero_abs_url|escapejs }}"],{% endif %}
+    "author": {"@type": "Person", "name": "{{ post.author|default_if_none:'Klinik'|escapejs }}"},
+    "publisher": {"@type": "Organization", "name": "Dr. Dt. Devrim Biriken Sipahi"},
+    {% if post.category %}"articleSection": "{{ post.category.name|escapejs }}",{% endif %}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.devrimbirikensipahi.com.tr{{ post.get_absolute_url }}"},
+    "description": "{{ post.meta_description|default:post.excerpt|default:post.title|escapejs }}"
+  }
+  </script>
+
+  {% if post.faqs.all %}
+  {# ---------------- JSON-LD: FAQPage ---------------- #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for f in post.faqs.all %}
+      {
+        "@type": "Question",
+        "name": "{{ f.question|escapejs }}",
+        "acceptedAnswer": { "@type": "Answer", "text": "{{ f.answer_html|escapejs }}" }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+{% endblock %}
