@@ -11,7 +11,7 @@
   {% block canonical %}{% block blog_canonical %}<link rel="canonical" href="https://www.devrimbirikensipahi.com.tr/blog/">{% endblock blog_canonical %}{% endblock canonical %}
 
   {# Open Graph / Twitter defaults (sayfa özelinde override edebilirsin) #}
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{% block og_type %}website{% endblock og_type %}">
   <meta property="og:site_name" content="Dr. Dt. Devrim Biriken Sipahi">
   <meta property="og:title" content="{% block og_title %}{% block og_title_fallback %}Blog{% endblock og_title_fallback %}{% endblock og_title %}">
   <meta property="og:description" content="{% block og_description %}{% block og_desc_fallback %}Diş tedavileri ve ipuçları.{% endblock og_desc_fallback %}{% endblock og_description %}">
@@ -25,8 +25,6 @@
 
   {# Tailwind #}
   <script async onload="document.documentElement.classList.add('tailwind-loaded')" src="https://cdn.tailwindcss.com"></script>
-
-  {# JSON-LD: Website + CollectionPage (Blog) #}
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -40,6 +38,9 @@
     }
   }
   </script>
+  {% block json_ld %}
+  {# JSON-LD: Website + CollectionPage (Blog) #}
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -50,6 +51,7 @@
     "isPartOf":{"@type":"WebSite","url":"https://www.devrimbirikensipahi.com.tr/"}
   }
   </script>
+  {% endblock json_ld %}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7595979990993512"
      crossorigin="anonymous"></script>
 

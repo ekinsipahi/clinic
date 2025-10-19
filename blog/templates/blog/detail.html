@@ -1,11 +1,40 @@
 {% extends "blog/base_blog.html" %}
 {% load static %}
 
+{# ---- Title / Description / Canonical ---- #}
 {% block blog_title %}{{ post.meta_title|default:post.title }}{% endblock %}
 {% block blog_description %}{{ post.meta_description|default:post.excerpt|default:post.title }}{% endblock %}
 {% block blog_canonical %}
   <link rel="canonical" href="{{ post.canonical_url|default:'https://www.devrimbirikensipahi.com.tr'|add:post.get_absolute_url }}">
 {% endblock %}
+
+{# ---- Open Graph (Article) ---- #}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ post.meta_title|default:post.title }}{% endblock %}
+{% block og_description %}{{ post.meta_description|default:post.excerpt|default:post.title }}{% endblock %}
+{% block og_url %}https://www.devrimbirikensipahi.com.tr{{ post.get_absolute_url }}{% endblock %}
+{% block og_image %}
+  {% if post.og_image_abs_url %}
+    <meta property="og:image" content="{{ post.og_image_abs_url }}">
+  {% elif hero_abs_url %}
+    <meta property="og:image" content="{{ hero_abs_url }}">
+  {% endif %}
+{% endblock %}
+
+{# ---- Twitter (summary_large_image) ---- #}
+{% block twitter_title %}{{ post.meta_title|default:post.title }}{% endblock %}
+{% block twitter_description %}{{ post.meta_description|default:post.excerpt|default:post.title }}{% endblock %}
+{% block twitter_image %}
+  {% if post.og_image_abs_url %}
+    <meta name="twitter:image" content="{{ post.og_image_abs_url }}">
+  {% elif hero_abs_url %}
+    <meta name="twitter:image" content="{{ hero_abs_url }}">
+  {% endif %}
+{% endblock %}
+{% block json_ld %}
+{% endblock json_ld %}
+
+{# ---- İçerik ---- #}
 
 {% block blog_content %}
   <!-- Prev/Next üst bar -->
