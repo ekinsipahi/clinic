@@ -1,5 +1,20 @@
 from django.urls import path, re_path
 from . import views
+from django.views.generic import TemplateView
+
+from django.contrib import admin
+from django.urls import path, include
+
+
+from django.contrib.sitemaps.views import sitemap as django_sitemap
+
+from clinic.sitemaps import AutoURLSitemap, CategorySitemap, PostSitemap
+
+sitemaps = {
+    "static-auto": AutoURLSitemap,     # parametresiz named URL’ler
+    "blog-categories": CategorySitemap,
+    "blog-posts": PostSitemap,
+}
 
 
 urlpatterns = [
@@ -17,12 +32,11 @@ urlpatterns = [
     path('onay-tesekkur/', views.onay_tesekkur, name='onay-tesekkur'),
 ]
 
-from django.views.generic import TemplateView
 
 urlpatterns += [
     path('robots.txt', TemplateView.as_view(template_name="clinic/robots.txt", content_type="text/plain")),
     path('llms.txt', TemplateView.as_view(template_name="clinic/llms.txt", content_type="text/plain")),
-    path('sitemap.xml', TemplateView.as_view(template_name="clinic/sitemap.xml", content_type="application/xml")),
+    path("sitemap.xml", django_sitemap, {"sitemaps": sitemaps}, name="django-sitemap"),
 ]
 
 
