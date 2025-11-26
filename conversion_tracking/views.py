@@ -16,8 +16,8 @@ from .serializers import ConversionActualCallSerializer
 from openai import OpenAI
 
 client = OpenAI(
-  api_key="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"
-)
+  api_key="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"
+  )
 
 
 class ConversionTrackingView(APIView):
