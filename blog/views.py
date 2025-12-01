@@ -10,7 +10,6 @@ MD_EXT = ["fenced_code", "tables", "toc", "codehilite"]
 class PostListView(ListView):
     model = Post
     queryset = (Post.published.select_related("category").order_by("-published_at"))
-    paginate_by = 12
     template_name = "blog/blog_index.html"
     context_object_name = "posts"
 
