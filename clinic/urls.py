@@ -27,6 +27,7 @@ urlpatterns = [
     path('kvkk/', views.kvkk, name="kvkk-bilgilendirme"),
     path('tesekkur/', views.tesekkurler, name='tesekkurler'),
     
+    path('sisli-dis-hekimi/', views.sisli_dis_hekimi, name='sisli-dis-hekimi'),
     # yeni:
     path('onay/', views.onay, name='onay'),
     path('onay-tesekkur/', views.onay_tesekkur, name='onay-tesekkur'),

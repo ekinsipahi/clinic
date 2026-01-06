@@ -48,6 +48,9 @@ def homepage(request):
     return render(request, "clinic/index.html", ctx)
 
 
+def sisli_dis_hekimi(request):
+    return render(request, "clinic/sisli-dis-hekimi.html")
+
 def randevu_al(request):
     return render(request, "clinic/randevu-al.html")
 
