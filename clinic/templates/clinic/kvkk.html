@@ -1,10 +1,11 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kvkk Bilgilendirme</title>
+    <title>{% trans "Kvkk Bilgilendirme" %}</title>
     <style>
         body {
             font-family: sans-serif;
@@ -28,113 +29,110 @@
 
 <body>
 
-    <a class="back-button" href="/">← Ana Sayfaya Dön</a>
+    <a class="back-button" href="/">{% trans "← Ana Sayfaya Dön" %}</a>
 
     <p>
-        KİŞİSEL VERİLERİN KORUNMASI HAKKINDA AYDINLATMA METNİ<br>
-        1. Veri Sorumlusu<br>
+        {% trans "KİŞİSEL VERİLERİN KORUNMASI HAKKINDA AYDINLATMA METNİ" %}<br>
+        {% trans "1. Veri Sorumlusu" %}<br>
 <br><br>
-        İşbu internet sitesi üzerinden toplanan kişisel veriler, veri sorumlusu sıfatıyla Dr. Dt. Devrim Biriken Sipahi<br>
-        tarafından 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ve ilgili mevzuat kapsamında işlenmektedir.<br>
+        {% trans "İşbu internet sitesi üzerinden toplanan kişisel veriler, veri sorumlusu sıfatıyla Dr. Dt. Devrim Biriken Sipahi" %}<br>
+        {% trans "tarafından 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve ilgili mevzuat kapsamında işlenmektedir." %}<br>
 <br><br>
-        2. İşlenen Kişisel Veriler<br>
+        {% trans "2. İşlenen Kişisel Veriler" %}<br>
 <br>
-        Sitemiz üzerinden sunulan hizmetlere bağlı olarak, tarafınızca iletilen aşağıdaki kişisel veriler işlenmektedir:<br>
+        {% trans "Sitemiz üzerinden sunulan hizmetlere bağlı olarak, tarafınızca iletilen aşağıdaki kişisel veriler işlenmektedir:" %}<br>
 <br>
-        Ad ve soyad<br>
+        {% trans "Ad ve soyad" %}<br>
 
-        Telefon numarası<br>
+        {% trans "Telefon numarası" %}<br>
 
-        Tercih edilen randevu tarihi<br>
+        {% trans "Tercih edilen randevu tarihi" %}<br>
 
-        GCLID (Google reklam etkileşim ID’si)<br>
+        {% trans "GCLID (Google reklam etkileşim ID'si)" %}<br>
 
-        Cihaz türü (iOS/macOS/Android/Windows)<br>
+        {% trans "Cihaz türü (iOS/macOS/Android/Windows)" %}<br>
 
-        Pil durumu (Low Power Mode açık/kapalı)<br>
+        {% trans "Pil durumu (Low Power Mode açık/kapalı)" %}<br>
 
-        Çerezler ve pazarlama etiketleri (Meta Pixel, Google Analytics, Tag Manager)<br>
+        {% trans "Çerezler ve pazarlama etiketleri (Meta Pixel, Google Analytics, Tag Manager)" %}<br>
 <br><br>
-        3. Kişisel Verilerin İşlenme Amaçları<br>
+        {% trans "3. Kişisel Verilerin İşlenme Amaçları" %}<br>
 
-        Toplanan kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:<br>
+        {% trans "Toplanan kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:" %}<br>
 <br>
-        Randevu taleplerinin işlenmesi ve tarafınıza geri dönüş sağlanması<br>
+        {% trans "Randevu taleplerinin işlenmesi ve tarafınıza geri dönüş sağlanması" %}<br>
 
-        Geri arama (“Sizi Arayalım”) taleplerinin değerlendirilmesi<br>
+        {% trans "Geri arama ("Sizi Arayalım") taleplerinin değerlendirilmesi" %}<br>
 
-        Google Ads ve diğer reklam kampanyalarının performansının ölçülmesi<br>
+        {% trans "Google Ads ve diğer reklam kampanyalarının performansının ölçülmesi" %}<br>
 
-        Klinik hizmetlerinin sunulması ve iyileştirilmesi<br>
+        {% trans "Klinik hizmetlerinin sunulması ve iyileştirilmesi" %}<br>
 
-        İlgili pazarlama analizlerinin yapılması<br>
+        {% trans "İlgili pazarlama analizlerinin yapılması" %}<br>
 
-        Yasal yükümlülüklerin yerine getirilmesi<br>
+        {% trans "Yasal yükümlülüklerin yerine getirilmesi" %}<br>
 
-        4. Hukuki Sebep ve Toplama Yöntemi<br><br>
+        {% trans "4. Hukuki Sebep ve Toplama Yöntemi" %}<br><br>
 
-        Verileriniz, KVKK’nın 5. ve 6. maddelerinde belirtilen;<br>
+        {% trans "Verileriniz, KVKK'nın 5. ve 6. maddelerinde belirtilen;" %}<br>
 
-        Açık rıza (siteyi kullanmaya devam ederek verilmiş sayılır),<br>
+        {% trans "Açık rıza (siteyi kullanmaya devam ederek verilmiş sayılır)," %}<br>
 
-        Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma,<br>
+        {% trans "Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma," %}<br>
 
-        Veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi,<br>
+        {% trans "Veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi," %}<br>
 
-        İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru menfaatin varlığı<br>
+        {% trans "İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru menfaatin varlığı" %}<br>
 
-        hukuki sebeplerine dayanarak, otomatik yollarla (form doldurulması, çerezler, tarayıcı verileri) elde edilir.<br>
+        {% trans "hukuki sebeplerine dayanarak, otomatik yollarla (form doldurulması, çerezler, tarayıcı verileri) elde edilir." %}<br>
 
-        5. Kişisel Verilerin Aktarımı<br><br>
+        {% trans "5. Kişisel Verilerin Aktarımı" %}<br><br>
 
-        Verileriniz, yalnızca aşağıdaki koşullarda ve amaçlarla sınırlı olmak üzere aktarılabilir:<br>
+        {% trans "Verileriniz, yalnızca aşağıdaki koşullarda ve amaçlarla sınırlı olmak üzere aktarılabilir:" %}<br>
 
-        Yetkili kamu kurumlarıyla yasal yükümlülüklerin yerine getirilmesi amacıyla<br>
+        {% trans "Yetkili kamu kurumlarıyla yasal yükümlülüklerin yerine getirilmesi amacıyla" %}<br>
 
-        Dentsoft sistemine, yalnızca randevu takibi ve hasta iletişimi için<br>
+        {% trans "Dentsoft sistemine, yalnızca randevu takibi ve hasta iletişimi için" %}<br>
 
-        Google ve Meta gibi yurtdışı merkezli reklam sistemlerine, kampanya optimizasyonu ve izleme amacıyla<br>
+        {% trans "Google ve Meta gibi yurtdışı merkezli reklam sistemlerine, kampanya optimizasyonu ve izleme amacıyla" %}<br>
 
-        Bu aktarımlar, KVKK’nın 9. maddesi uyarınca yeterli korumaya sahip ülkeler ile sınırlıdır.<br>
+        {% trans "Bu aktarımlar, KVKK'nın 9. maddesi uyarınca yeterli korumaya sahip ülkeler ile sınırlıdır." %}<br>
 
-        6. Verilerin Saklama Süresi<br><br>
+        {% trans "6. Verilerin Saklama Süresi" %}<br><br>
 
-        Kişisel verileriniz, işleme amacının sona ermesi veya ilgili mevzuatta öngörülen sürelerin dolması halinde<br>
-        silinir,<br>
-        yok edilir veya anonim hale getirilir. Klinik bünyesinde alınan randevu ve iletişim talepleri en fazla 2 yıl<br>
-        süreyle
-        saklanır.
+        {% trans "Kişisel verileriniz, işleme amacının sona ermesi veya ilgili mevzuatta öngörülen sürelerin dolması halinde" %}<br>
+        {% trans "silinir," %}<br>
+        {% trans "yok edilir veya anonim hale getirilir. Klinik bünyesinde alınan randevu ve iletişim talepleri en fazla 2 yıl" %}<br>
+        {% trans "süreyle saklanır." %}
 
-        7. Haklarınız<br><br>
+        {% trans "7. Haklarınız" %}<br><br>
 
-        KVKK’nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:<br>
+        {% trans "KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:" %}<br>
 
-        Kişisel verilerinizin işlenip işlenmediğini öğrenme<br>
+        {% trans "Kişisel verilerinizin işlenip işlenmediğini öğrenme" %}<br>
 
-        İşlenmişse bilgi talep etme<br>
+        {% trans "İşlenmişse bilgi talep etme" %}<br>
 
-        İşlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme<br>
+        {% trans "İşlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme" %}<br>
 
-        Yurt içi/yurt dışı üçüncü kişilere aktarım durumunu öğrenme<br>
+        {% trans "Yurt içi/yurt dışı üçüncü kişilere aktarım durumunu öğrenme" %}<br>
 
-        Eksik/yanlış işlenmiş verilerin düzeltilmesini isteme<br>
+        {% trans "Eksik/yanlış işlenmiş verilerin düzeltilmesini isteme" %}<br>
 
-        İşleme amacı sona erdiğinde verilerin silinmesini/yok edilmesini isteme<br>
+        {% trans "İşleme amacı sona erdiğinde verilerin silinmesini/yok edilmesini isteme" %}<br>
 
-        Otomatik sistemlerle analiz sonucu aleyhinize çıkabilecek duruma itiraz etme<br>
+        {% trans "Otomatik sistemlerle analiz sonucu aleyhinize çıkabilecek duruma itiraz etme" %}<br>
 
-        KVKK’ya aykırı işlem sebebiyle zarara uğramanız hâlinde tazminat talep etme<br>
+        {% trans "KVKK'ya aykırı işlem sebebiyle zarara uğramanız hâlinde tazminat talep etme" %}<br>
 
-        8. İletişim<br><br>
+        {% trans "8. İletişim" %}<br><br>
 
-        KVKK kapsamındaki başvurularınızı, ad-soyad ve telefon bilginizi belirterek aşağıdaki e-posta adresine<br>
-        iletebilirsiniz:<br>
+        {% trans "KVKK kapsamındaki başvurularınızı, ad-soyad ve telefon bilginizi belirterek aşağıdaki e-posta adresine" %}<br>
+        {% trans "iletebilirsiniz:" %}<br>
 <br>
         📩 ekinsipahi8@gmail.com<br>
 <br><br>
-        Bu siteyi kullanmaya devam ederek, yukarıda yer alan Aydınlatma Metni’ni okuduğunuzu, anladığınızı ve
-        kişisel
-        verilerinizin bu çerçevede işlenmesine rıza gösterdiğinizi kabul etmiş sayılırsınız.
+        {% trans "Bu siteyi kullanmaya devam ederek, yukarıda yer alan Aydınlatma Metni'ni okuduğunuzu, anladığınızı ve kişisel verilerinizin bu çerçevede işlenmesine rıza gösterdiğinizi kabul etmiş sayılırsınız." %}
     </p>
 
 </body>

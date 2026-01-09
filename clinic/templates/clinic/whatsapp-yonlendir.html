@@ -1,13 +1,14 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>WhatsApp ile Randevu | Dr. Dt. Devrim Biriken Sipahi</title>
+  <title>{% trans "WhatsApp ile Randevu | Dr. Dt. Devrim Biriken Sipahi" %}</title>
   <meta name="description"
-    content="Dr. Dt. Devrim Biriken Sipahi ile WhatsApp üzerinden hızlıca iletişime geçin. İstanbul Şişli ve çevresinde hizmet veriyoruz.">
+    content="{% trans "Dr. Dt. Devrim Biriken Sipahi ile WhatsApp üzerinden hızlıca iletişime geçin. İstanbul Şişli ve çevresinde hizmet veriyoruz." %}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://devrimbirikensipahi.com.tr/whatsapp-yonlendirme" />
 
@@ -98,13 +99,13 @@
 </head>
 
 <body>
-  <h1 style="color: red;">Şişli Özel Klinik</h1>
-  <h1>Dr. Devrim Biriken Sipahi Kliniği</h1>
-  <h1>WhatsApp ile Randevu Alınıyor...</h1>
-  <p>Birazdan WhatsApp uygulamanız açılacak.</p>
+  <h1 style="color: red;">{% trans "Şişli Özel Klinik" %}</h1>
+  <h1>{% trans "Dr. Devrim Biriken Sipahi Kliniği" %}</h1>
+  <h1>{% trans "WhatsApp ile Randevu Alınıyor..." %}</h1>
+  <p>{% trans "Birazdan WhatsApp uygulamanız açılacak." %}</p>
 
   <a href="https://wa.me/905055771883" target="_blank" rel="noopener noreferrer">
-    WhatsApp'a Git
+    {% trans "WhatsApp'a Git" %}
   </a>
 </body>
 

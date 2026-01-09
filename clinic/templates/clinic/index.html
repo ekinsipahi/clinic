@@ -1,555 +1,554 @@
 {% load static %}
+{% load static i18n %}
+
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="title" content="Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği">
-  <meta property="og:title" content="Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği">
+  <meta name="title" content="{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}">
+  <meta property="og:title" content="{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Dr. Dt. Devrim Biriken Sipahi, Şişli'de implant, estetik lamina ve gülüş tasarımı hizmetleri sunan deneyimli diş hekimi." />
+    content="{% trans 'Dr. Dt. Devrim Biriken Sipahi, Şişlide implant, estetik lamina ve gülüş tasarımı hizmetleri sunan deneyimli diş hekimi.' %}" />
   <meta name="keywords"
-    content="devrim sipahi, devrim biriken sipahi, devrim b sipahi, şişli diş kliniği, implant tedavisi, gülüş tasarımı, estetik diş hekimliği" />
+    content="{% trans 'devrim sipahi, devrim biriken sipahi, devrim b sipahi, şişli diş kliniği, implant tedavisi, gülüş tasarımı, estetik diş hekimliği' %}" />
   <meta name="author" content="Dr. Dt. Devrim Biriken Sipahi" />
   <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 
+  <!-- {% trans 'SEO ICIN GEREKLI CANONICAL TAG' %} -->
+  {% get_current_language as LANGUAGE_CODE %}
+  <link rel="canonical" href="https://www.devrimbirikensipahi.com.tr/{% if LANGUAGE_CODE == 'en' %}en/{% endif %}" />
 
-  <!-- SEO ICIN GEREKLI CANONICAL TAG  -->
-  <link rel="canonical" href="https://www.devrimbirikensipahi.com.tr/" />
+  <title>{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}</title>
 
-  <title>Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği</title>
 
   <!-- FAQ RICH RESULTLAR-->
-  <script type="application/ld+json">
-  {
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Devrim Sipahi Diş kliniğini nerede?",
+      "name": "{% trans 'Devrim Sipahi Diş kliniğini nerede?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kliniğimiz Şişli Merkez’dedir. Adresimiz: Abide-i Hürriyet Caddesi No:148, Kat:4, Daire:11 – İstanbul."
+        "text": "{% trans 'Kliniğimiz Şişli Merkezdedir. Adresimiz: Abide-i Hürriyet Caddesi No:148, Kat:4, Daire:11 – İstanbul.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Devrim Sipahi Diş kliniği hangi saatler arasında açık?",
+      "name": "{% trans 'Devrim Sipahi Diş kliniği hangi saatler arasında açık?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kliniğimiz hafta içi her gün 09:00 - 21:00 saatleri arasında hizmet vermektedir."
+        "text": "{% trans 'Kliniğimiz hafta içi her gün 09:00 - 21:00 saatleri arasında hizmet vermektedir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Hafta sonu açık diş kliniği misiniz?",
+      "name": "{% trans 'Hafta sonu açık diş kliniği misiniz?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, haftanın 7 günü açığız. Pazar dahil hizmet veriyoruz."
+        "text": "{% trans 'Evet, haftanın 7 günü açığız. Pazar dahil hizmet veriyoruz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Randevusuz diş hastası kabul ediliyor mu?",
+      "name": "{% trans 'Randevusuz diş hastası kabul ediliyor mu?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Randevusuz gelebilirsiniz. Sadece öncesinde telefonla arayıp haber vermeniz gerekir."
+        "text": "{% trans 'Randevusuz gelebilirsiniz. Sadece öncesinde telefonla arayıp haber vermeniz gerekir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Diş randevusu nasıl alabilirim?",
+      "name": "{% trans 'Diş randevusu nasıl alabilirim?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Web sitemizden online randevu formu doldurarak, WhatsApp’tan yazarak veya bizi arayarak kolayca randevu alabilirsiniz."
+        "text": "{% trans 'Web sitemizden online randevu formu doldurarak, WhatsApptan yazarak veya bizi arayarak kolayca randevu alabilirsiniz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Telefonla randevu alınır mı?",
+      "name": "{% trans 'Telefonla randevu alınır mı?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, direkt arayarak hemen diş randevusu oluşturabilirsiniz."
+        "text": "{% trans 'Evet, direkt arayarak hemen diş randevusu oluşturabilirsiniz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "WhatsApp’tan diş randevusu alabilir miyim?",
+      "name": "{% trans 'WhatsApptan diş randevusu alabilir miyim?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, WhatsApp’tan hızlıca iletişime geçebilir ve randevu oluşturabilirsiniz."
+        "text": "{% trans 'Evet, WhatsApptan hızlıca iletişime geçebilir ve randevu oluşturabilirsiniz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Devrim Biriken Sipahi Kliniğinde SSK ve Bağkur geçerli mi?",
+      "name": "{% trans 'Devrim Biriken Sipahi Kliniğinde SSK ve Bağkur geçerli mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hayır, kliniğimiz özel bir diş kliniğidir. SSK ve Bağkur ile anlaşmamız bulunmamaktadır."
+        "text": "{% trans 'Hayır, kliniğimiz özel bir diş kliniğidir. SSK ve Bağkur ile anlaşmamız bulunmamaktadır.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Diş tedavisi ücretleri ne kadar?",
+      "name": "{% trans 'Diş tedavisi ücretleri ne kadar?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Diş tedavisi ücretleri, tedavi türüne ve süresine göre değişiklik göstermektedir. Kesin fiyat bilgisi için lütfen kliniğimizle iletişime geçin."
+        "text": "{% trans 'Diş tedavisi ücretleri, tedavi türüne ve süresine göre değişiklik göstermektedir. Kesin fiyat bilgisi için lütfen kliniğimizle iletişime geçin.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+      "name": "{% trans 'Hangi ödeme yöntemlerini kabul ediyorsunuz?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nakit ve kredi kartı ile ödeme kabul ediyoruz."
-      }
-    },
-        {
-      "@type": "Question",
-      "name": "Acil durumlarda müdahale ediyor musunuz?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sabah erken saatlerde bize ulaşırsanız, acil ağrılı vakalara öncelik tanıyoruz."
+        "text": "{% trans 'Nakit ve kredi kartı ile ödeme kabul ediyoruz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Ne tür tedaviler yapılıyor?",
+      "name": "{% trans 'Acil durumlarda müdahale ediyor musunuz?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kanal tedavisi, dolgu, çekim, implant, estetik işlemler ve ortodonti dışında tüm işlemler dahil olacak şekilde genel diş hekimliği hizmeti veriyoruz çocuk ve bebek hastaları dahi kabul ediyoruz. Ama detay için muayene gerekir."
+        "text": "{% trans 'Sabah erken saatlerde bize ulaşırsanız, acil ağrılı vakalara öncelik tanıyoruz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Röntgen çekiyor musunuz?",
+      "name": "{% trans 'Ne tür tedaviler yapılıyor?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, Panoramik röntgen seçeneğimiz mevcuttur."
+        "text": "{% trans 'Kanal tedavisi, dolgu, çekim, implant, estetik işlemler ve ortodonti dışında tüm işlemler dahil olacak şekilde genel diş hekimliği hizmeti veriyoruz çocuk ve bebek hastaları dahi kabul ediyoruz. Ama detay için muayene gerekir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Hijyen konusunda nasıl önlem alıyorsunuz?",
+      "name": "{% trans 'Röntgen çekiyor musunuz?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Her işlem sonrası cihazlar sterilize edilir, zeminler silinir. Sterilizasyona maksimum önem verilen bir kliniktir."
+        "text": "{% trans 'Evet, Panoramik röntgen seçeneğimiz mevcuttur.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Gece başlayan şiddetli diş ağrısına ne yapmalıyım?",
+      "name": "{% trans 'Hijyen konusunda nasıl önlem alıyorsunuz?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Gece ağrısı zonklayıcıysa kanal tedavisi gerekebilir. Sabah erken ulaşarak randevu alabilirsiniz."
+        "text": "{% trans 'Her işlem sonrası cihazlar sterilize edilir, zeminler silinir. Sterilizasyona maksimum önem verilen bir kliniktir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Dişim kırıldı, ne yapmam gerekiyor?",
+      "name": "{% trans 'Gece başlayan şiddetli diş ağrısına ne yapmalıyım?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kırık dişi saklayın, bölgeyi zorlamayın ve hemen kliniğe başvurun."
+        "text": "{% trans 'Gece ağrısı zonklayıcıysa kanal tedavisi gerekebilir. Sabah erken ulaşarak randevu alabilirsiniz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Ağrıyan dişe antibiyotik alsam geçer mi?",
+      "name": "{% trans 'Dişim kırıldı, ne yapmam gerekiyor?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Geçici rahatlatır ama kesin çözüm değildir. Tedavi planı için randevu almanızı öneririz."
+        "text": "{% trans 'Kırık dişi saklayın, bölgeyi zorlamayın ve hemen kliniğe başvurun.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Kanal tedavisi şart mı yoksa dolgu yeterli olur mu?",
+      "name": "{% trans 'Ağrıyan dişe antibiyotik alsam geçer mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sinire ulaşan çürüklerde kanal gerekir. Karar muayene sonrası netleşir."
+        "text": "{% trans 'Geçici rahatlatır ama kesin çözüm değildir. Tedavi planı için randevu almanızı öneririz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Gece zonklayan diş neden olur?",
+      "name": "{% trans 'Kanal tedavisi şart mı yoksa dolgu yeterli olur mu?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bu tip ağrılar genelde iltihaplı dişe işaret eder. Kanal gerekebilir."
+        "text": "{% trans 'Sinire ulaşan çürüklerde kanal gerekir. Karar muayene sonrası netleşir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Soğuk sıcak hassasiyetim var, bu kanal ihtimali mi?",
+      "name": "{% trans 'Gece zonklayan diş neden olur?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sıcak-soğuk hassasiyeti sinir hasarına işaret edebilir. Net bilgi için muayene gerekir."
-      }
-    },
-        {
-      "@type": "Question",
-      "name": "Dişim apse yaptı, şişti. Ne yapmalıyım?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Antibiyotik öncesi dişi değerlendirmek önemlidir. Apse patlamadan kliniğe ulaşmanız gerekir."
+        "text": "{% trans 'Bu tip ağrılar genelde iltihaplı dişe işaret eder. Kanal gerekebilir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Ağrı kesici alıyorum ama geçmiyor, neden?",
+      "name": "{% trans 'Soğuk sıcak hassasiyetim var, bu kanal ihtimali mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Geçmeyen ağrılar genelde kök kaynaklıdır. Kanal veya çekim gerekebilir. Uygun randevu için bize ulaşın."
+        "text": "{% trans 'Sıcak-soğuk hassasiyeti sinir hasarına işaret edebilir. Net bilgi için muayene gerekir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Gece diş ağrısına ne yapmalı?",
+      "name": "{% trans 'Dişim apse yaptı, şişti. Ne yapmalıyım?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ağrıyı baskılamak için ağrı kesici alın ama sabah ilk iş kliniğe ulaşın."
+        "text": "{% trans 'Antibiyotik öncesi dişi değerlendirmek önemlidir. Apse patlamadan kliniğe ulaşmanız gerekir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Dişin üstü açık kaldı, ağrı yapar mı?",
+      "name": "{% trans 'Ağrı kesici alıyorum ama geçmiyor, neden?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, açık kanal enfeksiyona neden olabilir. Hemen müdahale gerekebilir."
+        "text": "{% trans 'Geçmeyen ağrılar genelde kök kaynaklıdır. Kanal veya çekim gerekebilir. Uygun randevu için bize ulaşın.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Çok ağrıyor ama korkuyorum, iğne yapılıyor mu?",
+      "name": "{% trans 'Gece diş ağrısına ne yapmalı?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, işlem öncesi lokal anestezi uygulanır. Hiçbir şey hissetmezsiniz."
+        "text": "{% trans 'Ağrıyı baskılamak için ağrı kesici alın ama sabah ilk iş kliniğe ulaşın.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Ağrılı diş çekilir mi?",
+      "name": "{% trans 'Dişin üstü açık kaldı, ağrı yapar mı?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "İltihap çok ilerlememişse genelde kanal tedavisiyle kurtarılır. Ama gerekirse çekim yapılır. Net karar için muayeneye bekleriz."
+        "text": "{% trans 'Evet, açık kanal enfeksiyona neden olabilir. Hemen müdahale gerekebilir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Diş ağrıyor ama çekmek istemiyorum, başka çözüm var mı?",
+      "name": "{% trans 'Çok ağrıyor ama korkuyorum, iğne yapılıyor mu?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, kanal tedavisiyle dişi kurtarma şansımız yüksek. İlk muayene ücretsizdir"
+        "text": "{% trans 'Evet, işlem öncesi lokal anestezi uygulanır. Hiçbir şey hissetmezsiniz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Kanal tedavisi mi çekim mi daha mantıklı?",
+      "name": "{% trans 'Ağrılı diş çekilir mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Diş kurtarılabiliyorsa kanal tedavisi her zaman daha iyidir. Bize ulaşırsanız sizin için uygun olanı söyleyelim."
+        "text": "{% trans 'İltihap çok ilerlememişse genelde kanal tedavisiyle kurtarılır. Ama gerekirse çekim yapılır. Net karar için muayeneye bekleriz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Ağrılı dişi bekletmek sorun olur mu?",
+      "name": "{% trans 'Diş ağrıyor ama çekmek istemiyorum, başka çözüm var mı?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, iltihap yayılabilir ve şişlik oluşabilir. Geciktirmeyin."
+        "text": "{% trans 'Evet, kanal tedavisiyle dişi kurtarma şansımız yüksek. İlk muayene ücretsizdir' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "İmplant ağrılı bir işlem midir?",
+      "name": "{% trans 'Kanal tedavisi mi çekim mi daha mantıklı?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hayır. Lokal anestezi altında yapıldığı için işlem sırasında ağrı hissedilmez."
-      }
-    },
-        {
-      "@type": "Question",
-      "name": "Tek diş için implant yapılabilir mi?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Evet, sadece bir diş eksikliğinde bile implant uygulanabilir."
+        "text": "{% trans 'Diş kurtarılabiliyorsa kanal tedavisi her zaman daha iyidir. Bize ulaşırsanız sizin için uygun olanı söyleyelim.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "İmplant fiyatları neye göre belirlenir?",
+      "name": "{% trans 'Ağrılı dişi bekletmek sorun olur mu?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kullanılan markaya, eksik diş sayısına ve seçeceğiniz üst yapı (protez) materyalinin durumuna göre değişir."
+        "text": "{% trans 'Evet, iltihap yayılabilir ve şişlik oluşabilir. Geciktirmeyin.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "İmplant sonrası ne zaman yemek yiyebilirim?",
+      "name": "{% trans 'İmplant ağrılı bir işlem midir?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "İlk birkaç gün sıvı gıdalar önerilir. Aynı gün içinde yumuşak gıdalara geçilebilir."
+        "text": "{% trans 'Hayır. Lokal anestezi altında yapıldığı için işlem sırasında ağrı hissedilmez.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Herkese implant uygulanabilir mi?",
+      "name": "{% trans 'Tek diş için implant yapılabilir mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Genellikle evet. Ancak genel sağlık durumu ve kemik yapısı değerlendirilmelidir."
+        "text": "{% trans 'Evet, sadece bir diş eksikliğinde bile implant uygulanabilir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Sigara içenlere implant yapılır mı?",
+      "name": "{% trans 'İmplant fiyatları neye göre belirlenir?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yapılabilir ancak iyileşme sürecini olumsuz etkileyebilir. Başarı oranı düşebilir."
+        "text": "{% trans 'Kullanılan markaya, eksik diş sayısına ve seçeceğiniz üst yapı (protez) materyalinin durumuna göre değişir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "İmplant sonrası şişlik olur mu?",
+      "name": "{% trans 'İmplant sonrası ne zaman yemek yiyebilirim?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hafif şişlik ve morluk olabilir, genellikle birkaç gün içinde, soğuk buz kompresyonları ile geçer."
+        "text": "{% trans 'İlk birkaç gün sıvı gıdalar önerilir. Aynı gün içinde yumuşak gıdalara geçilebilir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "İmplant ameliyat mıdır?",
+      "name": "{% trans 'Herkese implant uygulanabilir mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Evet, küçük bir cerrahi işlemdir ancak konforlu ve hızlı bir uygulamadır."
+        "text": "{% trans 'Genellikle evet. Ancak genel sağlık durumu ve kemik yapısı değerlendirilmelidir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "İmplant düşer mi, vücut reddeder mi?",
+      "name": "{% trans 'Sigara içenlere implant yapılır mı?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Çok nadiren. Doğru uygulama ve kaliteli malzeme ile başarı oranı oldukça yüksektir."
+        "text": "{% trans 'Yapılabilir ancak iyileşme sürecini olumsuz etkileyebilir. Başarı oranı düşebilir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Diş çekildikten sonra hemen implant yapılabilir mi?",
+      "name": "{% trans 'İmplant sonrası şişlik olur mu?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Duruma bağlı olarak evet. Uygun vakalarda aynı seansta implant yerleştirilebilir."
+        "text": "{% trans 'Hafif şişlik ve morluk olabilir, genellikle birkaç gün içinde, soğuk buz kompresyonları ile geçer.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Yaprak diş nedir, kimlere uygulanır? lamina diş nedir, kimlere uygulanır?",
+      "name": "{% trans 'İmplant ameliyat mıdır?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yaprak diş, yani lamina, ön dişlere uygulanan ince porselen tabakalardır. Rengi bozuk, aralıklı veya şekil bozukluğu olan dişlere yapılır."
+        "text": "{% trans 'Evet, küçük bir cerrahi işlemdir ancak konforlu ve hızlı bir uygulamadır.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Zirkonyum kaplama mı, lamina mı daha iyi?",
+      "name": "{% trans 'İmplant düşer mi, vücut reddeder mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dişin durumu ve estetik beklentiye göre değişir. Lamina daha doğaldır, zirkonyum ise daha dayanıklıdır."
+        "text": "{% trans 'Çok nadiren. Doğru uygulama ve kaliteli malzeme ile başarı oranı oldukça yüksektir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Kompozit bonding nedir?",
+      "name": "{% trans 'Diş çekildikten sonra hemen implant yapılabilir mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dişin yüzeyine özel bir estetik dolgu materyali eklenerek şekil, renk ve form düzeltmesi yapılan işlemdir."
+        "text": "{% trans 'Duruma bağlı olarak evet. Uygun vakalarda aynı seansta implant yerleştirilebilir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Diş estetiği için dişim kesilecek mi?",
+      "name": "{% trans 'Yaprak diş nedir, kimlere uygulanır? lamina diş nedir, kimlere uygulanır?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hayır, biz minimal invaziv çalışıyoruz. Dişi mümkün olduğunca koruyarak estetik sağlıyoruz."
+        "text": "{% trans 'Yaprak diş, yani lamina, ön dişlere uygulanan ince porselen tabakalardır. Rengi bozuk, aralıklı veya şekil bozukluğu olan dişlere yapılır.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Lamina işlemi ağrılı mıdır?",
+      "name": "{% trans 'Zirkonyum kaplama mı, lamina mı daha iyi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hayır. İşlem sırasında anestezi uygulanır ve genellikle ağrısızdır."
+        "text": "{% trans 'Dişin durumu ve estetik beklentiye göre değişir. Lamina daha doğaldır, zirkonyum ise daha dayanıklıdır.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Estetik diş işlemleri kaç günde tamamlanır?",
+      "name": "{% trans 'Kompozit bonding nedir?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kompozit bonding genellikle tek seansta biter. Lamina ve zirkonyum işlemleri birkaç gün sürebilir."
+        "text": "{% trans 'Dişin yüzeyine özel bir estetik dolgu materyali eklenerek şekil, renk ve form düzeltmesi yapılan işlemdir.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Kompozit bonding kaç yıl dayanır?",
+      "name": "{% trans 'Diş estetiği için dişim kesilecek mi?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Kullanıma bağlı olarak değişir. Ortalama 5–7 yıl kalıcılığı vardır ama 30 yıl boyunca hiç işlem yaptırmadan kullanan hastalar da vardır."
+        "text": "{% trans 'Hayır, biz minimal invaziv çalışıyoruz. Dişi mümkün olduğunca koruyarak estetik sağlıyoruz.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Lamina diş sararır mı?",
+      "name": "{% trans 'Lamina işlemi ağrılı mıdır?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Porselen lamineler yüzey olarak leke tutmaz. Uzun yıllar boyunca beyazlığını korur. Ancak doğal dişlerde sararma olursa kontrast farkı oluşabilir."
+        "text": "{% trans 'Hayır. İşlem sırasında anestezi uygulanır ve genellikle ağrısızdır.' %}"
       }
     },
     {
       "@type": "Question",
-      "name": "Lamina diş takınca konuşmam değişir mi?",
+      "name": "{% trans 'Estetik diş işlemleri kaç günde tamamlanır?' %}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "İlk birkaç gün alışma süreci olabilir ama sonrasında konuşmanız tamamen normale döner. Dişlerin formu ağız yapınıza özel tasarlanır."
+        "text": "{% trans 'Kompozit bonding genellikle tek seansta biter. Lamina ve zirkonyum işlemleri birkaç gün sürebilir.' %}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{% trans 'Kompozit bonding kaç yıl dayanır?' %}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{% trans 'Kullanıma bağlı olarak değişir. Ortalama 5–7 yıl kalıcılığı vardır ama 30 yıl boyunca hiç işlem yaptırmadan kullanan hastalar da vardır.' %}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{% trans 'Lamina diş sararır mı?' %}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{% trans 'Porselen lamineler yüzey olarak leke tutmaz. Uzun yıllar boyunca beyazlığını korur. Ancak doğal dişlerde sararma olursa kontrast farkı oluşabilir.' %}"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "{% trans 'Lamina diş takınca konuşmam değişir mi?' %}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{% trans 'İlk birkaç gün alışma süreci olabilir ama sonrasında konuşmanız tamamen normale döner. Dişlerin formu ağız yapınıza özel tasarlanır.' %}"
       }
     }
-
-
   ]
 }
-  </script>
+</script>
 
-  <!--Genel rich resultlar-->
-  <script type="application/ld+json">
+<!--Genel rich resultlar-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Dr. Dt. Devrim Biriken Sipahi",
+  "alternateName": [
+    "devrim sipahi",
+    "devrim b sipahi",
+    "devrim biriken sipahi",
+    "dr devrim sipahi",
+    "dt devrim sipahi",
+    "dr dt devrim sipahi",
+    "dr devrim b sipahi",
+    "dt devrim b sipahi",
+    "dr dt devrim b sipahi",
+    "dr devrim biriken sipahi",
+    "dt devrim biriken sipahi"
+  ],
+  "url": "https://www.devrimbirikensipahi.com.tr{% if LANGUAGE_CODE == 'en' %}/en{% endif %}",
+  "telephone": "+905055771883",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Merkez, Abide-i Hürriyet Cd No:148 D:11 kat 4",
+    "addressLocality": "Şişli",
+    "addressRegion": "İstanbul",
+    "postalCode": "34360",
+    "addressCountry": "TR"
+  },
+  "openingHours": "Mo-Su 07:00-21:00",
+  "medicalSpecialty": [
+    "OralRadiology",
+    "CosmeticDentistry",
+    "Implantology",
+    "Endodontics",
+    "GeneralDentistry",
+    "PreventiveDentistry"
+  ],
+  "availableService": [
     {
-      "@context": "https://schema.org",
-      "@type": "MedicalClinic",
-      "name": "Dr. Dt. Devrim Biriken Sipahi",
-      "alternateName": [
-        "devrim sipahi",
-        "devrim b sipahi",
-        "devrim biriken sipahi",
-        "dr devrim sipahi",
-        "dt devrim sipahi",
-        "dr dt devrim sipahi",
-        "dr devrim b sipahi",
-        "dt devrim b sipahi",
-        "dr dt devrim b sipahi",
-        "dr devrim biriken sipahi",
-        "dt devrim biriken sipahi"
-      ],
-      
-      "url": "https://www.devrimbirikensipahi.com.tr",
-      "telephone": "+905055771883",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Merkez, Abide-i Hürriyet Cd No:148 D:11 kat 4",
-        "addressLocality": "Şişli",
-        "addressRegion": "İstanbul",
-        "postalCode": "34360",
-        "addressCountry": "TR"
-      },
-      "openingHours": "Mo-Su 07:00-21:00",
-      "medicalSpecialty": [
-        "OralRadiology",
-        "CosmeticDentistry",
-        "Implantology",
-        "Endodontics",
-        "GeneralDentistry",
-        "PreventiveDentistry"
-      ],
-      "availableService": [
-        {
-          "@type": "MedicalProcedure",
-          "name": "İmplant Tedavisi",
-          "description": "Panoramik görüntüleme ve radyolojik analiz destekli implant uygulamaları."
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Estetik Diş Uygulamaları",
-          "description": "Radyolojik ön analiz ile kişiye özel estetik lamina ve diş tedavisi."
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Gülüş Tasarımı",
-          "description": "3D planlama ve dijital analizle desteklenen gülüş estetiği uygulamaları."
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Kanal Tedavisi",
-          "description": "Ağrısız ve etkili kök kanal tedavileri."
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Diş Taşı Temizliği",
-          "description": "Ultrasonik cihazlarla diş taşı temizliği ve diş eti sağlığı uygulamaları."
-        },
-        {
-          "@type": "MedicalProcedure",
-          "name": "Diş Dolgusu",
-          "description": "Estetik ve dayanıklı kompozit dolgu uygulamaları."
-        }
-      ],
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://www.devrimbirikensipahi.com.tr/randevu-al",
-          "inLanguage": "tr",
-          "actionPlatform": [
-            "https://schema.org/DesktopWebPlatform",
-            "https://schema.org/MobileWebPlatform"
-          ]
-        },
-        "result": {
-          "@type": "Reservation",
-          "name": "Randevu Talebi"
-        }
-      }
+      "@type": "MedicalProcedure",
+      "name": "{% trans 'İmplant Tedavisi' %}",
+      "description": "{% trans 'Panoramik görüntüleme ve radyolojik analiz destekli implant uygulamaları.' %}"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "{% trans 'Estetik Diş Uygulamaları' %}",
+      "description": "{% trans 'Radyolojik ön analiz ile kişiye özel estetik lamina ve diş tedavisi.' %}"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "{% trans 'Gülüş Tasarımı' %}",
+      "description": "{% trans '3D planlama ve dijital analizle desteklenen gülüş estetiği uygulamaları.' %}"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "{% trans 'Kanal Tedavisi' %}",
+      "description": "{% trans 'Ağrısız ve etkili kök kanal tedavileri.' %}"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "{% trans 'Diş Taşı Temizliği' %}",
+      "description": "{% trans 'Ultrasonik cihazlarla diş taşı temizliği ve diş eti sağlığı uygulamaları.' %}"
+    },
+    {
+      "@type": "MedicalProcedure",
+      "name": "{% trans 'Diş Dolgusu' %}",
+      "description": "{% trans 'Estetik ve dayanıklı kompozit dolgu uygulamaları.' %}"
     }
-  </script>
-
-  <!--Devrim sipahi kimdir?-->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Dr. Dt. Devrim Biriken Sipahi",
-    "alternateName": [
-      "Dr Devrim Sipahi",
-      "Dt Devrim Sipahi",
-      "Devrim Sipahi",
-      "Dr Dt Devrim Sipahi",
-      "Devrim Biriken Sipahi"
-    ],
-    "jobTitle": "Diş Hekimi",
-    "description": "Dr. Dt. Devrim Biriken Sipahi, 35 yılı aşkın deneyimiyle Şişli'de hizmet veren, estetik diş tedavileri ve implant uygulamalarında uzmanlaşmış bir diş hekimidir.",
-    "worksFor": {
-      "@type": "MedicalClinic",
-      "name": "Dr. Dt. Devrim Biriken Sipahi Kliniği",
-      "url": "https://www.devrimbirikensipahi.com.tr"
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.devrimbirikensipahi.com.tr{% if LANGUAGE_CODE == 'en' %}/en{% endif %}/randevu-al",
+      "inLanguage": "{% if LANGUAGE_CODE == 'en' %}en{% else %}tr{% endif %}",
+      "actionPlatform": [
+        "https://schema.org/DesktopWebPlatform",
+        "https://schema.org/MobileWebPlatform"
+      ]
     },
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Ankara Üniversitesi Diş Hekimliği Fakültesi"
-    },
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Türk Dişhekimleri Birliği"
-    },
-    "image": "https://www.devrimbirikensipahi.com.tr/static/images/devrim-contact.jpg",
-    "sameAs": [
-      "https://www.devrimbirikensipahi.com.tr",
-      "https://www.instagram.com/drdevrimbirikensipahi"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Şişli",
-      "addressRegion": "İstanbul",
-      "addressCountry": "TR"
+    "result": {
+      "@type": "Reservation",
+      "name": "{% trans 'Randevu Talebi' %}"
     }
   }
-  </script>
+}
+</script>
+
+<!--Devrim sipahi kimdir?-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dr. Dt. Devrim Biriken Sipahi",
+  "alternateName": [
+    "Dr Devrim Sipahi",
+    "Dt Devrim Sipahi",
+    "Devrim Sipahi",
+    "Dr Dt Devrim Sipahi",
+    "Devrim Biriken Sipahi"
+  ],
+  "jobTitle": "{% trans 'Diş Hekimi' %}",
+  "description": "{% trans 'Dr. Dt. Devrim Biriken Sipahi, 35 yılı aşkın deneyimiyle Şişlide hizmet veren, estetik diş tedavileri ve implant uygulamalarında uzmanlaşmış bir diş hekimidir.' %}",
+  "worksFor": {
+    "@type": "MedicalClinic",
+    "name": "{% trans 'Dr. Dt. Devrim Biriken Sipahi Kliniği' %}",
+    "url": "https://www.devrimbirikensipahi.com.tr{% if LANGUAGE_CODE == 'en' %}/en{% endif %}"
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "{% trans 'Ankara Üniversitesi Diş Hekimliği Fakültesi' %}"
+  },
+  "affiliation": {
+    "@type": "Organization",
+    "name": "{% trans 'Türk Dişhekimleri Birliği' %}"
+  },
+  "image": "https://www.devrimbirikensipahi.com.tr/static/images/devrim-contact.jpg",
+  "sameAs": [
+    "https://www.devrimbirikensipahi.com.tr{% if LANGUAGE_CODE == 'en' %}/en{% endif %}",
+    "https://www.instagram.com/drdevrimbirikensipahi"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Şişli",
+    "addressRegion": "İstanbul",
+    "addressCountry": "TR"
+  }
+}
+</script>
 
   <!--Trust pilot-->
   <meta name="trustpilot-one-time-domain-verification-id" content="0a808a8c-7a64-463b-9bef-2fdc8dc5c0d7"/>
@@ -1089,7 +1088,9 @@
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   {% include 'partials/navbar.html' %}
-  
+  <!-- Language Switcher Bar -->
+
+
   <!-- PROMO BUBBLE -->
   <!-- <div id="promo-bubble" class="fixed top-3 inset-x-0 z-[99999] mx-2 sm:mx-auto sm:max-w-xl">
     <div class="relative overflow-hidden rounded-xl shadow-lg ring-1 ring-black/10 bg-white/95 backdrop-blur">
@@ -1285,6 +1286,7 @@
 
   <!-- HERO / PREMIUM GİRİŞ + SLIDER -->
   <section class="relative h-screen bg-cover bg-center max-[600px]:h-[110vh] overflow-hidden">
+    
     <!-- 🎥 Video background -->
     <div id="video-wrapper">
       <video id="hero-video" muted loop autoplay playsinline
@@ -1301,46 +1303,46 @@
     <!-- 🌟 İçerik -->
     <div
       class="relative z-20 w-full h-full flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto"
-      style="margin-top:90px;padding-bottom:90px;">
+      style="margin-top:120px;padding-bottom:90px;">
 
       <!-- ⭐ 35+ YILLIK HEKİMLİK (daha büyük, spotlight ve tamamen ortada) -->
       <div class="inline-flex items-center gap-3 rounded-full px-6 py-2.5
-             text-base md:text-lg font-bold text-white
-             bg-gradient-to-r from-blue-600 to-blue-500
-             shadow-lg ring-2 ring-white/30 backdrop-blur-sm">
+            text-base md:text-lg font-bold text-white
+            bg-gradient-to-r from-blue-600 to-blue-500
+            shadow-lg ring-2 ring-white/30 backdrop-blur-sm">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white/95" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M12 6l2.39 4.84 5.34.78-3.86 3.76.91 5.32L12 17.77 7.22 20.7l.91-5.32L4.27 11.6l5.34-.78L12 6z" />
         </svg>
-        <span>35+ Yıllık Hekimlik • Şişli / İstanbul</span>
+        <span>{% trans "35+ Yıllık Hekimlik • Şişli / İstanbul" %}</span>
       </div>
 
       <!-- Başlıklar -->
       <h1 class="mt-5 text-4xl md:text-6xl font-bold leading-tight text-white"
         style="text-shadow:0 2px 10px rgba(0,0,0,.55)">
-        Dr. Dt. Devrim Biriken Sipahi
+        {% trans "Dr. Dt. Devrim Biriken Sipahi" %}
       </h1>
 
       <h2 class="mt-3 text-2xl md:text-4xl font-semibold text-white" style="text-shadow:0 2px 10px rgba(0,0,0,.55)">
-        Doğru Hekimlik ile <span class="text-blue-300">Uzun Ömürlü</span> & <span class="text-blue-300">Estetik</span>
-        Sonuçlar
+        {% trans "Doğru Hekimlik ile" %} <span class="text-blue-300">{% trans "Uzun Ömürlü" %}</span> & 
+        <span class="text-blue-300">{% trans "Estetik" %}</span> {% trans "Sonuçlar" %}
       </h2>
 
       <!-- Açıklama -->
       <p class="mt-5 text-base md:text-lg text-white/90 max-w-3xl">
-        Bilimsel protokoller, kişiye özel dijital planlama ve steril süreçlerle;
-        yıllarca güvenle kullanabileceğiniz <strong>kaliteli diş hekimliği</strong>.
+        {% trans "Bilimsel protokoller, kişiye özel dijital planlama ve steril süreçlerle; yıllarca güvenle kullanabileceğiniz" %}
+        <strong>{% trans "kaliteli diş hekimliği" %}</strong>.
       </p>
 
       <!-- Hızlı güven rozetleri -->
       <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
         <div class="rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm text-white/90 backdrop-blur">
-          10.000+ Vaka Deneyimi</div>
+          {% trans "10.000+ Vaka Deneyimi" %}</div>
         <div class="rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm text-white/90 backdrop-blur">
-          Konforlu & Şeffaf Süreç</div>
+          {% trans "Konforlu & Şeffaf Süreç" %}</div>
         <div class="rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm text-white/90 backdrop-blur">
-          Dijital Planlama & Doğal Estetik</div>
+          {% trans "Dijital Planlama & Doğal Estetik" %}</div>
       </div>
 
       <!-- CTA'lar: Google Maps & Telefon -->
@@ -1352,7 +1354,7 @@
             <path
               d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 11.5A2.5 2.5 0 1 1 12 8a2.5 2.5 0 0 1 0 5.5z" />
           </svg>
-          Yol Tarifi (Google Maps)
+          {% trans "Yol Tarifi (Google Maps)" %}
         </a>
 
         <a href="/telefon-yonlendirme"
@@ -1362,73 +1364,13 @@
             <path
               d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.3 21 3 13.7 3 4a1 1 0 011-1h2.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z" />
           </svg>
-          Hemen Ara
+          {% trans "Hemen Ara" %}
         </a>
       </div>
 
     </div>
-
-
-    <!-- Motion fallback -->
-    <style>
-      /* Metin okunurluğu */
-      .text-glow {
-        text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
-      }
-
-      /* Animasyonlar */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(24px);
-        animation: fadeUp 1s ease-out forwards;
-      }
-
-      @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .tracking-in {
-        animation: trackingIn .9s ease both;
-      }
-
-      @keyframes trackingIn {
-        0% {
-          letter-spacing: .35em;
-          opacity: 0;
-          filter: blur(.8px);
-        }
-
-        60% {
-          opacity: .85;
-        }
-
-        100% {
-          letter-spacing: normal;
-          opacity: 1;
-          filter: blur(0);
-        }
-      }
-
-      .badge-glow {
-        animation: pulseGlow 3s ease-in-out infinite;
-      }
-
-      @keyframes pulseGlow {
-
-        0%,
-        100% {
-          box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-        }
-
-        50% {
-          box-shadow: 0 0 16px rgba(255, 255, 255, .35);
-        }
-      }
-    </style>
   </section>
+
 
 
   <!-- ⭐ Hasta Yorumları Slider (tek track / beyaz-mavi) -->
@@ -1437,7 +1379,7 @@
     <div class="absolute inset-0">
       <img
         src="https://static.vecteezy.com/system/resources/thumbnails/043/994/716/small_2x/dental-hygiene-and-oral-health-care-concept-photo.jpg"
-        alt="Dental clinic background" class="w-full h-full object-cover" />
+        alt="{% trans 'Dental clinic background' %}" class="w-full h-full object-cover" />
       <!-- overlay -->
       <div class="absolute inset-0 bg-white/80"></div>
     </div>
@@ -1448,13 +1390,13 @@
         <!-- Melih -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Kanal tedavim acısız ve başarılı gecti ellerine sağlık”</p>
+          <p class="text-base text-gray-800">{% trans "Kanal tedavim acısız ve başarılı gecti ellerine sağlık" %}</p>
           <div class="mt-3 space-y-1 flex">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Melih E.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Melih E." %}</div>
             </div>
           </div>
         </div>
@@ -1462,16 +1404,13 @@
         <!-- Ece -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“38 yaşındayım, korkumu yenmeme neden bir doktordur kendisi.
-            İşini özenle ve TEMİZ yapan, eli hafif, güler yüzlü ve güvende hissetmenizi sağlayan bir doktor. Aynı
-            anda 3 dolgu ve temizleme yaptık, 2 gün sonra 4 dolgu yaptırdım, hiç ağrım olmadı :) - maşallah-
-            Devrim Hanım iyi ki sizin gibi hekimler var”</p>
+          <p class="text-base text-gray-800">{% trans "38 yaşındayım, korkumu yenmeme neden bir doktordur kendisi. İşini özenle ve TEMİZ yapan, eli hafif, güler yüzlü ve güvende hissetmenizi sağlayan bir doktor. Aynı anda 3 dolgu ve temizleme yaptık, 2 gün sonra 4 dolgu yaptırdım, hiç ağrım olmadı :) - maşallah- Devrim Hanım iyi ki sizin gibi hekimler var" %}</p>
           <div class="mt-3 space-y-1 flex">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Ece Y.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Ece Y." %}</div>
             </div>
           </div>
         </div>
@@ -1479,14 +1418,13 @@
         <!-- Süleyman -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Devrim hocamız güler yüzü ile yaptığı işlemlerde acı hiss etmiyorsunuz,
-            anlaşılmıyor ve çok sağlam oluyor”</p>
+          <p class="text-base text-gray-800">{% trans "Devrim hocamız güler yüzü ile yaptığı işlemlerde acı hiss etmiyorsunuz, anlaşılmıyor ve çok sağlam oluyor" %}</p>
           <div class="mt-3 space-y-1">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Süleyman B.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Süleyman B." %}</div>
             </div>
           </div>
         </div>
@@ -1494,17 +1432,13 @@
         <!-- Cem -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Ufacık dişten dolgu ile diş yaptı ve çok güzel oldu daha önce 3 doktora
-            gittim
-            hepsi çekilmesinin gerektiği söylemesine rağmen Devrim hanım zamanından alarak emek harçayarak diş yaptı.
-            Ellerine kollarına sağlık hocam bulduğumuz ve tanıdığımız için çok mutlu olduk.
-            Güvenle gidebilirsiniz.”</p>
+          <p class="text-base text-gray-800">{% trans "Ufacık dişten dolgu ile diş yaptı ve çok güzel oldu, daha önce 3 doktora gittim hepsi çekilmesinin gerektiği söylemesine rağmen Devrim hanım zamanından alarak emek harçayarak diş yaptı. Ellerine kollarına sağlık hocam bulduğumuz ve tanıdığımız için çok mutlu olduk. Güvenle gidebilirsiniz." %}</p>
           <div class="mt-3 space-y-1">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Cem T.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Cem T." %}</div>
             </div>
           </div>
         </div>
@@ -1512,16 +1446,13 @@
         <!-- Buse -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Devrim hocam yıllardır güvendiğim, işini özenle yapan bir hekim.
-            Yaptırdığım
-            dolgular ve tedavi süreçleri hep çok iyi sonuç verdi. Eli de hafif ve gerçekten hızlı bir şekilde
-            tedaviyi tamamlıyor, kesinlikle öneriyorum”</p>
+          <p class="text-base text-gray-800">{% trans "Devrim hocam yıllardır güvendiğim, işini özenle yapan bir hekim. Yaptırdığım dolgular ve tedavi süreçleri hep çok iyi sonuç verdi. Eli de hafif ve gerçekten hızlı bir şekilde tedaviyi tamamlıyor, kesinlikle öneriyorum" %}</p>
           <div class="mt-3 space-y-1">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Buse Y.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Buse Y." %}</div>
             </div>
           </div>
         </div>
@@ -1529,15 +1460,13 @@
         <!-- Hüseyin -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Devrim hocaya çocukluğumdan beri gidiyorum bugün de dolgularımı yaptı eli
-            çok
-            temiz herhangi bir sıkıntı olmadan halletti kesinlikle öneriyorum”</p>
+          <p class="text-base text-gray-800">{% trans "Devrim hocaya çocukluğumdan beri gidiyorum, bugün de dolgularımı yaptı, eli çok temiz, herhangi bir sıkıntı olmadan halletti, kesinlikle öneriyorum" %}</p>
           <div class="mt-3 space-y-1">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Hüseyin U. Y.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Hüseyin U. Y." %}</div>
             </div>
           </div>
         </div>
@@ -1545,13 +1474,13 @@
         <!-- Melis -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Dişlerime uygulanan lamina estetik olarak harikaydı.”</p>
+          <p class="text-base text-gray-800">{% trans "Dişlerime uygulanan lamina estetik olarak harikaydı." %}</p>
           <div class="mt-3 space-y-1 flex">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Melis Ç.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Melis Ç." %}</div>
             </div>
           </div>
         </div>
@@ -1559,16 +1488,13 @@
         <!-- Ceren -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Devrim hoca ile 2020 yılında tanıştık yirmilik dişimi çektirmiştim okadar
-            güler
-            yüzlü eli hafif bir doktor ki beni kendisine hayran bıraktı hemen sonrasında ön dişlerimi kaplama
-            yaptırdım yıllardır sorunsuz kullanıyorum 🙏☺️”</p>
+          <p class="text-base text-gray-800">{% trans "Devrim hoca ile 2020 yılında tanıştık, yirmilik dişimi çektirmiştim, o kadar güler yüzlü, eli hafif bir doktor ki beni kendisine hayran bıraktı. Hemen sonrasında ön dişlerimi kaplama yaptırdım, yıllardır sorunsuz kullanıyorum 🙏☺️" %}</p>
           <div class="mt-3 space-y-1">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Ceren S.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Ceren S." %}</div>
             </div>
           </div>
         </div>
@@ -1576,17 +1502,13 @@
         <!-- Merve -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Devrim hanım sayesinde 20'lik dişim sorunsuz çekildi, ön dişlerim daha
-            temiz ve
-            güzel oldu. En son yaptığı kanal tedavi sayesinde yemek yerken artık canım acımıyor. Kesinlikle gözüm
-            kapalı tavsiye ederim. Yıllardır tüm dişlerimi emanet ettiğim canım hekimim Devrim hanım, iyi ki
-            varsınız!”</p>
+          <p class="text-base text-gray-800">{% trans "Devrim hanım sayesinde 20'lik dişim sorunsuz çekildi, ön dişlerim daha temiz ve güzel oldu. En son yaptığı kanal tedavi sayesinde yemek yerken artık canım acımıyor. Kesinlikle gözüm kapalı tavsiye ederim. Yıllardır tüm dişlerimi emanet ettiğim canım hekimim Devrim hanım, iyi ki varsınız!" %}</p>
           <div class="mt-3 space-y-1">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Merve A.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Merve A." %}</div>
             </div>
           </div>
         </div>
@@ -1594,15 +1516,13 @@
         <!-- Özlem -->
         <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
           style="display: flex; flex-direction:column;">
-          <p class="text-base text-gray-800">“Yıllardır hekimliğine, tecrübesine, tedavisine güvendiğim, her gittiğimde
-            temizlik
-            konusunda en ufak bir şüphe duymadığım işinin ehli bir diş doktorudur kendisi.”</p>
+          <p class="text-base text-gray-800">{% trans "Yıllardır hekimliğine, tecrübesine, tedavisine güvendiğim, her gittiğimde temizlik konusunda en ufak bir şüphe duymadığım işinin ehli bir diş doktorudur kendisi." %}</p>
           <div class="mt-3 space-y-1">
             <div class="flex justify-start">
               <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
             </div>
             <div class="flex justify-end">
-              <div class="text-xs text-gray-600 italic">– Özlem H.</div>
+              <div class="text-xs text-gray-600 italic">– {% trans "Özlem H." %}</div>
             </div>
           </div>
         </div>
@@ -1611,8 +1531,9 @@
     </div>
   </div>
 
+
   <!-- BURASI ÇOK İYİ -->
-  <form method="post" aria-label="İletişim Formu">
+  <form method="post" aria-label="{% trans 'İletişim Formu' %}">
     {% csrf_token %}
     <section class="py-16" id="iletisim-formu">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1620,29 +1541,28 @@
 
           <article class="lg:mb-0 mb-10">
             <div class="relative h-full w-full min-h-[400px]">
-              <img data-src="{% static 'images/devrim-contact.webp' %}" alt="Diş kliniği iletişim görseli"
+              <img data-src="{% static 'images/devrim-contact.webp' %}" alt="{% trans 'Diş kliniği iletişim görseli' %}"
                 class="lazy-js-img object-cover w-full h-full aspect-video lg:rounded-l-2xl rounded-2xl opacity-0 transition-opacity duration-500">
               <div class="spinner absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
 
               <div
                 class="absolute top-1 right-1 bg-gradient-to-t from-white/70 via-white/50 to-transparent text-gray-800 text-sm font-semibold px-4 py-2 rounded-lg shadow-md backdrop-blur-sm">
-                Dr. Dt. Devrim Biriken Sipahi
+                {% trans "Dr. Dt. Devrim Biriken Sipahi" %}
               </div>
 
-
-
-              <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">Bize Ulaşın
+              <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">
+                {% trans "Bize Ulaşın" %}
               </h1>
 
               <div class="absolute bottom-0 w-full lg:p-11 p-5">
                 <div class="bg-white rounded-lg p-6 block grid items-center">
-                  <a href="/telefon-yonlendirme" class="flex items-center" aria-label="Telefon ile ara">
+                  <a href="/telefon-yonlendirme" class="flex items-center" aria-label="{% trans 'Telefon ile ara' %}">
                     <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2"
                       viewBox="0 0 24 24">
                       <path
                         d="M2 2h4l2 7-4 1 5 5 1-4 7 2v4a2 2 0 0 1-2 2h-1a17.65 17.65 0 0 1-8-3.5A17.65 17.65 0 0 1 2 4v-1a2 2 0 0 1 2-2z" />
                     </svg>
-                    <span class="ml-3 text-lg text-gray-800 font-medium">+90 505 577 1883</span>
+                    <span class="ml-3 text-lg text-gray-800 font-medium">{% trans "+90 505 577 1883" %}</span>
                   </a>
                 </div>
               </div>
@@ -1650,43 +1570,31 @@
           </article>
 
           <article class="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl">
-            <h2 class="text-indigo-600 font-manrope text-3xl font-semibold mb-8">Biz Sizi Arayalım</h2>
+            <h2 class="text-indigo-600 font-manrope text-3xl font-semibold mb-8">{% trans "Biz Sizi Arayalım" %}</h2>
 
-            <label for="name" class="sr-only">Ad Soyad</label>
-            <input id="name" name="name" type="text" required aria-label="Ad Soyad" autocomplete="name"
-              placeholder="Ad Soyad"
+            <label for="name" class="sr-only">{% trans "Ad Soyad" %}</label>
+            <input id="name" name="name" type="text" required aria-label="{% trans 'Ad Soyad' %}" autocomplete="name"
+              placeholder="{% trans 'Ad Soyad' %}"
               class="w-full h-12 mb-6 pl-4 rounded-full border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400">
 
-            <label for="phone" class="sr-only">Telefon</label>
-            <input id="phone" name="phone" type="tel" required aria-label="Telefon Numaranız" autocomplete="tel"
-              placeholder="Telefon Numaranız"
+            <label for="phone" class="sr-only">{% trans "Telefon" %}</label>
+            <input id="phone" name="phone" type="tel" required aria-label="{% trans 'Telefon Numaranız' %}" autocomplete="tel"
+              placeholder="{% trans 'Telefon Numaranız' %}"
               class="w-full h-12 mb-6 pl-4 rounded-full border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400">
 
-            <label for="message" class="sr-only">Mesaj</label>
-            <textarea id="message" name="message" rows="4" aria-label="Mesajınız (isteğe bağlı)"
-              placeholder="İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)"
+            <label for="message" class="sr-only">{% trans "Mesaj" %}</label>
+            <textarea id="message" name="message" rows="4" aria-label="{% trans 'Mesajınız (isteğe bağlı)' %}"
+              placeholder="{% trans 'İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)' %}"
               class="w-full mb-4 p-4 rounded-xl border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400"></textarea>
-
 
             <input type="hidden" name="gclid" id="gclid" />
             <input type="hidden" name="client_info" id="client_info_input">
-            <input type="hidden" name="page" value="Beni Ara Lead">
-
-
-
-            <!-- <label class="flex items-start gap-3 mb-6 text-sm text-gray-700 leading-snug">
-              <input type="checkbox" required
-                class="mt-1 shrink-0 w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
-              <span>
-                KVKK Aydınlatma Metni’ni okudum ve
-                <strong>kişisel verilerimin işlenmesine açık rıza veriyorum.</strong>
-              </span>
-            </label> -->
-
-
+            <input type="hidden" name="page" value="{% trans 'Beni Ara Lead' %}">
 
             <button type="submit"
-              class="w-full h-12 rounded-full bg-indigo-600 hover:bg-indigo-800 text-white font-semibold text-base transition duration-300 shadow-sm">Gönder</button>
+              class="w-full h-12 rounded-full bg-indigo-600 hover:bg-indigo-800 text-white font-semibold text-base transition duration-300 shadow-sm">
+              {% trans "Gönder" %}
+            </button>
 
           </article>
 
@@ -1695,205 +1603,179 @@
     </section>
   </form>
 
+
   <!-- DOĞRU HEKİMLİK / UZUN ÖMÜRLÜ SONUÇLAR -->
   <section class="relative isolate overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
-    <div class="absolute inset-0 -z-10 bg-[radial-gradient(60rem_35rem_at_110%_-10%,rgba(37,99,235,0.12),transparent)]">
-    </div>
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(60rem_35rem_at_110%_-10%,rgba(37,99,235,0.12),transparent)]">
+        </div>
 
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-      <!-- Üst Başlık -->
-      <div class="mx-auto max-w-3xl text-center">
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm">
-          35+ Yıllık Tecrübe • Gerçek Diş Hekimliği
-        </span>
-        <h2 class="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">
-          <span class="text-blue-600">Doğru Hekimlik</span> Anlayışıyla
-          Uzun Ömürlü ve Estetik Sonuçlar
-        </h2>
-        <p class="mt-4 text-slate-600">
-          Amacımız sadece bugünü değil, <strong>gelecekteki sağlığınızı</strong> da korumak.
-          Bilimsel protokoller, kişiye özel planlama ve kaliteli materyallerle
-          uzun yıllar güvenle kullanabileceğiniz tedaviler sunuyoruz.
-        </p>
-      </div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+          <!-- Üst Başlık -->
+          <div class="mx-auto max-w-3xl text-center">
+            <span
+              class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm">
+              {% trans "35+ Yıllık Tecrübe • Gerçek Diş Hekimliği" %}
+            </span>
+            <h2 class="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">
+              <span class="text-blue-600">{% trans "Doğru Hekimlik" %}</span> {% trans "Anlayışıyla Uzun Ömürlü ve Estetik Sonuçlar" %}
+            </h2>
+            <p class="mt-4 text-slate-600">
+              {% trans "Amacımız sadece bugünü değil, <strong>gelecekteki sağlığınızı</strong> da korumak. Bilimsel protokoller, kişiye özel planlama ve kaliteli materyallerle uzun yıllar güvenle kullanabileceğiniz tedaviler sunuyoruz." %}
+            </p>
+          </div>
 
-      <!-- İlke Kartları -->
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <!-- Uzmanlık -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
+          <!-- İlke Kartları -->
+          <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <!-- Uzmanlık -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold text-slate-900">{% trans "35+ Yıllık Klinik Deneyim" %}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                {% trans "Binlerce vaka tecrübesiyle; her tedavide doğru teşhis ve uzun ömürlü çözümler." %}
+              </p>
+            </div>
+            <!-- Sterilizasyon -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold text-slate-900">{% trans "Hijyen & Bilimsel Protokoller" %}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                {% trans "Her işlem steril alan, hijyen kontrolü ve uluslararası protokollerle uygulanır." %}
+              </p>
+            </div>
+            <!-- Dijital Planlama -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold text-slate-900">{% trans "Kişiye Özel Dijital Planlama" %}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                {% trans "3D görüntüleme ve dijital ölçüm ile estetik ve fonksiyon dengesini en iyi şekilde sağlıyoruz." %}
+              </p>
+            </div>
+            <!-- Takip & İletişim -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 20l-3-3h6l-3 3ZM6 4h12v9a6 6 0 1 1-12 0V4Z" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold text-slate-900">{% trans "Gerçek Takip & Güvenilir İletişim" %}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                {% trans "Tedavi sürecinde şeffaf bilgilendirme, düzenli kontrol randevuları ve her an ulaşılabilir ekip." %}
+              </p>
+            </div>
           </div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">35+ Yıllık Klinik Deneyim</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
-            Binlerce vaka tecrübesiyle; her tedavide doğru teşhis ve uzun ömürlü çözümler.
-          </p>
-        </div>
-        <!-- Sterilizasyon -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-              <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">Hijyen & Bilimsel Protokoller</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
-            Her işlem steril alan, hijyen kontrolü ve uluslararası protokollerle uygulanır.
-          </p>
-        </div>
-        <!-- Dijital Planlama -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-              <path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">Kişiye Özel Dijital Planlama</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
-            3D görüntüleme ve dijital ölçüm ile estetik ve fonksiyon dengesini en iyi şekilde sağlıyoruz.
-          </p>
-        </div>
-        <!-- Takip & İletişim -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div class="rounded-xl bg-blue-100 text-blue-700 inline-flex p-2.5">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-              <path d="M12 20l-3-3h6l-3 3ZM6 4h12v9a6 6 0 1 1-12 0V4Z" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-900">Gerçek Takip & Güvenilir İletişim</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">
-            Tedavi sürecinde şeffaf bilgilendirme, düzenli kontrol randevuları ve her an ulaşılabilir ekip.
-          </p>
-        </div>
-      </div>
 
-      <!-- Mikro Kanıtlar + CTA -->
-      <div class="mt-12 grid gap-6 lg:grid-cols-3">
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h4 class="text-base font-semibold text-slate-900">Önce Muayene & Şeffaf Bilgilendirme</h4>
-          <p class="mt-2 text-sm text-slate-600">
-            Tedavi planı yalnızca muayene sonrası belirlenir; tüm seçenekler ve maliyet net şekilde paylaşılır.
-          </p>
+          <!-- Mikro Kanıtlar + CTA -->
+          <div class="mt-12 grid gap-6 lg:grid-cols-3">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h4 class="text-base font-semibold text-slate-900">{% trans "Önce Muayene & Şeffaf Bilgilendirme" %}</h4>
+              <p class="mt-2 text-sm text-slate-600">
+                {% trans "Tedavi planı yalnızca muayene sonrası belirlenir; tüm seçenekler ve maliyet net şekilde paylaşılır." %}
+              </p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h4 class="text-base font-semibold text-slate-900">{% trans "Doğal Estetik & Fonksiyon" %}</h4>
+              <p class="mt-2 text-sm text-slate-600">
+                {% trans "Hedefimiz uzun ömürlü fonksiyonla beraber, estetik açıdan da doğal ve uyumlu bir gülüş sunmak." %}
+              </p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h4 class="text-base font-semibold text-slate-900">{% trans "Konforlu Süreç Yönetimi" %}</h4>
+              <p class="mt-2 text-sm text-slate-600">
+                {% trans "Randevu planlaması, ağrı kontrolü ve iyileşme süreci her aşamada konfor odaklı ilerler." %}
+              </p>
+            </div>
+          </div>
+          <!-- CTA -->
+          <div class="mt-10 flex flex-col items-center gap-3">
+            <a href="/telefon-yonlendirme"
+              class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-white text-sm font-medium shadow hover:bg-blue-700 transition">
+              {% trans "Uygun İlk Muayene Zamanını Gör" %}
+            </a>
+            <p class="text-xs text-slate-500">
+              {% trans "Bu bölüm bilgilendirme amaçlıdır; tanı ve tedavi planı muayene sonrası belirlenir." %}
+            </p>
+          </div>
         </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h4 class="text-base font-semibold text-slate-900">Doğal Estetik & Fonksiyon</h4>
-          <p class="mt-2 text-sm text-slate-600">
-            Hedefimiz uzun ömürlü fonksiyonla beraber, estetik açıdan da doğal ve uyumlu bir gülüş sunmak.
-          </p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <h4 class="text-base font-semibold text-slate-900">Konforlu Süreç Yönetimi</h4>
-          <p class="mt-2 text-sm text-slate-600">
-            Randevu planlaması, ağrı kontrolü ve iyileşme süreci her aşamada konfor odaklı ilerler.
-          </p>
-        </div>
-      </div>
-      <!-- CTA -->
-      <div class="mt-10 flex flex-col items-center gap-3">
-        <a href="/telefon-yonlendirme"
-          class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-white text-sm font-medium shadow hover:bg-blue-700 transition">
-          Uygun İlk Muayene Zamanını Gör
-        </a>
-        <p class="text-xs text-slate-500">
-          Bu bölüm bilgilendirme amaçlıdır; tanı ve tedavi planı muayene sonrası belirlenir.
-        </p>
-      </div>
-    </div>
   </section>
 
 
   <!-- Hakkımızda -->
   <section class="py-16 md:py-20 px-6 md:px-12">
-    <article class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
-      <!-- Üst görsel alanı: annemle birlikte fotoğrafını buraya koy -->
-      <div class="relative h-56 sm:h-72 md:h-96">
-        <picture>
-          <img src="{% static 'images/IMG_0543.jpg' %}"
-            alt="Dr. Dt. Devrim Biriken Sipahi ve Dt. Ekin Sipahi – Şişli Kliniği"
-            class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async">
-        </picture>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
-        <div
-          class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-semibold text-gray-800 shadow">
-          “Doğru tanı, doğru tedavi, dişi koru.”
-        </div>
-      </div>
-
-      <div class="bg-gray-50 md:bg-white px-5 sm:px-8 md:px-12 py-8 md:py-10">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 md:mb-8 border-b pb-4 border-gray-200">
-          Dr. Dt. Devrim Biriken Sipahi Kimdir?
-        </h2>
-
-        <!-- Background (SEO dostu, senin metnin temel alınarak) -->
-        <p class="text-lg leading-relaxed text-gray-700 mb-6">
-          <strong>Dr. Dt. Devrim Biriken Sipahi</strong>, 35 yılı aşkın tecrübesiyle İstanbul Şişli’de hizmet veren
-          köklü bir diş hekimidir.
-          Ankara Üniversitesi Diş Hekimliği Fakültesi mezunudur; akademik yolculuğunu Marmara Üniversitesi’nde
-          <em>Ağız, Diş ve Çene Radyolojisi</em> alanında tamamlamıştır. Radyoloji temelli tanı yaklaşımı sayesinde
-          planlar net, sürpriz minimumdur.
-        </p>
-
-        <!-- Purpose (dişi koru + konservatif felsefe) -->
-        <p class="text-lg leading-relaxed text-gray-700 mb-6">
-          Bizim çizgimiz net: <span class="font-semibold text-gray-900">dişi kurtarmak</span>.
-          Gereksiz işlem yok, doğru endikasyonda <span class="font-semibold text-gray-900">konservatif</span> tedavi
-          var.
-          Gülüş tasarımından estetik lamina ve <span class="font-semibold text-gray-900">kanal tedavisine</span> kadar
-          her adım,
-          “doğru tanı → doğru plan → konforlu süreç” formülüyle ilerler. Amaç güzel görünen değil,
-          <span class="font-semibold">sağlıklı ve uzun ömürlü</span> sonuç.
-        </p>
-
-        <!-- İmplant (çekici ama kontrollü anlatım) -->
-        <p class="text-lg leading-relaxed text-gray-700 mb-6">
-          Peki implant? Önce şunu söyleyelim: <span class="font-semibold">İmplant son
-            seçenek</span>tir—kurtarılabilecek
-          dişi koruruz.
-          Fakat ihtiyaç doğduğunda, radyolojik (CBCT) destekli <span class="font-semibold">3D planlama</span>,
-          kemik kalitesi/yoğunluğu analizi ve dijital cerrahi kılavuzlarla
-          <span class="font-semibold">estetik ve fonksiyon</span> odaklı, öngörülebilir bir yol izleriz.
-          Yeri geldiğinde geçici dişle sosyal hayat kopmadan süreç tamamlanır.*
-        </p>
-
-        <!-- Existence (hikâye: bilgi aktarımı & ikinci nesil) -->
-        <p class="text-lg leading-relaxed text-gray-700 mb-6">
-          Kliniğin kuruluş motivasyonu sadece “tedavi” değil, bir <span class="font-semibold">miras</span>tır:
-          Dr. Sipahi’nin bilgi ve tecrübesinin <span class="font-semibold">gelecek nesle</span> aktarılması.
-          Bu nedenle klinik yapılanması, <span class="font-semibold">Dt. Ekin Sipahi</span> ile birlikte
-          aynı kalite standartlarını sürdürecek şekilde kurgulandı. İki nesil, tek çizgi: doğru, sade, etkin hekimlik.
-        </p>
-
-        <!-- Kısa değer çipleri -->
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700 font-medium">Konservatif
-            Yaklaşım</span>
-          <span class="px-3 py-1 rounded-full text-sm bg-emerald-50 text-emerald-700 font-medium">Radyoloji Destekli
-            Tanı</span>
-          <span class="px-3 py-1 rounded-full text-sm bg-purple-50 text-purple-700 font-medium">Kişiye Özel
-            Plan</span>
-          <span class="px-3 py-1 rounded-full text-sm bg-rose-50 text-rose-700 font-medium">Ağrısız & Konforlu
-            Süreç</span>
+      <article class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        <!-- Üst görsel alanı: annemle birlikte fotoğrafını buraya koy -->
+        <div class="relative h-56 sm:h-72 md:h-96">
+          <picture>
+            <img src="{% static 'images/IMG_0543.jpg' %}"
+              alt="Dr. Dt. Devrim Biriken Sipahi ve Dt. Ekin Sipahi – Şişli Kliniği"
+              class="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async">
+          </picture>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
+          <div
+            class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-semibold text-gray-800 shadow">
+            {% trans "Doğru tanı, doğru tedavi, dişi koru." %}
+          </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p class="text-lg leading-relaxed text-gray-700">
-            Kliniğimiz Şişli Merkez’de, <strong>Abide-i Hürriyet Caddesi</strong> üzerinde yer alır.
+        <div class="bg-gray-50 md:bg-white px-5 sm:px-8 md:px-12 py-8 md:py-10">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 md:mb-8 border-b pb-4 border-gray-200">
+            {% trans "Dr. Dt. Devrim Biriken Sipahi Kimdir?" %}
+          </h2>
+
+          <!-- Background (SEO dostu, senin metnin temel alınarak) -->
+          <p class="text-lg leading-relaxed text-gray-700 mb-6">
+            {% trans "<strong>Dr. Dt. Devrim Biriken Sipahi</strong>, 35 yılı aşkın tecrübesiyle İstanbul Şişli'de hizmet veren köklü bir diş hekimidir. Ankara Üniversitesi Diş Hekimliği Fakültesi mezunudur; akademik yolculuğunu Marmara Üniversitesi'nde <em>Ağız, Diş ve Çene Radyolojisi</em> alanında tamamlamıştır. Radyoloji temelli tanı yaklaşımı sayesinde planlar net, sürpriz minimumdur." %}
           </p>
-          <a href="/telefon-yonlendirme"
-            class="inline-flex items-center justify-center text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition px-5 py-3 rounded-lg font-semibold shadow">
-            Hemen Ulaşın
-          </a>
-        </div>
 
-        <p class="text-xs text-gray-500 mt-4">*Tedavi planları kişiye özeldir; uygunluk klinik ve radyolojik
-          değerlendirme ile belirlenir.</p>
-      </div>
-    </article>
+          <!-- Purpose (dişi koru + konservatif felsefe) -->
+          <p class="text-lg leading-relaxed text-gray-700 mb-6">
+            {% trans "Bizim çizgimiz net: <span class='font-semibold text-gray-900'>dişi kurtarmak</span>. Gereksiz işlem yok, doğru endikasyonda <span class='font-semibold text-gray-900'>konservatif</span> tedavi var. Gülüş tasarımından estetik lamina ve <span class='font-semibold text-gray-900'>kanal tedavisine</span> kadar her adım, 'doğru tanı → doğru plan → konforlu süreç' formülüyle ilerler. Amaç güzel görünen değil, <span class='font-semibold'>sağlıklı ve uzun ömürlü</span> sonuç." %}
+          </p>
+
+          <!-- İmplant (çekici ama kontrollü anlatım) -->
+          <p class="text-lg leading-relaxed text-gray-700 mb-6">
+            {% trans "Peki implant? Önce şunu söyleyelim: <span class='font-semibold'>İmplant son seçenek</span>tir—kurtarılabilecek dişi koruruz. Fakat ihtiyaç doğduğunda, radyolojik (CBCT) destekli <span class='font-semibold'>3D planlama</span>, kemik kalitesi/yoğunluğu analizi ve dijital cerrahi kılavuzlarla <span class='font-semibold'>estetik ve fonksiyon</span> odaklı, öngörülebilir bir yol izleriz. Yeri geldiğinde geçici dişle sosyal hayat kopmadan süreç tamamlanır.*" %}
+          </p>
+
+          <!-- Existence (hikâye: bilgi aktarımı & ikinci nesil) -->
+          <p class="text-lg leading-relaxed text-gray-700 mb-6">
+            {% trans "Kliniğin kuruluş motivasyonu sadece 'tedavi' değil, bir <span class='font-semibold'>miras</span>tır: Dr. Sipahi'nin bilgi ve tecrübesinin <span class='font-semibold'>gelecek nesle</span> aktarılması. Bu nedenle klinik yapılanması, <span class='font-semibold'>Dt. Ekin Sipahi</span> ile birlikte aynı kalite standartlarını sürdürecek şekilde kurgulandı. İki nesil, tek çizgi: doğru, sade, etkin hekimlik." %}
+          </p>
+
+          <!-- Kısa değer çipleri -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 rounded-full text-sm bg-blue-50 text-blue-700 font-medium">{% trans "Konservatif Yaklaşım" %}</span>
+            <span class="px-3 py-1 rounded-full text-sm bg-emerald-50 text-emerald-700 font-medium">{% trans "Radyoloji Destekli Tanı" %}</span>
+            <span class="px-3 py-1 rounded-full text-sm bg-purple-50 text-purple-700 font-medium">{% trans "Kişiye Özel Plan" %}</span>
+            <span class="px-3 py-1 rounded-full text-sm bg-rose-50 text-rose-700 font-medium">{% trans "Ağrısız & Konforlu Süreç" %}</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p class="text-lg leading-relaxed text-gray-700">
+              {% trans "Kliniğimiz Şişli Merkez'de, <strong>Abide-i Hürriyet Caddesi</strong> üzerinde yer alır." %}
+            </p>
+            <a href="/telefon-yonlendirme"
+              class="inline-flex items-center justify-center text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition px-5 py-3 rounded-lg font-semibold shadow">
+              {% trans "Hemen Ulaşın" %}
+            </a>
+          </div>
+
+          <p class="text-xs text-gray-500 mt-4">{% trans "*Tedavi planları kişiye özeldir; uygunluk klinik ve radyolojik değerlendirme ile belirlenir." %}</p>
+        </div>
+      </article>
   </section>
 
 
@@ -1917,7 +1799,7 @@
     <div class="top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none z-10">
       <h2
         class="text-black text-center px-4 text-xl md:text-3xl lg:text-4xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
-        Sadece diş değil, özgüven kazandırıyoruz.
+        {% trans "Sadece diş değil, özgüven kazandırıyoruz." %}
       </h2>
     </div>
 
@@ -1945,7 +1827,7 @@
         <div class="absolute bottom-0 left-0 w-full z-10">
           <div
             class="bg-gray-700/50 text-white text-sm py-3 pl-4 rounded-none backdrop-blur-sm border-t border-gray-500/20 shadow-sm text-left">
-            Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha estetik hale getirildi.
+            {% trans "Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha estetik hale getirildi." %}
           </div>
         </div>
 
@@ -1972,8 +1854,7 @@
         <div class="absolute bottom-0 left-0 w-full z-10">
           <div
             class="bg-gray-700/50 text-white text-sm py-3 pl-4 rounded-none backdrop-blur-sm border-t border-gray-500/20 shadow-sm text-left">
-            Hazan geçirdiği travma sonucu, dişi pembe olarak kliniğimize geldi estetik olarak dişlerini hiç bozmadan
-            eski halinden daha iyi duruma getirdik.
+            {% trans "Hazan geçirdiği travma sonucu, dişi pembe olarak kliniğimize geldi estetik olarak dişlerini hiç bozmadan eski halinden daha iyi duruma getirdik." %}
           </div>
         </div>
 
@@ -2000,7 +1881,7 @@
         <div class="absolute bottom-0 left-0 w-full z-10">
           <div
             class="bg-gray-700/50 text-white text-sm py-3 pl-4 rounded-none backdrop-blur-sm border-t border-gray-500/20 shadow-sm text-left">
-            Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha estetik hale getirildi.
+            {% trans "Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha estetik hale getirildi." %}
           </div>
         </div>
 
@@ -2015,16 +1896,16 @@
         class="mb-10 lg:mb-16 flex justify-center items-center flex-col gap-x-0 gap-y-6 lg:gap-y-0 lg:flex-row lg:justify-between max-md:max-w-lg max-md:mx-auto">
         <div class="relative w-full text-center lg:text-left lg:w-2/4">
           <h2 class="text-4xl font-bold text-gray-900 leading-[3.25rem] lg:mb-6 mx-auto max-w-max lg:max-w-md lg:mx-0">
-            Hizmetlerimiz
+            {% trans "Hizmetlerimiz" %}
           </h2>
         </div>
         <div class="relative w-full text-center  lg:text-left lg:w-2/4">
           <p class="text-lg font-normal text-gray-500 mb-5">
-            Dr. Dt. Devrim Biriken Sipahi’nin kliniğinde sunduğumuz tüm modern diş tedavi hizmetlerini keşfedin.
+            {% trans "Dr. Dt. Devrim Biriken Sipahi'nin kliniğinde sunduğumuz tüm modern diş tedavi hizmetlerini keşfedin." %}
           </p>
           <a href="/randevu-al"
             class="flex flex-row items-center justify-center gap-2 text-base font-semibold text-indigo-600 lg:justify-start hover:text-indigo-700 ">
-            Randevu Al
+            {% trans "Randevu Al" %}
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M7.5 15L11.0858 11.4142C11.7525 10.7475 12.0858 10.4142 12.0858 10C12.0858 9.58579 11.7525 9.25245 11.0858 8.58579L7.5 5"
@@ -2043,11 +1924,10 @@
           </div>
           <h4
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-            İmplant Tedavisi
+            {% trans "İmplant Tedavisi" %}
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            3D printer destekli altyapılar ve dijital gülüş tasarımı ile implant tedavilerimizi planlıyoruz. Bu sayede
-            hem estetik hem de fonksiyonel sonuçlar elde ediyoruz.
+            {% trans "3D printer destekli altyapılar ve dijital gülüş tasarımı ile implant tedavilerimizi planlıyoruz. Bu sayede hem estetik hem de fonksiyonel sonuçlar elde ediyoruz." %}
           </p>
         </div>
         <div style="height: -webkit-fill-available;"
@@ -2057,12 +1937,10 @@
           </div>
           <h4
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-            Estetik Diş Uygulamaları
+            {% trans "Estetik Diş Uygulamaları" %}
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            Zirkonyum ve lamine gibi modern çözümlerle doğal ve beyaz bir gülüş sunuyoruz. Diş kesimini en aza
-            indirerek
-            estetik müdahaleleri kişiye özel planlıyoruz.
+            {% trans "Zirkonyum ve lamine gibi modern çözümlerle doğal ve beyaz bir gülüş sunuyoruz. Diş kesimini en aza indirerek estetik müdahaleleri kişiye özel planlıyoruz." %}
           </p>
         </div>
         <div style="height: -webkit-fill-available;"
@@ -2074,11 +1952,10 @@
           </div>
           <h4
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-            Gülüş Tasarımı
+            {% trans "Gülüş Tasarımı" %}
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            Kompozit uygulamalarla, diş kesmeden minimal dokunuşlarla etkileyici gülüşler tasarlıyoruz. Ufak
-            değişikliklerle bambaşka estetik sonuçlar elde ediyoruz.
+            {% trans "Kompozit uygulamalarla, diş kesmeden minimal dokunuşlarla etkileyici gülüşler tasarlıyoruz. Ufak değişikliklerle bambaşka estetik sonuçlar elde ediyoruz." %}
           </p>
         </div>
         <div style="height: -webkit-fill-available;"
@@ -2088,11 +1965,10 @@
           </div>
           <h4
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-            Kanal Tedavisi
+            {% trans "Kanal Tedavisi" %}
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            Ağrının kaynağını hızla tespit edip mümkün olan en kısa sürede tedaviye başlıyoruz. Diş çekimi son çare
-            olarak düşünülür; hedefimiz doğal dişi korumak.
+            {% trans "Ağrının kaynağını hızla tespit edip mümkün olan en kısa sürede tedaviye başlıyoruz. Diş çekimi son çare olarak düşünülür; hedefimiz doğal dişi korumak." %}
           </p>
         </div>
         <div style="height: -webkit-fill-available;"
@@ -2102,12 +1978,10 @@
           </div>
           <h4
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-            Diş Taşı Temizliği
+            {% trans "Diş Taşı Temizliği" %}
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            Tüm diş taşlarınızı ortalama 10 dakika içinde temizliyor, dişlerinizi ilk seansa göre daha beyaz ve
-            sağlıklı
-            bir görünüme kavuşturuyoruz.
+            {% trans "Tüm diş taşlarınızı ortalama 10 dakika içinde temizliyor, dişlerinizi ilk seansa göre daha beyaz ve sağlıklı bir görünüme kavuşturuyoruz." %}
           </p>
         </div>
         <div style="height: -webkit-fill-available;"
@@ -2118,11 +1992,10 @@
           </div>
           <h4
             class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
-            Diş Dolgusu
+            {% trans "Diş Dolgusu" %}
           </h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-            Kliniğimizde uyguladığımız kompozit ve bonding dolgular, yalnızca estetik değil aynı zamanda dayanıklıdır.
-            Doğru teknikle yapılan dolgular, uzun yıllar boyunca sorunsuz şekilde kullanılabilir.
+            {% trans "Kliniğimizde uyguladığımız kompozit ve bonding dolgular, yalnızca estetik değil aynı zamanda dayanıklıdır. Doğru teknikle yapılan dolgular, uzun yıllar boyunca sorunsuz şekilde kullanılabilir." %}
           </p>
         </div>
       </div>
@@ -2217,7 +2090,7 @@
               </button>
               <div class="faq-content hidden flex mt-4 md:mx-10">
                 <span class="border border-blue-500"></span>
-                <p class="max-w-3xl px-4 text-gray-500">Kliniğimiz Şişli Merkez’dedir. Adresimiz: Abide-i Hürriyet
+                <p class="max-w-3xl px-4 text-gray-500">Kliniğimiz Şişli Merkezdedir. Adresimiz: Abide-i Hürriyet
                   Caddesi No:148, Kat:4, Daire:11 – İstanbul.</p>
               </div>
             </div>
@@ -3158,13 +3031,13 @@
   <div>
         <div id="chatbox-alert"
           class="fixed bottom-20 left-1 bg-blue-600 text-white text-sm px-4 py-2 rounded-full shadow-lg animate-bounce z-[9999] cursor-pointer">
-          <span>💬 Canlı destek aktif! Tıklayın</span>
+          <span>{% trans "💬 Canlı destek aktif! Tıklayın" %}</span>
         </div>
 
         <section class="chatbox js-chatbox" style="z-index: 999;">
           <div class="chatbox__header">
             <h3 class="chatbox__header-cta-text"><span class="chatbox__header-cta-icon"><i
-                  class="fas fa-comments"></i></span>7/24 Canlı Destek Hattı Tıkla Konuş</h3>
+                  class="fas fa-comments"></i></span>{% trans "7/24 Canlı Destek Hattı Tıkla Konuş" %}</h3>
             <button class="js-chatbox-toggle chatbox__header-cta-btn u-btn" style="z-index: 999;"><i
                 class="fas fa-chevron-up"></i></button>
           </div>
@@ -3176,7 +3049,7 @@
           <form class="js-chatbox-form chatbox__form">
             <div class="relative w-full">
               <input type="text" maxlength="600" class="js-chatbox-input chatbox__form-input pr-20"
-                placeholder="Mesajınızı yazın..." required>
+                placeholder="{% trans 'Mesajınızı yazın...' %}" required>
               <span class="char-counter absolute bottom-1 right-2 text-xs text-gray-500">0 / 600</span>
             </div>
 
@@ -3227,9 +3100,9 @@
 
   <!-- Footer -->
   <footer class="py-6 text-center text-gray-600 mb-32 mt-32">
-        © 2025 Dr. Dt. Devrim Biriken Sipahi | Merkez, Abide-i Hürriyet Cd No:148 D:11 kat 4, 34360 Şişli/İstanbul<br>
-        <a href="/kvkk" class="underline hover:text-gray-800 transition">KVKK Aydınlatma Metni’ne buradan
-          erişebilirsiniz.</a>
+        © 2026 Dr. Dt. Devrim Biriken Sipahi | Merkez, Abide-i Hürriyet Cd No:148 D:11 kat 4, 34360 Şişli/İstanbul<br>
+          <a href="/kvkk" class="underline hover:text-gray-800 transition">
+            {% trans "KVKK Aydınlatma Metni’ne buradan erişebilirsiniz." %}</a>
   </footer>
 
   <script src="{% static 'js/before-after.js' %}"></script>

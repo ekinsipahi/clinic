@@ -1,14 +1,15 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>Yol Tarifi | Dr. Dt. Devrim Biriken Sipahi</title>
+  <title>{% trans "Yol Tarifi | Dr. Dt. Devrim Biriken Sipahi" %}</title>
   <meta name="description"
-    content="Dr. Dt. Devrim Biriken Sipahi kliniğine Google Haritalar üzerinden kolayca yol tarifi alın.">
+    content="{% trans "Dr. Dt. Devrim Biriken Sipahi kliniğine Google Haritalar üzerinden kolayca yol tarifi alın." %}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://devrimbirikensipahi.com.tr/maps-yonlendirme" />
 
@@ -53,12 +54,12 @@
 </head>
 
 <body>
-  <h1>Dr. Devrim Biriken Sipahi Kliniği</h1>
-  <h1>Google Haritalar Açılıyor...</h1>
-  <p>Yol tarifi için lütfen bekleyin...</p>
+  <h1>{% trans "Dr. Devrim Biriken Sipahi Kliniği" %}</h1>
+  <h1>{% trans "Google Haritalar Açılıyor..." %}</h1>
+  <p>{% trans "Yol tarifi için lütfen bekleyin..." %}</p>
 
   <a href="https://maps.app.goo.gl/nVmTfMKXq2jTeNvy5" target="_blank" rel="noopener noreferrer">
-    Haritada Görüntüle
+    {% trans "Haritada Görüntüle" %}
   </a>
 </body>
 

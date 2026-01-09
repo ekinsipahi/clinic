@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -6,9 +7,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>Telefonla Randevu | Dr. Dt. Devrim Biriken Sipahi</title>
+  <title>{% trans "Telefonla Randevu | Dr. Dt. Devrim Biriken Sipahi" %}</title>
   <meta name="description"
-    content="Dr. Dt. Devrim Biriken Sipahi'yi arayarak hızlıca randevu alın. İstanbul Şişli, Mecidiyeköy ve Beşiktaş'ta hizmet veren kliniğimiz ile iletişime geçin.">
+    content="{% trans "Dr. Dt. Devrim Biriken Sipahi'yi arayarak hızlıca randevu alın. İstanbul Şişli, Mecidiyeköy ve Beşiktaş'ta hizmet veren kliniğimiz ile iletişime geçin." %}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://devrimbirikensipahi.com.tr/telefon-yonlendirme" />
 
@@ -98,13 +99,13 @@
 </head>
 
 <body>
-  <h1 style="color: red;">Şişli Özel Klinik</h1>
-  <h1>Dr. Devrim Biriken Sipahi Kliniği</h1>
-  <h1>Telefonla Randevu Alınıyor...</h1>
-  <p>Telefon uygulamanız açılıyor. Lütfen bekleyin...</p>
+  <h1 style="color: red;">{% trans "Şişli Özel Klinik" %}</h1>
+  <h1>{% trans "Dr. Devrim Biriken Sipahi Kliniği" %}</h1>
+  <h1>{% trans "Telefonla Randevu Alınıyor..." %}</h1>
+  <p>{% trans "Telefon uygulamanız açılıyor. Lütfen bekleyin..." %}</p>
 
   <a href="tel:+905055771883" target="_blank" rel="noopener noreferrer">
-    Telefonla Ara
+    {% trans "Telefonla Ara" %}
   </a>
 </body>
 

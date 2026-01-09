@@ -1,9 +1,10 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
   <meta charset="UTF-8">
-  <title>Teşekkürler</title>
+  <title>{% trans "Teşekkürler" %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="refresh" content="10;url=/" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
@@ -37,10 +38,10 @@
     </div>
 
     <!-- Mesaj -->
-    <h1 class="text-2xl font-semibold mb-2">Teşekkür ederiz!</h1>
-    <p class="mb-4 text-lg">Bilgileriniz başarıyla iletildi. Sizi mesai saatleri içinde <strong>07:00 – 21:00</strong>
-      arası arayacağız.</p>
-    <p class="text-sm text-gray-500">10 saniye içinde ana sayfaya yönlendirileceksiniz...</p>
+    <h1 class="text-2xl font-semibold mb-2">{% trans "Teşekkür ederiz!" %}</h1>
+    <p class="mb-4 text-lg">{% trans "Bilgileriniz başarıyla iletildi. Sizi mesai saatleri içinde" %} <strong>07:00 – 21:00</strong>
+      {% trans "arası arayacağız." %}</p>
+    <p class="text-sm text-gray-500">{% trans "10 saniye içinde ana sayfaya yönlendirileceksiniz..." %}</p>
   </div>
 </body>
 

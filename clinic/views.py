@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import CallMeLead, ArrivalConfirmation
 from django.utils.timezone import now
 import json
+from django.utils.translation import get_language
 from django.utils.translation import gettext as _  # <-- EKLENDİ
 
 PEDO_CAMPAIGN_ID = "22663185094"
@@ -44,6 +45,7 @@ def homepage(request):
             return redirect("/tesekkur")
     ctx = {
         "pedodonti_ad": pedodonti_ad,
+        "LANGUAGE_CODE": get_language()
     }
     return render(request, "clinic/index.html", ctx)
 
@@ -108,6 +110,7 @@ def onay(request):
             return redirect("/onay-tesekkur")
 
     return render(request, "clinic/onay.html")
+
 
 def onay_tesekkur(request):
     return render(request, "clinic/onay-tesekkur.html")
