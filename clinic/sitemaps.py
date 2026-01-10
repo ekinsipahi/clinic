@@ -39,6 +39,21 @@ def _is_whitelisted_name(name: str) -> bool:
     return not any(name.startswith(p) for p in deny_prefixes)
 
 
+class RawEnSitemap(Sitemap):
+    changefreq = "monthly"
+    priority = 1.0
+
+    def items(self):
+        return ["en-home"]
+
+    def location(self, item):
+        # Tek URL olarak /en/
+        return "/en/"
+
+    def lastmod(self, item):
+        return timezone.now()
+
+
 class AutoURLSitemap(Sitemap):
     """
     Parametresiz + whiteliste takılan named URL'ler.
