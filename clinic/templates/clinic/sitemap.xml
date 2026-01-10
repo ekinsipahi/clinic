@@ -8,6 +8,13 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://www.devrimbirikensipahi.com.tr/en/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
   <!-- Randevu -->
   <url>
     <loc>https://www.devrimbirikensipahi.com.tr/randevu-al</loc>
