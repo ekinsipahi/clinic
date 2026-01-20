@@ -1,0 +1,141 @@
+/* ========== TYPOGRAPHY SYSTEM (Sipahi Kliniği) ========== */
+/* Google Fonts:
+   - Cinzel: 500, 600, 700 (başlık)
+   - Inter: 400, 500, 600 (gövde/arabirim)
+   - Source Serif Pro: 400, 600 (uzun metinler/blog)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+/* Renk paleti (premium, sıcak) */
+:root{
+  --ink: #1F2430;
+  --muted: #606574;
+  --brand: #C8A165;
+  --brand-deep: #9E7A4B;
+  --bg: #FFFFFF;
+  --bg-soft: #F7F6F4;
+  --success: #0EA5A3;
+
+  /* Tipografi boyutları (fluid scale) */
+  --h1: clamp(36px, 4vw, 56px);
+  --h2: clamp(28px, 3vw, 40px);
+  --h3: clamp(22px, 2.2vw, 28px);
+  --lead: clamp(18px, 1.6vw, 20px);
+  --p: clamp(16px, 1.4vw, 18px);
+  --small: 14px;
+  --caps: 13px;
+}
+
+html{font-size:16px}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* Başlık ailesi: Cinzel (lüks ve modern) */
+h1,h2,h3,.display{
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+/* H1 – Ana kahraman başlığı */
+h1,.display{
+  font-size: var(--h1);
+  font-weight: 700;
+  line-height:1.12;
+}
+
+/* H2 – bölüm başlığı */
+h2{
+  font-size: var(--h2);
+  font-weight: 600;
+  line-height:1.18;
+  margin-top:1.8rem;
+}
+
+/* H3 – alt başlık */
+h3{
+  font-size: var(--h3);
+  font-weight: 500;
+  line-height:1.22;
+  margin-top:1.2rem;
+}
+
+/* Lead paragraf */
+.lead{
+  font-size: var(--lead);
+  line-height:1.6;
+  max-width: 65ch;
+}
+
+/* Gövde metni */
+p{
+  font-size: var(--p);
+  margin:0.75rem 0;
+  max-width: 70ch;
+}
+
+/* Uzun makaleler/blog */
+.article p{ font-family: "Source Serif Pro", Georgia, serif; }
+
+/* Vurgu ve meta metin */
+.emph{ font-weight:600; }
+.kicker{ 
+  font-size: var(--caps);
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+}
+
+/* Alıntı */
+blockquote{
+  font-family: "Source Serif Pro", Georgia, serif;
+  font-size: clamp(18px,1.8vw,22px);
+  line-height:1.5;
+  border-left:4px solid var(--brand);
+  padding:0.75rem 1rem;
+  background:var(--bg-soft);
+  margin:1rem 0;
+}
+
+/* Liste aralığı */
+ul,ol{ padding-left:1.1rem; }
+li{ margin:0.3rem 0; }
+
+/* Linkler/CTA butonları */
+a{ text-decoration-thickness:2px; }
+.btn{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.9rem 1.1rem;
+  border-radius:999px;
+  font-weight:600; letter-spacing:.02em;
+  box-shadow:0 6px 20px rgba(200,161,101,.25);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{ transform: translateY(-1px); box-shadow:0 10px 26px rgba(200,161,101,.35); }
+.btn--ghost{
+  background:transparent; border:2px solid var(--brand);
+}
+
+/* Küçük başlık altı çizgi */
+.heading-underline{
+  position:relative; display:inline-block; padding-bottom:.3rem;
+}
+.heading-underline::after{
+  content:""; position:absolute; left:0; bottom:0;
+  width:52px; height:3px; background:linear-gradient(90deg,var(--brand),var(--brand-deep));
+  border-radius:3px;
+}
+
+/* Hero kicker */
+.hero .kicker{ margin-bottom:.4rem; }
+
+/* SSS, hizmet kutuları */
+.h6{ font-size:14px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+
+@media (max-width: 640px){
+  .lead, p{ max-width: 100%; }
+}

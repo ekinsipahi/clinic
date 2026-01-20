@@ -8,13 +8,16 @@ from django.urls import path, include
 
 from django.contrib.sitemaps.views import sitemap as django_sitemap
 
-from clinic.sitemaps import AutoURLSitemap, CategorySitemap, PostSitemap, RawEnSitemap
+from clinic.sitemaps import AutoURLSitemap, CategorySitemap, PostSitemap, RawEnSitemap, RawDeSitemap, RawNlSitemap
 
 sitemaps = {
     "static-auto": AutoURLSitemap,     # parametresiz named URL’ler
     "blog-categories": CategorySitemap,
     "blog-posts": PostSitemap,
     "english": RawEnSitemap,
+    "german": RawDeSitemap,
+    "dutch": RawNlSitemap,
+
 }
 
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-10 00:37+0300\n"
+"POT-Creation-Date: 2026-01-20 21:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -621,7 +621,7 @@ msgstr ""
 "specifically for your mouth structure."
 
 #: clinic/templates/clinic/index.html:463
-#: clinic/templates/clinic/index.html:1924
+#: clinic/templates/clinic/index.html:1927
 msgid "İmplant Tedavisi"
 msgstr "Implant Treatment"
 
@@ -633,7 +633,7 @@ msgstr ""
 "analysis."
 
 #: clinic/templates/clinic/index.html:468
-#: clinic/templates/clinic/index.html:1937
+#: clinic/templates/clinic/index.html:1940
 msgid "Estetik Diş Uygulamaları"
 msgstr "Aesthetic Dental Applications"
 
@@ -644,7 +644,7 @@ msgstr ""
 "analysis."
 
 #: clinic/templates/clinic/index.html:473
-#: clinic/templates/clinic/index.html:1952
+#: clinic/templates/clinic/index.html:1955
 msgid "Gülüş Tasarımı"
 msgstr "Smile Design"
 
@@ -655,7 +655,7 @@ msgstr ""
 "Smile aesthetic applications supported by 3D planning and digital analysis."
 
 #: clinic/templates/clinic/index.html:478
-#: clinic/templates/clinic/index.html:1965
+#: clinic/templates/clinic/index.html:1968
 msgid "Kanal Tedavisi"
 msgstr "Root Canal Treatment"
 
@@ -664,7 +664,7 @@ msgid "Ağrısız ve etkili kök kanal tedavileri."
 msgstr "Painless and effective root canal treatments."
 
 #: clinic/templates/clinic/index.html:483
-#: clinic/templates/clinic/index.html:1978
+#: clinic/templates/clinic/index.html:1981
 msgid "Diş Taşı Temizliği"
 msgstr "Dental Calculus Cleaning"
 
@@ -674,7 +674,7 @@ msgid ""
 msgstr ""
 
 #: clinic/templates/clinic/index.html:488
-#: clinic/templates/clinic/index.html:1992
+#: clinic/templates/clinic/index.html:1995
 msgid "Diş Dolgusu"
 msgstr "Dental Filling"
 
@@ -702,8 +702,6 @@ msgid ""
 msgstr ""
 
 #: clinic/templates/clinic/index.html:528
-#, fuzzy
-#| msgid "Dr. Dt. Devrim Biriken Sipahi | İstanbul Şişli Diş Kliniği"
 msgid "Dr. Dt. Devrim Biriken Sipahi Kliniği"
 msgstr "Who is Dr. Dt. Devrim Biriken Sipahi?"
 
@@ -715,34 +713,32 @@ msgstr ""
 msgid "Türk Dişhekimleri Birliği"
 msgstr ""
 
-#: clinic/templates/clinic/index.html:1315
+#: clinic/templates/clinic/index.html:1318
 msgid "35+ Yıllık Hekimlik • Şişli / İstanbul"
 msgstr "35+ Years of Medical Practice • Şişli / Istanbul"
 
-#: clinic/templates/clinic/index.html:1321
-#: clinic/templates/clinic/index.html:1547
-#, fuzzy
-#| msgid "Dr. Dt. Devrim Biriken Sipahi | İstanbul Şişli Diş Kliniği"
+#: clinic/templates/clinic/index.html:1324
+#: clinic/templates/clinic/index.html:1550
 msgid "Dr. Dt. Devrim Biriken Sipahi"
 msgstr "Dr. Dt. Devrim Biriken Sipahi"
 
-#: clinic/templates/clinic/index.html:1325
+#: clinic/templates/clinic/index.html:1328
 msgid "Doğru Hekimlik ile"
 msgstr "With Proper Medical Practice"
 
-#: clinic/templates/clinic/index.html:1325
+#: clinic/templates/clinic/index.html:1328
 msgid "Uzun Ömürlü"
 msgstr "Long-Lasting"
 
-#: clinic/templates/clinic/index.html:1326
+#: clinic/templates/clinic/index.html:1329
 msgid "Estetik"
 msgstr "Aesthetic"
 
-#: clinic/templates/clinic/index.html:1326
+#: clinic/templates/clinic/index.html:1329
 msgid "Sonuçlar"
 msgstr "Results"
 
-#: clinic/templates/clinic/index.html:1331
+#: clinic/templates/clinic/index.html:1334
 msgid ""
 "Bilimsel protokoller, kişiye özel dijital planlama ve steril süreçlerle; "
 "yıllarca güvenle kullanabileceğiniz"
@@ -750,43 +746,43 @@ msgstr ""
 "With scientific protocols, personalized digital planning and sterile "
 "processes; quality dentistry you can use with confidence for years"
 
-#: clinic/templates/clinic/index.html:1332
+#: clinic/templates/clinic/index.html:1335
 msgid "kaliteli diş hekimliği"
 msgstr "quality dental care"
 
-#: clinic/templates/clinic/index.html:1338
+#: clinic/templates/clinic/index.html:1341
 msgid "10.000+ Vaka Deneyimi"
 msgstr "10,000+ Case Experience"
 
-#: clinic/templates/clinic/index.html:1340
+#: clinic/templates/clinic/index.html:1343
 msgid "Konforlu & Şeffaf Süreç"
 msgstr "Comfortable & Transparent Process"
 
-#: clinic/templates/clinic/index.html:1342
+#: clinic/templates/clinic/index.html:1345
 msgid "Dijital Planlama & Doğal Estetik"
 msgstr "Digital Planning & Natural Aesthetics"
 
-#: clinic/templates/clinic/index.html:1354
+#: clinic/templates/clinic/index.html:1357
 msgid "Yol Tarifi (Google Maps)"
 msgstr "Get Directions (Google Maps)"
 
-#: clinic/templates/clinic/index.html:1364
+#: clinic/templates/clinic/index.html:1367
 msgid "Hemen Ara"
 msgstr "Call Now"
 
-#: clinic/templates/clinic/index.html:1379
+#: clinic/templates/clinic/index.html:1382
 msgid "Dental clinic background"
 msgstr "Dental clinic background"
 
-#: clinic/templates/clinic/index.html:1390
+#: clinic/templates/clinic/index.html:1393
 msgid "Kanal tedavim acısız ve başarılı gecti ellerine sağlık"
 msgstr "My root canal treatment was painless and successful, thank you"
 
-#: clinic/templates/clinic/index.html:1396
+#: clinic/templates/clinic/index.html:1399
 msgid "Melih E."
 msgstr "Melih E."
 
-#: clinic/templates/clinic/index.html:1404
+#: clinic/templates/clinic/index.html:1407
 msgid ""
 "38 yaşındayım, korkumu yenmeme neden bir doktordur kendisi. İşini özenle ve "
 "TEMİZ yapan, eli hafif, güler yüzlü ve güvende hissetmenizi sağlayan bir "
@@ -800,11 +796,11 @@ msgstr ""
 "days later I had 4 fillings done, I had no pain at all :) - thank God - Dr. "
 "Devrim, it's good that there are doctors like you"
 
-#: clinic/templates/clinic/index.html:1410
+#: clinic/templates/clinic/index.html:1413
 msgid "Ece Y."
 msgstr "Ece Y."
 
-#: clinic/templates/clinic/index.html:1418
+#: clinic/templates/clinic/index.html:1421
 msgid ""
 "Devrim hocamız güler yüzü ile yaptığı işlemlerde acı hiss etmiyorsunuz, "
 "anlaşılmıyor ve çok sağlam oluyor"
@@ -812,11 +808,11 @@ msgstr ""
 "With our Dr. Devrim's smiling face, you don't feel pain during the "
 "procedures, it's unnoticeable and very solid"
 
-#: clinic/templates/clinic/index.html:1424
+#: clinic/templates/clinic/index.html:1427
 msgid "Süleyman B."
 msgstr "Süleyman B."
 
-#: clinic/templates/clinic/index.html:1432
+#: clinic/templates/clinic/index.html:1435
 msgid ""
 "Ufacık dişten dolgu ile diş yaptı ve çok güzel oldu, daha önce 3 doktora "
 "gittim hepsi çekilmesinin gerektiği söylemesine rağmen Devrim hanım "
@@ -829,11 +825,11 @@ msgstr ""
 "tooth. Thank you so much, doctor, we are very happy to have found and met "
 "you. You can go with confidence."
 
-#: clinic/templates/clinic/index.html:1438
+#: clinic/templates/clinic/index.html:1441
 msgid "Cem T."
 msgstr "Cem T."
 
-#: clinic/templates/clinic/index.html:1446
+#: clinic/templates/clinic/index.html:1449
 msgid ""
 "Devrim hocam yıllardır güvendiğim, işini özenle yapan bir hekim. Yaptırdığım "
 "dolgular ve tedavi süreçleri hep çok iyi sonuç verdi. Eli de hafif ve "
@@ -844,11 +840,11 @@ msgstr ""
 "good results. She has a gentle hand and really completes the treatment "
 "quickly, I definitely recommend"
 
-#: clinic/templates/clinic/index.html:1452
+#: clinic/templates/clinic/index.html:1455
 msgid "Buse Y."
 msgstr "Buse Y."
 
-#: clinic/templates/clinic/index.html:1460
+#: clinic/templates/clinic/index.html:1463
 msgid ""
 "Devrim hocaya çocukluğumdan beri gidiyorum, bugün de dolgularımı yaptı, eli "
 "çok temiz, herhangi bir sıkıntı olmadan halletti, kesinlikle öneriyorum"
@@ -857,19 +853,19 @@ msgstr ""
 "her hands are very clean, she handled it without any problems, I definitely "
 "recommend"
 
-#: clinic/templates/clinic/index.html:1466
+#: clinic/templates/clinic/index.html:1469
 msgid "Hüseyin U. Y."
 msgstr "Hüseyin U. Y."
 
-#: clinic/templates/clinic/index.html:1474
+#: clinic/templates/clinic/index.html:1477
 msgid "Dişlerime uygulanan lamina estetik olarak harikaydı."
 msgstr "The laminate applied to my teeth was aesthetically wonderful."
 
-#: clinic/templates/clinic/index.html:1480
+#: clinic/templates/clinic/index.html:1483
 msgid "Melis Ç."
 msgstr "Melis Ç."
 
-#: clinic/templates/clinic/index.html:1488
+#: clinic/templates/clinic/index.html:1491
 msgid ""
 "Devrim hoca ile 2020 yılında tanıştık, yirmilik dişimi çektirmiştim, o kadar "
 "güler yüzlü, eli hafif bir doktor ki beni kendisine hayran bıraktı. Hemen "
@@ -881,11 +877,11 @@ msgstr ""
 "had my front teeth covered, I've been using them without problems for years "
 "🙏☺️"
 
-#: clinic/templates/clinic/index.html:1494
+#: clinic/templates/clinic/index.html:1497
 msgid "Ceren S."
 msgstr "Ceren S."
 
-#: clinic/templates/clinic/index.html:1502
+#: clinic/templates/clinic/index.html:1505
 msgid ""
 "Devrim hanım sayesinde 20'lik dişim sorunsuz çekildi, ön dişlerim daha temiz "
 "ve güzel oldu. En son yaptığı kanal tedavi sayesinde yemek yerken artık "
@@ -898,11 +894,11 @@ msgstr ""
 "with my eyes closed. Dr. Devrim, my dear doctor to whom I have entrusted all "
 "my teeth for years, thank goodness you exist!"
 
-#: clinic/templates/clinic/index.html:1508
+#: clinic/templates/clinic/index.html:1511
 msgid "Merve A."
 msgstr "Merve A."
 
-#: clinic/templates/clinic/index.html:1516
+#: clinic/templates/clinic/index.html:1519
 msgid ""
 "Yıllardır hekimliğine, tecrübesine, tedavisine güvendiğim, her gittiğimde "
 "temizlik konusunda en ufak bir şüphe duymadığım işinin ehli bir diş "
@@ -912,84 +908,84 @@ msgstr ""
 "I have trusted for years, and whom I have never had the slightest doubt "
 "about cleanliness every time I go."
 
-#: clinic/templates/clinic/index.html:1522
+#: clinic/templates/clinic/index.html:1525
 msgid "Özlem H."
 msgstr "Özlem H."
 
-#: clinic/templates/clinic/index.html:1533
+#: clinic/templates/clinic/index.html:1536
 msgid "İletişim Formu"
 msgstr "Contact Form"
 
-#: clinic/templates/clinic/index.html:1541
+#: clinic/templates/clinic/index.html:1544
 msgid "Diş kliniği iletişim görseli"
 msgstr "Dental clinic contact image"
 
-#: clinic/templates/clinic/index.html:1551
+#: clinic/templates/clinic/index.html:1554
 msgid "Bize Ulaşın"
 msgstr "Contact Us"
 
-#: clinic/templates/clinic/index.html:1556
+#: clinic/templates/clinic/index.html:1559
 msgid "Telefon ile ara"
 msgstr "Call by phone"
 
-#: clinic/templates/clinic/index.html:1562
+#: clinic/templates/clinic/index.html:1565
 msgid "+90 505 577 1883"
 msgstr "+90 505 577 1883"
 
-#: clinic/templates/clinic/index.html:1570
+#: clinic/templates/clinic/index.html:1573
 msgid "Biz Sizi Arayalım"
 msgstr "Let Us Call You"
 
-#: clinic/templates/clinic/index.html:1572
-#: clinic/templates/clinic/index.html:1573
-#: clinic/templates/clinic/index.html:1574
+#: clinic/templates/clinic/index.html:1575
+#: clinic/templates/clinic/index.html:1576
+#: clinic/templates/clinic/index.html:1577
 msgid "Ad Soyad"
 msgstr "Full Name"
 
-#: clinic/templates/clinic/index.html:1577
+#: clinic/templates/clinic/index.html:1580
 msgid "Telefon"
 msgstr "Phone"
 
-#: clinic/templates/clinic/index.html:1578
-#: clinic/templates/clinic/index.html:1579
+#: clinic/templates/clinic/index.html:1581
+#: clinic/templates/clinic/index.html:1582
 msgid "Telefon Numaranız"
 msgstr "Your Phone Number"
 
-#: clinic/templates/clinic/index.html:1582
+#: clinic/templates/clinic/index.html:1585
 msgid "Mesaj"
 msgstr "Message"
 
-#: clinic/templates/clinic/index.html:1583
+#: clinic/templates/clinic/index.html:1586
 msgid "Mesajınız (isteğe bağlı)"
 msgstr "Your Message (optional)"
 
-#: clinic/templates/clinic/index.html:1584
+#: clinic/templates/clinic/index.html:1587
 msgid ""
 "İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)"
 msgstr ""
 "If you have a message you want to convey, you can write it here (optional)"
 
-#: clinic/templates/clinic/index.html:1589
+#: clinic/templates/clinic/index.html:1592
 msgid "Beni Ara Lead"
 msgstr "Call Me Lead"
 
-#: clinic/templates/clinic/index.html:1593
+#: clinic/templates/clinic/index.html:1596
 msgid "Gönder"
 msgstr "Send"
 
-#: clinic/templates/clinic/index.html:1614
+#: clinic/templates/clinic/index.html:1617
 msgid "35+ Yıllık Tecrübe • Gerçek Diş Hekimliği"
 msgstr "35+ Years of Experience • Real Dentistry"
 
-#: clinic/templates/clinic/index.html:1617
+#: clinic/templates/clinic/index.html:1620
 msgid "Doğru Hekimlik"
 msgstr "Proper Medical Practice"
 
-#: clinic/templates/clinic/index.html:1617
+#: clinic/templates/clinic/index.html:1620
 msgid "Anlayışıyla Uzun Ömürlü ve Estetik Sonuçlar"
 msgstr "Long-Lasting and Aesthetic Results with Understanding"
 
-#: clinic/templates/clinic/index.html:1620
+#: clinic/templates/clinic/index.html:1623
 msgid ""
 "Amacımız sadece bugünü değil, <strong>gelecekteki sağlığınızı</strong> da "
 "korumak. Bilimsel protokoller, kişiye özel planlama ve kaliteli "
@@ -999,11 +995,11 @@ msgstr ""
 "strong>. We offer treatments that you can use with confidence for many years "
 "with scientific protocols, personalized planning and quality materials."
 
-#: clinic/templates/clinic/index.html:1634
+#: clinic/templates/clinic/index.html:1637
 msgid "35+ Yıllık Klinik Deneyim"
 msgstr "35+ Years of Clinical Experience"
 
-#: clinic/templates/clinic/index.html:1636
+#: clinic/templates/clinic/index.html:1639
 msgid ""
 "Binlerce vaka tecrübesiyle; her tedavide doğru teşhis ve uzun ömürlü "
 "çözümler."
@@ -1011,11 +1007,11 @@ msgstr ""
 "With thousands of case experience; accurate diagnosis and long-lasting "
 "solutions in every treatment."
 
-#: clinic/templates/clinic/index.html:1646
+#: clinic/templates/clinic/index.html:1649
 msgid "Hijyen & Bilimsel Protokoller"
 msgstr "Hygiene & Scientific Protocols"
 
-#: clinic/templates/clinic/index.html:1648
+#: clinic/templates/clinic/index.html:1651
 msgid ""
 "Her işlem steril alan, hijyen kontrolü ve uluslararası protokollerle "
 "uygulanır."
@@ -1023,11 +1019,11 @@ msgstr ""
 "Every procedure is performed with sterile area, hygiene control and "
 "international protocols."
 
-#: clinic/templates/clinic/index.html:1658
+#: clinic/templates/clinic/index.html:1661
 msgid "Kişiye Özel Dijital Planlama"
 msgstr "Personalized Digital Planning"
 
-#: clinic/templates/clinic/index.html:1660
+#: clinic/templates/clinic/index.html:1663
 msgid ""
 "3D görüntüleme ve dijital ölçüm ile estetik ve fonksiyon dengesini en iyi "
 "şekilde sağlıyoruz."
@@ -1035,11 +1031,11 @@ msgstr ""
 "We provide the best balance of aesthetics and function with 3D imaging and "
 "digital measurement."
 
-#: clinic/templates/clinic/index.html:1671
+#: clinic/templates/clinic/index.html:1674
 msgid "Gerçek Takip & Güvenilir İletişim"
 msgstr "Real Follow-up & Reliable Communication"
 
-#: clinic/templates/clinic/index.html:1673
+#: clinic/templates/clinic/index.html:1676
 msgid ""
 "Tedavi sürecinde şeffaf bilgilendirme, düzenli kontrol randevuları ve her an "
 "ulaşılabilir ekip."
@@ -1047,11 +1043,11 @@ msgstr ""
 "Transparent information during the treatment process, regular check-up "
 "appointments and a team accessible at all times."
 
-#: clinic/templates/clinic/index.html:1681
+#: clinic/templates/clinic/index.html:1684
 msgid "Önce Muayene & Şeffaf Bilgilendirme"
 msgstr "Examination First & Transparent Information"
 
-#: clinic/templates/clinic/index.html:1683
+#: clinic/templates/clinic/index.html:1686
 msgid ""
 "Tedavi planı yalnızca muayene sonrası belirlenir; tüm seçenekler ve maliyet "
 "net şekilde paylaşılır."
@@ -1059,11 +1055,11 @@ msgstr ""
 "The treatment plan is determined only after examination; all options and "
 "costs are clearly shared."
 
-#: clinic/templates/clinic/index.html:1687
+#: clinic/templates/clinic/index.html:1690
 msgid "Doğal Estetik & Fonksiyon"
 msgstr "Natural Aesthetics & Function"
 
-#: clinic/templates/clinic/index.html:1689
+#: clinic/templates/clinic/index.html:1692
 msgid ""
 "Hedefimiz uzun ömürlü fonksiyonla beraber, estetik açıdan da doğal ve uyumlu "
 "bir gülüş sunmak."
@@ -1071,11 +1067,11 @@ msgstr ""
 "Our goal is to offer a smile that is natural and harmonious aesthetically, "
 "along with long-lasting function."
 
-#: clinic/templates/clinic/index.html:1693
+#: clinic/templates/clinic/index.html:1696
 msgid "Konforlu Süreç Yönetimi"
 msgstr "Comfortable Process Management"
 
-#: clinic/templates/clinic/index.html:1695
+#: clinic/templates/clinic/index.html:1698
 msgid ""
 "Randevu planlaması, ağrı kontrolü ve iyileşme süreci her aşamada konfor "
 "odaklı ilerler."
@@ -1083,11 +1079,11 @@ msgstr ""
 "Appointment planning, pain control and healing process progress with a "
 "comfort focus at every stage."
 
-#: clinic/templates/clinic/index.html:1703
+#: clinic/templates/clinic/index.html:1706
 msgid "Uygun İlk Muayene Zamanını Gör"
 msgstr "See Available First Examination Time"
 
-#: clinic/templates/clinic/index.html:1706
+#: clinic/templates/clinic/index.html:1709
 msgid ""
 "Bu bölüm bilgilendirme amaçlıdır; tanı ve tedavi planı muayene sonrası "
 "belirlenir."
@@ -1095,17 +1091,15 @@ msgstr ""
 "This section is for informational purposes; diagnosis and treatment plan are "
 "determined after examination."
 
-#: clinic/templates/clinic/index.html:1726
+#: clinic/templates/clinic/index.html:1729
 msgid "Doğru tanı, doğru tedavi, dişi koru."
 msgstr "Correct diagnosis, correct treatment, save the tooth."
 
-#: clinic/templates/clinic/index.html:1732
-#, fuzzy
-#| msgid "Dr. Dt. Devrim Biriken Sipahi | İstanbul Şişli Diş Kliniği"
+#: clinic/templates/clinic/index.html:1735
 msgid "Dr. Dt. Devrim Biriken Sipahi Kimdir?"
 msgstr "Who is Dr. Dt. Devrim Biriken Sipahi?"
 
-#: clinic/templates/clinic/index.html:1737
+#: clinic/templates/clinic/index.html:1740
 msgid ""
 "<strong>Dr. Dt. Devrim Biriken Sipahi</strong>, 35 yılı aşkın tecrübesiyle "
 "İstanbul Şişli'de hizmet veren köklü bir diş hekimidir. Ankara Üniversitesi "
@@ -1121,7 +1115,7 @@ msgstr ""
 "Maxillofacial Radiology</em>. Thanks to her radiology-based diagnostic "
 "approach, plans are clear and surprises are minimal."
 
-#: clinic/templates/clinic/index.html:1742
+#: clinic/templates/clinic/index.html:1745
 msgid ""
 "Bizim çizgimiz net: <span class='font-semibold text-gray-900'>dişi "
 "kurtarmak</span>. Gereksiz işlem yok, doğru endikasyonda <span class='font-"
@@ -1140,7 +1134,7 @@ msgstr ""
 "what looks beautiful, but <span class='font-semibold'>healthy and long-"
 "lasting</span> results."
 
-#: clinic/templates/clinic/index.html:1747
+#: clinic/templates/clinic/index.html:1750
 msgid ""
 "Peki implant? Önce şunu söyleyelim: <span class='font-semibold'>İmplant son "
 "seçenek</span>tir—kurtarılabilecek dişi koruruz. Fakat ihtiyaç doğduğunda, "
@@ -1158,7 +1152,7 @@ msgstr ""
 "quality/density analysis and digital surgical guides. When appropriate, the "
 "process is completed with temporary teeth without interrupting social life.*"
 
-#: clinic/templates/clinic/index.html:1752
+#: clinic/templates/clinic/index.html:1755
 msgid ""
 "Kliniğin kuruluş motivasyonu sadece 'tedavi' değil, bir <span class='font-"
 "semibold'>miras</span>tır: Dr. Sipahi'nin bilgi ve tecrübesinin <span "
@@ -1174,23 +1168,23 @@ msgstr ""
 "semibold'>Dt. Ekin Sipahi</span> to maintain the same quality standards. Two "
 "generations, one line: correct, simple, effective medical practice."
 
-#: clinic/templates/clinic/index.html:1757
+#: clinic/templates/clinic/index.html:1760
 msgid "Konservatif Yaklaşım"
 msgstr "Conservative Approach"
 
-#: clinic/templates/clinic/index.html:1758
+#: clinic/templates/clinic/index.html:1761
 msgid "Radyoloji Destekli Tanı"
 msgstr "Radiology-Assisted Diagnosis"
 
-#: clinic/templates/clinic/index.html:1759
+#: clinic/templates/clinic/index.html:1762
 msgid "Kişiye Özel Plan"
 msgstr "Personalized Plan"
 
-#: clinic/templates/clinic/index.html:1760
+#: clinic/templates/clinic/index.html:1763
 msgid "Ağrısız & Konforlu Süreç"
 msgstr "Painless & Comfortable Process"
 
-#: clinic/templates/clinic/index.html:1765
+#: clinic/templates/clinic/index.html:1768
 msgid ""
 "Kliniğimiz Şişli Merkez'de, <strong>Abide-i Hürriyet Caddesi</strong> "
 "üzerinde yer alır."
@@ -1198,11 +1192,11 @@ msgstr ""
 "Our clinic is located in Şişli Center, on <strong>Abide-i Hürriyet Street</"
 "strong>."
 
-#: clinic/templates/clinic/index.html:1769
+#: clinic/templates/clinic/index.html:1772
 msgid "Hemen Ulaşın"
 msgstr "Contact Now"
 
-#: clinic/templates/clinic/index.html:1773
+#: clinic/templates/clinic/index.html:1776
 msgid ""
 "*Tedavi planları kişiye özeldir; uygunluk klinik ve radyolojik değerlendirme "
 "ile belirlenir."
@@ -1210,12 +1204,12 @@ msgstr ""
 "*Treatment plans are personalized; suitability is determined by clinical and "
 "radiological evaluation."
 
-#: clinic/templates/clinic/index.html:1799
+#: clinic/templates/clinic/index.html:1802
 msgid "Sadece diş değil, özgüven kazandırıyoruz."
 msgstr "We don't just give teeth, we give confidence."
 
-#: clinic/templates/clinic/index.html:1827
-#: clinic/templates/clinic/index.html:1881
+#: clinic/templates/clinic/index.html:1830
+#: clinic/templates/clinic/index.html:1884
 msgid ""
 "Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha "
 "estetik hale getirildi."
@@ -1223,7 +1217,7 @@ msgstr ""
 "Sanem's teeth were made more aesthetic than natural with only composite "
 "application, without any cutting."
 
-#: clinic/templates/clinic/index.html:1854
+#: clinic/templates/clinic/index.html:1857
 msgid ""
 "Hazan geçirdiği travma sonucu, dişi pembe olarak kliniğimize geldi estetik "
 "olarak dişlerini hiç bozmadan eski halinden daha iyi duruma getirdik."
@@ -1232,11 +1226,11 @@ msgstr ""
 "we brought it to a better condition than its old state without spoiling the "
 "aesthetics of her teeth at all."
 
-#: clinic/templates/clinic/index.html:1896
+#: clinic/templates/clinic/index.html:1899
 msgid "Hizmetlerimiz"
 msgstr "Our Services"
 
-#: clinic/templates/clinic/index.html:1901
+#: clinic/templates/clinic/index.html:1904
 msgid ""
 "Dr. Dt. Devrim Biriken Sipahi'nin kliniğinde sunduğumuz tüm modern diş "
 "tedavi hizmetlerini keşfedin."
@@ -1244,11 +1238,11 @@ msgstr ""
 "Discover all the modern dental treatment services we offer at Dr. Dt. Devrim "
 "Biriken Sipahi's clinic."
 
-#: clinic/templates/clinic/index.html:1905
+#: clinic/templates/clinic/index.html:1908
 msgid "Randevu Al"
 msgstr "Make an Appointment"
 
-#: clinic/templates/clinic/index.html:1927
+#: clinic/templates/clinic/index.html:1930
 msgid ""
 "3D printer destekli altyapılar ve dijital gülüş tasarımı ile implant "
 "tedavilerimizi planlıyoruz. Bu sayede hem estetik hem de fonksiyonel "
@@ -1258,7 +1252,7 @@ msgstr ""
 "digital smile design. In this way, we achieve both aesthetic and functional "
 "results."
 
-#: clinic/templates/clinic/index.html:1940
+#: clinic/templates/clinic/index.html:1943
 msgid ""
 "Zirkonyum ve lamine gibi modern çözümlerle doğal ve beyaz bir gülüş "
 "sunuyoruz. Diş kesimini en aza indirerek estetik müdahaleleri kişiye özel "
@@ -1268,7 +1262,7 @@ msgstr ""
 "and laminate. We plan aesthetic interventions personalized by minimizing "
 "tooth cutting."
 
-#: clinic/templates/clinic/index.html:1955
+#: clinic/templates/clinic/index.html:1958
 msgid ""
 "Kompozit uygulamalarla, diş kesmeden minimal dokunuşlarla etkileyici "
 "gülüşler tasarlıyoruz. Ufak değişikliklerle bambaşka estetik sonuçlar elde "
@@ -1278,7 +1272,7 @@ msgstr ""
 "touches without cutting teeth. We achieve completely different aesthetic "
 "results with small changes."
 
-#: clinic/templates/clinic/index.html:1968
+#: clinic/templates/clinic/index.html:1971
 msgid ""
 "Ağrının kaynağını hızla tespit edip mümkün olan en kısa sürede tedaviye "
 "başlıyoruz. Diş çekimi son çare olarak düşünülür; hedefimiz doğal dişi "
@@ -1288,7 +1282,7 @@ msgstr ""
 "possible. Tooth extraction is considered as a last resort; our goal is to "
 "preserve the natural tooth."
 
-#: clinic/templates/clinic/index.html:1981
+#: clinic/templates/clinic/index.html:1984
 msgid ""
 "Tüm diş taşlarınızı ortalama 10 dakika içinde temizliyor, dişlerinizi ilk "
 "seansa göre daha beyaz ve sağlıklı bir görünüme kavuşturuyoruz."
@@ -1296,7 +1290,7 @@ msgstr ""
 "We clean all your dental calculus in an average of 10 minutes, giving your "
 "teeth a whiter and healthier appearance compared to the first session."
 
-#: clinic/templates/clinic/index.html:1995
+#: clinic/templates/clinic/index.html:1998
 msgid ""
 "Kliniğimizde uyguladığımız kompozit ve bonding dolgular, yalnızca estetik "
 "değil aynı zamanda dayanıklıdır. Doğru teknikle yapılan dolgular, uzun "
@@ -1306,19 +1300,19 @@ msgstr ""
 "aesthetic but also durable. Fillings made with the right technique can be "
 "used without problems for many years."
 
-#: clinic/templates/clinic/index.html:3031
+#: clinic/templates/clinic/index.html:3034
 msgid "💬 Canlı destek aktif! Tıklayın"
 msgstr "💬 Live support active! Click"
 
-#: clinic/templates/clinic/index.html:3037
+#: clinic/templates/clinic/index.html:3040
 msgid "7/24 Canlı Destek Hattı Tıkla Konuş"
 msgstr "24/7 Live Support Line Click to Talk"
 
-#: clinic/templates/clinic/index.html:3049
+#: clinic/templates/clinic/index.html:3052
 msgid "Mesajınızı yazın..."
 msgstr "Write your message..."
 
-#: clinic/templates/clinic/index.html:3102
+#: clinic/templates/clinic/index.html:3105
 msgid "KVKK Aydınlatma Metni’ne buradan erişebilirsiniz."
 msgstr "You can access the Privacy Policy here."
 
@@ -1576,8 +1570,6 @@ msgid ""
 msgstr ""
 
 #: clinic/templates/clinic/maps-yonlendir.html:10
-#, fuzzy
-#| msgid "Dr. Dt. Devrim Biriken Sipahi | İstanbul Şişli Diş Kliniği"
 msgid "Yol Tarifi | Dr. Dt. Devrim Biriken Sipahi"
 msgstr "Dr. Dt. Devrim Biriken Sipahi"
 
@@ -1590,8 +1582,6 @@ msgstr ""
 #: clinic/templates/clinic/maps-yonlendir.html:57
 #: clinic/templates/clinic/telefon-yonlendir.html:103
 #: clinic/templates/clinic/whatsapp-yonlendir.html:103
-#, fuzzy
-#| msgid "Dr. Dt. Devrim Biriken Sipahi | İstanbul Şişli Diş Kliniği"
 msgid "Dr. Devrim Biriken Sipahi Kliniği"
 msgstr "Who is Dr. Dt. Devrim Biriken Sipahi?"
 
@@ -1608,10 +1598,9 @@ msgid "Haritada Görüntüle"
 msgstr ""
 
 #: clinic/templates/clinic/telefon-yonlendir.html:10
-#, fuzzy
-#| msgid "Dr. Dt. Devrim Biriken Sipahi | İstanbul Şişli Diş Kliniği"
+
 msgid "Telefonla Randevu | Dr. Dt. Devrim Biriken Sipahi"
-msgstr "Dr. Dt. Devrim Biriken Sipahi"
+msgstr "Dr. Dt. Devrim Biriken Sipahi | Phone Appointment"
 
 #: clinic/templates/clinic/telefon-yonlendir.html:12
 msgid ""
@@ -1644,10 +1633,8 @@ msgid "Telefonla Ara"
 msgstr "Call by phone"
 
 #: clinic/templates/clinic/whatsapp-yonlendir.html:9
-#, fuzzy
-#| msgid "Dr. Dt. Devrim Biriken Sipahi | İstanbul Şişli Diş Kliniği"
 msgid "WhatsApp ile Randevu | Dr. Dt. Devrim Biriken Sipahi"
-msgstr "Dr. Dt. Devrim Biriken Sipahi"
+msgstr "Dr. Dt. Devrim Biriken Sipahi | Whatsapp Appointment"
 
 #: clinic/templates/clinic/whatsapp-yonlendir.html:11
 msgid ""
@@ -1669,7 +1656,7 @@ msgstr ""
 msgid "WhatsApp'a Git"
 msgstr "WhatsApp"
 
-#: clinic/views.py:123
+#: clinic/views.py:126
 msgid "Sayfa bulunamadı"
 msgstr "Page not found"
 

@@ -1,0 +1,1526 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-20 22:04+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: clinic/templates/clinic/callme-tesekkur.html:7
+msgid "Teşekkürler"
+msgstr "Vielen Dank"
+
+#: clinic/templates/clinic/callme-tesekkur.html:41
+msgid "Teşekkür ederiz!"
+msgstr "Vielen Dank!"
+
+#: clinic/templates/clinic/callme-tesekkur.html:42
+msgid "Bilgileriniz başarıyla iletildi. Sizi mesai saatleri içinde"
+msgstr "Ihre Informationen wurden erfolgreich übermittelt. Wir werden Sie während der Geschäftszeiten"
+
+#: clinic/templates/clinic/callme-tesekkur.html:43
+msgid "arası arayacağız."
+msgstr "zurückrufen."
+
+#: clinic/templates/clinic/callme-tesekkur.html:44
+msgid "10 saniye içinde ana sayfaya yönlendirileceksiniz..."
+msgstr "Sie werden in 10 Sekunden zur Startseite weitergeleitet..."
+
+#: clinic/templates/clinic/index.html:9 clinic/templates/clinic/index.html:10
+#: clinic/templates/clinic/index.html:30
+msgid "Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği"
+msgstr "Dr. Devrim Biriken Sipahi | Zahnklinik Şişli"
+
+#: clinic/templates/clinic/index.html:20
+msgid ""
+"Dr. Dt. Devrim Biriken Sipahi, Şişlide implant, estetik lamina ve gülüş "
+"tasarımı hizmetleri sunan deneyimli diş hekimi."
+msgstr "Dr. Devrim Biriken Sipahi, erfahrene Zahnärztin in Şişli, Istanbul, Türkei, bietet Implantate, ästhetische Veneers und Smile-Design-Dienstleistungen an."
+
+#: clinic/templates/clinic/index.html:22
+msgid ""
+"devrim sipahi, devrim biriken sipahi, devrim b sipahi, şişli diş kliniği, "
+"implant tedavisi, gülüş tasarımı, estetik diş hekimliği"
+msgstr "devrim sipahi, devrim biriken sipahi, devrim b sipahi, zahnklinik şişli, implantatbehandlung, smile design, ästhetische zahnmedizin"
+
+#: clinic/templates/clinic/index.html:26
+msgid "SEO ICIN GEREKLI CANONICAL TAG"
+msgstr "ERFORDERLICHER CANONICAL TAG FÜR SEO"
+
+#: clinic/templates/clinic/index.html:41
+msgid "Devrim Sipahi Diş kliniğini nerede?"
+msgstr "Wo befindet sich die Zahnklinik von Devrim Sipahi?"
+
+#: clinic/templates/clinic/index.html:44
+msgid ""
+"Kliniğimiz Şişli Merkezdedir. Adresimiz: Abide-i Hürriyet Caddesi No:148, "
+"Kat:4, Daire:11 – İstanbul."
+msgstr "Unsere Klinik befindet sich im Zentrum von Şişli. Unsere Adresse: Abide-i Hürriyet Caddesi Nr. 148, Etage 4, Wohnung 11 – Istanbul, Türkei."
+
+#: clinic/templates/clinic/index.html:49
+msgid "Devrim Sipahi Diş kliniği hangi saatler arasında açık?"
+msgstr "Welche Öffnungszeiten hat die Zahnklinik Devrim Sipahi?"
+
+#: clinic/templates/clinic/index.html:52
+msgid ""
+"Kliniğimiz hafta içi her gün 09:00 - 21:00 saatleri arasında hizmet "
+"vermektedir."
+msgstr "Unsere Klinik ist an Wochentagen täglich von 09:00 bis 21:00 Uhr geöffnet."
+
+#: clinic/templates/clinic/index.html:57
+msgid "Hafta sonu açık diş kliniği misiniz?"
+msgstr "Haben Sie am Wochenende geöffnet?"
+
+#: clinic/templates/clinic/index.html:60
+msgid "Evet, haftanın 7 günü açığız. Pazar dahil hizmet veriyoruz."
+msgstr "Ja, wir sind 7 Tage die Woche geöffnet. Wir bieten auch sonntags Dienstleistungen an."
+
+#: clinic/templates/clinic/index.html:65
+msgid "Randevusuz diş hastası kabul ediliyor mu?"
+msgstr "Nehmen Sie Patienten ohne Termin an?"
+
+#: clinic/templates/clinic/index.html:68
+msgid ""
+"Randevusuz gelebilirsiniz. Sadece öncesinde telefonla arayıp haber vermeniz "
+"gerekir."
+msgstr "Sie können ohne Termin kommen. Sie müssen uns nur vorher telefonisch informieren."
+
+#: clinic/templates/clinic/index.html:73
+msgid "Diş randevusu nasıl alabilirim?"
+msgstr "Wie kann ich einen Zahnarzttermin vereinbaren?"
+
+#: clinic/templates/clinic/index.html:76
+msgid ""
+"Web sitemizden online randevu formu doldurarak, WhatsApptan yazarak veya "
+"bizi arayarak kolayca randevu alabilirsiniz."
+msgstr "Sie können ganz einfach einen Termin vereinbaren, indem Sie das Online-Formular auf unserer Website ausfüllen, uns über WhatsApp schreiben oder uns anrufen."
+
+#: clinic/templates/clinic/index.html:81
+msgid "Telefonla randevu alınır mı?"
+msgstr "Kann ich telefonisch einen Termin vereinbaren?"
+
+#: clinic/templates/clinic/index.html:84
+msgid "Evet, direkt arayarak hemen diş randevusu oluşturabilirsiniz."
+msgstr "Ja, Sie können sofort einen Zahnarzttermin vereinbaren, indem Sie uns direkt anrufen."
+
+#: clinic/templates/clinic/index.html:89
+msgid "WhatsApptan diş randevusu alabilir miyim?"
+msgstr "Kann ich über WhatsApp einen Zahnarzttermin vereinbaren?"
+
+#: clinic/templates/clinic/index.html:92
+msgid ""
+"Evet, WhatsApptan hızlıca iletişime geçebilir ve randevu oluşturabilirsiniz."
+msgstr "Ja, Sie können uns schnell über WhatsApp kontaktieren und einen Termin vereinbaren."
+
+#: clinic/templates/clinic/index.html:97
+msgid "Devrim Biriken Sipahi Kliniğinde SSK ve Bağkur geçerli mi?"
+msgstr "Akzeptieren Sie in der Klinik von Devrim Biriken Sipahi gesetzliche Krankenversicherungen?"
+
+#: clinic/templates/clinic/index.html:100
+msgid ""
+"Hayır, kliniğimiz özel bir diş kliniğidir. SSK ve Bağkur ile anlaşmamız "
+"bulunmamaktadır."
+msgstr "Nein, unsere Klinik ist eine private Zahnklinik. Wir haben keine Verträge mit gesetzlichen Krankenversicherungen."
+
+#: clinic/templates/clinic/index.html:105
+msgid "Diş tedavisi ücretleri ne kadar?"
+msgstr "Wie hoch sind die Kosten für zahnärztliche Behandlungen?"
+
+#: clinic/templates/clinic/index.html:108
+msgid ""
+"Diş tedavisi ücretleri, tedavi türüne ve süresine göre değişiklik "
+"göstermektedir. Kesin fiyat bilgisi için lütfen kliniğimizle iletişime geçin."
+msgstr "Die Kosten für zahnärztliche Behandlungen variieren je nach Art und Dauer der Behandlung. Für genaue Preisinformationen kontaktieren Sie bitte unsere Klinik."
+
+#: clinic/templates/clinic/index.html:113
+msgid "Hangi ödeme yöntemlerini kabul ediyorsunuz?"
+msgstr "Welche Zahlungsmethoden akzeptieren Sie?"
+
+#: clinic/templates/clinic/index.html:116
+msgid "Nakit ve kredi kartı ile ödeme kabul ediyoruz."
+msgstr "Wir akzeptieren Barzahlung und Kreditkartenzahlung."
+
+#: clinic/templates/clinic/index.html:121
+msgid "Acil durumlarda müdahale ediyor musunuz?"
+msgstr "Behandeln Sie Notfälle?"
+
+#: clinic/templates/clinic/index.html:124
+msgid ""
+"Sabah erken saatlerde bize ulaşırsanız, acil ağrılı vakalara öncelik "
+"tanıyoruz."
+msgstr "Wenn Sie uns früh am Morgen erreichen, priorisieren wir akute Schmerzfälle."
+
+#: clinic/templates/clinic/index.html:129
+msgid "Ne tür tedaviler yapılıyor?"
+msgstr "Welche Arten von Behandlungen werden durchgeführt?"
+
+#: clinic/templates/clinic/index.html:132
+msgid ""
+"Kanal tedavisi, dolgu, çekim, implant, estetik işlemler ve ortodonti dışında "
+"tüm işlemler dahil olacak şekilde genel diş hekimliği hizmeti veriyoruz "
+"çocuk ve bebek hastaları dahi kabul ediyoruz. Ama detay için muayene gerekir."
+msgstr "Wir bieten allgemeine Zahnheilkunde, einschließlich Wurzelkanalbehandlung, Füllungen, Extraktionen, Implantate, ästhetische Behandlungen und alle Verfahren außer Kieferorthopädie. Wir behandeln auch Kinder und Babys. Für Details ist jedoch eine Untersuchung erforderlich."
+
+#: clinic/templates/clinic/index.html:137
+msgid "Röntgen çekiyor musunuz?"
+msgstr "Machen Sie Röntgenaufnahmen?"
+
+#: clinic/templates/clinic/index.html:140
+msgid "Evet, Panoramik röntgen seçeneğimiz mevcuttur."
+msgstr "Ja, wir bieten Panorama-Röntgenaufnahmen an."
+
+#: clinic/templates/clinic/index.html:145
+msgid "Hijyen konusunda nasıl önlem alıyorsunuz?"
+msgstr "Welche Hygienemaßnahmen ergreifen Sie?"
+
+#: clinic/templates/clinic/index.html:148
+msgid ""
+"Her işlem sonrası cihazlar sterilize edilir, zeminler silinir. "
+"Sterilizasyona maksimum önem verilen bir kliniktir."
+msgstr "Nach jedem Eingriff werden die Geräte sterilisiert und die Böden gereinigt. Unsere Klinik legt größten Wert auf Sterilisation."
+
+#: clinic/templates/clinic/index.html:153
+msgid "Gece başlayan şiddetli diş ağrısına ne yapmalıyım?"
+msgstr "Was soll ich bei starken Zahnschmerzen tun, die nachts beginnen?"
+
+#: clinic/templates/clinic/index.html:156
+msgid ""
+"Gece ağrısı zonklayıcıysa kanal tedavisi gerekebilir. Sabah erken ulaşarak "
+"randevu alabilirsiniz."
+msgstr "Wenn die nächtlichen Schmerzen pochend sind, kann eine Wurzelkanalbehandlung erforderlich sein. Sie können früh am Morgen einen Termin vereinbaren."
+
+#: clinic/templates/clinic/index.html:161
+msgid "Dişim kırıldı, ne yapmam gerekiyor?"
+msgstr "Mein Zahn ist abgebrochen, was soll ich tun?"
+
+#: clinic/templates/clinic/index.html:164
+msgid "Kırık dişi saklayın, bölgeyi zorlamayın ve hemen kliniğe başvurun."
+msgstr "Bewahren Sie den abgebrochenen Zahn auf, belasten Sie den Bereich nicht und suchen Sie sofort die Klinik auf."
+
+#: clinic/templates/clinic/index.html:169
+msgid "Ağrıyan dişe antibiyotik alsam geçer mi?"
+msgstr "Helfen Antibiotika bei einem schmerzenden Zahn?"
+
+#: clinic/templates/clinic/index.html:172
+msgid ""
+"Geçici rahatlatır ama kesin çözüm değildir. Tedavi planı için randevu "
+"almanızı öneririz."
+msgstr "Sie können vorübergehende Linderung bringen, sind aber keine endgültige Lösung. Wir empfehlen, einen Termin für einen Behandlungsplan zu vereinbaren."
+
+#: clinic/templates/clinic/index.html:177
+msgid "Kanal tedavisi şart mı yoksa dolgu yeterli olur mu?"
+msgstr "Ist eine Wurzelkanalbehandlung notwendig oder reicht eine Füllung?"
+
+#: clinic/templates/clinic/index.html:180
+msgid "Sinire ulaşan çürüklerde kanal gerekir. Karar muayene sonrası netleşir."
+msgstr "Bei Karies, die den Nerv erreicht hat, ist eine Wurzelbehandlung erforderlich. Die Entscheidung wird nach der Untersuchung getroffen."
+
+#: clinic/templates/clinic/index.html:185
+msgid "Gece zonklayan diş neden olur?"
+msgstr "Was verursacht nachts pochende Zahnschmerzen?"
+
+#: clinic/templates/clinic/index.html:188
+msgid "Bu tip ağrılar genelde iltihaplı dişe işaret eder. Kanal gerekebilir."
+msgstr "Diese Art von Schmerzen deutet in der Regel auf einen entzündeten Zahn hin. Eine Wurzelbehandlung kann erforderlich sein."
+
+#: clinic/templates/clinic/index.html:193
+msgid "Soğuk sıcak hassasiyetim var, bu kanal ihtimali mi?"
+msgstr "Ich habe Empfindlichkeit gegen Kälte und Hitze, bedeutet das eine Wurzelbehandlung?"
+
+#: clinic/templates/clinic/index.html:196
+msgid ""
+"Sıcak-soğuk hassasiyeti sinir hasarına işaret edebilir. Net bilgi için "
+"muayene gerekir."
+msgstr "Empfindlichkeit gegen Hitze und Kälte kann auf Nervenschäden hinweisen. Für genaue Informationen ist eine Untersuchung erforderlich."
+
+#: clinic/templates/clinic/index.html:201
+msgid "Dişim apse yaptı, şişti. Ne yapmalıyım?"
+msgstr "Mein Zahn hat einen Abszess, er ist geschwollen. Was soll ich tun?"
+
+#: clinic/templates/clinic/index.html:204
+msgid ""
+"Antibiyotik öncesi dişi değerlendirmek önemlidir. Apse patlamadan kliniğe "
+"ulaşmanız gerekir."
+msgstr "Es ist wichtig, den Zahn vor der Antibiotikagabe zu untersuchen. Sie sollten die Klinik aufsuchen, bevor der Abszess aufplatzt."
+
+#: clinic/templates/clinic/index.html:209
+msgid "Ağrı kesici alıyorum ama geçmiyor, neden?"
+msgstr "Ich nehme Schmerzmittel, aber es hilft nicht, warum?"
+
+#: clinic/templates/clinic/index.html:212
+msgid ""
+"Geçmeyen ağrılar genelde kök kaynaklıdır. Kanal veya çekim gerekebilir. "
+"Uygun randevu için bize ulaşın."
+msgstr "Anhaltende Schmerzen haben in der Regel ihre Ursache in der Wurzel. Eine Wurzelbehandlung oder Extraktion kann erforderlich sein. Kontaktieren Sie uns für einen passenden Termin."
+
+#: clinic/templates/clinic/index.html:217
+msgid "Gece diş ağrısına ne yapmalı?"
+msgstr "Was tun bei nächtlichen Zahnschmerzen?"
+
+#: clinic/templates/clinic/index.html:220
+msgid ""
+"Ağrıyı baskılamak için ağrı kesici alın ama sabah ilk iş kliniğe ulaşın."
+msgstr "Nehmen Sie Schmerzmittel zur Linderung ein, aber kontaktieren Sie morgens als Erstes die Klinik."
+
+#: clinic/templates/clinic/index.html:225
+msgid "Dişin üstü açık kaldı, ağrı yapar mı?"
+msgstr "Die Oberseite des Zahns ist offen geblieben, verursacht das Schmerzen?"
+
+#: clinic/templates/clinic/index.html:228
+msgid ""
+"Evet, açık kanal enfeksiyona neden olabilir. Hemen müdahale gerekebilir."
+msgstr "Ja, ein offener Kanal kann eine Infektion verursachen. Eine sofortige Behandlung kann erforderlich sein."
+
+#: clinic/templates/clinic/index.html:233
+msgid "Çok ağrıyor ama korkuyorum, iğne yapılıyor mu?"
+msgstr "Es tut sehr weh, aber ich habe Angst, wird gespritzt?"
+
+#: clinic/templates/clinic/index.html:236
+msgid "Evet, işlem öncesi lokal anestezi uygulanır. Hiçbir şey hissetmezsiniz."
+msgstr "Ja, vor dem Eingriff wird eine Lokalanästhesie durchgeführt. Sie werden nichts spüren."
+
+#: clinic/templates/clinic/index.html:241
+msgid "Ağrılı diş çekilir mi?"
+msgstr "Wird ein schmerzender Zahn gezogen?"
+
+#: clinic/templates/clinic/index.html:244
+msgid ""
+"İltihap çok ilerlememişse genelde kanal tedavisiyle kurtarılır. Ama "
+"gerekirse çekim yapılır. Net karar için muayeneye bekleriz."
+msgstr "Wenn die Entzündung nicht zu weit fortgeschritten ist, kann der Zahn in der Regel durch eine Wurzelbehandlung gerettet werden. Bei Bedarf wird jedoch eine Extraktion durchgeführt. Für eine endgültige Entscheidung erwarten wir Sie zur Untersuchung."
+
+#: clinic/templates/clinic/index.html:249
+msgid "Diş ağrıyor ama çekmek istemiyorum, başka çözüm var mı?"
+msgstr "Mein Zahn schmerzt, aber ich möchte ihn nicht ziehen lassen, gibt es eine andere Lösung?"
+
+#: clinic/templates/clinic/index.html:252
+msgid ""
+"Evet, kanal tedavisiyle dişi kurtarma şansımız yüksek. İlk muayene "
+"ücretsizdir"
+msgstr "Ja, wir haben gute Chancen, den Zahn durch eine Wurzelbehandlung zu retten. Die Erstuntersuchung ist kostenlos."
+
+#: clinic/templates/clinic/index.html:257
+msgid "Kanal tedavisi mi çekim mi daha mantıklı?"
+msgstr "Was ist sinnvoller, eine Wurzelbehandlung oder eine Extraktion?"
+
+#: clinic/templates/clinic/index.html:260
+msgid ""
+"Diş kurtarılabiliyorsa kanal tedavisi her zaman daha iyidir. Bize "
+"ulaşırsanız sizin için uygun olanı söyleyelim."
+msgstr "Wenn der Zahn gerettet werden kann, ist eine Wurzelbehandlung immer besser. Wenn Sie uns kontaktieren, werden wir Ihnen sagen, was für Sie geeignet ist."
+
+#: clinic/templates/clinic/index.html:265
+msgid "Ağrılı dişi bekletmek sorun olur mu?"
+msgstr "Ist es ein Problem, einen schmerzenden Zahn zu verzögern?"
+
+#: clinic/templates/clinic/index.html:268
+msgid "Evet, iltihap yayılabilir ve şişlik oluşabilir. Geciktirmeyin."
+msgstr "Ja, die Entzündung kann sich ausbreiten und es kann zu Schwellungen kommen. Zögern Sie nicht."
+
+#: clinic/templates/clinic/index.html:273
+msgid "İmplant ağrılı bir işlem midir?"
+msgstr "Ist eine Implantatbehandlung schmerzhaft?"
+
+#: clinic/templates/clinic/index.html:276
+msgid ""
+"Hayır. Lokal anestezi altında yapıldığı için işlem sırasında ağrı "
+"hissedilmez."
+msgstr "Nein. Da sie unter Lokalanästhesie durchgeführt wird, werden während des Eingriffs keine Schmerzen verspürt."
+
+#: clinic/templates/clinic/index.html:281
+msgid "Tek diş için implant yapılabilir mi?"
+msgstr "Kann ein Implantat für einen einzelnen Zahn eingesetzt werden?"
+
+#: clinic/templates/clinic/index.html:284
+msgid "Evet, sadece bir diş eksikliğinde bile implant uygulanabilir."
+msgstr "Ja, ein Implantat kann auch bei einem einzelnen fehlenden Zahn eingesetzt werden."
+
+#: clinic/templates/clinic/index.html:289
+msgid "İmplant fiyatları neye göre belirlenir?"
+msgstr "Wie werden die Implantatpreise festgelegt?"
+
+#: clinic/templates/clinic/index.html:292
+msgid ""
+"Kullanılan markaya, eksik diş sayısına ve seçeceğiniz üst yapı (protez) "
+"materyalinin durumuna göre değişir."
+msgstr "Sie variieren je nach verwendeter Marke, Anzahl der fehlenden Zähne und dem Zustand des von Ihnen gewählten Aufbaumaterials (Prothese)."
+
+#: clinic/templates/clinic/index.html:297
+msgid "İmplant sonrası ne zaman yemek yiyebilirim?"
+msgstr "Wann kann ich nach einem Implantat essen?"
+
+#: clinic/templates/clinic/index.html:300
+msgid ""
+"İlk birkaç gün sıvı gıdalar önerilir. Aynı gün içinde yumuşak gıdalara "
+"geçilebilir."
+msgstr "In den ersten Tagen werden flüssige Nahrungsmittel empfohlen. Am selben Tag können Sie auf weiche Lebensmittel umsteigen."
+
+#: clinic/templates/clinic/index.html:305
+msgid "Herkese implant uygulanabilir mi?"
+msgstr "Kann bei jedem ein Implantat eingesetzt werden?"
+
+#: clinic/templates/clinic/index.html:308
+msgid ""
+"Genellikle evet. Ancak genel sağlık durumu ve kemik yapısı "
+"değerlendirilmelidir."
+msgstr "Im Allgemeinen ja. Der allgemeine Gesundheitszustand und die Knochenstruktur müssen jedoch beurteilt werden."
+
+#: clinic/templates/clinic/index.html:313
+msgid "Sigara içenlere implant yapılır mı?"
+msgstr "Können Implantate bei Rauchern eingesetzt werden?"
+
+#: clinic/templates/clinic/index.html:316
+msgid ""
+"Yapılabilir ancak iyileşme sürecini olumsuz etkileyebilir. Başarı oranı "
+"düşebilir."
+msgstr "Es ist möglich, kann aber den Heilungsprozess negativ beeinflussen. Die Erfolgsrate kann sinken."
+
+#: clinic/templates/clinic/index.html:321
+msgid "İmplant sonrası şişlik olur mu?"
+msgstr "Gibt es nach einem Implantat Schwellungen?"
+
+#: clinic/templates/clinic/index.html:324
+msgid ""
+"Hafif şişlik ve morluk olabilir, genellikle birkaç gün içinde, soğuk buz "
+"kompresyonları ile geçer."
+msgstr "Es kann zu leichten Schwellungen und Blutergüssen kommen, die normalerweise innerhalb weniger Tage mit kalten Kompressen abklingen."
+
+#: clinic/templates/clinic/index.html:329
+msgid "İmplant ameliyat mıdır?"
+msgstr "Ist ein Implantat eine Operation?"
+
+#: clinic/templates/clinic/index.html:332
+msgid ""
+"Evet, küçük bir cerrahi işlemdir ancak konforlu ve hızlı bir uygulamadır."
+msgstr "Ja, es ist ein kleiner chirurgischer Eingriff, aber eine komfortable und schnelle Anwendung."
+
+#: clinic/templates/clinic/index.html:337
+msgid "İmplant düşer mi, vücut reddeder mi?"
+msgstr "Kann ein Implantat herausfallen oder vom Körper abgestoßen werden?"
+
+#: clinic/templates/clinic/index.html:340
+msgid ""
+"Çok nadiren. Doğru uygulama ve kaliteli malzeme ile başarı oranı oldukça "
+"yüksektir."
+msgstr "Sehr selten. Mit korrekter Anwendung und qualitativ hochwertigen Materialien ist die Erfolgsrate sehr hoch."
+
+#: clinic/templates/clinic/index.html:345
+msgid "Diş çekildikten sonra hemen implant yapılabilir mi?"
+msgstr "Kann ein Implantat sofort nach der Zahnextraktion eingesetzt werden?"
+
+#: clinic/templates/clinic/index.html:348
+msgid ""
+"Duruma bağlı olarak evet. Uygun vakalarda aynı seansta implant "
+"yerleştirilebilir."
+msgstr "Je nach Situation ja. In geeigneten Fällen kann das Implantat in derselben Sitzung eingesetzt werden."
+
+#: clinic/templates/clinic/index.html:353
+msgid ""
+"Yaprak diş nedir, kimlere uygulanır? lamina diş nedir, kimlere uygulanır?"
+msgstr "Was sind Veneers und für wen sind sie geeignet? Was sind Laminat-Veneers und für wen sind sie geeignet?"
+
+#: clinic/templates/clinic/index.html:356
+msgid ""
+"Yaprak diş, yani lamina, ön dişlere uygulanan ince porselen tabakalardır. "
+"Rengi bozuk, aralıklı veya şekil bozukluğu olan dişlere yapılır."
+msgstr "Veneers, also Laminate, sind dünne Porzellanschichten, die auf die Frontzähne aufgebracht werden. Sie werden bei verfärbten, lückigen oder deformierten Zähnen angewendet."
+
+#: clinic/templates/clinic/index.html:361
+msgid "Zirkonyum kaplama mı, lamina mı daha iyi?"
+msgstr "Was ist besser, Zirkonkrone oder Veneer?"
+
+#: clinic/templates/clinic/index.html:364
+msgid ""
+"Dişin durumu ve estetik beklentiye göre değişir. Lamina daha doğaldır, "
+"zirkonyum ise daha dayanıklıdır."
+msgstr "Es hängt vom Zustand des Zahns und den ästhetischen Erwartungen ab. Veneers sind natürlicher, Zirkon ist haltbarer."
+
+#: clinic/templates/clinic/index.html:369
+msgid "Kompozit bonding nedir?"
+msgstr "Was ist Komposit-Bonding?"
+
+#: clinic/templates/clinic/index.html:372
+msgid ""
+"Dişin yüzeyine özel bir estetik dolgu materyali eklenerek şekil, renk ve "
+"form düzeltmesi yapılan işlemdir."
+msgstr "Es ist ein Verfahren, bei dem ein spezielles ästhetisches Füllmaterial auf die Zahnoberfläche aufgetragen wird, um Form, Farbe und Gestalt zu korrigieren."
+
+#: clinic/templates/clinic/index.html:377
+msgid "Diş estetiği için dişim kesilecek mi?"
+msgstr "Wird mein Zahn für die Zahnästhetik beschliffen?"
+
+#: clinic/templates/clinic/index.html:380
+msgid ""
+"Hayır, biz minimal invaziv çalışıyoruz. Dişi mümkün olduğunca koruyarak "
+"estetik sağlıyoruz."
+msgstr "Nein, wir arbeiten minimalinvasiv. Wir erzielen Ästhetik, indem wir den Zahn so weit wie möglich erhalten."
+
+#: clinic/templates/clinic/index.html:385
+msgid "Lamina işlemi ağrılı mıdır?"
+msgstr "Ist die Veneer-Behandlung schmerzhaft?"
+
+#: clinic/templates/clinic/index.html:388
+msgid "Hayır. İşlem sırasında anestezi uygulanır ve genellikle ağrısızdır."
+msgstr "Nein. Während des Eingriffs wird eine Anästhesie durchgeführt und er ist in der Regel schmerzfrei."
+
+#: clinic/templates/clinic/index.html:393
+msgid "Estetik diş işlemleri kaç günde tamamlanır?"
+msgstr "Wie viele Tage dauern ästhetische Zahnbehandlungen?"
+
+#: clinic/templates/clinic/index.html:396
+msgid ""
+"Kompozit bonding genellikle tek seansta biter. Lamina ve zirkonyum işlemleri "
+"birkaç gün sürebilir."
+msgstr "Komposit-Bonding ist normalerweise in einer Sitzung abgeschlossen. Veneer- und Zirkonbehandlungen können mehrere Tage dauern."
+
+
+#: clinic/templates/clinic/index.html:401
+msgid "Kompozit bonding kaç yıl dayanır?"
+msgstr "Wie viele Jahre hält Komposit-Bonding?"
+
+#: clinic/templates/clinic/index.html:404
+msgid ""
+"Kullanıma bağlı olarak değişir. Ortalama 5–7 yıl kalıcılığı vardır ama 30 "
+"yıl boyunca hiç işlem yaptırmadan kullanan hastalar da vardır."
+msgstr "Es variiert je nach Nutzung. Die durchschnittliche Haltbarkeit beträgt 5–7 Jahre, aber es gibt auch Patienten, die es 30 Jahre lang ohne weitere Behandlung verwenden."
+
+#: clinic/templates/clinic/index.html:409
+msgid "Lamina diş sararır mı?"
+msgstr "Verfärben sich Veneers?"
+
+#: clinic/templates/clinic/index.html:412
+msgid ""
+"Porselen lamineler yüzey olarak leke tutmaz. Uzun yıllar boyunca beyazlığını "
+"korur. Ancak doğal dişlerde sararma olursa kontrast farkı oluşabilir."
+msgstr "Porzellan-Veneers nehmen keine Flecken auf der Oberfläche auf. Sie behalten ihre Weiße über viele Jahre. Wenn sich jedoch die natürlichen Zähne verfärben, kann ein Kontrast entstehen."
+
+#: clinic/templates/clinic/index.html:417
+msgid "Lamina diş takınca konuşmam değişir mi?"
+msgstr "Ändert sich meine Aussprache mit Veneers?"
+
+#: clinic/templates/clinic/index.html:420
+msgid ""
+"İlk birkaç gün alışma süreci olabilir ama sonrasında konuşmanız tamamen "
+"normale döner. Dişlerin formu ağız yapınıza özel tasarlanır."
+msgstr "Es kann eine Gewöhnungsphase von einigen Tagen geben, aber danach kehrt Ihre Aussprache vollständig zur Normalität zurück. Die Form der Zähne wird speziell für Ihre Mundstruktur entworfen."
+
+#: clinic/templates/clinic/index.html:468
+#: clinic/templates/clinic/index.html:1932
+msgid "İmplant Tedavisi"
+msgstr "Implantatbehandlung"
+
+#: clinic/templates/clinic/index.html:469
+msgid ""
+"Panoramik görüntüleme ve radyolojik analiz destekli implant uygulamaları."
+msgstr "Implantatanwendungen mit Unterstützung von Panoramaaufnahmen und radiologischer Analyse."
+
+#: clinic/templates/clinic/index.html:473
+#: clinic/templates/clinic/index.html:1945
+msgid "Estetik Diş Uygulamaları"
+msgstr "Ästhetische Zahnbehandlungen"
+
+#: clinic/templates/clinic/index.html:474
+msgid "Radyolojik ön analiz ile kişiye özel estetik lamina ve diş tedavisi."
+msgstr "Personalisierte ästhetische Veneers und Zahnbehandlungen mit radiologischer Vorabanalyse."
+
+#: clinic/templates/clinic/index.html:478
+#: clinic/templates/clinic/index.html:1960
+msgid "Gülüş Tasarımı"
+msgstr "Smile-Design"
+
+#: clinic/templates/clinic/index.html:479
+msgid ""
+"3D planlama ve dijital analizle desteklenen gülüş estetiği uygulamaları."
+msgstr "Smile-Ästhetik-Anwendungen unterstützt durch 3D-Planung und digitale Analyse."
+
+#: clinic/templates/clinic/index.html:483
+#: clinic/templates/clinic/index.html:1973
+msgid "Kanal Tedavisi"
+msgstr "Wurzelkanalbehandlung"
+
+#: clinic/templates/clinic/index.html:484
+msgid "Ağrısız ve etkili kök kanal tedavileri."
+msgstr "Schmerzfreie und effektive Wurzelkanalbehandlungen."
+
+#: clinic/templates/clinic/index.html:488
+#: clinic/templates/clinic/index.html:1986
+msgid "Diş Taşı Temizliği"
+msgstr "Zahnsteinreinigung"
+
+#: clinic/templates/clinic/index.html:489
+msgid ""
+"Ultrasonik cihazlarla diş taşı temizliği ve diş eti sağlığı uygulamaları."
+msgstr "Zahnsteinreinigung mit Ultraschallgeräten und Zahnfleischgesundheitsbehandlungen."
+
+#: clinic/templates/clinic/index.html:493
+#: clinic/templates/clinic/index.html:2000
+msgid "Diş Dolgusu"
+msgstr "Zahnfüllung"
+
+#: clinic/templates/clinic/index.html:494
+msgid "Estetik ve dayanıklı kompozit dolgu uygulamaları."
+msgstr "Ästhetische und langlebige Kompositfüllungen."
+
+#: clinic/templates/clinic/index.html:510
+msgid "Randevu Talebi"
+msgstr "Terminanfrage"
+
+#: clinic/templates/clinic/index.html:529
+msgid "Diş Hekimi"
+msgstr "Zahnärztin"
+
+#: clinic/templates/clinic/index.html:530
+msgid ""
+"Dr. Dt. Devrim Biriken Sipahi, 35 yılı aşkın deneyimiyle Şişlide hizmet "
+"veren, estetik diş tedavileri ve implant uygulamalarında uzmanlaşmış bir diş "
+"hekimidir."
+msgstr "Dr. Devrim Biriken Sipahi ist eine Zahnärztin mit über 35 Jahren Erfahrung, die in Şişli, Istanbul, Türkei praktiziert und auf ästhetische Zahnbehandlungen und Implantatanwendungen spezialisiert ist."
+
+#: clinic/templates/clinic/index.html:533
+msgid "Dr. Dt. Devrim Biriken Sipahi Kliniği"
+msgstr "Zahnklinik Dr. Devrim Biriken Sipahi"
+
+#: clinic/templates/clinic/index.html:538
+msgid "Ankara Üniversitesi Diş Hekimliği Fakültesi"
+msgstr "Fakultät für Zahnmedizin der Universität Ankara"
+
+#: clinic/templates/clinic/index.html:542
+msgid "Türk Dişhekimleri Birliği"
+msgstr "Türkische Zahnärztekammer"
+
+#: clinic/templates/clinic/index.html:1323
+msgid "35+ Yıllık Hekimlik • Şişli / İstanbul"
+msgstr "35+ Jahre Praxiserfahrung • Şişli / Istanbul"
+
+#: clinic/templates/clinic/index.html:1329
+#: clinic/templates/clinic/index.html:1555
+msgid "Dr. Dt. Devrim Biriken Sipahi"
+msgstr "Dr. Devrim Biriken Sipahi"
+
+#: clinic/templates/clinic/index.html:1333
+msgid "Doğru Hekimlik ile"
+msgstr "Mit professioneller Zahnmedizin"
+
+#: clinic/templates/clinic/index.html:1333
+msgid "Uzun Ömürlü"
+msgstr "Langlebige"
+
+#: clinic/templates/clinic/index.html:1334
+msgid "Estetik"
+msgstr "Ästhetische"
+
+#: clinic/templates/clinic/index.html:1334
+msgid "Sonuçlar"
+msgstr "Ergebnisse"
+
+#: clinic/templates/clinic/index.html:1339
+msgid ""
+"Bilimsel protokoller, kişiye özel dijital planlama ve steril süreçlerle; "
+"yıllarca güvenle kullanabileceğiniz"
+msgstr "Mit wissenschaftlichen Protokollen, personalisierter digitaler Planung und sterilen Prozessen; die Sie jahrelang sicher verwenden können"
+
+#: clinic/templates/clinic/index.html:1340
+msgid "kaliteli diş hekimliği"
+msgstr "hochwertige Zahnmedizin"
+
+#: clinic/templates/clinic/index.html:1346
+msgid "10.000+ Vaka Deneyimi"
+msgstr "10.000+ Fälle Erfahrung"
+
+#: clinic/templates/clinic/index.html:1348
+msgid "Konforlu & Şeffaf Süreç"
+msgstr "Komfortabler & Transparenter Prozess"
+
+#: clinic/templates/clinic/index.html:1350
+msgid "Dijital Planlama & Doğal Estetik"
+msgstr "Digitale Planung & Natürliche Ästhetik"
+
+#: clinic/templates/clinic/index.html:1362
+msgid "Yol Tarifi (Google Maps)"
+msgstr "Wegbeschreibung (Google Maps)"
+
+#: clinic/templates/clinic/index.html:1372
+msgid "Hemen Ara"
+msgstr "Jetzt Anrufen"
+
+#: clinic/templates/clinic/index.html:1387
+msgid "Dental clinic background"
+msgstr "Zahnklinik Hintergrund"
+
+#: clinic/templates/clinic/index.html:1398
+msgid "Kanal tedavim acısız ve başarılı gecti ellerine sağlık"
+msgstr "Meine Wurzelkanalbehandlung verlief schmerzfrei und erfolgreich, vielen Dank"
+
+#: clinic/templates/clinic/index.html:1404
+msgid "Melih E."
+msgstr "Melih E."
+
+#: clinic/templates/clinic/index.html:1412
+msgid ""
+"38 yaşındayım, korkumu yenmeme neden bir doktordur kendisi. İşini özenle ve "
+"TEMİZ yapan, eli hafif, güler yüzlü ve güvende hissetmenizi sağlayan bir "
+"doktor. Aynı anda 3 dolgu ve temizleme yaptık, 2 gün sonra 4 dolgu "
+"yaptırdım, hiç ağrım olmadı :) - maşallah- Devrim Hanım iyi ki sizin gibi "
+"hekimler var"
+msgstr "Ich bin 38 Jahre alt, sie ist eine Ärztin, die mir geholfen hat, meine Angst zu überwinden. Eine Ärztin, die ihre Arbeit sorgfältig und SAUBER macht, eine sanfte Hand hat, freundlich ist und Sie sich sicher fühlen lässt. Wir haben gleichzeitig 3 Füllungen und eine Reinigung gemacht, 2 Tage später ließ ich 4 Füllungen machen, ich hatte überhaupt keine Schmerzen :) - Gott sei Dank - Dr. Devrim, gut, dass es Ärzte wie Sie gibt"
+
+#: clinic/templates/clinic/index.html:1418
+msgid "Ece Y."
+msgstr "Ece Y."
+
+#: clinic/templates/clinic/index.html:1426
+msgid ""
+"Devrim hocamız güler yüzü ile yaptığı işlemlerde acı hiss etmiyorsunuz, "
+"anlaşılmıyor ve çok sağlam oluyor"
+msgstr "Mit ihrem freundlichen Gesicht spürt man bei den Behandlungen von Dr. Devrim keine Schmerzen, man merkt es nicht und es hält sehr gut"
+
+#: clinic/templates/clinic/index.html:1432
+msgid "Süleyman B."
+msgstr "Süleyman B."
+
+#: clinic/templates/clinic/index.html:1440
+msgid ""
+"Ufacık dişten dolgu ile diş yaptı ve çok güzel oldu, daha önce 3 doktora "
+"gittim hepsi çekilmesinin gerektiği söylemesine rağmen Devrim hanım "
+"zamanından alarak emek harçayarak diş yaptı. Ellerine kollarına sağlık hocam "
+"bulduğumuz ve tanıdığımız için çok mutlu olduk. Güvenle gidebilirsiniz."
+msgstr "Sie hat aus einem winzigen Zahn mit einer Füllung einen Zahn gemacht und es wurde sehr schön, obwohl ich vorher zu 3 Ärzten ging und alle sagten, er müsse gezogen werden, nahm sich Dr. Devrim die Zeit und Mühe, den Zahn zu machen. Vielen Dank, Frau Doktor, wir sind sehr glücklich, Sie gefunden und kennengelernt zu haben. Sie können mit Vertrauen hingehen."
+
+#: clinic/templates/clinic/index.html:1446
+msgid "Cem T."
+msgstr "Cem T."
+
+#: clinic/templates/clinic/index.html:1454
+msgid ""
+"Devrim hocam yıllardır güvendiğim, işini özenle yapan bir hekim. Yaptırdığım "
+"dolgular ve tedavi süreçleri hep çok iyi sonuç verdi. Eli de hafif ve "
+"gerçekten hızlı bir şekilde tedaviyi tamamlıyor, kesinlikle öneriyorum"
+msgstr "Dr. Devrim ist eine Ärztin, der ich seit Jahren vertraue und die ihre Arbeit sorgfältig macht. Die Füllungen und Behandlungen, die ich machen ließ, haben immer sehr gute Ergebnisse gebracht. Sie hat auch eine sanfte Hand und schließt die Behandlung wirklich schnell ab, ich empfehle sie auf jeden Fall"
+
+#: clinic/templates/clinic/index.html:1460
+msgid "Buse Y."
+msgstr "Buse Y."
+
+#: clinic/templates/clinic/index.html:1468
+msgid ""
+"Devrim hocaya çocukluğumdan beri gidiyorum, bugün de dolgularımı yaptı, eli "
+"çok temiz, herhangi bir sıkıntı olmadan halletti, kesinlikle öneriyorum"
+msgstr "Ich gehe seit meiner Kindheit zu Dr. Devrim, heute hat sie auch meine Füllungen gemacht, ihre Hand ist sehr sauber, sie hat es ohne Probleme erledigt, ich empfehle sie auf jeden Fall"
+
+#: clinic/templates/clinic/index.html:1474
+msgid "Hüseyin U. Y."
+msgstr "Hüseyin U. Y."
+
+#: clinic/templates/clinic/index.html:1482
+msgid "Dişlerime uygulanan lamina estetik olarak harikaydı."
+msgstr "Die Veneers, die an meinen Zähnen angebracht wurden, waren ästhetisch wunderbar."
+
+#: clinic/templates/clinic/index.html:1488
+msgid "Melis Ç."
+msgstr "Melis Ç."
+
+#: clinic/templates/clinic/index.html:1496
+msgid ""
+"Devrim hoca ile 2020 yılında tanıştık, yirmilik dişimi çektirmiştim, o kadar "
+"güler yüzlü, eli hafif bir doktor ki beni kendisine hayran bıraktı. Hemen "
+"sonrasında ön dişlerimi kaplama yaptırdım, yıllardır sorunsuz kullanıyorum 🙏"
+"☺️"
+msgstr "Wir lernten Dr. Devrim 2020 kennen, ich ließ meinen Weisheitszahn ziehen, sie ist eine so freundliche Ärztin mit sanfter Hand, dass sie mich begeistert hat. Gleich danach ließ ich meine Frontzähne verblenden, ich verwende sie seit Jahren problemlos 🙏☺️"
+
+#: clinic/templates/clinic/index.html:1502
+msgid "Ceren S."
+msgstr "Ceren S."
+
+#: clinic/templates/clinic/index.html:1510
+msgid ""
+"Devrim hanım sayesinde 20'lik dişim sorunsuz çekildi, ön dişlerim daha temiz "
+"ve güzel oldu. En son yaptığı kanal tedavi sayesinde yemek yerken artık "
+"canım acımıyor. Kesinlikle gözüm kapalı tavsiye ederim. Yıllardır tüm "
+"dişlerimi emanet ettiğim canım hekimim Devrim hanım, iyi ki varsınız!"
+msgstr "Dank Dr. Devrim wurde mein Weisheitszahn problemlos gezogen, meine Frontzähne wurden sauberer und schöner. Dank der letzten Wurzelkanalbehandlung, die sie durchführte, habe ich beim Essen keine Schmerzen mehr. Ich empfehle sie definitiv mit geschlossenen Augen. Meine liebe Ärztin Dr. Devrim, der ich seit Jahren all meine Zähne anvertraue, wie gut, dass es Sie gibt!"
+
+#: clinic/templates/clinic/index.html:1516
+msgid "Merve A."
+msgstr "Merve A."
+
+#: clinic/templates/clinic/index.html:1524
+msgid ""
+"Yıllardır hekimliğine, tecrübesine, tedavisine güvendiğim, her gittiğimde "
+"temizlik konusunda en ufak bir şüphe duymadığım işinin ehli bir diş "
+"doktorudur kendisi."
+msgstr "Sie ist eine professionelle Zahnärztin, deren Kompetenz, Erfahrung und Behandlung ich seit Jahren vertraue und bei der ich bei jedem Besuch nicht den geringsten Zweifel an der Sauberkeit habe."
+
+#: clinic/templates/clinic/index.html:1530
+msgid "Özlem H."
+msgstr "Özlem H."
+
+#: clinic/templates/clinic/index.html:1541
+msgid "İletişim Formu"
+msgstr "Kontaktformular"
+
+#: clinic/templates/clinic/index.html:1549
+msgid "Diş kliniği iletişim görseli"
+msgstr "Zahnklinik Kontaktbild"
+
+#: clinic/templates/clinic/index.html:1559
+msgid "Bize Ulaşın"
+msgstr "Kontaktieren Sie uns"
+
+#: clinic/templates/clinic/index.html:1564
+msgid "Telefon ile ara"
+msgstr "Telefonisch anrufen"
+
+#: clinic/templates/clinic/index.html:1570
+msgid "+90 505 577 1883"
+msgstr "+90 505 577 1883"
+
+#: clinic/templates/clinic/index.html:1578
+msgid "Biz Sizi Arayalım"
+msgstr "Wir rufen Sie an"
+
+#: clinic/templates/clinic/index.html:1580
+#: clinic/templates/clinic/index.html:1581
+#: clinic/templates/clinic/index.html:1582
+msgid "Ad Soyad"
+msgstr "Vor- und Nachname"
+
+#: clinic/templates/clinic/index.html:1585
+msgid "Telefon"
+msgstr "Telefon"
+
+#: clinic/templates/clinic/index.html:1586
+#: clinic/templates/clinic/index.html:1587
+msgid "Telefon Numaranız"
+msgstr "Ihre Telefonnummer"
+
+#: clinic/templates/clinic/index.html:1590
+msgid "Mesaj"
+msgstr "Nachricht"
+
+#: clinic/templates/clinic/index.html:1591
+msgid "Mesajınız (isteğe bağlı)"
+msgstr "Ihre Nachricht (optional)"
+
+#: clinic/templates/clinic/index.html:1592
+msgid ""
+"İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)"
+msgstr "Wenn Sie eine Nachricht übermitteln möchten, können Sie sie hier schreiben (optional)"
+
+#: clinic/templates/clinic/index.html:1597
+msgid "Beni Ara Lead"
+msgstr "Rückruf-Anfrage"
+
+#: clinic/templates/clinic/index.html:1601
+msgid "Gönder"
+msgstr "Senden"
+
+#: clinic/templates/clinic/index.html:1622
+msgid "35+ Yıllık Tecrübe • Gerçek Diş Hekimliği"
+msgstr "35+ Jahre Erfahrung • Echte Zahnmedizin"
+
+#: clinic/templates/clinic/index.html:1625
+msgid "Doğru Hekimlik"
+msgstr "Professionelle Zahnmedizin"
+
+#: clinic/templates/clinic/index.html:1625
+msgid "Anlayışıyla Uzun Ömürlü ve Estetik Sonuçlar"
+msgstr "Mit dem Ansatz für langlebige und ästhetische Ergebnisse"
+
+#: clinic/templates/clinic/index.html:1628
+msgid ""
+"Amacımız sadece bugünü değil, <strong>gelecekteki sağlığınızı</strong> da "
+"korumak. Bilimsel protokoller, kişiye özel planlama ve kaliteli "
+"materyallerle uzun yıllar güvenle kullanabileceğiniz tedaviler sunuyoruz."
+msgstr "Unser Ziel ist es, nicht nur das Heute, sondern auch <strong>Ihre zukünftige Gesundheit</strong> zu schützen. Wir bieten Behandlungen mit wissenschaftlichen Protokollen, personalisierter Planung und hochwertigen Materialien, die Sie jahrelang sicher verwenden können."
+
+#: clinic/templates/clinic/index.html:1642
+msgid "35+ Yıllık Klinik Deneyim"
+msgstr "35+ Jahre Klinische Erfahrung"
+
+#: clinic/templates/clinic/index.html:1644
+msgid ""
+"Binlerce vaka tecrübesiyle; her tedavide doğru teşhis ve uzun ömürlü "
+"çözümler."
+msgstr "Mit der Erfahrung aus Tausenden von Fällen; korrekte Diagnose und langlebige Lösungen bei jeder Behandlung."
+
+#: clinic/templates/clinic/index.html:1654
+msgid "Hijyen & Bilimsel Protokoller"
+msgstr "Hygiene & Wissenschaftliche Protokolle"
+
+#: clinic/templates/clinic/index.html:1656
+msgid ""
+"Her işlem steril alan, hijyen kontrolü ve uluslararası protokollerle "
+"uygulanır."
+msgstr "Jeder Eingriff wird mit sterilem Bereich, Hygienekontrolle und internationalen Protokollen durchgeführt."
+
+#: clinic/templates/clinic/index.html:1666
+msgid "Kişiye Özel Dijital Planlama"
+msgstr "Personalisierte Digitale Planung"
+
+#: clinic/templates/clinic/index.html:1668
+msgid ""
+"3D görüntüleme ve dijital ölçüm ile estetik ve fonksiyon dengesini en iyi "
+"şekilde sağlıyoruz."
+msgstr "Mit 3D-Bildgebung und digitaler Vermessung erreichen wir das beste Gleichgewicht zwischen Ästhetik und Funktion."
+
+#: clinic/templates/clinic/index.html:1679
+msgid "Gerçek Takip & Güvenilir İletişim"
+msgstr "Echte Nachsorge & Zuverlässige Kommunikation"
+
+#: clinic/templates/clinic/index.html:1681
+msgid ""
+"Tedavi sürecinde şeffaf bilgilendirme, düzenli kontrol randevuları ve her an "
+"ulaşılabilir ekip."
+msgstr "Transparente Information während des Behandlungsprozesses, regelmäßige Kontrolltermine und jederzeit erreichbares Team."
+
+#: clinic/templates/clinic/index.html:1689
+msgid "Önce Muayene & Şeffaf Bilgilendirme"
+msgstr "Erst Untersuchung & Transparente Information"
+
+#: clinic/templates/clinic/index.html:1691
+msgid ""
+"Tedavi planı yalnızca muayene sonrası belirlenir; tüm seçenekler ve maliyet "
+"net şekilde paylaşılır."
+msgstr "Der Behandlungsplan wird erst nach der Untersuchung festgelegt; alle Optionen und Kosten werden klar mitgeteilt."
+
+#: clinic/templates/clinic/index.html:1695
+msgid "Doğal Estetik & Fonksiyon"
+msgstr "Natürliche Ästhetik & Funktion"
+
+#: clinic/templates/clinic/index.html:1697
+msgid ""
+"Hedefimiz uzun ömürlü fonksiyonla beraber, estetik açıdan da doğal ve uyumlu "
+"bir gülüş sunmak."
+msgstr "Unser Ziel ist es, zusammen mit langlebiger Funktion ein ästhetisch natürliches und harmonisches Lächeln zu bieten."
+
+#: clinic/templates/clinic/index.html:1701
+msgid "Konforlu Süreç Yönetimi"
+msgstr "Komfortables Prozessmanagement"
+
+#: clinic/templates/clinic/index.html:1703
+msgid ""
+"Randevu planlaması, ağrı kontrolü ve iyileşme süreci her aşamada konfor "
+"odaklı ilerler."
+msgstr "Terminplanung, Schmerzkontrolle und Heilungsprozess verlaufen in jeder Phase komfortorientiert."
+
+#: clinic/templates/clinic/index.html:1711
+msgid "Uygun İlk Muayene Zamanını Gör"
+msgstr "Passenden Erstuntersuchungstermin finden"
+
+#: clinic/templates/clinic/index.html:1714
+msgid ""
+"Bu bölüm bilgilendirme amaçlıdır; tanı ve tedavi planı muayene sonrası "
+"belirlenir."
+msgstr "Dieser Abschnitt dient der Information; Diagnose und Behandlungsplan werden nach der Untersuchung festgelegt."
+
+#: clinic/templates/clinic/index.html:1734
+msgid "Doğru tanı, doğru tedavi, dişi koru."
+msgstr "Richtige Diagnose, richtige Behandlung, Zahn erhalten."
+
+#: clinic/templates/clinic/index.html:1740
+msgid "Dr. Dt. Devrim Biriken Sipahi Kimdir?"
+msgstr "Wer ist Dr. Devrim Biriken Sipahi?"
+
+#: clinic/templates/clinic/index.html:1745
+msgid ""
+"<strong>Dr. Dt. Devrim Biriken Sipahi</strong>, 35 yılı aşkın tecrübesiyle "
+"İstanbul Şişli'de hizmet veren köklü bir diş hekimidir. Ankara Üniversitesi "
+"Diş Hekimliği Fakültesi mezunudur; akademik yolculuğunu Marmara "
+"Üniversitesi'nde <em>Ağız, Diş ve Çene Radyolojisi</em> alanında "
+"tamamlamıştır. Radyoloji temelli tanı yaklaşımı sayesinde planlar net, "
+"sürpriz minimumdur."
+msgstr "<strong>Dr. Devrim Biriken Sipahi</strong> ist eine etablierte Zahnärztin mit über 35 Jahren Erfahrung, die in Şişli, Istanbul, Türkei praktiziert. Sie ist Absolventin der Fakultät für Zahnmedizin der Universität Ankara; ihre akademische Laufbahn schloss sie an der Marmara-Universität im Bereich <em>Mund-, Zahn- und Kieferradiologie</em> ab. Dank ihres radiologiebasierten Diagnoseansatzes sind die Pläne klar und Überraschungen minimal."
+
+#: clinic/templates/clinic/index.html:1750
+msgid ""
+"Bizim çizgimiz net: <span class='font-semibold text-gray-900'>dişi "
+"kurtarmak</span>. Gereksiz işlem yok, doğru endikasyonda <span class='font-"
+"semibold text-gray-900'>konservatif</span> tedavi var. Gülüş tasarımından "
+"estetik lamina ve <span class='font-semibold text-gray-900'>kanal "
+"tedavisine</span> kadar her adım, 'doğru tanı → doğru plan → konforlu süreç' "
+"formülüyle ilerler. Amaç güzel görünen değil, <span class='font-"
+"semibold'>sağlıklı ve uzun ömürlü</span> sonuç."
+msgstr "Unsere Linie ist klar: <span class='font-semibold text-gray-900'>den Zahn erhalten</span>. Keine unnötigen Eingriffe, sondern <span class='font-semibold text-gray-900'>konservative</span> Behandlung bei richtiger Indikation. Von Smile-Design über ästhetische Veneers bis zur <span class='font-semibold text-gray-900'>Wurzelkanalbehandlung</span> verläuft jeder Schritt nach der Formel 'richtige Diagnose → richtiger Plan → komfortabler Prozess'. Das Ziel ist nicht schön aussehend, sondern <span class='font-semibold'>gesund und langlebig</span>."
+
+
+#: clinic/templates/clinic/index.html:1755
+msgid ""
+"Peki implant? Önce şunu söyleyelim: <span class='font-semibold'>İmplant son "
+"seçenek</span>tir—kurtarılabilecek dişi koruruz. Fakat ihtiyaç doğduğunda, "
+"radyolojik (CBCT) destekli <span class='font-semibold'>3D planlama</span>, "
+"kemik kalitesi/yoğunluğu analizi ve dijital cerrahi kılavuzlarla <span "
+"class='font-semibold'>estetik ve fonksiyon</span> odaklı, öngörülebilir bir "
+"yol izleriz. Yeri geldiğinde geçici dişle sosyal hayat kopmadan süreç "
+"tamamlanır.*"
+msgstr ""
+"Und Implantate? Zunächst einmal: <span class='font-semibold'>Implantate sind "
+"die letzte Option</span>—wir erhalten jeden Zahn, der gerettet werden kann. "
+"Wenn jedoch die Notwendigkeit besteht, folgen wir einem vorhersehbaren Weg mit "
+"radiologisch (CBCT) unterstützter <span class='font-semibold'>3D-Planung</span>, "
+"Knochenqualitäts-/Dichteanalyse und digitalen Operationsleitfäden, der auf "
+"<span class='font-semibold'>Ästhetik und Funktion</span> ausgerichtet ist. "
+"Bei Bedarf wird der Prozess mit provisorischen Zähnen abgeschlossen, ohne dass "
+"das soziale Leben unterbrochen wird.*"
+
+#: clinic/templates/clinic/index.html:1760
+msgid ""
+"Kliniğin kuruluş motivasyonu sadece 'tedavi' değil, bir <span class='font-"
+"semibold'>miras</span>tır: Dr. Sipahi'nin bilgi ve tecrübesinin <span "
+"class='font-semibold'>gelecek nesle</span> aktarılması. Bu nedenle klinik "
+"yapılanması, <span class='font-semibold'>Dt. Ekin Sipahi</span> ile birlikte "
+"aynı kalite standartlarını sürdürecek şekilde kurgulandı. İki nesil, tek "
+"çizgi: doğru, sade, etkin hekimlik."
+msgstr ""
+"Die Gründungsmotivation der Klinik ist nicht nur 'Behandlung', sondern ein "
+"<span class='font-semibold'>Erbe</span>: Die Weitergabe von Dr. Sipahis Wissen "
+"und Erfahrung an die <span class='font-semibold'>nächste Generation</span>. "
+"Aus diesem Grund wurde die Klinikstruktur zusammen mit <span class='font-semibold'>"
+"Dt. Ekin Sipahi</span> so konzipiert, dass die gleichen Qualitätsstandards "
+"aufrechterhalten werden. Zwei Generationen, eine Linie: korrekte, schlichte, "
+"wirksame Zahnheilkunde."
+
+#: clinic/templates/clinic/index.html:1765
+msgid "Konservatif Yaklaşım"
+msgstr "Konservativer Ansatz"
+
+#: clinic/templates/clinic/index.html:1766
+msgid "Radyoloji Destekli Tanı"
+msgstr "Radiologisch unterstützte Diagnose"
+
+#: clinic/templates/clinic/index.html:1767
+msgid "Kişiye Özel Plan"
+msgstr "Individueller Plan"
+
+#: clinic/templates/clinic/index.html:1768
+msgid "Ağrısız & Konforlu Süreç"
+msgstr "Schmerzfreier & komfortabler Prozess"
+
+#: clinic/templates/clinic/index.html:1773
+msgid ""
+"Kliniğimiz Şişli Merkez'de, <strong>Abide-i Hürriyet Caddesi</strong> "
+"üzerinde yer alır."
+msgstr ""
+"Unsere Klinik befindet sich im Zentrum von Şişli, an der <strong>Abide-i "
+"Hürriyet Caddesi</strong>."
+
+#: clinic/templates/clinic/index.html:1777
+msgid "Hemen Ulaşın"
+msgstr "Jetzt kontaktieren"
+
+#: clinic/templates/clinic/index.html:1781
+msgid ""
+"*Tedavi planları kişiye özeldir; uygunluk klinik ve radyolojik değerlendirme "
+"ile belirlenir."
+msgstr ""
+"*Behandlungspläne sind individuell; die Eignung wird durch klinische und "
+"radiologische Bewertung bestimmt."
+
+#: clinic/templates/clinic/index.html:1807
+msgid "Sadece diş değil, özgüven kazandırıyoruz."
+msgstr "Wir schenken nicht nur Zähne, sondern auch Selbstvertrauen."
+
+#: clinic/templates/clinic/index.html:1835
+#: clinic/templates/clinic/index.html:1889
+msgid ""
+"Sanem'in dişleri hiç kesilmeden, sadece kompozit uygulamayla doğalından daha "
+"estetik hale getirildi."
+msgstr ""
+"Sanems Zähne wurden ohne jegliches Beschleifen, nur durch Kompositanwendung, "
+"ästhetischer als ihre natürlichen Zähne gemacht."
+
+#: clinic/templates/clinic/index.html:1862
+msgid ""
+"Hazan geçirdiği travma sonucu, dişi pembe olarak kliniğimize geldi estetik "
+"olarak dişlerini hiç bozmadan eski halinden daha iyi duruma getirdik."
+msgstr ""
+"Nach einem Trauma kam Hazan mit einem rosa Zahn zu unserer Klinik. Wir haben "
+"ihre Zähne in einen besseren Zustand als zuvor gebracht, ohne ihre Ästhetik "
+"zu beeinträchtigen."
+
+#: clinic/templates/clinic/index.html:1904
+msgid "Hizmetlerimiz"
+msgstr "Unsere Dienstleistungen"
+
+#: clinic/templates/clinic/index.html:1909
+msgid ""
+"Dr. Dt. Devrim Biriken Sipahi'nin kliniğinde sunduğumuz tüm modern diş "
+"tedavi hizmetlerini keşfedin."
+msgstr ""
+"Entdecken Sie alle modernen Zahnbehandlungsdienstleistungen, die wir in der "
+"Klinik von Dr. Dt. Devrim Biriken Sipahi anbieten."
+
+#: clinic/templates/clinic/index.html:1913
+msgid "Randevu Al"
+msgstr "Termin vereinbaren"
+
+#: clinic/templates/clinic/index.html:1935
+msgid ""
+"3D printer destekli altyapılar ve dijital gülüş tasarımı ile implant "
+"tedavilerimizi planlıyoruz. Bu sayede hem estetik hem de fonksiyonel "
+"sonuçlar elde ediyoruz."
+msgstr ""
+"Wir planen unsere Implantatbehandlungen mit 3D-Drucker-unterstützten "
+"Infrastrukturen und digitalem Lächeln-Design. Auf diese Weise erzielen wir "
+"sowohl ästhetische als auch funktionale Ergebnisse."
+
+#: clinic/templates/clinic/index.html:1948
+msgid ""
+"Zirkonyum ve lamine gibi modern çözümlerle doğal ve beyaz bir gülüş "
+"sunuyoruz. Diş kesimini en aza indirerek estetik müdahaleleri kişiye özel "
+"planlıyoruz."
+msgstr ""
+"Mit modernen Lösungen wie Zirkonium und Laminaten bieten wir ein natürliches "
+"und weißes Lächeln. Wir planen ästhetische Eingriffe individuell und minimieren "
+"dabei das Beschleifen der Zähne."
+
+#: clinic/templates/clinic/index.html:1963
+msgid ""
+"Kompozit uygulamalarla, diş kesmeden minimal dokunuşlarla etkileyici "
+"gülüşler tasarlıyoruz. Ufak değişikliklerle bambaşka estetik sonuçlar elde "
+"ediyoruz."
+msgstr ""
+"Mit Kompositanwendungen gestalten wir beeindruckende Lächeln mit minimalen "
+"Eingriffen, ohne die Zähne zu beschleifen. Mit kleinen Veränderungen erzielen "
+"wir völlig neue ästhetische Ergebnisse."
+
+#: clinic/templates/clinic/index.html:1976
+msgid ""
+"Ağrının kaynağını hızla tespit edip mümkün olan en kısa sürede tedaviye "
+"başlıyoruz. Diş çekimi son çare olarak düşünülür; hedefimiz doğal dişi "
+"korumak."
+msgstr ""
+"Wir identifizieren schnell die Schmerzquelle und beginnen so schnell wie möglich "
+"mit der Behandlung. Zahnextraktion wird als letztes Mittel betrachtet; unser "
+"Ziel ist es, den natürlichen Zahn zu erhalten."
+
+#: clinic/templates/clinic/index.html:1989
+msgid ""
+"Tüm diş taşlarınızı ortalama 10 dakika içinde temizliyor, dişlerinizi ilk "
+"seansa göre daha beyaz ve sağlıklı bir görünüme kavuşturuyoruz."
+msgstr ""
+"Wir entfernen all Ihren Zahnstein durchschnittlich in 10 Minuten und verleihen "
+"Ihren Zähnen im Vergleich zur ersten Sitzung ein weißeres und gesünderes Aussehen."
+
+#: clinic/templates/clinic/index.html:2003
+msgid ""
+"Kliniğimizde uyguladığımız kompozit ve bonding dolgular, yalnızca estetik "
+"değil aynı zamanda dayanıklıdır. Doğru teknikle yapılan dolgular, uzun "
+"yıllar boyunca sorunsuz şekilde kullanılabilir."
+msgstr ""
+"Die in unserer Klinik angewendeten Komposit- und Bonding-Füllungen sind nicht "
+"nur ästhetisch, sondern auch langlebig. Mit der richtigen Technik durchgeführte "
+"Füllungen können viele Jahre lang problemlos verwendet werden."
+
+#: clinic/templates/clinic/index.html:3039
+msgid "💬 Canlı destek aktif! Tıklayın"
+msgstr "💬 Live-Support aktiv! Klicken Sie"
+
+#: clinic/templates/clinic/index.html:3045
+msgid "7/24 Canlı Destek Hattı Tıkla Konuş"
+msgstr "24/7 Live-Support-Hotline Klicken & Sprechen"
+
+#: clinic/templates/clinic/index.html:3057
+msgid "Mesajınızı yazın..."
+msgstr "Schreiben Sie Ihre Nachricht..."
+
+#: clinic/templates/clinic/index.html:3110
+msgid "KVKK Aydınlatma Metni'ne buradan erişebilirsiniz."
+msgstr "Sie können hier auf die DSGVO-Informationen zugreifen."
+
+#: clinic/templates/clinic/kvkk.html:8
+msgid "Kvkk Bilgilendirme"
+msgstr "DSGVO-Information"
+
+#: clinic/templates/clinic/kvkk.html:32
+msgid "← Ana Sayfaya Dön"
+msgstr "← Zurück zur Startseite"
+
+#: clinic/templates/clinic/kvkk.html:35
+msgid "KİŞİSEL VERİLERİN KORUNMASI HAKKINDA AYDINLATMA METNİ"
+msgstr "INFORMATIONSTEXT ZUM SCHUTZ PERSONENBEZOGENER DATEN"
+
+#: clinic/templates/clinic/kvkk.html:36
+msgid "1. Veri Sorumlusu"
+msgstr "1. Datenverantwortlicher"
+
+#: clinic/templates/clinic/kvkk.html:38
+msgid ""
+"İşbu internet sitesi üzerinden toplanan kişisel veriler, veri sorumlusu "
+"sıfatıyla Dr. Dt. Devrim Biriken Sipahi"
+msgstr ""
+"Die über diese Website gesammelten personenbezogenen Daten werden als "
+"Datenverantwortlicher von Dr. Dt. Devrim Biriken Sipahi"
+
+#: clinic/templates/clinic/kvkk.html:39
+msgid "tarafından 6698 sayılı Kişisel Verilerin Korunması Kanunu ("
+msgstr "gemäß dem Gesetz Nr. 6698 zum Schutz personenbezogener Daten ("
+
+#: clinic/templates/clinic/kvkk.html:41
+msgid "2. İşlenen Kişisel Veriler"
+msgstr "2. Verarbeitete personenbezogene Daten"
+
+#: clinic/templates/clinic/kvkk.html:43
+msgid ""
+"Sitemiz üzerinden sunulan hizmetlere bağlı olarak, tarafınızca iletilen "
+"aşağıdaki kişisel veriler işlenmektedir:"
+msgstr ""
+"In Abhängigkeit von den über unsere Website angebotenen Dienstleistungen werden "
+"die folgenden von Ihnen übermittelten personenbezogenen Daten verarbeitet:"
+
+#: clinic/templates/clinic/kvkk.html:45
+msgid "Ad ve soyad"
+msgstr "Vor- und Nachname"
+
+#: clinic/templates/clinic/kvkk.html:47
+msgid "Telefon numarası"
+msgstr "Telefonnummer"
+
+#: clinic/templates/clinic/kvkk.html:49
+msgid "Tercih edilen randevu tarihi"
+msgstr "Bevorzugtes Termindatum"
+
+#: clinic/templates/clinic/kvkk.html:51
+msgid "GCLID (Google reklam etkileşim ID'si)"
+msgstr "GCLID (Google Werbeinteraktions-ID)"
+
+#: clinic/templates/clinic/kvkk.html:53
+msgid "Cihaz türü (iOS/macOS/Android/Windows)"
+msgstr "Gerätetyp (iOS/macOS/Android/Windows)"
+
+#: clinic/templates/clinic/kvkk.html:55
+msgid "Pil durumu (Low Power Mode açık/kapalı)"
+msgstr "Batteriestatus (Low Power Mode ein/aus)"
+
+#: clinic/templates/clinic/kvkk.html:57
+msgid ""
+"Çerezler ve pazarlama etiketleri (Meta Pixel, Google Analytics, Tag Manager)"
+msgstr ""
+"Cookies und Marketing-Tags (Meta Pixel, Google Analytics, Tag Manager)"
+
+#: clinic/templates/clinic/kvkk.html:59
+msgid "3. Kişisel Verilerin İşlenme Amaçları"
+msgstr "3. Zwecke der Verarbeitung personenbezogener Daten"
+
+#: clinic/templates/clinic/kvkk.html:61
+msgid "Toplanan kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:"
+msgstr ""
+"Ihre gesammelten personenbezogenen Daten werden für folgende Zwecke verarbeitet:"
+
+#: clinic/templates/clinic/kvkk.html:63
+msgid "Randevu taleplerinin işlenmesi ve tarafınıza geri dönüş sağlanması"
+msgstr "Bearbeitung von Terminanfragen und Rückmeldung an Sie"
+
+#: clinic/templates/clinic/kvkk.html:65
+msgid "Geri arama ("
+msgstr "Rückruf ("
+
+#: clinic/templates/clinic/kvkk.html:67
+msgid "Google Ads ve diğer reklam kampanyalarının performansının ölçülmesi"
+msgstr "Messung der Leistung von Google Ads und anderen Werbekampagnen"
+
+#: clinic/templates/clinic/kvkk.html:69
+msgid "Klinik hizmetlerinin sunulması ve iyileştirilmesi"
+msgstr "Bereitstellung und Verbesserung der Klinikdienstleistungen"
+
+#: clinic/templates/clinic/kvkk.html:71
+msgid "İlgili pazarlama analizlerinin yapılması"
+msgstr "Durchführung relevanter Marketinganalysen"
+
+#: clinic/templates/clinic/kvkk.html:73
+msgid "Yasal yükümlülüklerin yerine getirilmesi"
+msgstr "Erfüllung gesetzlicher Verpflichtungen"
+
+#: clinic/templates/clinic/kvkk.html:75
+msgid "4. Hukuki Sebep ve Toplama Yöntemi"
+msgstr "4. Rechtsgrundlage und Erfassungsmethode"
+
+#: clinic/templates/clinic/kvkk.html:77
+msgid "Verileriniz, KVKK'nın 5. ve 6. maddelerinde belirtilen;"
+msgstr "Ihre Daten werden basierend auf den in Artikeln 5 und 6 der DSGVO genannten;"
+
+#: clinic/templates/clinic/kvkk.html:79
+msgid "Açık rıza (siteyi kullanmaya devam ederek verilmiş sayılır),"
+msgstr ""
+"Ausdrückliche Einwilligung (gilt als erteilt durch fortgesetzte Nutzung der Website),"
+
+#: clinic/templates/clinic/kvkk.html:81
+msgid "Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma,"
+msgstr "Direkter Bezug zur Begründung oder Erfüllung eines Vertrags,"
+
+#: clinic/templates/clinic/kvkk.html:83
+msgid "Veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi,"
+msgstr "Erfüllung rechtlicher Verpflichtungen des Datenverantwortlichen,"
+
+#: clinic/templates/clinic/kvkk.html:85
+msgid ""
+"İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla meşru "
+"menfaatin varlığı"
+msgstr ""
+"Bestehen eines berechtigten Interesses, sofern die Grundrechte und Freiheiten "
+"der betroffenen Person nicht beeinträchtigt werden"
+
+#: clinic/templates/clinic/kvkk.html:87
+msgid ""
+"hukuki sebeplerine dayanarak, otomatik yollarla (form doldurulması, "
+"çerezler, tarayıcı verileri) elde edilir."
+msgstr ""
+"Rechtsgrundlagen erfasst, durch automatisierte Verfahren (Formularausfüllung, "
+"Cookies, Browserdaten)."
+
+#: clinic/templates/clinic/kvkk.html:89
+msgid "5. Kişisel Verilerin Aktarımı"
+msgstr "5. Weitergabe personenbezogener Daten"
+
+#: clinic/templates/clinic/kvkk.html:91
+msgid ""
+"Verileriniz, yalnızca aşağıdaki koşullarda ve amaçlarla sınırlı olmak üzere "
+"aktarılabilir:"
+msgstr ""
+"Ihre Daten können nur unter den folgenden Bedingungen und zu den folgenden "
+"Zwecken weitergegeben werden:"
+
+#: clinic/templates/clinic/kvkk.html:93
+msgid ""
+"Yetkili kamu kurumlarıyla yasal yükümlülüklerin yerine getirilmesi amacıyla"
+msgstr ""
+"An zuständige Behörden zur Erfüllung gesetzlicher Verpflichtungen"
+
+#: clinic/templates/clinic/kvkk.html:95
+msgid "Dentsoft sistemine, yalnızca randevu takibi ve hasta iletişimi için"
+msgstr ""
+"An das Dentsoft-System, ausschließlich für Terminverfolgung und Patientenkommunikation"
+
+#: clinic/templates/clinic/kvkk.html:97
+msgid ""
+"Google ve Meta gibi yurtdışı merkezli reklam sistemlerine, kampanya "
+"optimizasyonu ve izleme amacıyla"
+msgstr ""
+"An im Ausland ansässige Werbesysteme wie Google und Meta, zum Zweck der "
+"Kampagnenoptimierung und -verfolgung"
+
+#: clinic/templates/clinic/kvkk.html:99
+msgid ""
+"Bu aktarımlar, KVKK'nın 9. maddesi uyarınca yeterli korumaya sahip ülkeler "
+"ile sınırlıdır."
+msgstr ""
+"Diese Übermittlungen sind gemäß Artikel 9 der DSGVO auf Länder mit angemessenem "
+"Schutz beschränkt."
+
+#: clinic/templates/clinic/kvkk.html:101
+msgid "6. Verilerin Saklama Süresi"
+msgstr "6. Aufbewahrungsdauer der Daten"
+
+#: clinic/templates/clinic/kvkk.html:103
+msgid ""
+"Kişisel verileriniz, işleme amacının sona ermesi veya ilgili mevzuatta "
+"öngörülen sürelerin dolması halinde"
+msgstr ""
+"Ihre personenbezogenen Daten werden nach Beendigung des Verarbeitungszwecks oder "
+"Ablauf der in den einschlägigen Rechtsvorschriften vorgesehenen Fristen"
+
+#: clinic/templates/clinic/kvkk.html:104
+msgid "silinir,"
+msgstr "gelöscht,"
+
+#: clinic/templates/clinic/kvkk.html:105
+msgid ""
+"yok edilir veya anonim hale getirilir. Klinik bünyesinde alınan randevu ve "
+"iletişim talepleri en fazla 2 yıl"
+msgstr ""
+"vernichtet oder anonymisiert. Termin- und Kommunikationsanfragen innerhalb der "
+"Klinik werden maximal 2 Jahre lang"
+
+#: clinic/templates/clinic/kvkk.html:106
+msgid "süreyle saklanır."
+msgstr "aufbewahrt."
+
+#: clinic/templates/clinic/kvkk.html:108
+msgid "7. Haklarınız"
+msgstr "7. Ihre Rechte"
+
+#: clinic/templates/clinic/kvkk.html:110
+msgid "KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahipsiniz:"
+msgstr "Gemäß Artikel 11 der DSGVO haben Sie folgende Rechte:"
+
+#: clinic/templates/clinic/kvkk.html:112
+msgid "Kişisel verilerinizin işlenip işlenmediğini öğrenme"
+msgstr "Zu erfahren, ob Ihre personenbezogenen Daten verarbeitet werden"
+
+#: clinic/templates/clinic/kvkk.html:114
+msgid "İşlenmişse bilgi talep etme"
+msgstr "Auskunft zu verlangen, falls sie verarbeitet wurden"
+
+#: clinic/templates/clinic/kvkk.html:116
+msgid "İşlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme"
+msgstr ""
+"Den Verarbeitungszweck zu erfahren und ob sie zweckgemäß verwendet werden"
+
+#: clinic/templates/clinic/kvkk.html:118
+msgid "Yurt içi/yurt dışı üçüncü kişilere aktarım durumunu öğrenme"
+msgstr "Zu erfahren, ob sie an Dritte im In- oder Ausland weitergegeben wurden"
+
+#: clinic/templates/clinic/kvkk.html:120
+msgid "Eksik/yanlış işlenmiş verilerin düzeltilmesini isteme"
+msgstr "Die Berichtigung unvollständiger/fehlerhaft verarbeiteter Daten zu verlangen"
+
+#: clinic/templates/clinic/kvkk.html:122
+msgid "İşleme amacı sona erdiğinde verilerin silinmesini/yok edilmesini isteme"
+msgstr ""
+"Die Löschung/Vernichtung der Daten zu verlangen, wenn der Verarbeitungszweck "
+"beendet ist"
+
+#: clinic/templates/clinic/kvkk.html:124
+msgid ""
+"Otomatik sistemlerle analiz sonucu aleyhinize çıkabilecek duruma itiraz etme"
+msgstr ""
+"Gegen Entscheidungen zu widersprechen, die durch automatisierte Analyse zu Ihrem "
+"Nachteil ausfallen könnten"
+
+#: clinic/templates/clinic/kvkk.html:126
+msgid ""
+"KVKK'ya aykırı işlem sebebiyle zarara uğramanız hâlinde tazminat talep etme"
+msgstr ""
+"Schadensersatz zu verlangen, falls Sie durch DSGVO-widrige Verarbeitung Schaden "
+"erlitten haben"
+
+#: clinic/templates/clinic/kvkk.html:128
+msgid "8. İletişim"
+msgstr "8. Kontakt"
+
+#: clinic/templates/clinic/kvkk.html:130
+msgid ""
+"KVKK kapsamındaki başvurularınızı, ad-soyad ve telefon bilginizi belirterek "
+"aşağıdaki e-posta adresine"
+msgstr ""
+"Sie können Ihre Anträge im Rahmen der DSGVO unter Angabe Ihres Vor- und Nachnamens "
+"sowie Ihrer Telefonnummer an folgende E-Mail-Adresse"
+
+#: clinic/templates/clinic/kvkk.html:131
+msgid "iletebilirsiniz:"
+msgstr "senden:"
+
+#: clinic/templates/clinic/kvkk.html:135
+msgid ""
+"Bu siteyi kullanmaya devam ederek, yukarıda yer alan Aydınlatma Metni'ni "
+"okuduğunuzu, anladığınızı ve kişisel verilerinizin bu çerçevede işlenmesine "
+"rıza gösterdiğinizi kabul etmiş sayılırsınız."
+msgstr ""
+"Durch die fortgesetzte Nutzung dieser Website bestätigen Sie, dass Sie den oben "
+"stehenden Informationstext gelesen und verstanden haben und der Verarbeitung Ihrer "
+"personenbezogenen Daten in diesem Rahmen zustimmen."
+
+#: clinic/templates/clinic/maps-yonlendir.html:10
+msgid "Yol Tarifi | Dr. Dt. Devrim Biriken Sipahi"
+msgstr "Wegbeschreibung | Dr. Dt. Devrim Biriken Sipahi"
+
+#: clinic/templates/clinic/maps-yonlendir.html:12
+msgid ""
+"Dr. Dt. Devrim Biriken Sipahi kliniğine Google Haritalar üzerinden kolayca "
+"yol tarifi alın."
+msgstr ""
+"Erhalten Sie einfach eine Wegbeschreibung zur Klinik von Dr. Dt. Devrim Biriken "
+"Sipahi über Google Maps."
+
+#: clinic/templates/clinic/maps-yonlendir.html:57
+#: clinic/templates/clinic/telefon-yonlendir.html:103
+#: clinic/templates/clinic/whatsapp-yonlendir.html:103
+msgid "Dr. Devrim Biriken Sipahi Kliniği"
+msgstr "Dr. Devrim Biriken Sipahi Klinik"
+
+#: clinic/templates/clinic/maps-yonlendir.html:58
+msgid "Google Haritalar Açılıyor..."
+msgstr "Google Maps wird geöffnet..."
+
+#: clinic/templates/clinic/maps-yonlendir.html:59
+msgid "Yol tarifi için lütfen bekleyin..."
+msgstr "Bitte warten Sie auf die Wegbeschreibung..."
+
+#: clinic/templates/clinic/maps-yonlendir.html:62
+msgid "Haritada Görüntüle"
+msgstr "Auf der Karte anzeigen"
+
+#: clinic/templates/clinic/telefon-yonlendir.html:10
+msgid "Telefonla Randevu | Dr. Dt. Devrim Biriken Sipahi"
+msgstr "Telefonischer Termin | Dr. Dt. Devrim Biriken Sipahi"
+
+#: clinic/templates/clinic/telefon-yonlendir.html:12
+msgid ""
+"Dr. Dt. Devrim Biriken Sipahi'yi arayarak hızlıca randevu alın. İstanbul "
+"Şişli, Mecidiyeköy ve Beşiktaş'ta hizmet veren kliniğimiz ile iletişime "
+"geçin."
+msgstr ""
+"Rufen Sie Dr. Dt. Devrim Biriken Sipahi an und vereinbaren Sie schnell einen "
+"Termin. Kontaktieren Sie unsere Klinik, die in Istanbul Şişli, Mecidiyeköy "
+"und Beşiktaş tätig ist."
+
+#: clinic/templates/clinic/telefon-yonlendir.html:102
+#: clinic/templates/clinic/whatsapp-yonlendir.html:102
+msgid "Şişli Özel Klinik"
+msgstr "Şişli Privatklinik"
+
+#: clinic/templates/clinic/telefon-yonlendir.html:104
+msgid "Telefonla Randevu Alınıyor..."
+msgstr "Telefonischer Termin wird vereinbart..."
+
+#: clinic/templates/clinic/telefon-yonlendir.html:105
+msgid "Telefon uygulamanız açılıyor. Lütfen bekleyin..."
+msgstr "Ihre Telefonanwendung wird geöffnet. Bitte warten Sie..."
+
+#: clinic/templates/clinic/telefon-yonlendir.html:108
+msgid "Telefonla Ara"
+msgstr "Telefonisch anrufen"
+
+#: clinic/templates/clinic/whatsapp-yonlendir.html:9
+msgid "WhatsApp ile Randevu | Dr. Dt. Devrim Biriken Sipahi"
+msgstr "Termin per WhatsApp | Dr. Dt. Devrim Biriken Sipahi"
+
+#: clinic/templates/clinic/whatsapp-yonlendir.html:11
+msgid ""
+"Dr. Dt. Devrim Biriken Sipahi ile WhatsApp üzerinden hızlıca iletişime "
+"geçin. İstanbul Şişli ve çevresinde hizmet veriyoruz."
+msgstr ""
+"Kontaktieren Sie Dr. Dt. Devrim Biriken Sipahi schnell über WhatsApp. Wir "
+"bieten Dienstleistungen in Istanbul Şişli und Umgebung an."
+
+#: clinic/templates/clinic/whatsapp-yonlendir.html:104
+msgid "WhatsApp ile Randevu Alınıyor..."
+msgstr "Termin per WhatsApp wird vereinbart..."
+
+#: clinic/templates/clinic/whatsapp-yonlendir.html:105
+msgid "Birazdan WhatsApp uygulamanız açılacak."
+msgstr "Ihre WhatsApp-Anwendung wird in Kürze geöffnet."
+
+#: clinic/templates/clinic/whatsapp-yonlendir.html:108
+msgid "WhatsApp'a Git"
+msgstr "Zu WhatsApp gehen"
+
+#: clinic/views.py:126
+msgid "Sayfa bulunamadı"
+msgstr "Seite nicht gefunden"
+
+#: devrim_website/settings.py:144
+msgid "Türkçe"
+msgstr "Türkisch"
+
+#: devrim_website/settings.py:145
+msgid "English"
+msgstr "Englisch"
+
+#: devrim_website/settings.py:146
+msgid "Deutsch"
+msgstr "Deutsch"
+
+#: devrim_website/settings.py:147
+msgid "Nederlands"
+msgstr "Niederländisch"

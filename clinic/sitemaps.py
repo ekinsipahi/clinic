@@ -53,6 +53,32 @@ class RawEnSitemap(Sitemap):
     def lastmod(self, item):
         return timezone.now()
 
+class RawDeSitemap(Sitemap):
+    changefreq = "monthly"
+    priority = 1.0
+
+    def items(self):
+        return ["de-home"]
+
+    def location(self, item):
+        return "/de/"
+
+    def lastmod(self, item):
+        return timezone.now()
+
+
+class RawNlSitemap(Sitemap):
+    changefreq = "monthly"
+    priority = 1.0
+
+    def items(self):
+        return ["nl-home"]
+
+    def location(self, item):
+        return "/nl/"
+
+    def lastmod(self, item):
+        return timezone.now()
 
 class AutoURLSitemap(Sitemap):
     """
