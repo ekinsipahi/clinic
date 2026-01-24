@@ -6,10 +6,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="title" content="'Dr. Dt. Devrim Biriken Sipahi |'">
-  <meta property="og:title" content=" 'Dr. Dt. Devrim Biriken Sipahi'">
-  <!-- <meta name="title" content="{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}"> -->
-  <!-- <meta property="og:title" content="{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}"> -->
+  <meta name="title" content="{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}">
+  <meta property="og:title" content="{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}">
   <link rel="alternate" hreflang="tr" href="https://devrimbirikensipahi.com.tr/" />
   <link rel="alternate" hreflang="en" href="https://devrimbirikensipahi.com.tr/en/" />
   <link rel="alternate" hreflang="de" href="https://devrimbirikensipahi.com.tr/de/" />
@@ -29,8 +27,7 @@
   {% get_current_language as LANGUAGE_CODE %}
   <link rel="canonical" href="https://www.devrimbirikensipahi.com.tr/{% if LANGUAGE_CODE == 'en' %}en/{% endif %}" />
 
-  <title>Dr. Dt. Devrim Biriken Sipahi</title>
-  <!-- <title>{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}</title> -->
+  <title>{% trans 'Dr. Dt. Devrim Biriken Sipahi | Şişli Diş Kliniği' %}</title>
 
 
   <!-- FAQ RICH RESULTLAR-->
@@ -1392,12 +1389,224 @@
       <div class="absolute inset-0 bg-white/80"></div>
     </div>
 
- 
+    <div class="relative h-40 overflow-hidden max-w-3xl mx-auto">
+      <div class="slide-track">
+
+        <!-- Melih -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Kanal tedavim acısız ve başarılı gecti ellerine sağlık" %}</p>
+          <div class="mt-3 space-y-1 flex">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Melih E." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ece -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "38 yaşındayım, korkumu yenmeme neden bir doktordur kendisi. İşini özenle ve TEMİZ yapan, eli hafif, güler yüzlü ve güvende hissetmenizi sağlayan bir doktor. Aynı anda 3 dolgu ve temizleme yaptık, 2 gün sonra 4 dolgu yaptırdım, hiç ağrım olmadı :) - maşallah- Devrim Hanım iyi ki sizin gibi hekimler var" %}</p>
+          <div class="mt-3 space-y-1 flex">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Ece Y." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Süleyman -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Devrim hocamız güler yüzü ile yaptığı işlemlerde acı hiss etmiyorsunuz, anlaşılmıyor ve çok sağlam oluyor" %}</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Süleyman B." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cem -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Ufacık dişten dolgu ile diş yaptı ve çok güzel oldu, daha önce 3 doktora gittim hepsi çekilmesinin gerektiği söylemesine rağmen Devrim hanım zamanından alarak emek harçayarak diş yaptı. Ellerine kollarına sağlık hocam bulduğumuz ve tanıdığımız için çok mutlu olduk. Güvenle gidebilirsiniz." %}</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Cem T." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buse -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Devrim hocam yıllardır güvendiğim, işini özenle yapan bir hekim. Yaptırdığım dolgular ve tedavi süreçleri hep çok iyi sonuç verdi. Eli de hafif ve gerçekten hızlı bir şekilde tedaviyi tamamlıyor, kesinlikle öneriyorum" %}</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Buse Y." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hüseyin -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Devrim hocaya çocukluğumdan beri gidiyorum, bugün de dolgularımı yaptı, eli çok temiz, herhangi bir sıkıntı olmadan halletti, kesinlikle öneriyorum" %}</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Hüseyin U. Y." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Melis -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Dişlerime uygulanan lamina estetik olarak harikaydı." %}</p>
+          <div class="mt-3 space-y-1 flex">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Melis Ç." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ceren -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Devrim hoca ile 2020 yılında tanıştık, yirmilik dişimi çektirmiştim, o kadar güler yüzlü, eli hafif bir doktor ki beni kendisine hayran bıraktı. Hemen sonrasında ön dişlerimi kaplama yaptırdım, yıllardır sorunsuz kullanıyorum 🙏☺️" %}</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Ceren S." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Merve -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Devrim hanım sayesinde 20'lik dişim sorunsuz çekildi, ön dişlerim daha temiz ve güzel oldu. En son yaptığı kanal tedavi sayesinde yemek yerken artık canım acımıyor. Kesinlikle gözüm kapalı tavsiye ederim. Yıllardır tüm dişlerimi emanet ettiğim canım hekimim Devrim hanım, iyi ki varsınız!" %}</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Merve A." %}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Özlem -->
+        <div class="comment-box bg-gray-50 border border-gray-200 rounded-xl shadow p-4"
+          style="display: flex; flex-direction:column;">
+          <p class="text-base text-gray-800">{% trans "Yıllardır hekimliğine, tecrübesine, tedavisine güvendiğim, her gittiğimde temizlik konusunda en ufak bir şüphe duymadığım işinin ehli bir diş doktorudur kendisi." %}</p>
+          <div class="mt-3 space-y-1">
+            <div class="flex justify-start">
+              <div class="text-yellow-500 text-sm">⭐️⭐️⭐️⭐️⭐️</div>
+            </div>
+            <div class="flex justify-end">
+              <div class="text-xs text-gray-600 italic">– {% trans "Özlem H." %}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
 
   <!-- BURASI ÇOK İYİ -->
+  <form method="post" aria-label="{% trans 'İletişim Formu' %}">
+    {% csrf_token %}
+    <section class="py-16" id="iletisim-formu">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 grid-cols-1">
 
+          <article class="lg:mb-0 mb-10">
+            <div class="relative h-full w-full min-h-[400px]">
+              <img data-src="{% static 'images/devrim-contact.webp' %}" alt="{% trans 'Diş kliniği iletişim görseli' %}"
+                class="lazy-js-img object-cover w-full h-full aspect-video lg:rounded-l-2xl rounded-2xl opacity-0 transition-opacity duration-500">
+              <div class="spinner absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
+
+              <div
+                class="absolute top-1 right-1 bg-gradient-to-t from-white/70 via-white/50 to-transparent text-gray-800 text-sm font-semibold px-4 py-2 rounded-lg shadow-md backdrop-blur-sm">
+                {% trans "Dr. Dt. Devrim Biriken Sipahi" %}
+              </div>
+
+              <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">
+                {% trans "Bize Ulaşın" %}
+              </h1>
+
+              <div class="absolute bottom-0 w-full lg:p-11 p-5">
+                <div class="bg-white rounded-lg p-6 block grid items-center">
+                  <a href="/telefon-yonlendirme" class="flex items-center" aria-label="{% trans 'Telefon ile ara' %}">
+                    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24">
+                      <path
+                        d="M2 2h4l2 7-4 1 5 5 1-4 7 2v4a2 2 0 0 1-2 2h-1a17.65 17.65 0 0 1-8-3.5A17.65 17.65 0 0 1 2 4v-1a2 2 0 0 1 2-2z" />
+                    </svg>
+                    <span class="ml-3 text-lg text-gray-800 font-medium">{% trans "+90 505 577 1883" %}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl">
+            <h2 class="text-indigo-600 font-manrope text-3xl font-semibold mb-8">{% trans "Biz Sizi Arayalım" %}</h2>
+
+            <label for="name" class="sr-only">{% trans "Ad Soyad" %}</label>
+            <input id="name" name="name" type="text" required aria-label="{% trans 'Ad Soyad' %}" autocomplete="name"
+              placeholder="{% trans 'Ad Soyad' %}"
+              class="w-full h-12 mb-6 pl-4 rounded-full border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400">
+
+            <label for="phone" class="sr-only">{% trans "Telefon" %}</label>
+            <input id="phone" name="phone" type="tel" required aria-label="{% trans 'Telefon Numaranız' %}" autocomplete="tel"
+              placeholder="{% trans 'Telefon Numaranız' %}"
+              class="w-full h-12 mb-6 pl-4 rounded-full border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400">
+
+            <label for="message" class="sr-only">{% trans "Mesaj" %}</label>
+            <textarea id="message" name="message" rows="4" aria-label="{% trans 'Mesajınız (isteğe bağlı)' %}"
+              placeholder="{% trans 'İletmek istediğiniz bir mesaj varsa buraya yazabilirsiniz (isteğe bağlı)' %}"
+              class="w-full mb-4 p-4 rounded-xl border border-gray-200 shadow-sm bg-white text-lg text-gray-700 placeholder-gray-400"></textarea>
+
+            <input type="hidden" name="gclid" id="gclid" />
+            <input type="hidden" name="client_info" id="client_info_input">
+            <input type="hidden" name="page" value="{% trans 'Beni Ara Lead' %}">
+
+            <button type="submit"
+              class="w-full h-12 rounded-full bg-indigo-600 hover:bg-indigo-800 text-white font-semibold text-base transition duration-300 shadow-sm">
+              {% trans "Gönder" %}
+            </button>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </form>
 
 
   <!-- DOĞRU HEKİMLİK / UZUN ÖMÜRLÜ SONUÇLAR -->
@@ -1547,9 +1756,9 @@
           </p>
 
           <!-- Existence (hikâye: bilgi aktarımı & ikinci nesil) -->
-          <!-- <p class="text-lg leading-relaxed text-gray-700 mb-6">
+          <p class="text-lg leading-relaxed text-gray-700 mb-6">
             {% trans "Kliniğin kuruluş motivasyonu sadece 'tedavi' değil, bir <span class='font-semibold'>miras</span>tır: Dr. Sipahi'nin bilgi ve tecrübesinin <span class='font-semibold'>gelecek nesle</span> aktarılması. Bu nedenle klinik yapılanması, <span class='font-semibold'>Dt. Ekin Sipahi</span> ile birlikte aynı kalite standartlarını sürdürecek şekilde kurgulandı. İki nesil, tek çizgi: doğru, sade, etkin hekimlik." %}
-          </p> -->
+          </p>
 
           <!-- Kısa değer çipleri -->
           <div class="flex flex-wrap gap-2 mb-6">
@@ -1800,7 +2009,7 @@
 
 
   <!-- Devrim Slaytlar -->
-  <!-- <div class="wrapper">
+  <div class="wrapper">
     <div class="slideshows">
       <div class="slideshow slideshow--hero">
         <div class="slides">
@@ -1830,7 +2039,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
 
   <!-- SEO Rich FAQ -->
