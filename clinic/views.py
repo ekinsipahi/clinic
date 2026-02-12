@@ -53,9 +53,14 @@ def homepage(request):
 def sisli_dis_hekimi(request):
     return render(request, "clinic/sisli-dis-hekimi.html")
 
+def neden_biz(request):
+    return render(request, "clinic/neden-biz.html", {"LANGUAGE_CODE": get_language()})
+
 def randevu_al(request):
     return render(request, "clinic/randevu-al.html")
 
+def dental_tourism(request):
+    return render(request, "clinic/dental-tourism.html")
 
 def whatsapp_yonlendir(request):
     return render(request, "clinic/whatsapp-yonlendir.html")

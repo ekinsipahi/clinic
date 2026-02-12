@@ -32,6 +32,8 @@ urlpatterns = [
     path('tesekkur/', views.tesekkurler, name='tesekkurler'),
     
     path('sisli-dis-hekimi/', views.sisli_dis_hekimi, name='sisli-dis-hekimi'),
+    path('dental-tourism/', views.dental_tourism, name='dental-tourism'),
+    
     # yeni:
     path('onay/', views.onay, name='onay'),
     path('onay-tesekkur/', views.onay_tesekkur, name='onay-tesekkur'),
@@ -42,6 +44,14 @@ urlpatterns += [
     path('robots.txt', TemplateView.as_view(template_name="clinic/robots.txt", content_type="text/plain")),
     path('llms.txt', TemplateView.as_view(template_name="clinic/llms.txt", content_type="text/plain")),
     path("sitemap.xml", django_sitemap, {"sitemaps": sitemaps}, name="django-sitemap"),
+]
+
+urlpatterns += [
+    # WHY US – Çok dilli slug
+    path('neden-biz/', views.neden_biz, name='neden-biz-tr'),
+    path('why-us/', views.neden_biz, name='neden-biz-en'),
+    path('warum-wir/', views.neden_biz, name='neden-biz-de'),
+    path('waarom-wij/', views.neden_biz, name='neden-biz-nl'),
 ]
 
 

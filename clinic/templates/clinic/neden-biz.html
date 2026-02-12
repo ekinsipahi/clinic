@@ -1,0 +1,15 @@
+{% load static %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async onload="document.documentElement.classList.add('tailwind-loaded')" src="https://cdn.tailwindcss.com"></script>
+
+  <title>{% trans 'Neden Bizi Tercih Etmelisiniz? | Dr. Devrim Biriken Sipahi – Şişli Diş Kliniği' %}</title>
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+</body>
+</html>

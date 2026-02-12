@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 from django.utils.safestring import mark_safe
 from django.utils import timezone
+from django.utils.translation import get_language  # ← EKLE
 from .models import Post, Category
 import markdown
 
@@ -17,6 +18,7 @@ class PostListView(ListView):
         ctx = super().get_context_data(**kwargs)
         ctx["all_categories"] = Category.objects.all().order_by("name")
         ctx["active_category_slug"] = None
+        ctx["LANGUAGE_CODE"] = get_language()  # ← EKLE
         return ctx
 
 class CategoryListView(PostListView):
@@ -30,7 +32,9 @@ class CategoryListView(PostListView):
         ctx = super().get_context_data(**kwargs)
         ctx["category"] = self.category
         ctx["active_category_slug"] = self.category.slug
+        ctx["LANGUAGE_CODE"] = get_language()  # ← EKLE
         return ctx
+
 class PostDetailView(DetailView):
     model = Post
     template_name = "blog/detail.html"
@@ -80,7 +84,6 @@ class PostDetailView(DetailView):
                 .first()
         )
         
-
         # --- JSON-LD için hero absolute URL ---
         hero_src = post.hero_src or ""
         if hero_src and not hero_src.startswith(("http://", "https://", "//")):
@@ -88,4 +91,5 @@ class PostDetailView(DetailView):
         else:
             ctx["hero_abs_url"] = hero_src
 
+        ctx["LANGUAGE_CODE"] = get_language()  # ← EKLE
         return ctx

@@ -1,0 +1,6 @@
+1. Dental-tourism kısmını full bitir
+2. mecidiyeköy-dis-klinigi slug ile lokalde etkiyi artıran keywordlerle yap
+3. kagithane-dis-kliniği slug ile lokalde etkiyi artıran keywordlerle yap
+4. biz kimiz neden biz diye bir sayfa açmamız gerekiyor daha ikna edici olması gerekiyor.
+5. şişlide en iyi diş hekimi falan diye bir url açıcaksın
+6. istanbul en iyi diş hekim diye açıcaksın ki ordan trafik geliyor -> blogla aç bence bunu.
