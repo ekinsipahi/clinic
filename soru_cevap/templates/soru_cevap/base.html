@@ -1,0 +1,1016 @@
+<!--Base.html-->
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ language|default:'tr' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ page_title }} — Dr. Devrim Forum{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ page_description|default:'' }}{% endblock %}">
+  {% block meta_keywords %}{% endblock %}
+  <meta name="robots" content="index, follow">
+  {% block canonical %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+  {% block hreflang %}{% endblock %}
+  <meta property="og:type"        content="{% block og_type %}website{% endblock %}">
+  <meta property="og:site_name"   content="Dr. Devrim Klinik">
+  <meta property="og:title"       content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description|default:'' }}">
+  <meta property="og:url"         content="{{ request.build_absolute_uri }}">
+  <meta property="og:locale"      content="{% if language == 'en' %}en_US{% else %}tr_TR{% endif %}">
+  {% block og_image %}
+  <meta property="og:image" content="{% static 'images/og-default.jpg' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+  {% endblock %}
+  <meta name="twitter:card"  content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title }}">
+  {% block json_ld %}{% endblock %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1366216214467162');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1366216214467162&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
+
+  <script async onload="document.documentElement.classList.add('tailwind-loaded')" src="https://cdn.tailwindcss.com">
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGS2PYPNYG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-KGS2PYPNYG');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WTNPC78M');</script>
+
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17150773342">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17150773342');
+
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
+    });
+
+  </script>
+
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ── Flash önleme ── */
+    :root { color-scheme: light dark; }
+
+    /* ── TOKENS LIGHT ── */
+    :root {
+      --bg:         #f6f8fc;
+      --bg2:        #eef1f7;
+      --surface:    #ffffff;
+      --border:     rgba(0,0,0,.07);
+      --border2:    rgba(0,0,0,.12);
+      --text:       #0d1117;
+      --text2:      #3d4a5c;
+      --text3:      #8896a9;
+      --em:         #10b981;
+      --em-d:       #059669;
+      --in:         #6366f1;
+      --in-l:       #818cf8;
+      --card-bg:    #ffffff;
+      --card-bdr:   rgba(0,0,0,.06);
+      --card-shad:  0 1px 4px rgba(0,0,0,.05), 0 0 0 1px rgba(0,0,0,.04);
+      --card-hover: 0 8px 32px rgba(16,185,129,.1), 0 0 0 1px rgba(16,185,129,.15);
+      --inp-bg:     #f8fafc;
+      --inp-bdr:    rgba(0,0,0,.1);
+      --inp-txt:    #0d1117;
+      --inp-ph:     rgba(0,0,0,.3);
+      --prose-h:    #064e3b;
+      --prose-b:    #2d3748;
+      --prose-a:    #059669;
+      --btn-inner:  #0d1117;
+      --badge-bg:   rgba(0,0,0,.04);
+      --badge-txt:  #5a6779;
+      --badge-bdr:  rgba(0,0,0,.07);
+      --nav-h:      72px;
+    }
+
+    /* ── TOKENS DARK ── */
+    :root[data-theme="dark"] {
+      --bg:         #080c12;
+      --bg2:        #0d1117;
+      --surface:    #111827;
+      --border:     rgba(255,255,255,.07);
+      --border2:    rgba(255,255,255,.12);
+      --text:       #e8edf5;
+      --text2:      #9baab9;
+      --text3:      #4d5e72;
+      --card-bg:    rgba(255,255,255,.03);
+      --card-bdr:   rgba(255,255,255,.07);
+      --card-shad:  none;
+      --card-hover: 0 8px 32px rgba(52,211,153,.07), 0 0 0 1px rgba(52,211,153,.15);
+      --inp-bg:     rgba(255,255,255,.04);
+      --inp-bdr:    rgba(255,255,255,.09);
+      --inp-txt:    #e8edf5;
+      --inp-ph:     rgba(255,255,255,.25);
+      --prose-h:    #6ee7b7;
+      --prose-b:    #c8d6e5;
+      --prose-a:    #6ee7b7;
+      --btn-inner:  #080c12;
+      --badge-bg:   rgba(255,255,255,.05);
+      --badge-txt:  #5d6f84;
+      --badge-bdr:  rgba(255,255,255,.07);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg:#080c12;--bg2:#0d1117;--surface:#111827;
+        --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);
+        --text:#e8edf5;--text2:#9baab9;--text3:#4d5e72;
+        --card-bg:rgba(255,255,255,.03);--card-bdr:rgba(255,255,255,.07);
+        --card-shad:none;--card-hover:0 8px 32px rgba(52,211,153,.07),0 0 0 1px rgba(52,211,153,.15);
+        --inp-bg:rgba(255,255,255,.04);--inp-bdr:rgba(255,255,255,.09);
+        --inp-txt:#e8edf5;--inp-ph:rgba(255,255,255,.25);
+        --prose-h:#6ee7b7;--prose-b:#c8d6e5;--prose-a:#6ee7b7;
+        --btn-inner:#080c12;--badge-bg:rgba(255,255,255,.05);
+        --badge-txt:#5d6f84;--badge-bdr:rgba(255,255,255,.07);
+      }
+    }
+
+    /* ── BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', system-ui, sans-serif; }
+
+    /* ── UTILITY ── */
+    .t-text  { color: var(--text); }
+    .t-text2 { color: var(--text2); }
+    .t-text3 { color: var(--text3); }
+
+    /* ── NAVBAR ── */
+    #site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      transition: all .3s;
+    }
+    #site-nav.scrolled {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 20px rgba(0,0,0,.08);
+    }
+    #site-nav.at-top {
+      background: transparent;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    /* Logo */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      flex-shrink: 0;
+      margin-right: 2rem;
+    }
+    .nav-logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #10b981, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .nav-logo-text span { 
+      display: block; 
+      font-size: .65rem; 
+      font-weight: 500; 
+      opacity: .6; 
+      letter-spacing: .04em; 
+      text-transform: uppercase;
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .15rem;
+      flex: 1;
+    }
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .45rem .8rem;
+      border-radius: .5rem;
+      font-size: .875rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--text2);
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--text); background: var(--badge-bg); }
+    .nav-link.active { color: var(--em); background: rgba(16,185,129,.08); font-weight: 600; }
+    .nav-link .badge {
+      font-size: .6rem;
+      padding: .1rem .35rem;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--text3);
+      font-weight: 600;
+    }
+
+    /* Nav right */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    /* Lang toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: .15rem;
+      padding: .25rem .3rem;
+      border-radius: .5rem;
+      border: 1px solid var(--border);
+      background: var(--badge-bg);
+    }
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      padding: .25rem .5rem;
+      border-radius: .35rem;
+      font-size: .72rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text3);
+      transition: all .15s;
+    }
+    .lang-btn.active {
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+    .lang-btn img { width: 14px; height: 14px; border-radius: 2px; }
+
+    /* Theme toggle */
+    .theme-btn {
+      width: 34px; height: 34px;
+      border-radius: .5rem;
+      border: 1px solid var(--border);
+      background: var(--badge-bg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text2);
+      transition: all .15s;
+    }
+    .theme-btn:hover { color: var(--text); border-color: var(--border2); }
+    .icon-sun  { display: none; }
+    .icon-moon { display: block; }
+    :root[data-theme="dark"] .icon-sun  { display: block; }
+    :root[data-theme="dark"] .icon-moon { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .icon-sun  { display: block; }
+      :root:not([data-theme="light"]) .icon-moon { display: none; }
+    }
+
+    /* User menu */
+    .user-menu-wrap { position: relative; }
+    .user-btn {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem .6rem;
+      border-radius: .6rem;
+      border: 1px solid var(--border);
+      background: var(--badge-bg);
+      cursor: pointer;
+      transition: all .15s;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text2);
+    }
+    .user-btn:hover { border-color: var(--border2); color: var(--text); }
+    .user-avatar {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .user-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 200px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: .75rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,.15);
+      padding: .4rem;
+      display: none;
+      z-index: 200;
+    }
+    .user-dropdown.open { display: block; }
+    .ud-item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .65rem;
+      border-radius: .45rem;
+      font-size: .82rem;
+      color: var(--text2);
+      text-decoration: none;
+      transition: all .12s;
+    }
+    .ud-item:hover { background: var(--badge-bg); color: var(--text); }
+    .ud-sep { height: 1px; background: var(--border); margin: .3rem 0; }
+
+    /* Ask button */
+    .nav-ask-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .45rem 1rem;
+      border-radius: .6rem;
+      font-size: .82rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, #10b981, #059669);
+      box-shadow: 0 2px 8px rgba(16,185,129,.3);
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .nav-ask-btn:hover { 
+      transform: translateY(-1px); 
+      box-shadow: 0 4px 16px rgba(16,185,129,.4);
+    }
+
+    /* Mobile hamburger */
+    .hamburger {
+      display: none;
+      width: 36px; height: 36px;
+      border-radius: .5rem;
+      border: 1px solid var(--border);
+      background: var(--badge-bg);
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: var(--text2);
+      border-radius: 999px;
+      transition: all .2s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      pointer-events: none;
+    }
+    .mobile-drawer.open { pointer-events: all; }
+    .drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .mobile-drawer.open .drawer-backdrop { opacity: 1; }
+    .drawer-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: min(340px, 90vw);
+      height: 100%;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      transform: translateX(100%);
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .mobile-drawer.open .drawer-panel { transform: translateX(0); }
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .drawer-close {
+      width: 32px; height: 32px;
+      border-radius: .4rem;
+      border: 1px solid var(--border);
+      background: var(--badge-bg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text2);
+    }
+    .drawer-body { flex: 1; padding: 1rem; display: flex; flex-direction: column; gap: .75rem; }
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .85rem 1rem;
+      border-radius: .65rem;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--text2);
+      border: 1px solid var(--border);
+      transition: all .15s;
+    }
+    .drawer-link:hover, .drawer-link.active { color: var(--em); border-color: rgba(16,185,129,.25); background: rgba(16,185,129,.05); }
+    .drawer-icon {
+      width: 34px; height: 34px;
+      border-radius: .45rem;
+      background: var(--badge-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .drawer-footer {
+      padding: 1rem;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links, .lang-toggle, .theme-btn, .nav-ask-btn, .user-menu-wrap { display: none !important; }
+      .hamburger { display: flex; }
+    }
+
+    /* ── CARD ── */
+    .qa-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-bdr);
+      border-radius: 1rem;
+      box-shadow: var(--card-shad);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .qa-card:hover {
+      border-color: rgba(16,185,129,.2);
+      box-shadow: var(--card-hover);
+    }
+
+    /* ── GLOW BTN ── */
+    .btn-glow {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #34d399, #818cf8);
+      opacity: .85;
+      filter: blur(4px);
+      transition: opacity .2s;
+    }
+    .btn-glow:hover::before { opacity: 1; }
+    .btn-glow > span {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--btn-inner);
+      color: #fff;
+      padding: .5rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .82rem;
+    }
+
+    /* ── INPUT ── */
+    .qa-input {
+      width: 100%;
+      background: var(--inp-bg);
+      border: 1px solid var(--inp-bdr);
+      border-radius: .75rem;
+      padding: .65rem .9rem;
+      font-size: .875rem;
+      color: var(--inp-txt);
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color .15s, box-shadow .15s;
+      outline: none;
+    }
+    .qa-input::placeholder { color: var(--inp-ph); }
+    .qa-input:focus { 
+      border-color: rgba(16,185,129,.5); 
+      box-shadow: 0 0 0 3px rgba(16,185,129,.1);
+    }
+    textarea.qa-input { resize: vertical; min-height: 80px; }
+
+    /* ── PROSE ── */
+    .qa-prose { line-height: 1.8; }
+    .qa-prose h2 { font-size:1.2rem; font-weight:700; margin:1.75rem 0 .6rem; color:var(--prose-h); font-family:'Outfit',sans-serif; }
+    .qa-prose h3 { font-size:1rem; font-weight:600; margin:1.4rem 0 .4rem; color:var(--prose-h); opacity:.85; font-family:'Outfit',sans-serif; }
+    .qa-prose p  { margin:.8rem 0; line-height:1.8; color:var(--prose-b); }
+    .qa-prose ul,.qa-prose ol { padding-left:1.5rem; margin:.8rem 0; color:var(--prose-b); }
+    .qa-prose li { margin:.35rem 0; line-height:1.7; }
+    .qa-prose a  { color:var(--prose-a); text-decoration:underline; text-underline-offset:2px; }
+    .qa-prose strong { color:var(--text); font-weight:600; }
+    .qa-prose img { border-radius:.875rem; margin:1.5rem auto; max-width:100%; display:block; box-shadow:0 8px 32px rgba(0,0,0,.15); }
+    .qa-prose blockquote { border-left:3px solid var(--em); padding:.6rem 1rem; margin:.8rem 0; color:var(--text2); font-style:italic; background:rgba(16,185,129,.04); border-radius:0 .6rem .6rem 0; }
+    .qa-prose table { width:100%; border-collapse:collapse; margin:1.25rem 0; font-size:.9rem; }
+    .qa-prose th { background:rgba(16,185,129,.08); color:var(--prose-h); padding:.55rem .85rem; text-align:left; border:1px solid var(--border); font-family:'Outfit',sans-serif; }
+    .qa-prose td { padding:.55rem .85rem; border:1px solid var(--border); color:var(--prose-b); }
+
+    /* ── STAR INPUT ── */
+    .star-input-group { display:flex; flex-direction:row-reverse; gap:.2rem; }
+    .star-input-group input { display:none; }
+    .star-input-group label { font-size:1.6rem; cursor:pointer; color:var(--border); transition:color .1s; line-height:1; }
+    .star-input-group label:hover,
+    .star-input-group label:hover ~ label,
+    .star-input-group input:checked ~ label { color:#f59e0b; }
+
+    /* ── BADGES ── */
+    .badge-anon {
+      display:inline-flex; align-items:center; gap:.2rem;
+      background:var(--badge-bg); color:var(--badge-txt);
+      padding:.12rem .55rem; border-radius:999px;
+      font-size:.68rem; font-weight:600; letter-spacing:.02em;
+      border:1px solid var(--badge-bdr);
+    }
+    .badge-doctor {
+      display:inline-flex; align-items:center; gap:.2rem;
+      background:rgba(16,185,129,.1); color:var(--em);
+      padding:.15rem .6rem; border-radius:999px;
+      font-size:.68rem; font-weight:700; letter-spacing:.04em;
+      border:1px solid rgba(16,185,129,.25);
+    }
+    .answered-pill {
+      display:inline-flex; align-items:center; gap:.25rem;
+      background:rgba(16,185,129,.08); color:#10b981;
+      padding:.18rem .6rem; border-radius:999px;
+      font-size:.68rem; font-weight:700; letter-spacing:.03em;
+      border:1px solid rgba(16,185,129,.2);
+    }
+
+    /* ── AUTH GATE ── */
+    .auth-gate {
+      border: 1px dashed var(--border2);
+      border-radius: .875rem;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      background: var(--inp-bg);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up   { animation:fadeUp .35s ease both; }
+    .fade-up-2 { animation:fadeUp .35s .08s ease both; }
+    .fade-up-3 { animation:fadeUp .35s .16s ease both; }
+    .fade-up-4 { animation:fadeUp .35s .24s ease both; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+  </style>
+
+  <!-- Theme flash prevention -->
+  <script>
+    (function(){
+      var s = localStorage.getItem('qa-theme');
+      if(s){ document.documentElement.setAttribute('data-theme',s); return; }
+      document.documentElement.setAttribute('data-theme',
+        window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+    })();
+  </script>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ NAVBAR ═══ -->
+<nav id="site-nav" class="at-top">
+  <div class="nav-inner">
+
+    <!-- Logo -->
+    <a href="{{ qa_prefix }}/" class="nav-logo t-text">
+      <div class="nav-logo-icon">🦷</div>
+      <div class="nav-logo-text">
+        Dr. Devrim
+        <span>Dental Forum</span>
+      </div>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="nav-links">
+      <a href="{{ qa_prefix }}/" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        {% if language == 'tr' %}Ana Sayfa{% else %}Home{% endif %}
+      </a>
+      <a href="{{ qa_prefix }}/sorular/" class="nav-link {% if request.resolver_match.url_name == 'questions' %}active{% endif %}">
+        {% if language == 'tr' %}Sorular{% else %}Questions{% endif %}
+      </a>
+      <a href="{{ qa_prefix }}/makaleler/" class="nav-link {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}">
+        {% if language == 'tr' %}Makaleler{% else %}Articles{% endif %}
+      </a>
+      <a href="/" class="nav-link" style="opacity:.6;">
+        ← {% if language == 'tr' %}Kliniğe Dön{% else %}Back to Clinic{% endif %}
+      </a>
+    </div>
+
+    <!-- Right side -->
+    <div class="nav-right">
+
+      <!-- Language toggle -->
+      <div class="lang-toggle">
+        <a href="/soru-cevap/" class="lang-btn {% if language == 'tr' %}active{% endif %}">
+          <img src="{% static 'images/flags/turkey.svg' %}" alt="TR"> TR
+        </a>
+        <a href="/question-and-answer/" class="lang-btn {% if language == 'en' %}active{% endif %}">
+          <img src="{% static 'images/flags/UK.svg' %}" alt="EN"> EN
+        </a>
+      </div>
+
+      <!-- Theme toggle -->
+      <button class="theme-btn" onclick="toggleTheme()" title="Tema değiştir" type="button">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0z"/>
+        </svg>
+      </button>
+
+      <!-- Ask button -->
+      <a href="{{ qa_prefix }}/sorular/#soru-sor" class="nav-ask-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+        {% if language == 'tr' %}Soru Sor{% else %}Ask{% endif %}
+      </a>
+
+      <!-- User menu -->
+      <div class="user-menu-wrap">
+        {% if request.user.is_authenticated %}
+
+        <!-- Giriş yapmış: avatar butonu + dropdown -->
+        <button class="user-btn" onclick="toggleUserMenu()" type="button">
+          <div class="user-avatar">
+            {% if user_display_name %}{{ user_display_name|slice:":1"|upper }}{% else %}{{ request.user.email|slice:":1"|upper }}{% endif %}
+          </div>
+          <span class="t-text" style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+            {% if user_display_name %}{{ user_display_name|truncatechars:12 }}{% else %}{{ request.user.email|truncatechars:12 }}{% endif %}
+          </span>
+          <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" style="color:var(--text3);flex-shrink:0;">
+            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+          </svg>
+        </button>
+
+        <div class="user-dropdown" id="user-dropdown">
+          <!-- Maskeli email -->
+          <div style="padding:.5rem .65rem .3rem;font-size:.72rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;">
+            {{ request.user.email|slice:":2" }}***@***{{ request.user.email|slice:"-6:" }}
+          </div>
+          <div class="ud-sep"></div>
+
+          <!-- {# Profil sayfası hazır olana kadar devre dışı #}
+          {# <a href="{% if language == 'en' %}/accounts/profile/{% else %}/accounts/profil/{% endif %}" class="ud-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            {% if language == 'tr' %}Profilim{% else %}My Profile{% endif %}
+          </a> #} -->
+
+          <a href="{% if language == 'en' %}/accounts/my-questions/{% else %}/accounts/benim-sorularim/{% endif %}" class="ud-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2z"/></svg>
+            {% if language == 'tr' %}Sorularım{% else %}My Questions{% endif %}
+          </a>
+
+          <div class="ud-sep"></div>
+
+          <a href="{% if language == 'en' %}/accounts/logout/{% else %}/accounts/cikis/{% endif %}" class="ud-item" style="color:#ef4444;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+            {% if language == 'tr' %}Çıkış Yap{% else %}Sign Out{% endif %}
+          </a>
+        </div>
+
+        {% else %}
+
+        <!-- Giriş yapmamış: Giriş + Kayıt butonları -->
+        <div style="display:flex;gap:.4rem;">
+          <a href="{% if language == 'en' %}/accounts/login/{% else %}/accounts/giris/{% endif %}?next={{ request.path }}"
+             style="display:inline-flex;align-items:center;padding:.4rem .85rem;border-radius:.55rem;font-size:.8rem;font-weight:600;text-decoration:none;color:var(--text2);border:1px solid var(--border);background:var(--badge-bg);transition:all .15s;"
+             onmouseover="this.style.borderColor='var(--border2)';this.style.color='var(--text)'"
+             onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
+            {% if language == 'tr' %}Giriş{% else %}Sign In{% endif %}
+          </a>
+          <a href="{% if language == 'en' %}/accounts/register/{% else %}/accounts/kayit/{% endif %}"
+             style="display:inline-flex;align-items:center;padding:.4rem .85rem;border-radius:.55rem;font-size:.8rem;font-weight:700;text-decoration:none;color:#fff;background:linear-gradient(135deg,#6366f1,#818cf8);transition:all .2s;">
+            {% if language == 'tr' %}Kayıt Ol{% else %}Register{% endif %}
+          </a>
+        </div>
+
+        {% endif %}
+      </div>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" onclick="toggleDrawer()" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-backdrop" onclick="toggleDrawer()"></div>
+  <div class="drawer-panel">
+    <div class="drawer-head">
+      <div style="display:flex;align-items:center;gap:.5rem;">
+        <div class="nav-logo-icon" style="width:28px;height:28px;font-size:14px;">🦷</div>
+        <span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;" class="t-text">Dr. Devrim Forum</span>
+      </div>
+      <button class="drawer-close t-text2" onclick="toggleDrawer()" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- Lang -->
+      <div style="display:flex;gap:.5rem;">
+        <a href="/soru-cevap/" 
+           style="flex:1;text-align:center;padding:.5rem;border-radius:.5rem;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .15s;border:1px solid {% if language == 'tr' %}rgba(16,185,129,.4){% else %}var(--border){% endif %};background:{% if language == 'tr' %}rgba(16,185,129,.08){% else %}transparent{% endif %};color:{% if language == 'tr' %}#10b981{% else %}var(--text3){% endif %};">
+          🇹🇷 Türkçe
+        </a>
+        <a href="/question-and-answer/"
+           style="flex:1;text-align:center;padding:.5rem;border-radius:.5rem;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .15s;border:1px solid {% if language == 'en' %}rgba(16,185,129,.4){% else %}var(--border){% endif %};background:{% if language == 'en' %}rgba(16,185,129,.08){% else %}transparent{% endif %};color:{% if language == 'en' %}#10b981{% else %}var(--text3){% endif %};">
+          🇬🇧 English
+        </a>
+      </div>
+
+      <!-- User info -->
+      {% if request.user.is_authenticated %}
+      <div style="display:flex;align-items:center;gap:.75rem;padding:.875rem 1rem;border-radius:.75rem;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);">
+
+        <div class="user-avatar" style="width:36px;height:36px;font-size:.85rem;">
+          {% if user_display_name %}{{ user_display_name|slice:":1"|upper }}{% else %}{{ request.user.email|slice:":1"|upper }}{% endif %}
+        </div>
+        <div>
+          <div style="font-size:.875rem;font-weight:600;" class="t-text">
+            {% if user_display_name %}{{ user_display_name }}{% else %}{{ request.user.email|truncatechars:22 }}{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Nav links -->
+      <a href="{{ qa_prefix }}/" class="drawer-link">
+        <div class="drawer-icon">🏠</div>
+        <span>{% if language == 'tr' %}Ana Sayfa{% else %}Home{% endif %}</span>
+      </a>
+      <a href="{{ qa_prefix }}/sorular/" class="drawer-link">
+        <div class="drawer-icon">💬</div>
+        <span>{% if language == 'tr' %}Sorular{% else %}Questions{% endif %}</span>
+      </a>
+      <a href="{{ qa_prefix }}/makaleler/" class="drawer-link">
+        <div class="drawer-icon">📚</div>
+        <span>{% if language == 'tr' %}Makaleler{% else %}Articles{% endif %}</span>
+      </a>
+      <a href="/" class="drawer-link" style="opacity:.7;">
+        <div class="drawer-icon">🏥</div>
+        <span>{% if language == 'tr' %}Kliniğe Dön{% else %}Back to Clinic{% endif %}</span>
+      </a>
+
+      {% if request.user.is_authenticated %}
+      <div style="height:1px;background:var(--border);margin:.25rem 0;"></div>
+      <a href="/accounts/logout/" class="drawer-link" style="color:#ef4444;border-color:rgba(239,68,68,.2);">
+        <div class="drawer-icon" style="background:rgba(239,68,68,.08);">🚪</div>
+        <span>{% if language == 'tr' %}Çıkış Yap{% else %}Sign Out{% endif %}</span>
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="drawer-footer">
+      {% if not request.user.is_authenticated %}
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem;">
+        <a href="/accounts/login/?next={{ request.path }}"
+           style="display:flex;align-items:center;justify-content:center;padding:.6rem;border-radius:.6rem;font-size:.85rem;font-weight:600;text-decoration:none;color:var(--text2);border:1px solid var(--border);">
+          {% if language == 'tr' %}Giriş Yap{% else %}Sign In{% endif %}
+        </a>
+        <a href="/accounts/register/"
+           style="display:flex;align-items:center;justify-content:center;padding:.6rem;border-radius:.6rem;font-size:.85rem;font-weight:700;text-decoration:none;color:#fff;background:linear-gradient(135deg,#6366f1,#818cf8);">
+          {% if language == 'tr' %}Kayıt Ol (Ücretsiz){% else %}Register (Free){% endif %}
+        </a>
+      </div>
+      {% endif %}
+      <a href="{{ qa_prefix }}/sorular/" class="nav-ask-btn" style="display:flex;justify-content:center;border-radius:.65rem;padding:.7rem;">
+        ❓ {% if language == 'tr' %}Soru Sor{% else %}Ask a Question{% endif %}
+      </a>
+      <button onclick="toggleTheme()" type="button"
+              style="display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;margin-top:.5rem;padding:.5rem;border-radius:.5rem;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:.78rem;font-weight:600;" class="t-text2">
+        <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+        <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/></svg>
+        {% if language == 'tr' %}Temayı Değiştir{% else %}Toggle Theme{% endif %}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Page content spacer -->
+<div style="height:var(--nav-h);"></div>
+
+<main class="max-w-screen-xl mx-auto px-4 sm:px-6 py-8">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--border);background:var(--bg2);margin-top:4rem;">
+  <div style="max-width:1200px;margin:0 auto;padding:2.5rem 1.5rem;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;">
+      <div style="max-width:260px;">
+        <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;">
+          <div class="nav-logo-icon" style="width:30px;height:30px;font-size:15px;">🦷</div>
+          <span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;" class="t-text">Dr. Devrim Forum</span>
+        </div>
+        <p style="font-size:.78rem;line-height:1.7;" class="t-text3">
+          {% if language == 'tr' %}Uzman diş hekimleri tarafından hazırlanan içerikler ve hasta topluluk platformu.{% else %}Content by expert dentists and a patient community platform.{% endif %}
+        </p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:3rem;">
+        <div>
+          <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem;" class="t-text2">🇹🇷 TR</div>
+          <div style="display:flex;flex-direction:column;gap:.4rem;">
+            <a href="/soru-cevap/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Soru &amp; Cevap</a>
+            <a href="/soru-cevap/sorular/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Sorular</a>
+            <a href="/soru-cevap/makaleler/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Makaleler</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem;" class="t-text2">🇬🇧 EN</div>
+          <div style="display:flex;flex-direction:column;gap:.4rem;">
+            <a href="/question-and-answer/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Q&amp;A</a>
+            <a href="/question-and-answer/sorular/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Questions</a>
+            <a href="/question-and-answer/makaleler/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Articles</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem;" class="t-text2">Klinik</div>
+          <div style="display:flex;flex-direction:column;gap:.4rem;">
+            <a href="/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Dr. Devrim</a>
+            <a href="/blog/" style="font-size:.82rem;text-decoration:none;transition:color .15s;" class="t-text3" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding-top:1.25rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem;border-top:1px solid var(--border);">
+      <span style="font-size:.75rem;" class="t-text3">© {% now "Y" %} Dr. Devrim Klinik. Tüm hakları saklıdır.</span>
+      <span style="font-size:.72rem;" class="t-text3">{% if language == 'tr' %}Tüm yorumlar moderasyon sonrası yayınlanır.{% else %}All comments are moderated before publishing.{% endif %}</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script>
+  // Navbar scroll
+  (function(){
+    var nav = document.getElementById('site-nav');
+    function onScroll(){
+      if(window.scrollY > 10){
+        nav.classList.remove('at-top'); nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled'); nav.classList.add('at-top');
+      }
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+  })();
+
+  // Theme
+  function toggleTheme(){
+    var root = document.documentElement;
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('qa-theme', next);
+  }
+
+  // User dropdown
+  function toggleUserMenu(){
+    var dd = document.getElementById('user-dropdown');
+    if(dd) dd.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e){
+    var dd = document.getElementById('user-dropdown');
+    if(dd && !e.target.closest('.user-menu-wrap')) dd.classList.remove('open');
+  });
+
+  // Mobile drawer
+  function toggleDrawer(){
+    var drawer = document.getElementById('mobile-drawer');
+    var ham    = document.getElementById('hamburger');
+    if(!drawer) return;
+    drawer.classList.toggle('open');
+    ham.classList.toggle('open');
+    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      var drawer = document.getElementById('mobile-drawer');
+      if(drawer && drawer.classList.contains('open')) toggleDrawer();
+      var dd = document.getElementById('user-dropdown');
+      if(dd) dd.classList.remove('open');
+    }
+  });
+</script>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

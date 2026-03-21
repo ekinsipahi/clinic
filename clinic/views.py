@@ -60,6 +60,30 @@ def randevu_al(request):
     return render(request, "clinic/randevu-al.html")
 
 def dental_tourism(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        message = request.POST.get("message")
+        gclid = request.POST.get("gclid")
+        page = request.POST.get("page")  # <-- gelen sayfa bilgisi
+        client_info_raw = request.POST.get("client_info")
+
+        try:
+            client_info = json.loads(client_info_raw) if client_info_raw else {}
+        except json.JSONDecodeError:
+            client_info = {}
+
+        if name and phone:
+            lead = CallMeLead.objects.create(
+                name=name,
+                phone=phone,
+                message=message,
+                gclid=gclid,
+                client_info=client_info,  # <-- EKLENDİ!
+                page=page or "Beni Ara Lead",  # <-- EKLENDİ!
+            )
+
+            return redirect("/tesekkur")
     return render(request, "clinic/dental-tourism.html")
 
 def whatsapp_yonlendir(request):

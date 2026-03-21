@@ -1,0 +1,803 @@
+<!--article.html-->
+{% extends "soru_cevap/base.html" %}
+{% load static %}
+
+{% block title %}
+{% if language == 'tr' %}
+{{ article.get_seo_title }} | Uzman Diş Hekimi Yanıtlıyor — Dr. Devrim Dental Forum
+{% else %}
+{{ article.get_seo_title }} | Expert Dentist Answers — Dr. Devrim Dental Forum
+{% endif %}
+{% endblock %}
+
+{% block meta_description %}
+{% if language == 'tr' %}
+{% if article.seo_description %}{{ article.seo_description }} Uzman diş hekimi yanıtları ve hasta yorumlarıyla Dr. Devrim Dental Forum'da.{% else %}{{ article.content|striptags|truncatewords:22 }} Uzman yanıtlar ve hasta soruları — Dr. Devrim Dental Forum.{% endif %}
+{% else %}
+{% if article.seo_description %}{{ article.seo_description }} Expert dentist answers and patient reviews at Dr. Devrim Dental Forum.{% else %}{{ article.content|striptags|truncatewords:22 }} Expert answers and patient questions — Dr. Devrim Dental Forum.{% endif %}
+{% endif %}
+{% endblock %}
+{% if article.seo_keywords %}{% block meta_keywords %}<meta name="keywords" content="{{ article.seo_keywords }}">{% endblock %}{% endif %}
+
+{% block og_type %}article{% endblock %}
+{% block og_image %}
+
+{% if og_image_url %}
+<meta property="og:image" content="{{ og_image_url }}">
+{% endif %}{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="{{ article.canonical_url|default:request.build_absolute_uri }}">
+<!-- Popunder REKLAMI drdevrim.com -->
+<!-- <script src="https://pl28897486.effectivegatecpm.com/d0/91/0d/d0910d35e8f7db4586af39a60ad3a20c.js"></script> -->
+<!-- Popunder REKLAMI devrimbirikensipahi.com.tr -->
+<!-- <script src="https://pl28897488.effectivegatecpm.com/00/f9/7d/00f97dda9e2063d708b7f9d3b6a928b9.js"></script> -->
+{% endblock %}
+
+{% block hreflang %}
+<link rel="alternate" hreflang="{{ article.language }}" href="{{ request.build_absolute_uri }}">
+{% with alt=article.get_alternate_url %}{% if alt %}
+<link rel="alternate" hreflang="{% if article.language == 'tr' %}en{% else %}tr{% endif %}" href="{{ request.scheme }}://{{ request.get_host }}{{ alt }}">
+{% endif %}{% endwith %}
+<link rel="alternate" hreflang="x-default" href="{{ request.build_absolute_uri }}">
+{% endblock %}
+
+{% block json_ld %}
+<script type="application/ld+json">{{ article_json_ld|safe }}</script>
+{% if review_json_ld %}<script type="application/ld+json">{{ review_json_ld|safe }}</script>{% endif %}
+{% if faq_json_ld %}<script type="application/ld+json">{{ faq_json_ld|safe }}</script>{% endif %}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Dr. Devrim Klinik","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"{% if language == 'tr' %}Soru & Cevap{% else %}Q&A{% endif %}","item":"{{ request.scheme }}://{{ request.get_host }}{{ qa_prefix }}/"},
+    {"@type":"ListItem","position":3,"name":"{{ article.get_seo_title|escapejs }}"}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+  .sidebar-sticky {
+    position: sticky;
+    top: 88px;
+    max-height: calc(100vh - 108px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .sidebar-sticky::-webkit-scrollbar { width: 4px; }
+  .sidebar-sticky::-webkit-scrollbar-track { background: transparent; }
+  .sidebar-sticky::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .star-display { color: #f59e0b; font-size: 1rem; letter-spacing: .05em; }
+  .star-display .empty { color: var(--border); }
+
+  .auth-gate {
+    border: 1px dashed var(--border);
+    border-radius: .75rem;
+    padding: 1.25rem;
+    text-align: center;
+    background: var(--inp-bg);
+  }
+
+  /* Sidebar soru listesi */
+  .q-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+
+  /* Pending yorum kutusu */
+  .pending-comment {
+    border: 1px dashed rgba(245,158,11,.4);
+    border-radius: .75rem;
+    padding: 1rem 1.1rem;
+    background: rgba(245,158,11,.04);
+    position: relative;
+  }
+  .pending-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: .15rem .5rem;
+    border-radius: 999px;
+    background: rgba(245,158,11,.12);
+    color: #f59e0b;
+    border: 1px solid rgba(245,158,11,.25);
+  }
+
+  html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 96px; }
+
+  @keyframes sectionIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section-reveal { animation: sectionIn .35s ease both; }
+
+  /* Sidebar answered-only pill */
+  .answered-pill-sm {
+    display:inline-flex; align-items:center; gap:.2rem;
+    background:rgba(16,185,129,.1); color:#10b981;
+    padding:.1rem .4rem; border-radius:999px;
+    font-size:.62rem; font-weight:700;
+    border:1px solid rgba(16,185,129,.2);
+  }
+
+  .comment-count-link {
+    display:inline-flex; align-items:center; gap:.25rem;
+    font-size:.7rem; font-weight:600; color:var(--text3);
+    text-decoration:none; padding:.15rem .45rem;
+    border-radius:.35rem; border:1px solid var(--border);
+    transition:all .15s;
+  }
+  .comment-count-link:hover { border-color:rgba(16,185,129,.3); color:#10b981; }
+</style>
+{% endblock %}
+
+{% block content %}
+{# Time tracker: JS bu data-attribute'lardan okur — {{ }} JS içine YAZILMAZ #}
+<div id="time-tracker-data"
+     data-track-id="{{ track_article_id }}"
+     data-track-url="{{ track_url }}"
+     style="display:none;" aria-hidden="true"></div>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:1.5rem;" class="article-grid">
+
+        <style>
+          @media (min-width:1024px) {
+            .article-grid { grid-template-columns: 1fr 340px !important; }
+          }
+        </style>
+
+        <div style="min-width:0; display:flex; flex-direction:column; gap:1.5rem;">
+
+          <!-- ═══ MAKALE ═══════════════════════════════════════════════════════ -->
+          <article class="qa-card overflow-hidden fade-up" itemscope itemtype="https://schema.org/{{ article.schema_type }}">
+
+            {% if article.featured_image %}
+            <div style="position:relative; overflow:hidden; max-height:400px;">
+              <img src="{{ article.featured_image }}"
+                  alt="{{ article.featured_image_alt|default:article.title }}"
+                  style="width:100%; object-fit:cover; max-height:400px;"
+                  loading="eager" itemprop="image">
+              <div style="position:absolute; bottom:0; left:0; right:0; height:7rem; background:linear-gradient(to top,rgba(0,0,0,.7),transparent); pointer-events:none;"></div>
+            </div>
+            {% endif %}
+
+            <div style="padding:1.75rem 2rem;">
+
+              <div style="display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; margin-bottom:1.25rem;">
+                {% if article.author %}
+                <span style="display:flex; align-items:center; gap:.4rem; font-size:.8rem; font-weight:600; color:#10b981;">
+                  <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                  {{ article.author.profile.display_name|default:article.author.get_full_name|default:"Dr." }}
+                  {% if article.author.profile.is_doctor %}
+                  <span style="padding:.1rem .4rem; border-radius:999px; background:rgba(16,185,129,.15); color:#10b981; font-size:.65rem; font-weight:700; letter-spacing:.04em;">DR</span>
+                  {% endif %}
+                </span>
+                <span style="width:1px; height:12px; background:var(--border); display:inline-block;"></span>
+                {% endif %}
+
+                <time datetime="{{ article.published_at|date:'Y-m-d' }}" itemprop="datePublished" style="font-size:.78rem;" class="t-text3">
+                  📅 {{ article.published_at|date:"d M Y" }}
+                </time>
+                {% if article.updated_at %}
+                <span style="font-size:.78rem;" class="t-text3">✏️ {{ article.updated_at|date:"d M Y" }}</span>
+                {% endif %}
+                <span style="font-size:.78rem;" class="t-text3">👁 {{ article.view_count }}</span>
+                {% if avg_rating %}
+                <span style="display:flex; align-items:center; gap:.3rem; font-size:.8rem; font-weight:600; color:#f59e0b;">
+                  ⭐ {{ avg_rating }}
+                  <span style="font-weight:400;" class="t-text3">/5 ({{ rating_count }})</span>
+                </span>
+                {% endif %}
+              </div>
+
+              <h1 style="font-size:1.6rem; font-weight:800; line-height:1.3; margin-bottom:.75rem;" class="t-text" itemprop="headline">
+                {{ article.title }}
+              </h1>
+
+              {# ── Makale Tag Pill'ları (v6) ────────────────────────────────────── #}
+              {% with atags=article.tags.all %}
+              {% if atags %}
+              <div style="display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:1.25rem;">
+                {% for tag in atags %}
+                <p
+                  style="display:inline-flex; align-items:center; gap:.25rem; padding:.28rem .65rem;
+                          border-radius:999px; font-size:.68rem; font-weight:600;
+                          border:1px solid rgba(99,102,241,.2); background:rgba(99,102,241,.06);
+                          color:#818cf8; text-decoration:none; transition:all .15s;"
+                  onmouseover="this.style.borderColor='rgba(99,102,241,.4)'; this.style.background='rgba(99,102,241,.12)';"
+                  onmouseout="this.style.borderColor='rgba(99,102,241,.2)'; this.style.background='rgba(99,102,241,.06)';">
+                  {% if tag.icon %}{{ tag.icon }} {% endif %}{{ tag.name }}
+                </a>
+                {% endfor %}
+              </div>
+              {% endif %}
+              {% endwith %}
+
+              <div class="qa-prose" itemprop="articleBody">
+                {{ article.content|safe }}
+              </div>
+              <div style="margin: 2rem 0; padding: 1.5rem 1.75rem;
+                  background: linear-gradient(135deg, rgba(16,185,129,.08), rgba(99,102,241,.06));
+                  border: 1px solid rgba(16,185,129,.2);
+                  border-radius: 1.25rem;
+                  display: flex; flex-wrap: wrap; align-items: center;
+                  gap: 1.25rem; justify-content: space-between;">
+
+          <div style="display:flex; align-items:center; gap:1rem; min-width:0;">
+            {# Dr. avatar #}
+            <div style="width:3rem; height:3rem; border-radius:50%; flex-shrink:0;
+                        background:linear-gradient(135deg,#10b981,#059669);
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:.75rem; font-weight:800; color:#fff;
+                        border:2px solid rgba(16,185,129,.3);">DR</div>
+            <div>
+              <p style="font-size:.95rem; font-weight:800; color:var(--text); margin-bottom:.2rem; line-height:1.3;">
+                {% if language == 'tr' %}
+                  Dr. Devrim ile randevu alın
+                {% else %}
+                  Book an appointment with Dr. Devrim
+                {% endif %}
+              </p>
+              <p style="font-size:.78rem; color:var(--text3); line-height:1.5;">
+                {% if language == 'tr' %}
+                  Uzman diş hekimimizle yüz yüze muayene için kliniğimizi arayın.
+                {% else %}
+                  Call our clinic for an in-person consultation with our expert dentist.
+                {% endif %}
+              </p>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:.6rem; flex-shrink:0;">
+            <a href="tel:+905055771883"
+              style="display:inline-flex; align-items:center; gap:.4rem; padding:.55rem 1.1rem;
+                      border-radius:999px; font-size:.82rem; font-weight:700; text-decoration:none;
+                      background:linear-gradient(135deg,#10b981,#059669); color:#fff;
+                      box-shadow:0 4px 14px rgba(16,185,129,.3); transition:transform .15s, box-shadow .15s;"
+              onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(16,185,129,.4)'"
+              onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(16,185,129,.3)'">
+              📞 {% if language == 'tr' %}Hemen Ara{% else %}Call Now{% endif %}
+            </a>
+            <a href="{% if language == 'tr' %}/randevu-al/{% else %}/appointment/{% endif %}"
+              style="display:inline-flex; align-items:center; gap:.4rem; padding:.55rem 1.1rem;
+                      border-radius:999px; font-size:.82rem; font-weight:700; text-decoration:none;
+                      border:1px solid rgba(16,185,129,.35); color:#10b981;
+                      background:rgba(16,185,129,.06); transition:all .15s;"
+              onmouseover="this.style.background='rgba(16,185,129,.12)'"
+              onmouseout="this.style.background='rgba(16,185,129,.06)'">
+              📅 {% if language == 'tr' %}Online Randevu{% else %}Book Online{% endif %}
+            </a>
+          </div>
+
+      </div>
+
+
+        <div style="margin-top:2rem; padding-top:1.25rem; display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; border-top:1px solid var(--border);">
+
+          <form method="POST" action="{{ qa_prefix }}/begen/{{ article.slug }}/" id="like-form">
+            {% csrf_token %}
+            <button type="submit" id="like-btn"
+              style="display:flex; align-items:center; gap:.5rem; padding:.5rem 1rem; border-radius:999px; font-size:.82rem; font-weight:600; transition:all .2s; cursor:pointer; border:1px solid; border-color:{% if is_liked %}rgba(16,185,129,.4){% else %}var(--border){% endif %}; color:{% if is_liked %}#10b981{% else %}var(--text3){% endif %}; background:{% if is_liked %}rgba(16,185,129,.08){% else %}transparent{% endif %};">
+              <span id="like-icon">{% if is_liked %}💚{% else %}🤍{% endif %}</span>
+              <span id="like-count">{{ like_count }}</span>
+              {% if language == 'tr' %}Faydalı Buldum{% else %}Helpful{% endif %}
+            </button>
+          </form>
+
+          <a href="#yorumlar" class="smooth-anchor t-text3"
+             style="display:flex; align-items:center; gap:.4rem; padding:.45rem .85rem; border-radius:999px; font-size:.78rem; border:1px solid var(--border); text-decoration:none; transition:color .15s;">
+            💬 {{ comments|length }} {% if language == 'tr' %}Yorum{% else %}Comment{% endif %}
+          </a>
+
+          <a href="{{ article_questions_url }}" class="t-text3"
+             style="display:flex; align-items:center; gap:.4rem; padding:.45rem .85rem; border-radius:999px; font-size:.78rem; border:1px solid var(--border); text-decoration:none; transition:color .15s;">
+            ❓ {{ sidebar_questions|length }} {% if language == 'tr' %}Soru{% else %}Question{% endif %}
+          </a>
+
+          {% with alt=article.get_alternate_url %}{% if alt %}
+          <a href="{{ alt }}" class="t-text3"
+             style="margin-left:auto; display:flex; align-items:center; gap:.4rem; padding:.45rem .85rem; border-radius:999px; font-size:.78rem; border:1px solid var(--border); text-decoration:none; transition:color .15s;">
+            {% if language == 'tr' %}🇬🇧 Read in English{% else %}🇹🇷 Türkçe oku{% endif %}
+          </a>
+          {% endif %}{% endwith %}
+
+        </div>
+      </div>
+    </article>
+    
+    <!-- Native Banner REKLAMI drdevrim.com 3:1 -->
+    <script async="async" data-cfasync="false" src="https://pl28912120.effectivegatecpm.com/bd35c1acc50c443f2554379f12e3587b/invoke.js"></script>
+    <div id="container-bd35c1acc50c443f2554379f12e3587b"></div>
+    <!-- Native Banner REKLAMI devrimbirikensipahi.com.tr 3:1 -->
+    <script async="async" data-cfasync="false" src="https://pl28912232.effectivegatecpm.com/585a815ab9b7f290f94b017c56e076ea/invoke.js"></script>
+    <div id="container-585a815ab9b7f290f94b017c56e076ea"></div>
+
+
+
+    <!-- ÖNERİLEN KONULAR DEVAMINDA -->
+    {% include "soru_cevap/_rec_slider.html" %}
+
+
+    <!-- ═══ YORUMLAR ═════════════════════════════════════════════════════ -->
+    <section id="yorumlar" class="qa-card fade-up-2" style="overflow:hidden;">
+
+      <div style="padding:1.5rem 2rem 1rem; border-bottom:1px solid var(--border);">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <h2 style="font-size:1.05rem; font-weight:700;" class="t-text">
+            {% if language == 'tr' %}Yorumlar{% else %}Comments{% endif %}
+            <span style="margin-left:.5rem; font-size:.85rem; font-weight:400;" class="t-text3">({{ comments|length }})</span>
+          </h2>
+          {% if avg_rating %}
+          <div style="display:flex; align-items:center; gap:.4rem;">
+            <span class="star-display">
+              {% for s in avg_stars_filled %}★{% endfor %}{% for s in avg_stars_empty %}<span class="empty">★</span>{% endfor %}
+            </span>
+            <span style="font-size:.82rem; font-weight:600; color:#f59e0b;">{{ avg_rating }}/5</span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Beklemedeki yorumlar (sadece bu kullanıcıya ait) -->
+      {% if pending_comments %}
+      <div style="padding:1rem 2rem; border-bottom:1px solid var(--border); background:rgba(245,158,11,.02);">
+        <p style="font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.75rem; color:#f59e0b;">
+          ⏳ {% if language == 'tr' %}Onay Bekleyen Yorumlarınız{% else %}Your Pending Comments{% endif %}
+        </p>
+        <div style="display:flex; flex-direction:column; gap:.6rem;">
+          {% for c in pending_comments %}
+          <div class="pending-comment">
+            <div style="display:flex; align-items:center; gap:.5rem; margin-bottom:.5rem;">
+              <div style="width:1.6rem; height:1.6rem; border-radius:50%; background:linear-gradient(135deg,#f59e0b,#f97316); display:flex; align-items:center; justify-content:center; color:#fff; font-size:.7rem; font-weight:700; flex-shrink:0;">
+                {{ c.masked_identity|slice:":1"|upper }}
+              </div>
+              <span style="font-size:.75rem; font-weight:600;" class="t-text">{{ c.masked_identity }}</span>
+              {% if c.rating %}
+              <span style="font-size:.8rem; color:#f59e0b;">{% for s in c.filled_stars %}★{% endfor %}</span>
+              {% endif %}
+              <span class="pending-badge" style="margin-left:auto;">⏳ {% if language == 'tr' %}Beklemede{% else %}Pending{% endif %}</span>
+            </div>
+            <p style="font-size:.85rem; line-height:1.65;" class="t-text2">{{ c.text }}</p>
+            <p style="font-size:.7rem; margin-top:.4rem;" class="t-text3">
+              {% if language == 'tr' %}Yorumunuz incelendikten sonra yayınlanacaktır.{% else %}Your comment will be published after review.{% endif %}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Onaylı yorumlar -->
+      <div id="comment-list" style="padding:0 2rem;">
+        {% for node in comment_tree %}
+          {% include "soru_cevap/comment_node.html" with reply_url=comment_reply_url %}
+        {% empty %}
+        {% if not pending_comments %}
+        <div style="text-align:center; padding:3rem 0;" class="t-text3">
+          <div style="font-size:2.5rem; margin-bottom:.5rem;">💬</div>
+          <p style="font-size:.88rem;">{% if language == 'tr' %}Henüz yorum yok. İlk yorumu sen yap!{% else %}No comments yet. Be the first!{% endif %}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Yorum formu -->
+      <div id="yorum-yaz" style="padding:1.5rem 2rem; border-top:1px solid var(--border);">
+
+        <h3 style="font-size:.92rem; font-weight:700; margin-bottom:1.25rem;" class="t-text">
+          {% if language == 'tr' %}Yorum Yaz{% else %}Write a Comment{% endif %}
+        </h3>
+
+        {% if request.user.is_authenticated %}
+        <form method="POST" action="{{ comment_reply_url }}" style="display:flex; flex-direction:column; gap:.875rem;">
+          {% csrf_token %}
+
+          <div style="display:flex; align-items:center; gap:.6rem; padding:.6rem .85rem; border-radius:.75rem; background:rgba(16,185,129,.06); border:1px solid rgba(16,185,129,.2);">
+            <div style="width:2rem; height:2rem; border-radius:50%; background:linear-gradient(135deg,#10b981,#6366f1); display:flex; align-items:center; justify-content:center; color:#fff; font-size:.8rem; font-weight:700; flex-shrink:0;">
+              {{ user_display_name|slice:":1"|upper }}
+            </div>
+            <span style="font-size:.82rem; font-weight:600;" class="t-text">{{ user_display_name }}</span>
+            <span style="margin-left:auto; font-size:.7rem; padding:.15rem .5rem; border-radius:999px; background:rgba(16,185,129,.12); color:#10b981; font-weight:600;">
+              {% if language == 'tr' %}Hesabınızla{% else %}Your Account{% endif %}
+            </span>
+          </div>
+
+          <div>
+            <label style="display:block; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.5rem;" class="t-text2">
+              {% if language == 'tr' %}Puanınız (opsiyonel){% else %}Your Rating (optional){% endif %}
+            </label>
+            <div class="star-input-group">
+              <input type="radio" id="s5" name="rating" value="5"><label for="s5">★</label>
+              <input type="radio" id="s4" name="rating" value="4"><label for="s4">★</label>
+              <input type="radio" id="s3" name="rating" value="3"><label for="s3">★</label>
+              <input type="radio" id="s2" name="rating" value="2"><label for="s2">★</label>
+              <input type="radio" id="s1" name="rating" value="1"><label for="s1">★</label>
+            </div>
+          </div>
+
+          <textarea name="text" rows="4" required class="qa-input"
+            placeholder="{% if language == 'tr' %}Bu içerikle ilgili yorumunuzu yazın…{% else %}Share your comment about this content…{% endif %}"></textarea>
+
+          <p style="font-size:.72rem;" class="t-text3">
+            ℹ️ {% if language == 'tr' %}Yorumunuz onay sonrası yayınlanır.{% else %}Comments are published after moderation.{% endif %}
+          </p>
+
+          <button type="submit" class="btn-glow" style="align-self:flex-start;">
+            <span>{% if language == 'tr' %}Yorum Gönder{% else %}Submit{% endif %}</span>
+          </button>
+        </form>
+
+        {% else %}
+        <div class="auth-gate">
+          <div style="font-size:1.6rem; margin-bottom:.5rem;">🔒</div>
+          <p style="font-size:.88rem; font-weight:600; margin-bottom:.4rem;" class="t-text">
+            {% if language == 'tr' %}Yorum yazmak için giriş yapın{% else %}Sign in to leave a comment{% endif %}
+          </p>
+          <p style="font-size:.78rem; margin-bottom:1rem;" class="t-text3">
+            {% if language == 'tr' %}Hesabınız yoksa ücretsiz kayıt olabilirsiniz.{% else %}No account? Register for free.{% endif %}
+          </p>
+          <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+            <a href="/accounts/login/?next={{ request.path }}" class="btn-glow">
+              <span style="font-size:.8rem;">{% if language == 'tr' %}Giriş Yap{% else %}Sign In{% endif %}</span>
+            </a>
+            <a href="/accounts/register/"
+               style="display:inline-flex; align-items:center; padding:.45rem 1.1rem; border-radius:999px; font-size:.8rem; font-weight:600; border:1px solid var(--border); transition:all .15s; text-decoration:none;"
+               class="t-text2">
+              {% if language == 'tr' %}Kayıt Ol{% else %}Register{% endif %}
+            </a>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </section>
+
+
+    <!-- ═══ SORU SOR ══════════════════════════════════════════════════════ -->
+    <section id="soru-sor" class="qa-card fade-up-2" style="overflow:hidden;">
+
+      <div style="padding:1.5rem 2rem 1rem; border-bottom:1px solid var(--border);">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <h2 style="font-size:1.05rem; font-weight:700;" class="t-text">
+            {% if language == 'tr' %}Bu Konuda Soru Sor{% else %}Ask About This Topic{% endif %}
+          </h2>
+          <a href="{{ article_questions_url }}"
+             style="font-size:.78rem; font-weight:600; color:#10b981; text-decoration:none; transition:color .15s;">
+            {% if language == 'tr' %}Tüm Sorular →{% else %}All Questions →{% endif %}
+          </a>
+        </div>
+        <p style="font-size:.8rem; margin-top:.3rem;" class="t-text3">
+          {% if language == 'tr' %}Doktorumuz cevapladığında size bildirim gönderilir.{% else %}You'll be notified when our doctor answers.{% endif %}
+        </p>
+      </div>
+
+      <div style="padding:1.5rem 2rem;">
+
+        {% if request.user.is_authenticated %}
+        <form method="POST" action="{{ ask_question_url }}" style="display:flex; flex-direction:column; gap:.875rem;">
+          {% csrf_token %}
+
+          <div style="display:flex; align-items:center; gap:.6rem; padding:.6rem .85rem; border-radius:.75rem; background:rgba(99,102,241,.06); border:1px solid rgba(99,102,241,.2);">
+            <div style="width:2rem; height:2rem; border-radius:50%; background:linear-gradient(135deg,#6366f1,#10b981); display:flex; align-items:center; justify-content:center; color:#fff; font-size:.8rem; font-weight:700; flex-shrink:0;">
+              {{ user_display_name|slice:":1"|upper }}
+            </div>
+            <span style="font-size:.82rem; font-weight:600;" class="t-text">{{ user_display_name }}</span>
+          </div>
+
+          <textarea name="text" rows="3" required class="qa-input"
+            placeholder="{% if language == 'tr' %}Bu konu hakkındaki sorunuzu yazın…{% else %}Type your question about this topic…{% endif %}"></textarea>
+
+          <p style="font-size:.72rem;" class="t-text3">
+            ℹ️ {% if language == 'tr' %}Sorunuz onay sonrası yayınlanır.{% else %}Questions are published after moderation.{% endif %}
+          </p>
+
+          <button type="submit" class="btn-glow" style="align-self:flex-start;">
+            <span>
+              <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg>
+              {% if language == 'tr' %}Soru Gönder{% else %}Send Question{% endif %}
+            </span>
+          </button>
+        </form>
+
+        {% else %}
+        <div class="auth-gate">
+          <div style="font-size:1.6rem; margin-bottom:.5rem;">❓</div>
+          <p style="font-size:.88rem; font-weight:600; margin-bottom:.4rem;" class="t-text">
+            {% if language == 'tr' %}Soru sormak için giriş yapın{% else %}Sign in to ask a question{% endif %}
+          </p>
+          <p style="font-size:.78rem; margin-bottom:1rem;" class="t-text3">
+            {% if language == 'tr' %}Doktorumuz sorularınızı yanıtlıyor.{% else %}Our doctor answers your questions.{% endif %}
+          </p>
+          <div style="display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap;">
+            <a href="/accounts/login/?next={{ request.path }}" class="btn-glow">
+              <span style="font-size:.8rem;">{% if language == 'tr' %}Giriş Yap{% else %}Sign In{% endif %}</span>
+            </a>
+            <a href="/accounts/register/"
+               style="display:inline-flex; align-items:center; padding:.45rem 1.1rem; border-radius:999px; font-size:.8rem; font-weight:600; border:1px solid var(--border); transition:all .15s; text-decoration:none;"
+               class="t-text2">
+              {% if language == 'tr' %}Kayıt Ol{% else %}Register {% endif %}
+            </a>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- ═══ SIDEBAR ══════════════════════════════════════════════════════════ -->
+  <aside>
+    <div class="sidebar-sticky">
+
+      <div class="qa-card" style="overflow:hidden;">
+
+        <div style="padding:1rem 1.25rem .75rem; border-bottom:1px solid var(--border);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <h2 style="font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;" class="t-text3">
+              {% if language == 'tr' %}İlgili Sorular{% else %}Related Questions{% endif %}
+            </h2>
+            <a href="{{ article_questions_url }}"
+               style="font-size:.75rem; font-weight:600; color:#10b981; text-decoration:none; white-space:nowrap; padding:.25rem .6rem; border-radius:.4rem; background:rgba(16,185,129,.08); display:inline-flex; align-items:center;">
+              {% if language == 'tr' %}Tümünü Gör{% else %}See All{% endif %} →
+            </a>
+          </div>
+        </div>
+
+        <div style="padding:.5rem;">
+          {% for q in sidebar_questions %}
+          <a href="{{ q.get_absolute_url }}"
+             class="q-item"
+             style="display:block; padding:.75rem; border-radius:.625rem; text-decoration:none; transition:background .15s;"
+             onmouseover="this.style.background='rgba(16,185,129,.05)'" onmouseout="this.style.background='transparent'">
+            <div style="display:flex; align-items:flex-start; gap:.5rem;">
+              <span style="margin-top:.1rem; font-size:.75rem; flex-shrink:0;">
+                {% if q.answer %}✅{% endif %}
+              </span>
+              <div style="min-width:0; flex:1;">
+                {% if q.title %}
+                <p style="font-size:.78rem; font-weight:600; margin-bottom:.15rem; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;" class="t-text">{{ q.title }}</p>
+                <p style="font-size:.72rem; overflow:hidden; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;" class="t-text3">{{ q.text|truncatewords:8 }}</p>
+                {% else %}
+                <p style="font-size:.78rem; font-weight:500; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;" class="t-text2">{{ q.text|truncatewords:12 }}</p>
+                {% endif %}
+
+                {% if q.answer %}
+                <div style="margin-top:.35rem; padding:.4rem .6rem; border-left:2px solid #10b981; border-radius:0 .35rem .35rem 0; background:rgba(16,185,129,.04);">
+                  <p style="font-size:.7rem; line-height:1.5; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; color:#10b981; font-weight:500;">{{ q.answer|striptags|truncatewords:12 }}</p>
+                </div>
+                <span class="answered-pill-sm" style="margin-top:.25rem; display:inline-flex;">
+                  ✓ {% if language == 'tr' %}Cevaplandı{% else %}Answered{% endif %}
+                </span>
+                {% endif %}
+              </div>
+            </div>
+          </a>
+          {% empty %}
+          <div style="text-align:center; padding:1.5rem .75rem;" class="t-text3">
+            <p style="font-size:.78rem;">{% if language == 'tr' %}Bu makaleye henüz soru sorulmadı.{% else %}No questions yet.{% endif %}</p>
+          </div>
+          {% endfor %}
+        </div>
+
+        {% if sidebar_questions %}
+        <div style="padding:.75rem 1.25rem; border-top:1px solid var(--border);">
+          <a href="{{ article_questions_url }}"
+             style="display:flex; align-items:center; justify-content:center; gap:.4rem; padding:.55rem; border-radius:.625rem; font-size:.78rem; font-weight:600; text-decoration:none; border:1px solid var(--border); transition:all .15s;"
+             class="t-text2"
+             onmouseover="this.style.borderColor='rgba(16,185,129,.3)'; this.style.color='#10b981';" onmouseout="this.style.borderColor='var(--border)'; this.style.color='';">
+            {% if language == 'tr' %}Tüm soruları gör{% else %}View all questions{% endif %}
+            <svg style="width:14px;height:14px;" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/></svg>
+          </a>
+        </div>
+        {% endif %}
+
+        <div style="padding:.75rem 1.25rem; border-top:1px solid var(--border);">
+          <a href="#soru-sor" class="btn-glow smooth-anchor" style="display:flex; width:100%;">
+            <span style="justify-content:center; font-size:.78rem; width:100%;">
+              ❓ {% if language == 'tr' %}Soru Sor{% else %}Ask a Question{% endif %}
+            </span>
+          </a>
+        </div>
+
+      </div>
+
+      {% if avg_rating %}
+      <div class="qa-card" style="padding:1.1rem 1.25rem; margin-top:1rem;">
+        <div style="font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.75rem;" class="t-text3">
+          {% if language == 'tr' %}Değerlendirmeler{% else %}Ratings{% endif %}
+        </div>
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:.75rem;">
+          <div style="font-size:2.2rem; font-weight:800; color:#f59e0b; line-height:1;">{{ avg_rating }}</div>
+          <div>
+            <div class="star-display" style="font-size:1.1rem;">
+              {% for s in avg_stars_filled %}★{% endfor %}{% for s in avg_stars_empty %}<span class="empty">★</span>{% endfor %}
+            </div>
+            <div style="font-size:.72rem; margin-top:.15rem;" class="t-text3">{{ rating_count }} {% if language == 'tr' %}değerlendirme{% else %}reviews{% endif %}</div>
+          </div>
+        </div>
+        <a href="#yorum-yaz" class="smooth-anchor"
+           style="display:flex; align-items:center; justify-content:center; padding:.5rem; border-radius:.5rem; font-size:.75rem; font-weight:600; text-decoration:none; border:1px solid var(--border); transition:all .15s;"
+           class="t-text2">
+          {% if language == 'tr' %}Değerlendir{% else %}Rate this{% endif %} ★
+        </a>
+      </div>
+      {% endif %}
+
+      {# ── ÖNERI BLOĞU: Kullanıcı davranışına göre kişiselleştirilmiş makaleler ── #}
+      {% if recommended_articles %}
+      <div class="qa-card fade-up-3" style="overflow:hidden; margin-top:1rem;">
+
+        <div style="padding:.85rem 1.1rem .6rem; border-bottom:1px solid var(--border);
+                    display:flex; align-items:center; justify-content:space-between;">
+          <div>
+            <div style="font-size:.7rem; font-weight:700; text-transform:uppercase;
+                        letter-spacing:.08em;" class="t-text3">
+              {% if language == 'tr' %}✨ Sizin İçin Seçtik{% else %}✨ Picked For You{% endif %}
+            </div>
+            <div style="font-size:.64rem; margin-top:.1rem;" class="t-text3">
+              {% if language == 'tr' %}İlgi alanlarınıza göre{% else %}Based on your interests{% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:.35rem .5rem;">
+          {% for rec in recommended_articles %}
+          <a href="{{ rec.get_absolute_url }}"
+             style="display:flex; gap:.7rem; align-items:flex-start; padding:.75rem .6rem;
+                    border-radius:.625rem; text-decoration:none; transition:background .12s;"
+             onmouseover="this.style.background='rgba(16,185,129,.05)'"
+             onmouseout="this.style.background='transparent'">
+
+            {# Numara / sıra göstergesi #}
+            <div style="flex-shrink:0; width:1.6rem; height:1.6rem; border-radius:.4rem;
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:.62rem; font-weight:800;
+                        background:{% if forloop.counter == 1 %}rgba(16,185,129,.12){% else %}var(--badge-bg){% endif %};
+                        color:{% if forloop.counter == 1 %}#10b981{% else %}var(--text3){% endif %};
+                        border:1px solid {% if forloop.counter == 1 %}rgba(16,185,129,.2){% else %}var(--border){% endif %};">
+              {{ forloop.counter }}
+            </div>
+
+            <div style="flex:1; min-width:0;">
+              <p style="font-size:.78rem; font-weight:600; line-height:1.4;
+                        overflow:hidden; display:-webkit-box; -webkit-line-clamp:2;
+                        -webkit-box-orient:vertical; margin-bottom:.25rem; transition:color .12s;"
+                 class="t-text"
+                 onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">
+                {{ rec.title }}
+              </p>
+
+              {# Tag pilleri #}
+              {% with rec_tags=rec.tags.all %}
+              {% if rec_tags %}
+              <div style="display:flex; flex-wrap:wrap; gap:.2rem; margin-bottom:.25rem;">
+                {% for tag in rec_tags|slice:":2" %}
+                <span style="font-size:.6rem; padding:.1rem .35rem; border-radius:999px;
+                             background:rgba(99,102,241,.08); color:#818cf8;
+                             border:1px solid rgba(99,102,241,.15);">
+                  {{ tag.icon }} {{ tag.name }}
+                </span>
+                {% endfor %}
+              </div>
+              {% endif %}
+              {% endwith %}
+
+              <div style="display:flex; gap:.5rem; align-items:center; flex-wrap:wrap;">
+                <span style="font-size:.64rem;" class="t-text3">👁 {{ rec.view_count }}</span>
+                {% with rar=rec.get_avg_rating %}
+                {% if rar %}
+                <span style="font-size:.64rem; color:#f59e0b;">⭐ {{ rar }}</span>
+                {% endif %}
+                {% endwith %}
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+
+      </div>
+      {% endif %}
+      {# ── / ÖNERI BLOĞU ── #}
+
+    </div>
+  </aside>
+
+</div>
+
+<!-- Social bar REKLAMI drdevrim.com -->
+<script src="https://pl28912117.effectivegatecpm.com/90/61/da/9061da4f4b41fb552ea40b3e47001a0f.js"></script>
+<!-- Social bar REKLAMI devrimbirikensipahi.com.tr -->
+<script src="https://pl28912216.effectivegatecpm.com/43/5b/dd/435bdd8bb3dfe9ba421e33c1eb1df3e8.js"></script>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function(){
+  // Like butonu AJAX
+  var form = document.getElementById('like-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      try {
+        var r = await fetch(form.action, { method:'POST', body:fd, headers:{'X-Requested-With':'XMLHttpRequest'} });
+        var d = await r.json();
+        document.getElementById('like-icon').textContent  = d.liked ? '💚' : '🤍';
+        document.getElementById('like-count').textContent = d.count;
+        var btn = document.getElementById('like-btn');
+        btn.style.borderColor = d.liked ? 'rgba(16,185,129,.4)' : 'var(--border)';
+        btn.style.color       = d.liked ? '#10b981' : 'var(--text3)';
+        btn.style.background  = d.liked ? 'rgba(16,185,129,.08)' : 'transparent';
+      } catch(err) { form.submit(); }
+    });
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a.smooth-anchor, a[href^="#"]').forEach(function(a) {
+    var href = a.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    a.addEventListener('click', function(e) {
+      var target = document.getElementById(href.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - 96;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      target.style.transition = 'box-shadow .3s';
+      target.style.boxShadow  = '0 0 0 2px rgba(16,185,129,.35)';
+      setTimeout(function() { target.style.boxShadow = ''; }, 1200);
+    });
+  });
+
+  (function(){
+    var trackerEl = document.getElementById('time-tracker-data');
+    var articleId = trackerEl ? parseInt(trackerEl.dataset.trackId || '0', 10) : 0;
+    var trackUrl  = trackerEl ? (trackerEl.dataset.trackUrl || '') : '';
+    var csrfEl    = document.querySelector('[name=csrfmiddlewaretoken]');
+
+    if (!articleId || !trackUrl || !csrfEl) return;
+
+    var startAt     = Date.now();
+    var sentSeconds = 0;
+
+    function getElapsed() { return Math.round((Date.now() - startAt) / 1000); }
+
+    function sendTime(seconds) {
+      if (seconds <= 0) return;
+      var delta = seconds - sentSeconds;
+      if (delta <= 0) return;
+      sentSeconds = seconds;
+      fetch(trackUrl, {
+        method:    'POST',
+        keepalive: true,
+        headers:   {
+          'Content-Type':     'application/json',
+          'X-CSRFToken':      csrfEl.value,
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({ article_id: articleId, seconds: delta }),
+      }).catch(function(){});
+    }
+
+    // 30sn → ilk sinyal (gerçek okuyucu sinyali)
+    setTimeout(function(){ sendTime(30); }, 30000);
+    // 90sn → derin okuyucu
+    setTimeout(function(){ sendTime(90); }, 90000);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) sendTime(getElapsed());
+    });
+    window.addEventListener('pagehide', function() { sendTime(getElapsed()); });
+  })();
+
+})();
+</script>
+{% endblock %}

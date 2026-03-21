@@ -1,0 +1,449 @@
+<!--articles_list.html-->
+{% extends "soru_cevap/base.html" %}
+{% load static %}
+
+{% block title %}
+{% if active_tag %}
+  {% if language == 'tr' %}
+    {{ active_tag.icon }} {{ active_tag.name }} Makaleleri | Dr. Devrim Dental Forum
+  {% else %}
+    {{ active_tag.icon }} {{ active_tag.name }} Articles | Dr. Devrim Dental Forum
+  {% endif %}
+{% else %}
+  {% if language == 'tr' %}
+    Uzman Diş Sağlığı Makaleleri — Dr. Devrim Dental Forum
+  {% else %}
+    Expert Dental Health Articles — Dr. Devrim Dental Forum
+  {% endif %}
+{% endif %}
+{% endblock %}
+
+{% block meta_description %}
+{% if active_tag %}
+  {% if language == 'tr' %}
+    {{ active_tag.name }} konusunda uzman diş hekimi makaleleri. Dr. Devrim Dental Forum'da {{ total_count }} makale.
+  {% else %}
+    Expert dentist articles about {{ active_tag.name }}. {{ total_count }} articles on Dr. Devrim Dental Forum.
+  {% endif %}
+{% else %}
+  {% if language == 'tr' %}
+    İmplant, laminat, diş teli, kanal tedavisi ve daha fazlası. Uzman diş hekimi tarafından yazılmış {{ total_count }}+ makale.
+  {% else %}
+    Implants, veneers, braces, root canals and more. {{ total_count }}+ articles written by an expert dentist.
+  {% endif %}
+{% endif %}
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% endblock %}
+
+{% block hreflang %}
+<link rel="alternate" hreflang="tr" href="{{ request.scheme }}://{{ request.get_host }}/soru-cevap/makaleler/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}">
+<link rel="alternate" hreflang="en" href="{{ request.scheme }}://{{ request.get_host }}/question-and-answer/makaleler/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}">
+{% endblock %}
+
+{% block json_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Dr. Devrim Klinik","item":"{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type":"ListItem","position":2,"name":"{% if language == 'tr' %}Soru &amp; Cevap{% else %}Q&amp;A{% endif %}","item":"{{ request.scheme }}://{{ request.get_host }}{{ qa_prefix }}/"},
+    {"@type":"ListItem","position":3,"name":"{% if language == 'tr' %}Makaleler{% else %}Articles{% endif %}","item":"{{ request.scheme }}://{{ request.get_host }}{{ qa_prefix }}/makaleler/"}
+    {% if active_tag %}
+    ,{"@type":"ListItem","position":4,"name":"{{ active_tag.name }}"}
+    {% endif %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .4rem .85rem;
+    border-radius: 999px;
+    font-size: .74rem;
+    font-weight: 600;
+    border: 1px solid var(--card-bdr);
+    background: var(--card-bg);
+    color: var(--text2);
+    text-decoration: none;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .tag-pill:hover {
+    border-color: rgba(16,185,129,.4);
+    color: #10b981;
+    background: rgba(16,185,129,.06);
+  }
+  .tag-pill.active {
+    border-color: rgba(16,185,129,.5);
+    background: rgba(16,185,129,.1);
+    color: #10b981;
+    font-weight: 700;
+  }
+  .tag-pill .count {
+    font-size: .62rem;
+    padding: .05rem .3rem;
+    border-radius: 999px;
+    background: var(--badge-bg);
+    color: var(--text3);
+    font-weight: 400;
+  }
+  .tag-pill.active .count {
+    background: rgba(16,185,129,.15);
+    color: #10b981;
+  }
+
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(16,185,129,.12);
+    border-color: rgba(16,185,129,.3) !important;
+  }
+  .article-card img {
+    transition: transform .35s;
+  }
+  .article-card:hover img {
+    transform: scale(1.04);
+  }
+  .article-card .card-title {
+    transition: color .15s;
+  }
+  .article-card:hover .card-title {
+    color: #10b981;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up   { animation: fadeUp .3s ease both; }
+  .fade-up-2 { animation: fadeUp .3s .06s ease both; }
+
+  /* Grid kart animasyonları */
+  .article-card:nth-child(1) { animation: fadeUp .3s .03s ease both; }
+  .article-card:nth-child(2) { animation: fadeUp .3s .06s ease both; }
+  .article-card:nth-child(3) { animation: fadeUp .3s .09s ease both; }
+  .article-card:nth-child(4) { animation: fadeUp .3s .12s ease both; }
+  .article-card:nth-child(5) { animation: fadeUp .3s .15s ease both; }
+  .article-card:nth-child(n+6) { animation: fadeUp .3s .18s ease both; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{# ── BAŞLIK + TAG FİLTER ─────────────────────────────────────────────────── #}
+<div class="fade-up" style="margin-bottom:1.75rem;">
+
+  {# Breadcrumb #}
+  <div style="display:flex; align-items:center; gap:.4rem; margin-bottom:1rem; font-size:.75rem;" class="t-text3">
+    <a href="{{ qa_prefix }}/" style="text-decoration:none; transition:color .15s;"
+       onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">
+      {% if language == 'tr' %}Ana Sayfa{% else %}Home{% endif %}
+    </a>
+    <span>›</span>
+    {% if active_tag %}
+    <a href="{{ qa_prefix }}/makaleler/" style="text-decoration:none; transition:color .15s;"
+       onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">
+      {% if language == 'tr' %}Makaleler{% else %}Articles{% endif %}
+    </a>
+    <span>›</span>
+    <span style="color:var(--text);">{{ active_tag.icon }} {{ active_tag.name }}</span>
+    {% else %}
+    <span style="color:var(--text);">{% if language == 'tr' %}Makaleler{% else %}Articles{% endif %}</span>
+    {% endif %}
+  </div>
+
+  {# Başlık #}
+  <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1rem; margin-bottom:1.25rem;">
+    <div>
+      <h1 style="font-size:1.5rem; font-weight:800; line-height:1.25; margin-bottom:.3rem;" class="t-text">
+        {% if active_tag %}
+          {{ active_tag.icon }} {{ active_tag.name }}
+          {% if language == 'tr' %}Makaleleri{% else %}Articles{% endif %}
+        {% else %}
+          {% if language == 'tr' %}Uzman Makaleleri{% else %}Expert Articles{% endif %}
+        {% endif %}
+      </h1>
+      <p style="font-size:.82rem;" class="t-text3">
+        {% if active_tag %}
+          {% if language == 'tr' %}
+            <strong style="color:var(--text);">{{ total_count }}</strong> makale bulundu
+          {% else %}
+            <strong style="color:var(--text);">{{ total_count }}</strong> article{{ total_count|pluralize }} found
+          {% endif %}
+        {% else %}
+          {% if language == 'tr' %}
+            Tüm konularda <strong style="color:var(--text);">{{ total_count }}</strong> uzman makale
+          {% else %}
+            <strong style="color:var(--text);">{{ total_count }}</strong> expert articles across all topics
+          {% endif %}
+        {% endif %}
+      </p>
+    </div>
+    {% if active_tag %}
+    <a href="{{ qa_prefix }}/makaleler/"
+       style="display:inline-flex; align-items:center; gap:.4rem; padding:.4rem .85rem;
+              border-radius:999px; font-size:.75rem; font-weight:600; text-decoration:none;
+              border:1px solid var(--border); color:var(--text2); transition:all .15s;"
+       onmouseover="this.style.borderColor='rgba(16,185,129,.3)'; this.style.color='#10b981';"
+       onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text2)';">
+      ✕ {% if language == 'tr' %}Filtreyi Kaldır{% else %}Clear Filter{% endif %}
+    </a>
+    {% endif %}
+  </div>
+
+  {# ── TAG FİLTER WRAP ROW ── #}
+  {# min-width:max-content ve overflow kaldırıldı → pill'lar doğal wrap olur #}
+  <div style="display:flex; flex-wrap:wrap; gap:.4rem;">
+
+    <a href="{{ qa_prefix }}/makaleler/"
+       class="tag-pill {% if not active_tag %}active{% endif %}">
+      {% if language == 'tr' %}🔖 Tümü{% else %}🔖 All{% endif %}
+      <span class="count">{{ total_count }}</span>
+    </a>
+
+    {% for tag in all_tags %}
+    <a href="{{ qa_prefix }}/makaleler/?tag={{ tag.slug }}"
+       class="tag-pill {% if active_tag.slug == tag.slug %}active{% endif %}">
+      {{ tag.icon|default:"🔹" }} {{ tag.name }}
+      <span class="count">{{ tag.article_count }}</span>
+    </a>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+{# ── ANA GRID: Makaleler + Sidebar ───────────────────────────────────────── #}
+<div style="display:grid; grid-template-columns:1fr; gap:1.5rem;" class="al-grid">
+<style>
+  @media (min-width:1024px) { .al-grid { grid-template-columns: 1fr 280px !important; } }
+</style>
+
+{# ════ MAKALELER ════ #}
+<div>
+  {% if articles %}
+  <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem;">
+    {% for article in articles %}
+    <a href="{{ article.get_absolute_url }}"
+       class="qa-card article-card">
+
+      {# Görsel #}
+      {% if article.featured_image %}
+      <div style="position:relative; height:168px; overflow:hidden; flex-shrink:0;">
+        <img src="{{ article.featured_image }}"
+             alt="{{ article.title }}"
+             loading="lazy"
+             style="width:100%; height:100%; object-fit:cover;">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%); pointer-events:none;"></div>
+
+        {# Tag overlay — görselin üstünde #}
+        {% with atags=article.tags.all %}{% if atags %}
+        <div style="position:absolute; bottom:.5rem; left:.6rem; display:flex; flex-wrap:wrap; gap:.25rem;">
+          {% for tag in atags|slice:":2" %}
+          <span style="font-size:.6rem; font-weight:700; padding:.15rem .45rem; border-radius:999px;
+                       background:rgba(0,0,0,.6); color:#fff; backdrop-filter:blur(4px);
+                       border:1px solid rgba(255,255,255,.15);">
+            {{ tag.icon }} {{ tag.name }}
+          </span>
+          {% endfor %}
+          {% if atags|length > 2 %}
+          <span style="font-size:.58rem; font-weight:600; padding:.15rem .4rem; border-radius:999px;
+                       background:rgba(0,0,0,.5); color:rgba(255,255,255,.7);">
+            +{{ atags|length|add:"-2" }}
+          </span>
+          {% endif %}
+        </div>
+        {% endif %}{% endwith %}
+      </div>
+
+      {% else %}
+      {# Görsel yoksa gradient placeholder + tag'ler #}
+      <div style="height:110px; flex-shrink:0; position:relative;
+                  background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(99,102,241,.1));
+                  display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:2.2rem; opacity:.4;">🦷</span>
+        {% with atags=article.tags.all %}{% if atags %}
+        <div style="position:absolute; bottom:.4rem; left:.5rem; display:flex; flex-wrap:wrap; gap:.2rem;">
+          {% for tag in atags|slice:":2" %}
+          <span style="font-size:.58rem; font-weight:700; padding:.12rem .4rem; border-radius:999px;
+                       background:rgba(16,185,129,.15); color:#10b981;
+                       border:1px solid rgba(16,185,129,.25);">
+            {{ tag.icon }} {{ tag.name }}
+          </span>
+          {% endfor %}
+        </div>
+        {% endif %}{% endwith %}
+      </div>
+      {% endif %}
+
+      {# Kart içeriği #}
+      <div style="padding:1rem; flex:1; display:flex; flex-direction:column; gap:.5rem;">
+
+        <h2 class="card-title"
+            style="font-size:.9rem; font-weight:700; line-height:1.45; color:var(--text);
+                   overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;">
+          {{ article.title }}
+        </h2>
+
+        <p style="font-size:.75rem; line-height:1.6; color:var(--text2); flex:1;
+                  overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;">
+          {{ article.seo_description|default:article.content|striptags|truncatewords:18 }}
+        </p>
+
+        {# Meta: view / puan / soru sayısı #}
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:.45rem;
+                    padding-top:.4rem; border-top:1px solid var(--border);">
+          <span style="font-size:.64rem; color:var(--text3);">👁 {{ article.view_count }}</span>
+
+          {% with ar=article.get_avg_rating rc=article.get_rating_count %}
+          {% if ar %}
+          <span style="font-size:.64rem; font-weight:600; color:#f59e0b;">⭐ {{ ar }}/5
+            <span style="font-weight:400; color:var(--text3);">({{ rc }})</span>
+          </span>
+          {% endif %}
+          {% endwith %}
+
+          <span style="font-size:.64rem; color:var(--text3);">
+            ❓ {{ article.questions.count }}
+            {% if language == 'tr' %}soru{% else %}Q{% endif %}
+          </span>
+
+          <span style="margin-left:auto; font-size:.65rem; font-weight:700; color:#10b981;">
+            {% if language == 'tr' %}Oku →{% else %}Read →{% endif %}
+          </span>
+        </div>
+
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  {# Boş durum #}
+  <div class="qa-card" style="padding:4rem 2rem; text-align:center;">
+    <div style="font-size:3rem; margin-bottom:.75rem;">🔍</div>
+    <p style="font-size:1rem; font-weight:700; margin-bottom:.4rem;" class="t-text">
+      {% if active_tag %}
+        {% if language == 'tr' %}Bu etiket için makale bulunamadı{% else %}No articles found for this tag{% endif %}
+      {% else %}
+        {% if language == 'tr' %}Henüz makale yok{% else %}No articles yet{% endif %}
+      {% endif %}
+    </p>
+    {% if active_tag %}
+    <p style="font-size:.85rem; margin-bottom:1.25rem;" class="t-text3">
+      {% if language == 'tr' %}Diğer konuları inceleyin{% else %}Browse other topics{% endif %}
+    </p>
+    <a href="{{ qa_prefix }}/makaleler/" class="btn-glow" style="display:inline-flex;">
+      <span>{% if language == 'tr' %}Tüm Makaleler{% else %}All Articles{% endif %}</span>
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+
+{# ════ SIDEBAR ════ #}
+<aside class="fade-up-2">
+  <div style="position:sticky; top:88px; display:flex; flex-direction:column; gap:1rem;">
+
+    {# Konular kartı #}
+    <div class="qa-card" style="overflow:hidden;">
+      <div style="padding:.85rem 1.1rem .65rem; border-bottom:1px solid var(--border);">
+        <h2 style="font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;" class="t-text3">
+          {% if language == 'tr' %}📂 Konular{% else %}📂 Topics{% endif %}
+        </h2>
+      </div>
+      <div style="padding:.5rem .6rem; display:flex; flex-direction:column; gap:.1rem;">
+        <a href="{{ qa_prefix }}/makaleler/"
+           style="display:flex; align-items:center; justify-content:space-between; padding:.55rem .65rem;
+                  border-radius:.5rem; text-decoration:none; font-size:.82rem; font-weight:600;
+                  transition:background .12s;
+                  color:{% if not active_tag %}#10b981{% else %}var(--text2){% endif %};
+                  background:{% if not active_tag %}rgba(16,185,129,.08){% else %}transparent{% endif %};"
+           onmouseover="{% if active_tag %}this.style.background='rgba(16,185,129,.05)'{% endif %}"
+           onmouseout="{% if active_tag %}this.style.background='transparent'{% endif %}">
+          <span>{% if language == 'tr' %}🔖 Tümü{% else %}🔖 All{% endif %}</span>
+          <span style="font-size:.68rem; padding:.1rem .35rem; border-radius:999px; background:var(--badge-bg); color:var(--text3);">
+            {{ total_count }}
+          </span>
+        </a>
+
+        {% for tag in all_tags %}
+        <a href="{{ qa_prefix }}/makaleler/?tag={{ tag.slug }}"
+           style="display:flex; align-items:center; justify-content:space-between; padding:.55rem .65rem;
+                  border-radius:.5rem; text-decoration:none; font-size:.82rem;
+                  transition:background .12s;
+                  color:{% if active_tag.slug == tag.slug %}#10b981{% else %}var(--text2){% endif %};
+                  font-weight:{% if active_tag.slug == tag.slug %}700{% else %}500{% endif %};
+                  background:{% if active_tag.slug == tag.slug %}rgba(16,185,129,.08){% else %}transparent{% endif %};"
+           onmouseover="this.style.background='rgba(16,185,129,.05)'"
+           onmouseout="this.style.background='{% if active_tag.slug == tag.slug %}rgba(16,185,129,.08){% else %}transparent{% endif %}'">
+          <span>{{ tag.icon|default:"🔹" }} {{ tag.name }}</span>
+          <span style="font-size:.68rem; padding:.1rem .35rem; border-radius:999px;
+                       background:{% if active_tag.slug == tag.slug %}rgba(16,185,129,.15){% else %}var(--badge-bg){% endif %};
+                       color:{% if active_tag.slug == tag.slug %}#10b981{% else %}var(--text3){% endif %};">
+            {{ tag.article_count }}
+          </span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    {# Soru sor CTA #}
+    <div class="qa-card" style="padding:1.1rem; text-align:center;">
+      <div style="font-size:1.4rem; margin-bottom:.4rem;">💬</div>
+      <p style="font-size:.82rem; font-weight:700; margin-bottom:.25rem;" class="t-text">
+        {% if language == 'tr' %}Sorunuz mu var?{% else %}Have a question?{% endif %}
+      </p>
+      <p style="font-size:.74rem; margin-bottom:.875rem;" class="t-text3">
+        {% if language == 'tr' %}Uzman hekimimiz cevaplar{% else %}Our expert dentist answers{% endif %}
+      </p>
+      <a href="{{ qa_prefix }}/sorular/" class="btn-glow" style="display:flex;">
+        <span style="justify-content:center; font-size:.78rem; width:100%;">
+          ❓ {% if language == 'tr' %}Soru Sor{% else %}Ask a Question{% endif %}
+        </span>
+      </a>
+    </div>
+
+    {# Dil seçici #}
+    <div class="qa-card" style="padding:.75rem .9rem; display:flex; gap:.5rem;">
+      <a href="/soru-cevap/makaleler/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}"
+         style="flex:1; text-align:center; padding:.45rem; border-radius:.5rem; font-size:.75rem;
+                font-weight:600; text-decoration:none; transition:all .15s;
+                border:1px solid {% if language == 'tr' %}rgba(16,185,129,.35){% else %}var(--border){% endif %};
+                background:{% if language == 'tr' %}rgba(16,185,129,.08){% else %}transparent{% endif %};
+                color:{% if language == 'tr' %}#10b981{% else %}var(--text3){% endif %};">
+        🇹🇷 TR
+      </a>
+      <a href="/question-and-answer/makaleler/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}"
+         style="flex:1; text-align:center; padding:.45rem; border-radius:.5rem; font-size:.75rem;
+                font-weight:600; text-decoration:none; transition:all .15s;
+                border:1px solid {% if language == 'en' %}rgba(16,185,129,.35){% else %}var(--border){% endif %};
+                background:{% if language == 'en' %}rgba(16,185,129,.08){% else %}transparent{% endif %};
+                color:{% if language == 'en' %}#10b981{% else %}var(--text3){% endif %};">
+        🇬🇧 EN
+      </a>
+    </div>
+
+  </div>
+</aside>
+
+</div>
+{# ── / ANA GRID ── #}
+
+{% endblock %}

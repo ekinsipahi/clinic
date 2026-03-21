@@ -1,0 +1,82 @@
+<!-- comment_node.html -->
+{% load i18n %}
+<div style="padding:1rem 0; {% if node.depth > 0 %}margin-left:{{ node.depth }}rem; padding-left:1rem; border-left:2px solid var(--border);{% endif %}">
+
+  <div style="display:flex; gap:.75rem; align-items:flex-start;">
+
+    <div style="flex-shrink:0; width:{% if node.depth == 0 %}2rem{% else %}1.6rem{% endif %}; height:{% if node.depth == 0 %}2rem{% else %}1.6rem{% endif %}; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:.72rem; font-weight:700; background:{% if node.depth == 0 %}linear-gradient(135deg,#10b981,#059669){% else %}linear-gradient(135deg,#6366f1,#818cf8){% endif %};">
+      {{ node.comment.masked_identity|slice:":1"|upper }}
+    </div>
+
+    <div style="flex:1; min-width:0;">
+
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-bottom:.4rem;">
+        <span style="font-size:.78rem; font-weight:600;" class="t-text">{{ node.comment.masked_identity }}</span>
+
+        {% if node.comment.rating and node.depth == 0 %}
+        <span style="display:flex; align-items:center; gap:1px; font-size:.85rem; color:#f59e0b;"
+              title="{{ node.comment.rating }}/5">
+          {% for s in node.comment.filled_stars %}★{% endfor %}<span style="color:var(--border);">{% for s in node.comment.empty_stars %}★{% endfor %}</span>
+        </span>
+        {% endif %}
+
+        <time datetime="{{ node.comment.created_at|date:'Y-m-d' }}" style="font-size:.7rem;" class="t-text3">
+          {{ node.comment.created_at|date:"d M Y" }}
+        </time>
+      </div>
+
+      <p style="font-size:.875rem; line-height:1.7;" class="t-text2">{{ node.comment.text }}</p>
+
+      {% if reply_url %}
+        {% if request.user.is_authenticated %}
+        <div x-data="{open:false}" style="margin-top:.5rem;">
+          <button type="button" @click="open=!open"
+                  data-label-open="{% if language == 'tr' %}✕ Kapat{% else %}✕ Close{% endif %}"
+                  data-label-closed="{% if language == 'tr' %}↩ Cevapla{% else %}↩ Reply{% endif %}"
+                  style="font-size:.72rem; font-weight:600; background:none; border:none; cursor:pointer; padding:0; transition:color .15s;"
+                  :style="open ? 'color:#10b981' : 'color:#6366f1'"
+                  x-init="
+                    $el.textContent = $el.dataset.labelClosed;
+                    $watch('open', v => {
+                      $el.textContent = v ? $el.dataset.labelOpen : $el.dataset.labelClosed;
+                    });
+                  ">
+          </button>
+
+          <div x-show="open" x-cloak
+               x-transition:enter="transition ease-out duration-150"
+               x-transition:enter-start="opacity-0 translate-y-1"
+               x-transition:enter-end="opacity-100 translate-y-0"
+               style="margin-top:.625rem; padding:.875rem; border-radius:.625rem; background:var(--inp-bg); border:1px solid var(--border);">
+            <form method="POST" action="{{ reply_url }}" style="display:flex; flex-direction:column; gap:.5rem;">
+              {% csrf_token %}
+              <input type="hidden" name="parent_id" value="{{ node.comment.pk }}">
+              <textarea name="text" rows="2" required class="qa-input" style="font-size:.82rem;"
+                placeholder="{% if language == 'tr' %}Cevabınızı yazın…{% else %}Write your reply…{% endif %}"></textarea>
+              <div style="display:flex; justify-content:flex-end;">
+                <button type="submit" class="btn-glow">
+                  <span style="font-size:.75rem;">{% if language == 'tr' %}Gönder{% else %}Send{% endif %}</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        {% else %}
+        <div style="margin-top:.5rem;">
+          <a href="/accounts/login/?next={{ request.path }}"
+             style="font-size:.72rem; font-weight:600; color:#6366f1; text-decoration:none; transition:color .15s;"
+             onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#6366f1'">
+            ↩ {% if language == 'tr' %}Yanıtlamak için giriş yapın{% else %}Sign in to reply{% endif %}
+          </a>
+        </div>
+        {% endif %}
+      {% endif %}
+
+    </div>
+  </div>
+
+  {% for child in node.children %}
+  {% include "soru_cevap/comment_node.html" with node=child reply_url=reply_url %}
+  {% endfor %}
+
+</div>

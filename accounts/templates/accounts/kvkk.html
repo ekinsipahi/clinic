@@ -1,0 +1,515 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if lang == 'en' %}Privacy Policy — Dr. Devrim Dental Forum{% else %}KVKK Aydınlatma Metni — Dr. Devrim Dental Forum{% endif %}</title>
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="{% if lang == 'en' %}Dr. Devrim Dental Forum Privacy Policy — how we collect, use and protect your personal data.{% else %}Dr. Devrim Dental Forum KVKK Aydınlatma Metni — kişisel verilerinizin nasıl işlendiği hakkında bilgi.{% endif %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function(){
+      var s=localStorage.getItem('qa-theme');
+      if(s){document.documentElement.setAttribute('data-theme',s);return;}
+      document.documentElement.setAttribute('data-theme',
+        window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+    })();
+  </script>
+  <style>
+    :root{--bg:#f6f8fc;--surface:#ffffff;--border:rgba(0,0,0,.07);--text:#0d1117;--text2:#3d4a5c;--text3:#8896a9;--card-shad:0 1px 4px rgba(0,0,0,.05);}
+    :root[data-theme="dark"]{--bg:#080c12;--surface:#111827;--border:rgba(255,255,255,.07);--text:#e8edf5;--text2:#9baab9;--text3:#4d5e72;--card-shad:none;}
+    @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080c12;--surface:#111827;--border:rgba(255,255,255,.07);--text:#e8edf5;--text2:#9baab9;--text3:#4d5e72;--card-shad:none;}}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:2rem 1rem 4rem;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3{font-family:'Outfit',sans-serif;}
+    .wrap{max-width:780px;margin:0 auto;}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:.75rem;}
+    .back-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;color:var(--text3);text-decoration:none;transition:color .15s;}
+    .back-link:hover{color:var(--text);}
+    .lang-btn{padding:.25rem .65rem;border-radius:999px;font-size:.7rem;font-weight:600;text-decoration:none;border:1px solid var(--border);color:var(--text3);transition:all .15s;}
+    .lang-btn.active{background:rgba(16,185,129,.1);color:#10b981;border-color:rgba(16,185,129,.25);}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:1.25rem;box-shadow:var(--card-shad);overflow:hidden;}
+    .card-head{padding:2.5rem 2.5rem 2rem;background:linear-gradient(135deg,rgba(16,185,129,.05),rgba(99,102,241,.05));border-bottom:1px solid var(--border);}
+    .badge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .65rem;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.2);margin-bottom:.85rem;}
+    .card-body{padding:2rem 2.5rem;}
+    .toc{background:rgba(99,102,241,.04);border:1px solid rgba(99,102,241,.12);border-radius:.875rem;padding:1.25rem 1.5rem;margin-bottom:2rem;}
+    .toc-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:.65rem;}
+    .toc ol{padding-left:1.25rem;display:flex;flex-direction:column;gap:.3rem;}
+    .toc li{font-size:.82rem;}
+    .toc a{color:#6366f1;text-decoration:none;transition:opacity .15s;}
+    .toc a:hover{opacity:.7;text-decoration:underline;}
+    .section{margin-bottom:2.25rem;padding-bottom:2.25rem;border-bottom:1px solid var(--border);}
+    .section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+    .section-num{display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;border-radius:.4rem;background:rgba(16,185,129,.1);color:#10b981;font-size:.72rem;font-weight:800;font-family:'Outfit',sans-serif;flex-shrink:0;margin-right:.5rem;}
+    h2.sec-title{display:flex;align-items:center;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.875rem;line-height:1.3;}
+    p.body-text{font-size:.875rem;line-height:1.8;color:var(--text2);margin-bottom:.75rem;}
+    p.body-text:last-child{margin-bottom:0;}
+    ul.body-list{padding-left:1.25rem;margin:.5rem 0 .75rem;display:flex;flex-direction:column;gap:.35rem;}
+    ul.body-list li{font-size:.875rem;line-height:1.7;color:var(--text2);}
+    ul.body-list li strong{color:var(--text);font-weight:600;}
+    .highlight-box{padding:1rem 1.25rem;border-radius:.75rem;margin:.875rem 0;font-size:.82rem;line-height:1.7;display:flex;gap:.75rem;align-items:flex-start;}
+    .highlight-box.green{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.2);color:var(--text2);}
+    .highlight-box.blue{background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.15);color:var(--text2);}
+    .highlight-box.amber{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);color:var(--text2);}
+    .highlight-box .icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+    .data-table{width:100%;border-collapse:collapse;margin:.875rem 0;font-size:.82rem;}
+    .data-table th{background:rgba(16,185,129,.07);color:var(--text);font-weight:700;padding:.6rem .875rem;text-align:left;border:1px solid var(--border);font-family:'Outfit',sans-serif;}
+    .data-table td{padding:.55rem .875rem;border:1px solid var(--border);color:var(--text2);line-height:1.6;vertical-align:top;}
+    .contact-box{background:linear-gradient(135deg,rgba(16,185,129,.06),rgba(99,102,241,.06));border:1px solid rgba(16,185,129,.2);border-radius:.875rem;padding:1.25rem 1.5rem;margin-top:.875rem;}
+    .contact-row{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--text2);margin-bottom:.45rem;}
+    .contact-row:last-child{margin-bottom:0;}
+    .contact-row strong{color:var(--text);min-width:90px;}
+    .contact-row a{color:#10b981;text-decoration:none;}
+    .contact-row a:hover{text-decoration:underline;}
+    .update-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem;padding:1rem 1.25rem;border-radius:.65rem;background:var(--bg);border:1px solid var(--border);margin-top:1.5rem;font-size:.75rem;color:var(--text3);}
+    @media(max-width:600px){.card-head,.card-body{padding:1.5rem;}.toc{padding:1rem;}.data-table{font-size:.75rem;}.data-table th,.data-table td{padding:.4rem .6rem;}}
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <a href="{% if lang == 'en' %}/question-and-answer/{% else %}/soru-cevap/{% endif %}" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/></svg>
+      {% if lang == 'en' %}Back to Forum{% else %}Foruma Dön{% endif %}
+    </a>
+    <div style="display:flex;gap:.4rem;">
+      <a href="/accounts/kvkk/" class="lang-btn {% if lang == 'tr' %}active{% endif %}">🇹🇷 TR</a>
+      <a href="/accounts/privacy/" class="lang-btn {% if lang == 'en' %}active{% endif %}">🇬🇧 EN</a>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <!-- Header -->
+    <div class="card-head">
+      <div class="badge">🔒 {% if lang == 'en' %}Privacy Policy{% else %}KVKK Aydınlatma Metni{% endif %}</div>
+      <h1 style="font-size:1.5rem;font-weight:800;margin-bottom:.5rem;line-height:1.25;">
+        {% if lang == 'en' %}
+          Privacy Policy & Personal Data Protection
+        {% else %}
+          Kişisel Verilerin Korunması Kanunu (KVKK) Aydınlatma Metni
+        {% endif %}
+      </h1>
+      <p style="font-size:.85rem;color:var(--text3);line-height:1.6;">
+        {% if lang == 'en' %}
+          This Privacy Policy explains how <strong style="color:var(--text2);">Dr. Devrim Dental Forum</strong>
+          collects, uses, stores and protects your personal data in accordance with applicable law.
+        {% else %}
+          Bu Aydınlatma Metni, <strong style="color:var(--text2);">Dr. Devrim Dental Forum</strong>
+          bünyesinde kişisel verilerinizin 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK)
+          kapsamında nasıl işlendiğini açıklamaktadır.
+        {% endif %}
+      </p>
+    </div>
+
+    <div class="card-body">
+
+      <!-- İçindekiler / Table of Contents -->
+      <div class="toc">
+        <div class="toc-title">{% if lang == 'en' %}Table of Contents{% else %}İçindekiler{% endif %}</div>
+        <ol>
+          {% if lang == 'en' %}
+          <li><a href="#s1">Data Controller</a></li>
+          <li><a href="#s2">Personal Data We Collect</a></li>
+          <li><a href="#s3">Purposes and Legal Basis of Processing</a></li>
+          <li><a href="#s4">How We Protect Your Data</a></li>
+          <li><a href="#s5">Data Retention Periods</a></li>
+          <li><a href="#s6">Data Sharing & Third Parties</a></li>
+          <li><a href="#s7">Your Rights</a></li>
+          <li><a href="#s8">Cookies & Analytics</a></li>
+          <li><a href="#s9">Children's Privacy</a></li>
+          <li><a href="#s10">Contact & Applications</a></li>
+          {% else %}
+          <li><a href="#s1">Veri Sorumlusu</a></li>
+          <li><a href="#s2">İşlenen Kişisel Veriler</a></li>
+          <li><a href="#s3">İşleme Amaçları ve Hukuki Dayanaklar</a></li>
+          <li><a href="#s4">Verilerinizi Nasıl Koruyoruz</a></li>
+          <li><a href="#s5">Saklama Süreleri</a></li>
+          <li><a href="#s6">Veri Aktarımı ve Üçüncü Taraflar</a></li>
+          <li><a href="#s7">Haklarınız</a></li>
+          <li><a href="#s8">Çerezler ve Analitik</a></li>
+          <li><a href="#s9">Çocukların Gizliliği</a></li>
+          <li><a href="#s10">İletişim ve Başvuru</a></li>
+          {% endif %}
+        </ol>
+      </div>
+
+      <!-- ─── 1. Veri Sorumlusu ─────────────────────────────────────────────── -->
+      <div class="section" id="s1">
+        <h2 class="sec-title"><span class="section-num">1</span>
+          {% if lang == 'en' %}Data Controller{% else %}Veri Sorumlusu{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">
+          The data controller responsible for your personal data is <strong>Ekin Sipahi</strong>,
+          operating under <strong>Dr. Devrim Dental Clinic</strong>, Istanbul, Turkey.
+        </p>
+        <div class="contact-box">
+          <div class="contact-row"><strong>Controller:</strong> Ekin Sipahi — Dr. Devrim Dental Clinic</div>
+          <div class="contact-row"><strong>Location:</strong> Istanbul, Turkey</div>
+          <div class="contact-row"><strong>Email:</strong> <a href="mailto:ekinsipahi8@gmail.com">ekinsipahi8@gmail.com</a></div>
+        </div>
+        {% else %}
+        <p class="body-text">
+          Kişisel verileriniz bakımından veri sorumlusu sıfatını taşıyan kişi,
+          <strong>Dr. Devrim Kliniği</strong> bünyesinde faaliyet gösteren <strong>Ekin Sipahi</strong>'dir.
+        </p>
+        <div class="contact-box">
+          <div class="contact-row"><strong>Veri Sorumlusu:</strong> Ekin Sipahi — Dr. Devrim Kliniği</div>
+          <div class="contact-row"><strong>Adres:</strong> İstanbul, Türkiye</div>
+          <div class="contact-row"><strong>E-posta:</strong> <a href="mailto:ekinsipahi8@gmail.com">ekinsipahi8@gmail.com</a></div>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- ─── 2. İşlenen Kişisel Veriler ──────────────────────────────────── -->
+      <div class="section" id="s2">
+        <h2 class="sec-title"><span class="section-num">2</span>
+          {% if lang == 'en' %}Personal Data We Collect{% else %}İşlenen Kişisel Veriler{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">When you register on Dr. Devrim Dental Forum, we collect only the following data:</p>
+        <table class="data-table">
+          <thead><tr><th>Data</th><th>Why We Collect It</th><th>Mandatory?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Full Name</strong></td><td>Account identification and display in the platform</td><td>Yes</td></tr>
+            <tr><td><strong>Email Address</strong></td><td>Account login, password reset, system notifications</td><td>Yes</td></tr>
+            <tr><td><strong>Phone Number</strong></td><td>Appointment requests and clinic communication</td><td>Yes</td></tr>
+            <tr><td><strong>Password</strong></td><td>Account authentication — stored as a one-way bcrypt hash; never readable</td><td>Yes</td></tr>
+            <tr><td><strong>Session/Usage Data</strong></td><td>Improving content recommendations; no personally identifying data retained</td><td>Automatic</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box green">
+          <span class="icon">🔒</span>
+          <span>Your <strong>name, email and phone number are never displayed publicly</strong>.
+          All forum contributions are published under a masked alias (e.g. "A. K.**").</span>
+        </div>
+        {% else %}
+        <p class="body-text">Dr. Devrim Dental Forum'a kayıt olurken yalnızca aşağıdaki kişisel verileriniz işlenmektedir:</p>
+        <table class="data-table">
+          <thead><tr><th>Veri</th><th>İşlenme Amacı</th><th>Zorunlu mu?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ad Soyad</strong></td><td>Hesap kimliğinizin doğrulanması ve platformda tanımlanması</td><td>Evet</td></tr>
+            <tr><td><strong>E-posta Adresi</strong></td><td>Giriş yapma, şifre sıfırlama, sistem bildirimleri</td><td>Evet</td></tr>
+            <tr><td><strong>Telefon Numarası</strong></td><td>Randevu talebi ve klinik iletişimi</td><td>Evet</td></tr>
+            <tr><td><strong>Şifre</strong></td><td>Hesap güvenliği — tek yönlü bcrypt hash olarak saklanır; hiçbir şekilde okunabilir formda tutulmaz</td><td>Evet</td></tr>
+            <tr><td><strong>Oturum / Kullanım Verisi</strong></td><td>İçerik önerilerinin iyileştirilmesi; kişiyi doğrudan tanımlayan veri saklanmaz</td><td>Otomatik</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box green">
+          <span class="icon">🔒</span>
+          <span><strong>Ad-soyad, e-posta ve telefon numaranız hiçbir şekilde kamuya açık biçimde gösterilmez.</strong>
+          Forum'daki tüm katkılarınız maskeli takma adla (ör. "A. K.**") yayımlanır.</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- ─── 3. İşleme Amaçları ve Hukuki Dayanaklar ─────────────────────── -->
+      <div class="section" id="s3">
+        <h2 class="sec-title"><span class="section-num">3</span>
+          {% if lang == 'en' %}Purposes and Legal Basis of Processing{% else %}İşleme Amaçları ve Hukuki Dayanaklar{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">We process your personal data solely for the following purposes and on the following legal bases:</p>
+        <ul class="body-list">
+          <li><strong>Account creation and authentication</strong> — necessary for the performance of our service contract with you (GDPR Art. 6(1)(b) / KVKK Art. 5(2)(c)).</li>
+          <li><strong>Password reset and transactional emails</strong> — necessary for the performance of our service (same legal basis as above).</li>
+          <li><strong>Appointment facilitation (phone number)</strong> — based on your explicit consent given at registration (GDPR Art. 6(1)(a) / KVKK Art. 5(1)).</li>
+          <li><strong>Content moderation</strong> — legitimate interest in maintaining a safe and lawful platform (GDPR Art. 6(1)(f) / KVKK Art. 5(2)(f)).</li>
+          <li><strong>Legal obligations</strong> — where required by applicable Turkish or EU law.</li>
+        </ul>
+        <div class="highlight-box blue">
+          <span class="icon">ℹ️</span>
+          <span>We do <strong>not</strong> use your personal data for advertising, profiling, or selling to third parties. Ever.</span>
+        </div>
+        {% else %}
+        <p class="body-text">Kişisel verileriniz yalnızca aşağıdaki amaçlarla ve hukuki dayanaklara istinaden işlenmektedir:</p>
+        <ul class="body-list">
+          <li><strong>Hesap oluşturma ve kimlik doğrulama</strong> — hizmet sözleşmesinin ifası (KVKK m. 5/2-c).</li>
+          <li><strong>Şifre sıfırlama ve sistem bildirimleri</strong> — hizmet sözleşmesinin ifası (KVKK m. 5/2-c).</li>
+          <li><strong>Randevu kolaylaştırma (telefon numarası)</strong> — kayıt sırasında verilen açık rıza (KVKK m. 5/1).</li>
+          <li><strong>İçerik moderasyonu</strong> — platformun güvenli ve hukuka uygun işletilmesi için meşru menfaat (KVKK m. 5/2-f).</li>
+          <li><strong>Yasal yükümlülükler</strong> — Türk hukuku veya ilgili mevzuatın gerektirdiği hâllerde (KVKK m. 5/2-ç).</li>
+        </ul>
+        <div class="highlight-box blue">
+          <span class="icon">ℹ️</span>
+          <span>Kişisel verileriniz <strong>reklam, profil oluşturma ya da üçüncü taraflarla paylaşım</strong> amacıyla kesinlikle kullanılmaz.</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- ─── 4. Güvenlik Önlemleri ─────────────────────────────────────────── -->
+      <div class="section" id="s4">
+        <h2 class="sec-title"><span class="section-num">4</span>
+          {% if lang == 'en' %}How We Protect Your Data{% else %}Verilerinizi Nasıl Koruyoruz{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <ul class="body-list">
+          <li><strong>Passwords:</strong> All passwords are stored exclusively as bcrypt hashes using Django's built-in PBKDF2-SHA256 algorithm with a per-user salt. Plain-text passwords are never stored or logged.</li>
+          <li><strong>Encryption in transit:</strong> All data is transmitted over HTTPS/TLS. Unencrypted HTTP connections are redirected automatically.</li>
+          <li><strong>Access control:</strong> Personal data is accessible only to authorised personnel (the data controller). No third-party staff has access.</li>
+          <li><strong>Forum anonymisation:</strong> Your name and email are replaced with a masked alias before any content is published on the platform.</li>
+          <li><strong>No data sales:</strong> We do not sell, rent, trade or otherwise disclose your personal data to third parties for commercial purposes.</li>
+          <li><strong>Session security:</strong> Session tokens are stored server-side and rotated on login to prevent session fixation attacks.</li>
+        </ul>
+        <div class="highlight-box amber">
+          <span class="icon">⚠️</span>
+          <span>Despite our best efforts, no internet transmission is 100% secure.
+          If you suspect a security incident, please contact us immediately at
+          <a href="mailto:ekinsipahi8@gmail.com" style="color:#10b981;">ekinsipahi8@gmail.com</a>.</span>
+        </div>
+        {% else %}
+        <ul class="body-list">
+          <li><strong>Şifreler:</strong> Tüm şifreler, Django'nun yerleşik PBKDF2-SHA256 algoritması ve kullanıcıya özgü salt değeri kullanılarak yalnızca bcrypt hash biçiminde saklanır. Düz metin şifre hiçbir zaman depolanmaz veya kayıt altına alınmaz.</li>
+          <li><strong>Aktarım güvenliği:</strong> Tüm veriler HTTPS/TLS üzerinden iletilir. Şifresiz HTTP bağlantıları otomatik olarak yönlendirilir.</li>
+          <li><strong>Erişim kontrolü:</strong> Kişisel verilere yalnızca yetkili personel (veri sorumlusu) erişebilir. Üçüncü taraf personelinin erişimi bulunmamaktadır.</li>
+          <li><strong>Forum anonimleştirmesi:</strong> Adınız ve e-postanız, herhangi bir içerik yayımlanmadan önce otomatik olarak maskeli takma adla değiştirilir.</li>
+          <li><strong>Veri satışı yapılmaz:</strong> Kişisel verileriniz hiçbir koşulda üçüncü taraflara satılmaz, kiralanmaz, takas edilmez veya ticari amaçla ifşa edilmez.</li>
+          <li><strong>Oturum güvenliği:</strong> Oturum token'ları sunucu tarafında saklanır ve oturum sabitleme saldırılarını önlemek amacıyla her girişte yenilenir.</li>
+        </ul>
+        <div class="highlight-box amber">
+          <span class="icon">⚠️</span>
+          <span>Tüm önlemlerimize karşın hiçbir internet iletimi %100 güvenli değildir.
+          Bir güvenlik ihlalinden şüpheleniyorsanız lütfen derhal
+          <a href="mailto:ekinsipahi8@gmail.com" style="color:#10b981;">ekinsipahi8@gmail.com</a>
+          adresinden bize ulaşın.</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- ─── 5. Saklama Süreleri ───────────────────────────────────────────── -->
+      <div class="section" id="s5">
+        <h2 class="sec-title"><span class="section-num">5</span>
+          {% if lang == 'en' %}Data Retention Periods{% else %}Saklama Süreleri{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <table class="data-table">
+          <thead><tr><th>Data Category</th><th>Retention Period</th></tr></thead>
+          <tbody>
+            <tr><td>Account data (name, email, phone)</td><td>Until account deletion + 3 years (legal obligation)</td></tr>
+            <tr><td>Password hash</td><td>Deleted immediately upon account deletion</td></tr>
+            <tr><td>Forum content (questions, comments)</td><td>Until content deletion request, or account deletion</td></tr>
+            <tr><td>Session / anonymous usage data</td><td>90 days rolling window</td></tr>
+            <tr><td>Email logs (password reset etc.)</td><td>90 days</td></tr>
+          </tbody>
+        </table>
+        <p class="body-text">
+          Upon account deletion all personal identifiers are permanently erased from our systems.
+          Anonymised aggregate statistics (e.g. total question count) may be retained indefinitely.
+        </p>
+        {% else %}
+        <table class="data-table">
+          <thead><tr><th>Veri Kategorisi</th><th>Saklama Süresi</th></tr></thead>
+          <tbody>
+            <tr><td>Hesap verileri (ad-soyad, e-posta, telefon)</td><td>Hesap silme tarihinden itibaren + 3 yıl (yasal yükümlülük)</td></tr>
+            <tr><td>Şifre hash'i</td><td>Hesap silindiğinde derhal imha edilir</td></tr>
+            <tr><td>Forum içerikleri (sorular, yorumlar)</td><td>İçerik silme talebine kadar veya hesap silindiğinde</td></tr>
+            <tr><td>Oturum / anonim kullanım verisi</td><td>90 günlük kayan pencere</td></tr>
+            <tr><td>E-posta kayıtları (şifre sıfırlama vb.)</td><td>90 gün</td></tr>
+          </tbody>
+        </table>
+        <p class="body-text">
+          Hesabınızın silinmesi hâlinde kişisel tanımlayıcı bilgileriniz sistemlerimizden kalıcı
+          olarak silinir. Kişisel veriden arındırılmış toplu istatistikler (ör. toplam soru sayısı)
+          süresiz saklanabilir.
+        </p>
+        {% endif %}
+      </div>
+
+      <!-- ─── 6. Veri Aktarımı ──────────────────────────────────────────────── -->
+      <div class="section" id="s6">
+        <h2 class="sec-title"><span class="section-num">6</span>
+          {% if lang == 'en' %}Data Sharing & Third Parties{% else %}Veri Aktarımı ve Üçüncü Taraflar{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">
+          We do <strong>not</strong> sell, rent or share your personal data with third parties for marketing or commercial purposes.
+          Limited data sharing occurs only in the following circumstances:
+        </p>
+        <ul class="body-list">
+          <li><strong>Hosting infrastructure:</strong> Our servers are hosted on a Turkish or EU-compliant cloud provider. The provider processes data solely as a data processor under our instructions and is contractually bound to adequate security standards.</li>
+          <li><strong>AI content moderation:</strong> Submitted questions and comments are passed to an AI moderation API (OpenAI) for automated review. Only the text content is transmitted — no name, email or phone number is included. Processed data is not retained by the API provider beyond the request lifecycle per their data processing agreement.</li>
+          <li><strong>Legal disclosure:</strong> We may disclose data if required by a court order, subpoena or applicable Turkish law. We will notify you where legally permitted.</li>
+        </ul>
+        <div class="highlight-box green">
+          <span class="icon">✅</span>
+          <span>No personal data is transferred to countries outside Turkey or the EU/EEA without adequate safeguards (standard contractual clauses or equivalent).</span>
+        </div>
+        {% else %}
+        <p class="body-text">
+          Kişisel verileriniz pazarlama veya ticari amaçlarla üçüncü taraflarla <strong>paylaşılmaz, satılmaz veya kiralanmaz.</strong>
+          Sınırlı veri aktarımı yalnızca aşağıdaki durumlarda gerçekleşmektedir:
+        </p>
+        <ul class="body-list">
+          <li><strong>Barındırma altyapısı:</strong> Sunucularımız Türkiye'de veya AB uyumlu bir bulut sağlayıcısında barındırılmaktadır. Sağlayıcı, verileri yalnızca veri işleyen sıfatıyla ve talimatlarımız doğrultusunda işler; sözleşme ile yeterli güvenlik standartlarına bağlıdır.</li>
+          <li><strong>Yapay zeka içerik moderasyonu:</strong> Gönderilen soru ve yorumlar, otomatik inceleme amacıyla bir yapay zeka moderasyon API'sine (OpenAI) iletilmektedir. Yalnızca metin içeriği aktarılır; ad, e-posta veya telefon numarası dahil edilmez. API sağlayıcısı, veri işleme sözleşmesi çerçevesinde bu verileri istek yaşam döngüsü dışında saklamaz.</li>
+          <li><strong>Yasal açıklama:</strong> Mahkeme kararı, celp veya yürürlükteki Türk hukuku gerektirdiğinde veriler açıklanabilir. Hukuken izin verilen durumlarda sizi bilgilendiririz.</li>
+        </ul>
+        <div class="highlight-box green">
+          <span class="icon">✅</span>
+          <span>Kişisel verileriniz, yeterli güvencelerin (standart sözleşme maddeleri veya eşdeğeri) sağlanması olmaksızın Türkiye veya AB/AEA dışındaki ülkelere aktarılmaz.</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- ─── 7. Haklarınız ────────────────────────────────────────────────── -->
+      <div class="section" id="s7">
+        <h2 class="sec-title"><span class="section-num">7</span>
+          {% if lang == 'en' %}Your Rights{% else %}Haklarınız{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">Under applicable law (KVKK Article 11 / GDPR Article 15–22), you have the right to:</p>
+        <ul class="body-list">
+          <li><strong>Be informed</strong> — learn whether your personal data is being processed.</li>
+          <li><strong>Access</strong> — request a copy of your personal data.</li>
+          <li><strong>Rectification</strong> — request correction of inaccurate or incomplete data.</li>
+          <li><strong>Erasure ("right to be forgotten")</strong> — request deletion of your personal data where there is no legal obligation to retain it.</li>
+          <li><strong>Restriction</strong> — request that we limit how we use your data in certain circumstances.</li>
+          <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format.</li>
+          <li><strong>Object</strong> — object to processing based on legitimate interests.</li>
+          <li><strong>Withdraw consent</strong> — withdraw any consent you have given at any time, without affecting the lawfulness of processing prior to withdrawal.</li>
+          <li><strong>Lodge a complaint</strong> — complain to the Personal Data Protection Authority (KVKK) of Turkey or your local supervisory authority.</li>
+        </ul>
+        <p class="body-text">
+          To exercise any of these rights, send a written request to
+          <a href="mailto:ekinsipahi8@gmail.com" style="color:#10b981;">ekinsipahi8@gmail.com</a>.
+          We will respond within <strong>30 days</strong> as required by law.
+        </p>
+        {% else %}
+        <p class="body-text">KVKK'nın 11. maddesi uyarınca sahip olduğunuz haklar şunlardır:</p>
+        <ul class="body-list">
+          <li><strong>Bilgi edinme</strong> — kişisel verilerinizin işlenip işlenmediğini öğrenme.</li>
+          <li><strong>Erişim</strong> — işlenen kişisel verilerinize ilişkin bilgi talep etme.</li>
+          <li><strong>Düzeltme</strong> — eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme.</li>
+          <li><strong>Silme / "Unutulma hakkı"</strong> — yasal saklama yükümlülüğü bulunmayan hâllerde kişisel verilerinizin silinmesini talep etme.</li>
+          <li><strong>İşlemenin kısıtlanması</strong> — belirli koşullarda verilerinizin yalnızca sınırlı biçimde kullanılmasını talep etme.</li>
+          <li><strong>Taşınabilirlik</strong> — verilerinizi yapılandırılmış, makine tarafından okunabilir biçimde alma.</li>
+          <li><strong>İtiraz</strong> — meşru menfaate dayalı işlemeye itiraz etme.</li>
+          <li><strong>Rızayı geri alma</strong> — vermiş olduğunuz açık rızayı her zaman geri alabilirsiniz; geri alma, önceki işlemlerin hukuka uygunluğunu etkilemez.</li>
+          <li><strong>Şikâyet</strong> — Kişisel Verileri Koruma Kurumu'na (KVKK) şikâyette bulunma.</li>
+        </ul>
+        <p class="body-text">
+          Bu haklarınızı kullanmak için
+          <a href="mailto:ekinsipahi8@gmail.com" style="color:#10b981;">ekinsipahi8@gmail.com</a>
+          adresine yazılı başvuruda bulunabilirsiniz.
+          Başvurunuz yasal süre olan <strong>30 gün</strong> içinde yanıtlanacaktır.
+        </p>
+        {% endif %}
+      </div>
+
+      <!-- ─── 8. Çerezler ──────────────────────────────────────────────────── -->
+      <div class="section" id="s8">
+        <h2 class="sec-title"><span class="section-num">8</span>
+          {% if lang == 'en' %}Cookies & Analytics{% else %}Çerezler ve Analitik{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">We use only the following cookies:</p>
+        <ul class="body-list">
+          <li><strong>Session cookie</strong> (<code>sessionid</code>) — strictly necessary; keeps you logged in. Expires at session end or after 2 weeks.</li>
+          <li><strong>CSRF token</strong> (<code>csrftoken</code>) — strictly necessary; protects forms from cross-site request forgery.</li>
+          <li><strong>Theme preference</strong> (<code>qa-theme</code>) — stored in <code>localStorage</code>; remembers your dark/light mode choice. Not transmitted to the server.</li>
+        </ul>
+        <p class="body-text">
+          We do <strong>not</strong> use advertising cookies, third-party tracking pixels, Google Analytics,
+          or any other third-party analytics service that could identify you personally.
+        </p>
+        {% else %}
+        <p class="body-text">Yalnızca aşağıdaki çerezleri kullanmaktayız:</p>
+        <ul class="body-list">
+          <li><strong>Oturum çerezi</strong> (<code>sessionid</code>) — zorunlu; oturumunuzu açık tutar. Oturum sonunda veya 2 hafta sonra sona erer.</li>
+          <li><strong>CSRF token</strong> (<code>csrftoken</code>) — zorunlu; formları siteler arası istek sahteciliğine karşı korur.</li>
+          <li><strong>Tema tercihi</strong> (<code>qa-theme</code>) — <code>localStorage</code>'da saklanır; koyu/açık mod tercihini hatırlar. Sunucuya iletilmez.</li>
+        </ul>
+        <p class="body-text">
+          Reklam çerezi, üçüncü taraf izleme pikseli, Google Analytics veya sizi kişisel olarak
+          tanımlayabilecek başka herhangi bir analitik hizmet <strong>kullanılmamaktadır.</strong>
+        </p>
+        {% endif %}
+      </div>
+
+      <!-- ─── 9. Çocukların Gizliliği ─────────────────────────────────────── -->
+      <div class="section" id="s9">
+        <h2 class="sec-title"><span class="section-num">9</span>
+          {% if lang == 'en' %}Children's Privacy{% else %}Çocukların Gizliliği{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">
+          Dr. Devrim Dental Forum is intended for users aged <strong>18 and over</strong>.
+          We do not knowingly collect personal data from anyone under 18 years of age.
+          If we become aware that a minor has registered, we will promptly delete their data.
+          If you believe a minor has provided us with personal data, please contact us at
+          <a href="mailto:ekinsipahi8@gmail.com" style="color:#10b981;">ekinsipahi8@gmail.com</a>.
+        </p>
+        {% else %}
+        <p class="body-text">
+          Dr. Devrim Dental Forum, <strong>18 yaş ve üzeri</strong> kullanıcılara yöneliktir.
+          18 yaşından küçük kişilerden bilerek kişisel veri toplamıyoruz.
+          Bir reşit olmayanın kayıt yaptırdığından haberdar olursak söz konusu verileri derhal sileriz.
+          Bir küçüğün bize kişisel veri sağladığına inanıyorsanız lütfen
+          <a href="mailto:ekinsipahi8@gmail.com" style="color:#10b981;">ekinsipahi8@gmail.com</a>
+          adresiyle iletişime geçin.
+        </p>
+        {% endif %}
+      </div>
+
+      <!-- ─── 10. İletişim ─────────────────────────────────────────────────── -->
+      <div class="section" id="s10">
+        <h2 class="sec-title"><span class="section-num">10</span>
+          {% if lang == 'en' %}Contact & Applications{% else %}İletişim ve Başvuru{% endif %}
+        </h2>
+        {% if lang == 'en' %}
+        <p class="body-text">
+          For any question, request or complaint relating to your personal data,
+          or to exercise any of your rights listed above, please contact us:
+        </p>
+        <div class="contact-box">
+          <div class="contact-row"><strong>Data Controller:</strong> Ekin Sipahi — Dr. Devrim Dental Clinic</div>
+          <div class="contact-row"><strong>Email:</strong> <a href="mailto:ekinsipahi8@gmail.com">ekinsipahi8@gmail.com</a></div>
+          <div class="contact-row"><strong>Location:</strong> Istanbul, Turkey</div>
+          <div class="contact-row"><strong>Authority:</strong>
+            <a href="https://www.kvkk.gov.tr" target="_blank" rel="noopener">Personal Data Protection Authority (KVKK)</a>
+          </div>
+        </div>
+        <p class="body-text" style="margin-top:.875rem;">
+          All requests will be responded to within 30 days. Requests must include sufficient information
+          to verify your identity (e.g. the email address associated with your account).
+        </p>
+        {% else %}
+        <p class="body-text">
+          Kişisel verilerinize ilişkin her türlü soru, talep veya şikâyet için
+          ya da yukarıda belirtilen haklarınızı kullanmak amacıyla bize ulaşabilirsiniz:
+        </p>
+        <div class="contact-box">
+          <div class="contact-row"><strong>Veri Sorumlusu:</strong> Ekin Sipahi — Dr. Devrim Kliniği</div>
+          <div class="contact-row"><strong>E-posta:</strong> <a href="mailto:ekinsipahi8@gmail.com">ekinsipahi8@gmail.com</a></div>
+          <div class="contact-row"><strong>Adres:</strong> İstanbul, Türkiye</div>
+          <div class="contact-row"><strong>Kurum:</strong>
+            <a href="https://www.kvkk.gov.tr" target="_blank" rel="noopener">Kişisel Verileri Koruma Kurumu (KVKK)</a>
+          </div>
+        </div>
+        <p class="body-text" style="margin-top:.875rem;">
+          Tüm başvurular yasal süre olan 30 gün içinde yanıtlanacaktır.
+          Başvurularda kimliğinizi doğrulamamıza yardımcı olacak bilgilerin
+          (ör. hesabınıza ait e-posta adresi) yer alması gerekmektedir.
+        </p>
+        {% endif %}
+
+        <!-- Güncelleme tarihi / Last updated -->
+        <div class="update-bar">
+          <span>{% if lang == 'en' %}Last updated:{% else %}Son güncelleme:{% endif %} <strong>10 Mart 2026</strong></span>
+          <span>{% if lang == 'en' %}Version 1.0{% else %}Sürüm 1.0{% endif %}</span>
+        </div>
+      </div>
+
+    </div><!-- /card-body -->
+  </div><!-- /card -->
+
+</div><!-- /wrap -->
+
+</body>
+</html>

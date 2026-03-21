@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>{% if lang == 'en' %}My Questions — Dr. Devrim Forum{% else %}Sorularım — Dr. Devrim Forum{% endif %}</title>
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>(function(){var s=localStorage.getItem('qa-theme');if(s){document.documentElement.setAttribute('data-theme',s);return;}document.documentElement.setAttribute('data-theme',window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');})();</script>
+  <style>
+    :root{--bg:#f6f8fc;--surface:#ffffff;--border:rgba(0,0,0,.07);--text:#0d1117;--text2:#3d4a5c;--text3:#8896a9;--card-bg:#ffffff;--card-bdr:rgba(0,0,0,.06);--badge-bg:rgba(0,0,0,.04);--btn-inner:#0d1117;}
+    :root[data-theme="dark"]{--bg:#080c12;--surface:#111827;--border:rgba(255,255,255,.07);--text:#e8edf5;--text2:#9baab9;--text3:#4d5e72;--card-bg:rgba(255,255,255,.03);--card-bdr:rgba(255,255,255,.07);--badge-bg:rgba(255,255,255,.05);--btn-inner:#080c12;}
+    @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080c12;--surface:#111827;--border:rgba(255,255,255,.07);--text:#e8edf5;--text2:#9baab9;--text3:#4d5e72;--card-bg:rgba(255,255,255,.03);--card-bdr:rgba(255,255,255,.07);--badge-bg:rgba(255,255,255,.05);--btn-inner:#080c12;}}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:2rem 1rem;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3{font-family:'Outfit',sans-serif;}
+    .wrap{max-width:720px;margin:0 auto;}
+    .back-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--text3);text-decoration:none;margin-bottom:1.5rem;transition:color .15s;}
+    .back-link:hover{color:var(--text);}
+
+    /* Stat bar */
+    .stat-bar{display:flex;gap:.65rem;margin-bottom:1.75rem;}
+    .stat-chip{flex:1;text-align:center;padding:.75rem .5rem;border-radius:.875rem;border:1px solid var(--border);}
+    .stat-chip .num{font-size:1.5rem;font-weight:900;line-height:1;margin-bottom:.2rem;}
+    .stat-chip .lbl{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);}
+
+    /* Q card */
+    .q-card{
+      display:block;text-decoration:none;
+      background:var(--card-bg);border:1px solid var(--card-bdr);border-radius:1rem;
+      padding:1.1rem 1.25rem;margin-bottom:.65rem;
+      transition:border-color .2s,box-shadow .2s,transform .2s;
+      position:relative;overflow:hidden;
+    }
+    .q-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:1rem 0 0 1rem;}
+    .q-card.answered::before{background:linear-gradient(180deg,#10b981,#059669);}
+    .q-card.pending::before{background:linear-gradient(180deg,#f59e0b,#d97706);}
+    .q-card:hover{transform:translateY(-1px);border-color:rgba(16,185,129,.2);box-shadow:0 6px 24px rgba(16,185,129,.08);}
+
+    .q-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-bottom:.5rem;}
+    .q-status{display:inline-flex;align-items:center;gap:.2rem;padding:.12rem .5rem;border-radius:999px;font-size:.64rem;font-weight:700;}
+    .q-status.answered{background:rgba(16,185,129,.08);color:#10b981;border:1px solid rgba(16,185,129,.2);}
+    .q-status.pending{background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.2);}
+    .q-title{font-size:.95rem;font-weight:700;line-height:1.45;color:var(--text);margin-bottom:.4rem;}
+    .q-snippet{font-size:.78rem;color:var(--text2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;padding:.45rem .75rem;border-left:2.5px solid #10b981;border-radius:0 .4rem .4rem 0;background:rgba(16,185,129,.04);margin-top:.4rem;}
+    .q-footer{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-top:.65rem;padding-top:.6rem;border-top:1px solid var(--border);font-size:.7rem;color:var(--text3);}
+
+    /* Empty state */
+    .empty-state{text-align:center;padding:4rem 2rem;border:1px dashed var(--border);border-radius:1rem;background:var(--card-bg);}
+
+    /* Ask button */
+    .btn-glow{position:relative;display:inline-flex;align-items:center;border-radius:999px;cursor:pointer;text-decoration:none;border:none;background:none;padding:0;}
+    .btn-glow::before{content:'';position:absolute;inset:-1px;border-radius:999px;background:linear-gradient(135deg,#34d399,#818cf8);opacity:.85;filter:blur(4px);transition:opacity .2s;}
+    .btn-glow:hover::before{opacity:1;}
+    .btn-glow>span{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;background:var(--btn-inner);color:#fff;padding:.55rem 1.25rem;border-radius:999px;font-weight:700;font-size:.85rem;font-family:'DM Sans',sans-serif;}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .q-card{animation:fadeUp .3s ease both;}
+    .q-card:nth-child(1){animation-delay:.02s;}
+    .q-card:nth-child(2){animation-delay:.05s;}
+    .q-card:nth-child(3){animation-delay:.08s;}
+    .q-card:nth-child(n+4){animation-delay:.11s;}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="{% if lang == 'en' %}/question-and-answer/{% else %}/soru-cevap/{% endif %}" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/></svg>
+    {% if lang == 'en' %}Back to Forum{% else %}Foruma Dön{% endif %}
+  </a>
+
+  <!-- Header -->
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;">
+    <div>
+      <h1 style="font-size:1.55rem;font-weight:900;margin-bottom:.3rem;">
+        {% if lang == 'en' %}My <span style="color:#10b981;">Questions</span>{% else %}Benim <span style="color:#10b981;">Sorularım</span>{% endif %}
+      </h1>
+      <p style="font-size:.82rem;color:var(--text3);">
+        {% if lang == 'en' %}Questions you've submitted to the forum{% else %}Foruma gönderdiğiniz sorular{% endif %}
+      </p>
+    </div>
+    <a href="{% if lang == 'en' %}/question-and-answer/sorular/#soru-sor{% else %}/soru-cevap/sorular/#soru-sor{% endif %}" class="btn-glow">
+      <span>{% if lang == 'en' %}+ Ask New{% else %}+ Yeni Soru{% endif %}</span>
+    </a>
+  </div>
+
+  <!-- Stat bar -->
+  {% if questions %}
+  <div class="stat-bar">
+    <div class="stat-chip" style="background:rgba(99,102,241,.05);border-color:rgba(99,102,241,.15);">
+      <div class="num" style="color:#6366f1;">{{ questions|length }}</div>
+      <div class="lbl">{% if lang == 'en' %}Total{% else %}Toplam{% endif %}</div>
+    </div>
+    <div class="stat-chip" style="background:rgba(16,185,129,.05);border-color:rgba(16,185,129,.15);">
+      <div class="num" style="color:#10b981;">{{ answered_count }}</div>
+      <div class="lbl">{% if lang == 'en' %}Answered{% else %}Cevaplanan{% endif %}</div>
+    </div>
+    <div class="stat-chip" style="background:rgba(245,158,11,.05);border-color:rgba(245,158,11,.15);">
+      <div class="num" style="color:#f59e0b;">{{ pending_count }}</div>
+      <div class="lbl">{% if lang == 'en' %}Pending{% else %}Bekleyen{% endif %}</div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Soru listesi -->
+  {% for q in questions %}
+  <a href="{{ q.get_absolute_url }}" class="q-card {% if q.answer %}answered{% else %}pending{% endif %}">
+
+    <div class="q-meta">
+      <span class="q-status {% if q.answer %}answered{% else %}pending{% endif %}">
+        {% if q.answer %}✓ {% if lang == 'en' %}Answered{% else %}Cevaplandı{% endif %}{% else %}⏳ {% if lang == 'en' %}Pending{% else %}Bekliyor{% endif %}{% endif %}
+      </span>
+      <time style="font-size:.68rem;color:var(--text3);" datetime="{{ q.created_at|date:'Y-m-d' }}">
+        📅 {{ q.created_at|date:"d M Y" }}
+      </time>
+      {% with cc=q.comments.count %}
+      {% if cc %}
+      <span style="font-size:.68rem;color:var(--text3);">💬 {{ cc }}</span>
+      {% endif %}
+      {% endwith %}
+      <span style="margin-left:auto;font-size:.72rem;font-weight:700;color:#10b981;">
+        {% if lang == 'en' %}View →{% else %}Görüntüle →{% endif %}
+      </span>
+    </div>
+
+    <div class="q-title">{{ q.display_title }}</div>
+
+    {% if q.answer %}
+    <div class="q-snippet">
+      <span style="font-size:.63rem;font-weight:800;color:#10b981;margin-right:.3rem;">Dr.:</span>{{ q.answer|striptags|truncatewords:20 }}
+    </div>
+    {% endif %}
+
+  </a>
+  {% empty %}
+  <div class="empty-state">
+    <div style="font-size:3rem;margin-bottom:1rem;">💬</div>
+    <h2 style="font-size:1.1rem;font-weight:800;margin-bottom:.4rem;">
+      {% if lang == 'en' %}No questions yet{% else %}Henüz soru yok{% endif %}
+    </h2>
+    <p style="font-size:.82rem;color:var(--text3);margin-bottom:1.5rem;line-height:1.6;">
+      {% if lang == 'en' %}You haven't asked any questions yet. Ask one now!{% else %}Henüz hiç soru sormadınız. İlk sorunuzu gönderin!{% endif %}
+    </p>
+    <a href="{% if lang == 'en' %}/question-and-answer/sorular/#soru-sor{% else %}/soru-cevap/sorular/#soru-sor{% endif %}" class="btn-glow">
+      <span>{% if lang == 'en' %}Ask a Question{% else %}Soru Sor{% endif %}</span>
+    </a>
+  </div>
+  {% endfor %}
+
+</div>
+</body>
+</html>

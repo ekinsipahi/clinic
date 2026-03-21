@@ -1,0 +1,896 @@
+<!--home.html-->
+{% extends "soru_cevap/base.html" %}
+{% load static %}
+
+{% block title %}
+{% if language == 'tr' %}
+Diş Hekimine Ücretsiz Soru Sor — Dişçiye Sorulacak Sorular | Dr. Devrim Dental Forum
+{% else %}
+Ask a Dentist Free Online — Dentist Questions and Answers | Dr. Devrim Dental Forum
+{% endif %}
+{% endblock %}
+
+{% block meta_description %}
+{% if language == 'tr' %}
+Diş hekimine ücretsiz soru sorun. İmplant, laminat, diş teli, diş eti ve daha fazlası için dişçiye sorulacak sorular ve uzman cevaplar. Dişçiye ne sormalı? Hepsini burada bulun.
+{% else %}
+Ask a dentist online for free. Get answers to your dentist questions about implants, veneers, braces, crowns, and more. The easiest way to ask a dentist a question — no appointment needed.
+{% endif %}
+{% endblock %}
+
+{% block hreflang %}
+<link rel="alternate" hreflang="tr" href="{{ request.scheme }}://{{ request.get_host }}/soru-cevap/">
+<link rel="alternate" hreflang="en" href="{{ request.scheme }}://{{ request.get_host }}/question-and-answer/">
+<link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}/soru-cevap/">
+{% endblock %}
+
+{% block json_ld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "name": "{% if language == 'tr' %}Diş Hekimine Ücretsiz Soru Sor — Dr. Devrim Dental Forum{% else %}Ask a Dentist Free Online — Dr. Devrim Dental Forum{% endif %}",
+  "description": "{% if language == 'tr' %}Uzman diş hekimine ücretsiz soru sorun. İmplant, laminat, diş teli, taç, diş eti için sorular ve cevaplar.{% else %}Ask a dentist a question online for free. Dentist questions and answers about implants, veneers, braces, crowns, dentures and oral health.{% endif %}",
+  "url": "{{ request.build_absolute_uri }}",
+  "inLanguage": "{{ language }}",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Dr. Devrim Dental Forum",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ request.scheme }}://{{ request.get_host }}{{ qa_prefix }}/sorular/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["#platform-headline", "#platform-description"]
+  }
+}
+</script>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+  .hero-line {
+    background: linear-gradient(90deg, #10b981, #6366f1);
+    height: 2px;
+    width: 48px;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-bdr);
+    border-radius: .875rem;
+    padding: 1.1rem 1.25rem;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .stat-card:hover {
+    border-color: rgba(16,185,129,.3);
+    box-shadow: 0 4px 16px rgba(16,185,129,.07);
+  }
+  .topic-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .35rem .75rem;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 600;
+    border: 1px solid var(--card-bdr);
+    background: var(--card-bg);
+    color: var(--text2);
+    text-decoration: none;
+    transition: all .15s;
+    cursor: pointer;
+  }
+  .topic-pill:hover {
+    border-color: rgba(16,185,129,.4);
+    color: #10b981;
+    background: rgba(16,185,129,.06);
+  }
+  .article-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: all .15s;
+  }
+  .article-row:last-child { border-bottom: none; }
+  .article-row:hover .article-row-title { color: #10b981; }
+  .q-row {
+    padding: .85rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    display: block;
+    transition: all .12s;
+  }
+  .q-row:last-child { border-bottom: none; }
+  .q-row:hover .q-row-title { color: #10b981; }
+  .info-block {
+    background: var(--card-bg);
+    border: 1px solid var(--card-bdr);
+    border-radius: .875rem;
+    padding: 1.5rem 1.75rem;
+  }
+  .info-block h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: .6rem;
+    color: var(--text);
+  }
+  .info-block p {
+    font-size: .875rem;
+    line-height: 1.75;
+    color: var(--text2);
+  }
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    padding: .75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .feature-item:last-child { border-bottom: none; }
+  .feature-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    background: rgba(16,185,129,.08);
+    border: 1px solid rgba(16,185,129,.15);
+  }
+  .cta-box {
+    background: linear-gradient(135deg, rgba(16,185,129,.06), rgba(99,102,241,.06));
+    border: 1px solid rgba(16,185,129,.2);
+    border-radius: .875rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .score-hot {
+    display: inline-flex;
+    align-items: center;
+    gap: .2rem;
+    font-size: .62rem;
+    font-weight: 700;
+    padding: .1rem .4rem;
+    border-radius: 999px;
+    background: rgba(239,68,68,.1);
+    color: #ef4444;
+    border: 1px solid rgba(239,68,68,.2);
+  }
+  /* ── Soru kategorileri grid ── */
+  .ask-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: .5rem;
+  }
+  .ask-category-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .65rem .875rem;
+    border-radius: .75rem;
+    border: 1px solid var(--card-bdr);
+    background: var(--card-bg);
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--text2);
+    text-decoration: none;
+    transition: all .15s;
+    cursor: pointer;
+  }
+  .ask-category-item:hover {
+    border-color: rgba(16,185,129,.35);
+    color: #10b981;
+    background: rgba(16,185,129,.05);
+    transform: translateY(-1px);
+  }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up   { animation: fadeUp .35s ease both; }
+  .fade-up-2 { animation: fadeUp .35s .06s ease both; }
+  .fade-up-3 { animation: fadeUp .35s .12s ease both; }
+  .fade-up-4 { animation: fadeUp .35s .18s ease both; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if request.GET.asked %}
+  {% if request.GET.pending %}
+  <div style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;border-radius:.875rem;
+              background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);margin-bottom:1.25rem;" class="fade-up">
+    <span style="font-size:1.25rem;">⏳</span>
+    <p style="font-size:.875rem;font-weight:600;color:#f59e0b;">
+      {% if language == 'tr' %}Sorunuz alındı, kısa sürede incelendikten sonra yayınlanacak.{% else %}Question received and will be published after a quick review.{% endif %}
+    </p>
+  </div>
+  {% else %}
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;
+              padding:1rem 1.25rem;border-radius:.875rem;
+              background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);margin-bottom:1.25rem;" class="fade-up">
+    <div style="display:flex;align-items:center;gap:.75rem;">
+      <span style="font-size:1.25rem;">✅</span>
+      <p style="font-size:.875rem;font-weight:600;color:#10b981;">
+        {% if language == 'tr' %}Sorunuz yapay zeka tarafından onaylandı ve anında yayınlandı!{% else %}Your question was reviewed by AI and published instantly!{% endif %}
+      </p>
+    </div>
+    <a href="{{ qa_prefix }}/sorular/"
+       style="display:inline-flex;align-items:center;gap:.4rem;padding:.4rem 1rem;border-radius:999px;
+              font-size:.78rem;font-weight:700;text-decoration:none;color:#fff;
+              background:linear-gradient(135deg,#10b981,#059669);white-space:nowrap;transition:opacity .15s;"
+       onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      {% if language == 'tr' %}Soruyu Görüntüle →{% else %}View Question →{% endif %}
+    </a>
+  </div>
+  {% endif %}
+{% endif %}
+
+{% if request.GET.rejected %}
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;
+            padding:1rem 1.25rem;border-radius:.875rem;
+            background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);margin-bottom:1.25rem;" class="fade-up">
+  <div style="display:flex;align-items:center;gap:.75rem;">
+    <span style="font-size:1.25rem;">🚫</span>
+    <p style="font-size:.875rem;font-weight:600;color:#ef4444;">
+      {% if language == 'tr' %}İçeriğiniz forum kurallarına uymadığı için yayınlanamadı.{% else %}Your content could not be published as it doesn't meet forum guidelines.{% endif %}
+    </p>
+  </div>
+  <a href="#soru-sor"
+     style="display:inline-flex;align-items:center;gap:.4rem;padding:.4rem 1rem;border-radius:999px;
+            font-size:.78rem;font-weight:700;text-decoration:none;color:#fff;
+            background:linear-gradient(135deg,#ef4444,#dc2626);white-space:nowrap;transition:opacity .15s;"
+     onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+    {% if language == 'tr' %}Tekrar Dene →{% else %}Try Again →{% endif %}
+  </a>
+</div>
+{% endif %}
+
+<div style="display:grid; grid-template-columns:1fr; gap:1.75rem;" class="home-grid">
+<style>
+  @media (min-width:1024px) { .home-grid { grid-template-columns: 1fr 320px !important; } }
+</style>
+
+<div style="min-width:0; display:flex; flex-direction:column; gap:1.75rem;">
+
+  <div class="fade-up" style="padding: 2rem 0 .5rem;">
+    <div class="hero-line"></div>
+
+    <div style="display:inline-flex; align-items:center; gap:.5rem; margin-bottom:.875rem;
+                padding:.25rem .75rem; border-radius:999px;
+                background:rgba(16,185,129,.08); border:1px solid rgba(16,185,129,.2);">
+      <span style="display:inline-block; width:.5rem; height:.5rem; border-radius:50%;
+                   background:#10b981; animation:pulse 2s infinite;"></span>
+      <span style="font-size:.72rem; font-weight:700; color:#10b981; letter-spacing:.06em; text-transform:uppercase;">
+        {% if language == 'tr' %}Uzman Yanıtları Canlı{% else %}Live Expert Answers{% endif %}
+      </span>
+    </div>
+    <style>@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }</style>
+
+    <h1 id="platform-headline"
+        style="font-size:clamp(1.6rem, 4vw, 2.4rem); font-weight:900; line-height:1.2;
+               letter-spacing:-.02em; margin-bottom:1rem; color:var(--text);">
+      {% if language == 'tr' %}
+        Diş Hekimine<br>
+        <span style="background:linear-gradient(90deg,#10b981,#6366f1); -webkit-background-clip:text;
+                     -webkit-text-fill-color:transparent; background-clip:text;">
+          Ücretsiz Soru Sorun
+        </span>
+      {% else %}
+        Ask a Dentist a Question —<br>
+        <span style="background:linear-gradient(90deg,#10b981,#6366f1); -webkit-background-clip:text;
+                     -webkit-text-fill-color:transparent; background-clip:text;">
+          Free, Online, Instantly
+        </span>
+      {% endif %}
+    </h1>
+
+    <p id="platform-description"
+       style="font-size:1rem; line-height:1.75; max-width:560px; margin-bottom:1.5rem; color:var(--text2);">
+      {% if language == 'tr' %}
+        <strong style="color:var(--text);">Dr. Devrim Dental Forum</strong>, Türkiye'nin
+        en kapsamlı <strong style="color:var(--text);">diş hekimi soru cevap</strong> platformudur.
+        İmplant, laminat, diş teli, taç veya diş ağrısı için <strong>dişçiye ne sormalı</strong>
+        diye düşünüyorsanız — sertifikalı uzman hekimimiz burada, ücretsiz cevaplıyor.
+      {% else %}
+        <strong style="color:var(--text);">Dr. Devrim Dental Forum</strong> is the easiest way to
+        <strong style="color:var(--text);">ask a dentist online for free</strong>.
+        Whether you have questions to ask your dentist about braces, crowns, implants, or veneers —
+        get real <strong>dentist questions and answers</strong> without booking an appointment.
+      {% endif %}
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:.75rem; align-items:center;">
+      <a href="{{ qa_prefix }}/sorular/" class="btn-glow">
+        <span style="padding:.5rem 1.25rem; font-size:.875rem;">
+          {% if language == 'tr' %}Cevaplanan Sorulara Bak{% else %}Browse Answered Questions{% endif %}
+          →
+        </span>
+      </a>
+      <a href="#soru-sor"
+         style="display:inline-flex; align-items:center; gap:.4rem; padding:.5rem 1.1rem;
+                border-radius:999px; font-size:.875rem; font-weight:600; text-decoration:none;
+                border:1px solid var(--border); color:var(--text2); transition:all .15s;"
+         onmouseover="this.style.borderColor='rgba(16,185,129,.4)'; this.style.color='#10b981';"
+         onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text2)';">
+        ❓ {% if language == 'tr' %}Dişçiye Soru Sor{% else %}Ask a Dentist Now{% endif %}
+      </a>
+    </div>
+  </div>
+
+
+  <div class="fade-up-2" style="display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem;">
+    <div class="stat-card">
+      <div style="font-size:1.5rem; font-weight:900; color:#10b981; line-height:1;">{{ article_count|default:"50+" }}</div>
+      <div style="font-size:.72rem; font-weight:600; margin-top:.2rem; color:var(--text3); text-transform:uppercase; letter-spacing:.05em;">
+        {% if language == 'tr' %}Makale{% else %}Expert Articles{% endif %}
+      </div>
+    </div>
+    <div class="stat-card">
+      <div style="font-size:1.5rem; font-weight:900; color:#6366f1; line-height:1;">{{ question_count|default:"200+" }}</div>
+      <div style="font-size:.72rem; font-weight:600; margin-top:.2rem; color:var(--text3); text-transform:uppercase; letter-spacing:.05em;">
+        {% if language == 'tr' %}Soru Cevaplandı{% else %}Questions Answered Free{% endif %}
+      </div>
+    </div>
+    <div class="stat-card">
+      <div style="font-size:1.5rem; font-weight:900; line-height:1;">🦷</div>
+      <div style="font-size:.72rem; font-weight:600; margin-top:.2rem; color:var(--text3); text-transform:uppercase; letter-spacing:.05em;">
+        {% if language == 'tr' %}Sertifikalı Uzman{% else %}Certified Dentist{% endif %}
+      </div>
+    </div>
+  </div>
+
+
+  <div class="fade-up-2">
+    <p style="font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+              margin-bottom:.5rem; color:var(--text3);">
+      {% if language == 'tr' %}Dişçiye Sorulabilecek Konular{% else %}What to Ask Your Dentist About{% endif %}
+    </p>
+    <p style="font-size:.75rem; color:var(--text3); margin-bottom:.875rem; line-height:1.5;">
+      {% if language == 'tr' %}
+        Hangi konuda yardıma ihtiyacınız var? Konuya tıklayın, uzman cevaplarına ulaşın.
+      {% else %}
+        Not sure what questions to ask your dentist? Pick a topic and find answers instantly.
+      {% endif %}
+    </p>
+    <div class="ask-category-grid">
+      {% if language == 'tr' %}
+      <a href="{{ qa_prefix }}/makaleler/?tag=implant" class="ask-category-item">🦷 İmplant Soruları</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=laminat" class="ask-category-item">✨ Laminat Veneer</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=dis-teli" class="ask-category-item">📎 Diş Teli Soruları</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=dis-beyazlatma" class="ask-category-item">🌟 Diş Beyazlatma</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=dis-taci" class="ask-category-item">👑 Taç / Kron Soruları</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=protez" class="ask-category-item">🦷 Protez Soruları</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=zirkonyum" class="ask-category-item">💎 Zirkonyum</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=dis-eti" class="ask-category-item">🪥 Diş Eti Hastalığı</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=kanal" class="ask-category-item">🔬 Kanal Tedavisi</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=invisalign" class="ask-category-item">📐 Invisalign Soruları</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=dis-agrisi" class="ask-category-item">😣 Diş Ağrısı</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=dis-cekimi" class="ask-category-item">💊 Diş Çekimi</a>
+      {% else %}
+      <a href="{{ qa_prefix }}/makaleler/?tag=implant" class="ask-category-item">🦷 Implant Questions</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=veneers" class="ask-category-item">✨ Veneer Questions</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=braces" class="ask-category-item">📎 Questions About Braces</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=whitening" class="ask-category-item">🌟 Teeth Whitening</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=crowns" class="ask-category-item">👑 Questions About Crowns</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=dentures" class="ask-category-item">🦷 Questions About Dentures</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=invisalign" class="ask-category-item">📐 Invisalign Questions</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=gum" class="ask-category-item">🪥 Gum Disease</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=root-canal" class="ask-category-item">🔬 Root Canal</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=composite" class="ask-category-item">🎨 Composite Bonding</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=pain" class="ask-category-item">😣 Tooth Pain</a>
+      <a href="{{ qa_prefix }}/makaleler/?tag=extraction" class="ask-category-item">💊 Extraction Questions</a>
+      {% endif %}
+    </div>
+  </div>
+
+
+  <div class="fade-up-3">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+      <h2 style="font-size:.72rem; font-weight:700; text-transform:uppercase;
+                 letter-spacing:.08em; color:var(--text3);">
+        {% if language == 'tr' %}Uzman Diş Makaleleri{% else %}Expert Dental Articles{% endif %}
+      </h2>
+      <a href="{{ qa_prefix }}/makaleler/"
+         style="font-size:.75rem; font-weight:600; color:#10b981; text-decoration:none; transition:opacity .15s;"
+         onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+        {% if language == 'tr' %}Tümünü gör →{% else %}See all →{% endif %}
+      </a>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem;">
+      {% for article in articles %}
+      <a href="{{ article.get_absolute_url }}"
+         class="qa-card article-card"
+         style="display:flex; flex-direction:column; overflow:hidden; text-decoration:none; transition:transform .2s, box-shadow .2s;"
+         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 30px rgba(16,185,129,.12)'"
+         onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        {% if article.featured_image %}
+        <div style="position:relative; height:160px; overflow:hidden; flex-shrink:0;">
+          <img src="{{ article.featured_image }}" alt="{{ article.title }}"
+               style="width:100%; height:100%; object-fit:cover; transition:transform .3s;"
+               onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform=''">
+          <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%); pointer-events:none;"></div>
+          {% with atags=article.tags.all %}{% if atags %}
+          <div style="position:absolute; bottom:.5rem; left:.6rem; display:flex; flex-wrap:wrap; gap:.25rem;">
+            {% for tag in atags|slice:":2" %}
+            <span style="font-size:.6rem; font-weight:700; padding:.15rem .45rem; border-radius:999px;
+                         background:rgba(0,0,0,.55); color:#fff; backdrop-filter:blur(4px);
+                         border:1px solid rgba(255,255,255,.15);">{{ tag.icon }} {{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}{% endwith %}
+        </div>
+        {% else %}
+        <div style="height:100px; flex-shrink:0; background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(99,102,241,.12));
+                    display:flex; align-items:center; justify-content:center; position:relative;">
+          <span style="font-size:2rem; opacity:.5;">🦷</span>
+          {% with atags=article.tags.all %}{% if atags %}
+          <div style="position:absolute; bottom:.4rem; left:.5rem; display:flex; flex-wrap:wrap; gap:.2rem;">
+            {% for tag in atags|slice:":2" %}
+            <span style="font-size:.58rem; font-weight:700; padding:.12rem .4rem; border-radius:999px;
+                         background:rgba(16,185,129,.15); color:#10b981;
+                         border:1px solid rgba(16,185,129,.25);">{{ tag.icon }} {{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}{% endwith %}
+        </div>
+        {% endif %}
+        <div style="padding:1rem; flex:1; display:flex; flex-direction:column; gap:.5rem;">
+          <h3 style="font-size:.9rem; font-weight:700; line-height:1.45; color:var(--text);
+                     overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+                     transition:color .15s;"
+              onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">
+            {{ article.title }}
+          </h3>
+          <p style="font-size:.75rem; line-height:1.6; color:var(--text2); flex:1;
+                    overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;">
+            {{ article.seo_description|default:article.content|striptags|truncatewords:18 }}
+          </p>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; padding-top:.4rem;
+                      border-top:1px solid var(--border);">
+            <span style="font-size:.65rem; color:var(--text3);">👁 {{ article.view_count }}</span>
+            {% with ar=article.get_avg_rating %}{% if ar %}
+            <span style="font-size:.65rem; font-weight:600; color:#f59e0b;">⭐ {{ ar }}/5</span>
+            {% endif %}{% endwith %}
+            <span style="font-size:.65rem; color:var(--text3);">❓ {{ article.questions.count }}</span>
+            <span style="margin-left:auto; font-size:.65rem; font-weight:700; color:#10b981;">
+              {% if language == 'tr' %}Oku →{% else %}Read →{% endif %}
+            </span>
+          </div>
+        </div>
+      </a>
+      {% empty %}
+      <div style="grid-column:1/-1; text-align:center; padding:3rem 0; color:var(--text3);">
+        <div style="font-size:2rem; margin-bottom:.5rem;">📝</div>
+        <p style="font-size:.85rem;">{% if language == 'tr' %}Henüz makale yok.{% else %}No articles yet.{% endif %}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  {% if recommended_articles %}
+  <div class="fade-up-4">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+      <div>
+        <h2 style="font-size:.72rem; font-weight:700; text-transform:uppercase;
+                   letter-spacing:.08em; color:var(--text3);">
+          {% if language == 'tr' %}✨ Sizin İçin Seçtik{% else %}✨ Picked For You{% endif %}
+        </h2>
+        <p style="font-size:.65rem; color:var(--text3); margin-top:.1rem;">
+          {% if language == 'tr' %}İlgi alanlarınıza göre{% else %}Based on your reading history{% endif %}
+        </p>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.75rem;">
+      {% for rec in recommended_articles %}
+      <a href="{{ rec.get_absolute_url }}" class="qa-card"
+         style="display:flex; gap:.75rem; align-items:flex-start; padding:.875rem; text-decoration:none;
+                transition:transform .18s, box-shadow .18s;"
+         onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(16,185,129,.1)'"
+         onmouseout="this.style.transform=''; this.style.boxShadow=''">
+        <div style="flex-shrink:0; width:1.8rem; height:1.8rem; border-radius:.45rem;
+                    display:flex; align-items:center; justify-content:center;
+                    font-size:.65rem; font-weight:800;
+                    background:{% if forloop.counter == 1 %}rgba(16,185,129,.12){% else %}var(--badge-bg){% endif %};
+                    color:{% if forloop.counter == 1 %}#10b981{% else %}var(--text3){% endif %};
+                    border:1px solid {% if forloop.counter == 1 %}rgba(16,185,129,.2){% else %}var(--border){% endif %};">
+          {{ forloop.counter }}
+        </div>
+        <div style="flex:1; min-width:0;">
+          <p style="font-size:.8rem; font-weight:600; line-height:1.4; color:var(--text);
+                    overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; margin-bottom:.3rem;">
+            {{ rec.title }}
+          </p>
+          {% with rec_tags=rec.tags.all %}{% if rec_tags %}
+          <div style="display:flex; flex-wrap:wrap; gap:.2rem; margin-bottom:.25rem;">
+            {% for tag in rec_tags|slice:":2" %}
+            <span style="font-size:.58rem; padding:.1rem .35rem; border-radius:999px;
+                         background:rgba(99,102,241,.08); color:#818cf8;
+                         border:1px solid rgba(99,102,241,.15);">{{ tag.icon }} {{ tag.name }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}{% endwith %}
+          <div style="display:flex; gap:.4rem; align-items:center;">
+            <span style="font-size:.62rem; color:var(--text3);">👁 {{ rec.view_count }}</span>
+            {% with rar=rec.get_avg_rating %}{% if rar %}
+            <span style="font-size:.62rem; color:#f59e0b;">⭐ {{ rar }}</span>
+            {% endif %}{% endwith %}
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+
+  <div class="fade-up-4 info-block">
+
+    {% if language == 'tr' %}
+    <h2>Dişçiye Nasıl Soru Sorulur? Dr. Devrim Dental Forum</h2>
+    <p>
+      <strong>Dr. Devrim Dental Forum</strong>, Türkiye'de <strong>dişçiye ücretsiz soru sormanın</strong>
+      en kolay yoludur. İmplant mı düşünüyorsunuz, <strong>diş teli için dişçiye ne sormalısınız</strong>
+      ya da <strong>laminat hakkında sorularınız</strong> mı var? Forumumuzda sertifikalı diş hekimi
+      doğrudan cevaplıyor — randevusuz, ücretsiz.
+    </p>
+    <p style="margin-top:.75rem;">
+      <strong>Dişçiye sorulacak sorular</strong> için doğru yerdesiniz. Binlerce onaylı
+      <strong>diş hekimi soru cevap</strong> içeriği arasından kendi durumunuza en yakın soruları
+      bulun ya da hemen yeni bir soru gönderin.
+    </p>
+
+    <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--border);">
+      <div class="feature-item">
+        <div class="feature-icon">🩺</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Sertifikalı Diş Hekimi Cevabı</div>
+          <div style="font-size:.78rem; color:var(--text2);">Tüm cevaplar sertifikalı diş hekimi tarafından yazılır veya onaylanır. Tahmin değil, gerçek tıbbi bilgi.</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Gizliliğiniz Korunur</div>
+          <div style="font-size:.78rem; color:var(--text2);">E-posta adresiniz ve kişisel bilgileriniz asla herkese açık gösterilmez.</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📅</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Randevu Almadan Önce Sorun</div>
+          <div style="font-size:.78rem; color:var(--text2);">Kliniğe gelmeden önce aklınızdaki soruları netleştirin. Bilgili hasta, tedaviden çok daha fazla verim alır.</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💬</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Topluluk Deneyimi</div>
+          <div style="font-size:.78rem; color:var(--text2);">Binlerce hasta aynı soruları sordu. Kendi durumunuza benzer cevapları okuyun, deneyimlerden öğrenin.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.25rem; padding:.875rem; border-radius:.75rem;
+                background:rgba(99,102,241,.04); border:1px solid rgba(99,102,241,.12);">
+      <p style="font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+                color:var(--text3); margin-bottom:.5rem;">Sık Sorulan Konular</p>
+      <div style="display:flex; flex-wrap:wrap; gap:.35rem;">
+        <a href="{{ qa_prefix }}/makaleler/?tag=dis-teli" class="topic-pill">📎 Diş Teli için Dişçiye Sorular</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=dis-taci" class="topic-pill">👑 Kron için Dişçiye Sorular</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=protez" class="topic-pill">🦷 Protez için Dişçiye Sorular</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=invisalign" class="topic-pill">📐 Invisalign Soruları</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=dis-beyazlatma" class="topic-pill">🌟 Diş Beyazlatma</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=implant" class="topic-pill">🦷 İmplant Soruları</a>
+      </div>
+    </div>
+
+    {% else %}
+
+    <h2>How to Ask a Dentist a Question Online — For Free</h2>
+    <p>
+      <strong>Dr. Devrim Dental Forum</strong> is the simplest way to
+      <strong>ask a dentist online free</strong>. Whether you want to know
+      <strong>what questions to ask your dentist about braces</strong>, need to understand
+      <strong>questions to ask about dental crowns</strong>, or you're wondering
+      <strong>how to ask your dentist for teeth whitening</strong> — our certified dentist
+      answers directly, no appointment needed.
+    </p>
+    <p style="margin-top:.75rem;">
+      Thousands of patients have already used our platform to get
+      <strong>dentist questions and answers for free</strong> before their appointments.
+      Browse existing answers or submit your own question — it takes less than a minute.
+    </p>
+
+    <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--border);">
+      <div class="feature-item">
+        <div class="feature-icon">🩺</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Certified Dentist Answers</div>
+          <div style="font-size:.78rem; color:var(--text2);">All answers written or verified by a licensed dentist. No guesswork — real medical knowledge you can trust.</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Your Privacy is Protected</div>
+          <div style="font-size:.78rem; color:var(--text2);">Your email and personal details are never shown publicly. Ask anything — your identity stays private.</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📅</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Know What to Ask Before Your Appointment</div>
+          <div style="font-size:.78rem; color:var(--text2);">Not sure what questions to ask your dentist? Browse our library and walk into your appointment prepared.</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💬</div>
+        <div>
+          <div style="font-size:.85rem; font-weight:700; color:var(--text); margin-bottom:.15rem;">Real Community, Real Answers</div>
+          <div style="font-size:.78rem; color:var(--text2);">Thousands of patients asked the same questions. Find answers that match your situation, or ask your own.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.25rem; padding:.875rem; border-radius:.75rem;
+                background:rgba(99,102,241,.04); border:1px solid rgba(99,102,241,.12);">
+      <p style="font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+                color:var(--text3); margin-bottom:.5rem;">Popular Dentist Questions</p>
+      <div style="display:flex; flex-wrap:wrap; gap:.35rem;">
+        <a href="{{ qa_prefix }}/makaleler/?tag=braces"    class="topic-pill">📎 Questions About Braces</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=crowns"    class="topic-pill">👑 Questions About Crowns</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=dentures"  class="topic-pill">🦷 Questions About Dentures</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=invisalign" class="topic-pill">📐 Invisalign Questions</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=whitening" class="topic-pill">🌟 Teeth Whitening Questions</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=implant"   class="topic-pill">🦷 Implant Questions</a>
+        <a href="{{ qa_prefix }}/makaleler/?tag=referral"  class="topic-pill">📋 How to Ask for a Referral</a>
+      </div>
+    </div>
+
+    {% endif %}
+  </div>
+
+
+  <div class="fade-up-4 cta-box">
+    <div style="font-size:1.5rem; margin-bottom:.5rem;">🦷</div>
+    <h3 style="font-size:1rem; font-weight:800; color:var(--text); margin-bottom:.4rem;">
+      {% if language == 'tr' %}
+        Sorunuzu Sormakla Kalmayın — Muayeneye Gelin
+      {% else %}
+        Ready to Do More Than Ask? Book a Free Consultation
+      {% endif %}
+    </h3>
+    <p style="font-size:.82rem; color:var(--text2); margin-bottom:1.1rem;
+              max-width:380px; margin-left:auto; margin-right:auto;">
+      {% if language == 'tr' %}
+        Forumda cevap bulmak harika bir başlangıç. Kalıcı çözüm için
+        Dr. Devrim Kliniği ile randevu alın — ilk muayene ücretsiz.
+      {% else %}
+        Asking your dentist a question here is a great first step.
+        For a real diagnosis and treatment plan, book at Dr. Devrim Clinic — first consultation free.
+      {% endif %}
+    </p>
+    <a href="/" class="btn-glow" style="display:inline-flex;">
+      <span style="padding:.5rem 1.25rem; font-size:.875rem;">
+        {% if language == 'tr' %}Randevu Al →{% else %}Book a Free Consultation →{% endif %}
+      </span>
+    </a>
+  </div>
+
+</div>
+
+
+<aside style="display:flex; flex-direction:column; gap:1.25rem;">
+
+  <div id="soru-sor" class="qa-card fade-up" style="padding:1.25rem; overflow:hidden;">
+    <div style="margin-bottom:1rem;">
+      <h2 style="font-size:.92rem; font-weight:800; color:var(--text); margin-bottom:.25rem;">
+        {% if language == 'tr' %}Dişçiye Ücretsiz Soru Sor{% else %}Ask a Dentist — Free{% endif %}
+      </h2>
+      <p style="font-size:.75rem; color:var(--text3); line-height:1.5;">
+        {% if language == 'tr' %}
+          Uzman diş hekimimiz onaylı soruları 1–3 iş günü içinde cevaplar.
+        {% else %}
+          Our certified dentist answers your dental questions within 1–3 business days. No cost, no appointment.
+        {% endif %}
+      </p>
+    </div>
+
+    {% if request.user.is_authenticated %}
+    <form method="POST" action="{{ qa_prefix }}/global-sor/"
+          style="display:flex; flex-direction:column; gap:.75rem;">
+      {% csrf_token %}
+      <div style="display:flex; align-items:center; gap:.5rem; padding:.5rem .75rem;
+                  border-radius:.625rem; background:rgba(16,185,129,.06);
+                  border:1px solid rgba(16,185,129,.18);">
+        <div style="width:1.75rem; height:1.75rem; border-radius:50%; flex-shrink:0;
+                    background:linear-gradient(135deg,#10b981,#6366f1);
+                    display:flex; align-items:center; justify-content:center;
+                    color:#fff; font-size:.72rem; font-weight:700;">
+          {{ user_display_name|slice:":1"|upper|default:"?" }}
+        </div>
+        <span style="font-size:.78rem; font-weight:600; color:var(--text);">{{ user_display_name }}</span>
+      </div>
+      <div>
+        <label style="display:block; font-size:.68rem; font-weight:700; text-transform:uppercase;
+                      letter-spacing:.06em; margin-bottom:.4rem; color:var(--text2);">
+          {% if language == 'tr' %}Konu{% else %}Topic{% endif %}
+          <span style="color:var(--text3); font-weight:400; text-transform:none; margin-left:.25rem;">({% if language == 'tr' %}opsiyonel{% else %}optional{% endif %})</span>
+        </label>
+        <input name="title" type="text" class="qa-input" maxlength="120"
+               placeholder="{% if language == 'tr' %}ör: İmplant sonrası ağrı…{% else %}e.g. Questions about my crown…{% endif %}">
+      </div>
+      <div>
+        <label style="display:block; font-size:.68rem; font-weight:700; text-transform:uppercase;
+                      letter-spacing:.06em; margin-bottom:.4rem; color:var(--text2);">
+          {% if language == 'tr' %}Sorunuz{% else %}Your Question{% endif %}
+        </label>
+        <textarea name="text" rows="4" required class="qa-input"
+          placeholder="{% if language == 'tr' %}Dişçiye sormak istediğiniz her şeyi yazın…{% else %}Ask the dentist anything — about braces, implants, pain, whitening…{% endif %}"></textarea>
+      </div>
+      <button type="submit" class="btn-glow" style="display:flex; width:100%;">
+        <span style="justify-content:center; font-size:.8rem; width:100%;">
+          {% if language == 'tr' %}Soruyu Gönder{% else %}Submit Your Question{% endif %}
+        </span>
+      </button>
+      <p style="font-size:.68rem; color:var(--text3); text-align:center; line-height:1.5;">
+        ℹ️ {% if language == 'tr' %}Sorunuz onay sonrası yayınlanır. E-postanız gizli tutulur.{% else %}Published after review. Your email stays private.{% endif %}
+      </p>
+    </form>
+
+    {% else %}
+    <div style="text-align:center; padding:.5rem 0;">
+      <div style="font-size:2rem; margin-bottom:.5rem;">❓</div>
+      <p style="font-size:.88rem; font-weight:700; margin-bottom:.3rem; color:var(--text);">
+        {% if language == 'tr' %}Dişçiye Ücretsiz Soru Sor{% else %}Ask a Dentist for Free{% endif %}
+      </p>
+      <p style="font-size:.75rem; margin-bottom:1rem; color:var(--text3); line-height:1.5;">
+        {% if language == 'tr' %}
+          Ücretsiz hesap oluşturun, uzman diş hekimine sorun.
+        {% else %}
+          Create a free account and ask your dentist a question online — no appointment needed.
+        {% endif %}
+      </p>
+      <div style="display:flex; flex-direction:column; gap:.5rem;">
+        <a href="/accounts/login/?next={{ request.path }}" class="btn-glow" style="display:flex;">
+          <span style="justify-content:center; font-size:.8rem; width:100%;">
+            {% if language == 'tr' %}Giriş Yap{% else %}Sign In to Ask{% endif %}
+          </span>
+        </a>
+        <a href="/accounts/register/"
+           style="display:flex; align-items:center; justify-content:center; padding:.45rem;
+                  border-radius:999px; font-size:.78rem; font-weight:600; border:1px solid var(--border);
+                  transition:all .15s; text-decoration:none; color:var(--text2);"
+           onmouseover="this.style.borderColor='rgba(16,185,129,.3)'; this.style.color='#10b981';"
+           onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text2)';">
+          {% if language == 'tr' %}Kayıt Ol (Ücretsiz){% else %}Register Free — Ask the Dentist{% endif %}
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+
+  <div class="qa-card fade-up-2" style="overflow:hidden;">
+    <div style="padding:.9rem 1.1rem .6rem; border-bottom:1px solid var(--border);
+                display:flex; align-items:center; justify-content:space-between;">
+      <div>
+        <h2 style="font-size:.72rem; font-weight:700; text-transform:uppercase;
+                   letter-spacing:.08em; color:var(--text3);">
+          {% if language == 'tr' %}🔥 Gündem Sorular{% else %}🔥 Trending Questions{% endif %}
+        </h2>
+        <p style="font-size:.65rem; color:var(--text3); margin-top:.1rem;">
+          {% if language == 'tr' %}En çok ilgi gören 5 soru{% else %}Most asked dentist questions this week{% endif %}
+        </p>
+      </div>
+      <a href="{{ qa_prefix }}/sorular/"
+         style="font-size:.7rem; font-weight:600; color:#10b981; text-decoration:none; white-space:nowrap;
+                padding:.2rem .5rem; border-radius:.35rem; background:rgba(16,185,129,.08); transition:opacity .15s;"
+         onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+        {% if language == 'tr' %}Tümü →{% else %}All Q&A →{% endif %}
+      </a>
+    </div>
+    <div style="padding:.25rem .5rem;">
+      {% for item in hot_questions %}
+      {% with q=item.question score=item.score %}
+      <a href="{{ q.get_absolute_url }}" class="q-row" style="padding:.875rem .6rem;">
+        <div style="display:flex; align-items:flex-start; gap:.6rem;">
+          <div style="flex-shrink:0; width:1.8rem; height:1.8rem; border-radius:50%;
+                      display:flex; align-items:center; justify-content:center;
+                      font-size:.72rem; font-weight:800; color:#fff;
+                      background:{% if forloop.counter == 1 %}linear-gradient(135deg,#f59e0b,#ef4444)
+                                  {% elif forloop.counter == 2 %}linear-gradient(135deg,#6366f1,#8b5cf6)
+                                  {% elif forloop.counter == 3 %}linear-gradient(135deg,#10b981,#059669)
+                                  {% else %}var(--badge-bg){% endif %};
+                      {% if forloop.counter > 3 %}color:var(--text3);{% endif %}">
+            {{ forloop.counter }}
+          </div>
+          <div style="flex:1; min-width:0;">
+            <p class="q-row-title"
+               style="font-size:.8rem; font-weight:600; line-height:1.45; color:var(--text);
+                      transition:color .12s; overflow:hidden; display:-webkit-box;
+                      -webkit-line-clamp:2; -webkit-box-orient:vertical; margin-bottom:.3rem;">
+              {{ q.display_title }}
+            </p>
+            <div style="display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;">
+              {% if q.answer %}
+              <span style="font-size:.62rem; font-weight:700; color:#10b981; padding:.1rem .4rem;
+                            border-radius:999px; background:rgba(16,185,129,.1); border:1px solid rgba(16,185,129,.2);">
+                ✓ {% if language == 'tr' %}Cevaplandı{% else %}Answered{% endif %}
+              </span>
+              {% endif %}
+              {% if q.votes > 0 %}
+              <span style="font-size:.62rem; color:var(--text3);">👍 {{ q.votes }}</span>
+              {% endif %}
+              {% if item.comment_count > 0 %}
+              <span style="font-size:.62rem; color:var(--text3);">💬 {{ item.comment_count }}</span>
+              {% endif %}
+              {% if score > 10 %}
+              <span class="score-hot">🔥 Hot</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </a>
+      {% endwith %}
+      {% empty %}
+      <div style="text-align:center; padding:2rem .5rem; color:var(--text3);">
+        <div style="font-size:1.5rem; margin-bottom:.4rem;">💬</div>
+        <p style="font-size:.78rem;">{% if language == 'tr' %}Henüz soru yok.{% else %}No questions yet. Be the first to ask!{% endif %}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <div class="qa-card fade-up-3" style="padding:.875rem 1.1rem; display:flex; gap:.6rem;">
+    <a href="/soru-cevap/"
+       style="flex:1; text-align:center; padding:.5rem; border-radius:.625rem; font-size:.75rem;
+              font-weight:600; text-decoration:none; transition:all .15s;
+              border:1px solid {% if language == 'tr' %}rgba(16,185,129,.35){% else %}var(--border){% endif %};
+              background:{% if language == 'tr' %}rgba(16,185,129,.08){% else %}transparent{% endif %};
+              color:{% if language == 'tr' %}#10b981{% else %}var(--text3){% endif %};">
+      🇹🇷 Türkçe
+    </a>
+    <a href="/question-and-answer/"
+       style="flex:1; text-align:center; padding:.5rem; border-radius:.625rem; font-size:.75rem;
+              font-weight:600; text-decoration:none; transition:all .15s;
+              border:1px solid {% if language == 'en' %}rgba(16,185,129,.35){% else %}var(--border){% endif %};
+              background:{% if language == 'en' %}rgba(16,185,129,.08){% else %}transparent{% endif %};
+              color:{% if language == 'en' %}#10b981{% else %}var(--text3){% endif %};">
+      🇬🇧 English
+    </a>
+  </div>
+
+</aside>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function(){
+  document.querySelectorAll('a[href="#soru-sor"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var target = document.getElementById('soru-sor');
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({top: top, behavior: 'smooth'});
+    });
+  });
+})();
+</script>
+{% endblock %}

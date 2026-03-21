@@ -3,6 +3,7 @@ from django.contrib.sitemaps import Sitemap
 from django.urls import reverse, get_resolver, URLPattern, URLResolver, NoReverseMatch
 from django.utils import timezone
 from blog.models import Post, Category
+from soru_cevap.models import Article, Question
 
 
 def _iter_urlpatterns(resolver=None, prefix=""):
@@ -187,3 +188,41 @@ class PostSitemap(Sitemap):
     def priority(self, obj: Post):
         age = (timezone.now() - obj.published_at).days
         return 1.0 if age <= 7 else (0.9 if age <= 30 else 0.8)
+
+
+from django.contrib.sitemaps import Sitemap
+from soru_cevap.models import Article
+
+class ForumArticleSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8
+    
+    def __init__(self, prefix):
+        self.prefix = prefix  # '/soru-cevap' veya '/question-and-answer'
+
+    def items(self):
+        lang = 'tr' if 'soru' in self.prefix else 'en'
+        return Article.objects.filter(is_published=True, language=lang)
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+    def location(self, obj):
+        return f'{self.prefix}/{obj.slug}/'
+
+
+class ForumQuestionSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.6
+
+    def __init__(self, prefix):
+        self.prefix = prefix
+
+    def items(self):
+        return Question.objects.filter(status='approved')
+
+    def lastmod(self, obj):
+        return obj.created_at
+
+    def location(self, obj):
+        return f'{self.prefix}/soru/{obj.id}/{obj.slug}/'

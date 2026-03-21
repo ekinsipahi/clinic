@@ -1,0 +1,249 @@
+<!--_rec_slider.html — v7 Collaborative Filtering Slider-->
+{% if recommended_articles %}
+<section class="qa-card fade-up-3" style="overflow:hidden; margin-top:1.5rem;" id="benzer-makaleler">
+
+  <div style="padding:1rem 1.5rem .75rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between;">
+    <div>
+      <h2 style="font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;" class="t-text">
+        {% if language == 'tr' %}🤝 Senin Gibi Okuyanlar Bunları da Beğendi{% else %}🤝 Readers Like You Also Enjoyed{% endif %}
+      </h2>
+      <p style="font-size:.65rem; margin-top:.15rem;" class="t-text3">
+        {% if language == 'tr' %}Okuma alışkanlıklarınıza göre kişisel seçim{% else %}Personalized picks based on your reading habits{% endif %}
+      </p>
+    </div>
+    <a href="{{ qa_prefix }}/makaleler/"
+       style="font-size:.72rem; font-weight:600; color:#10b981; text-decoration:none; white-space:nowrap; padding:.2rem .55rem; border-radius:.4rem; background:rgba(16,185,129,.08); transition:opacity .15s;"
+       onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+      {% if language == 'tr' %}Tümü →{% else %}All →{% endif %}
+    </a>
+  </div>
+
+  {# Slider wrapper #}
+  <div style="position:relative;">
+
+    {# Scroll container #}
+    <div id="rec-slider" style="
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 1rem 1.25rem 1rem;
+    ">
+      <style>#rec-slider::-webkit-scrollbar { display: none; }</style>
+
+      {% for rec in recommended_articles %}
+      <a href="{{ rec.get_absolute_url }}"
+         style="
+           flex: 0 0 calc(50% - .5rem);
+           scroll-snap-align: start;
+           border-radius: .75rem;
+           overflow: hidden;
+           text-decoration: none;
+           border: 1px solid var(--card-bdr);
+           background: var(--card-bg);
+           display: flex;
+           flex-direction: column;
+           transition: transform .2s, box-shadow .2s, border-color .2s;
+           min-width: 220px;
+           max-width: 290px;
+         "
+         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 28px rgba(16,185,129,.12)'; this.style.borderColor='rgba(16,185,129,.25)'"
+         onmouseout="this.style.transform=''; this.style.boxShadow=''; this.style.borderColor='var(--card-bdr)'">
+
+        {# Görsel #}
+        {% if rec.featured_image %}
+        <div style="height: 130px; overflow:hidden; flex-shrink:0; position:relative;">
+          <img src="{{ rec.featured_image }}"
+               alt="{{ rec.title }}"
+               loading="lazy"
+               style="width:100%; height:100%; object-fit:cover; transition:transform .3s;"
+               onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%);pointer-events:none;"></div>
+          {% with rtags=rec.tags.all %}{% if rtags %}
+          <div style="position:absolute;bottom:.4rem;left:.5rem;display:flex;gap:.2rem;flex-wrap:wrap;">
+            {% for tag in rtags|slice:":2" %}
+            <span style="font-size:.55rem;font-weight:700;padding:.1rem .35rem;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;backdrop-filter:blur(4px);">
+              {{ tag.icon }} {{ tag.name }}
+            </span>
+            {% endfor %}
+          </div>
+          {% endif %}{% endwith %}
+
+          {# Öneri sebebi pill — görsel üstünde #}
+          {% if rec.rec_reason %}
+          <div style="position:absolute;top:.4rem;right:.45rem;">
+            {% if rec.rec_reason == 'benzer_kullanici' %}
+            <span style="font-size:.55rem;font-weight:700;padding:.15rem .4rem;border-radius:999px;background:rgba(16,185,129,.85);color:#fff;backdrop-filter:blur(4px);display:inline-flex;align-items:center;gap:.2rem;">
+              🤝 {% if language == 'tr' %}Benzer okuyucular{% else %}Similar readers{% endif %}
+            </span>
+            {% elif rec.rec_reason == 'ilgi_alani' %}
+            <span style="font-size:.55rem;font-weight:700;padding:.15rem .4rem;border-radius:999px;background:rgba(99,102,241,.85);color:#fff;backdrop-filter:blur(4px);display:inline-flex;align-items:center;gap:.2rem;">
+              ✨ {% if language == 'tr' %}İlgi alanın{% else %}Your interest{% endif %}
+            </span>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% else %}
+        <div style="height:80px;flex-shrink:0;background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(99,102,241,.1));display:flex;align-items:center;justify-content:center;position:relative;">
+          <span style="font-size:1.8rem;opacity:.4;">🦷</span>
+          {% with rtags=rec.tags.all %}{% if rtags %}
+          <div style="position:absolute;bottom:.3rem;left:.4rem;display:flex;gap:.2rem;flex-wrap:wrap;">
+            {% for tag in rtags|slice:":2" %}
+            <span style="font-size:.55rem;font-weight:700;padding:.1rem .35rem;border-radius:999px;background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.25);">
+              {{ tag.icon }} {{ tag.name }}
+            </span>
+            {% endfor %}
+          </div>
+          {% endif %}{% endwith %}
+
+          {# Öneri sebebi pill — görselsiz kart #}
+          {% if rec.rec_reason %}
+          <div style="position:absolute;top:.35rem;right:.4rem;">
+            {% if rec.rec_reason == 'benzer_kullanici' %}
+            <span style="font-size:.55rem;font-weight:700;padding:.15rem .4rem;border-radius:999px;background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.3);display:inline-flex;align-items:center;gap:.2rem;">
+              🤝 {% if language == 'tr' %}Benzer okuyucular{% else %}Similar readers{% endif %}
+            </span>
+            {% elif rec.rec_reason == 'ilgi_alani' %}
+            <span style="font-size:.55rem;font-weight:700;padding:.15rem .4rem;border-radius:999px;background:rgba(99,102,241,.1);color:#818cf8;border:1px solid rgba(99,102,241,.25);display:inline-flex;align-items:center;gap:.2rem;">
+              ✨ {% if language == 'tr' %}İlgi alanın{% else %}Your interest{% endif %}
+            </span>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {# İçerik #}
+        <div style="padding:.75rem; flex:1; display:flex; flex-direction:column; gap:.4rem;">
+          <p style="font-size:.8rem; font-weight:700; line-height:1.4; color:var(--text); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; transition:color .15s;"
+             onmouseover="this.style.color='#10b981'" onmouseout="this.style.color=''">
+            {{ rec.title }}
+          </p>
+          <p style="font-size:.7rem; line-height:1.55; color:var(--text2); flex:1; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;">
+            {{ rec.seo_description|default:rec.content|striptags|truncatewords:12 }}
+          </p>
+          <div style="display:flex; align-items:center; gap:.4rem; padding-top:.35rem; border-top:1px solid var(--border);">
+            <span style="font-size:.6rem; color:var(--text3);">👁 {{ rec.view_count }}</span>
+            {% with rar=rec.get_avg_rating %}{% if rar %}
+            <span style="font-size:.6rem; color:#f59e0b;">⭐ {{ rar }}</span>
+            {% endif %}{% endwith %}
+            <span style="font-size:.6rem; color:var(--text3);">❓ {{ rec.questions.count }}</span>
+            <span style="margin-left:auto; font-size:.62rem; font-weight:700; color:#10b981;">
+              {% if language == 'tr' %}Oku →{% else %}Read →{% endif %}
+            </span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    {# Slider nav butonları #}
+    <button id="rec-prev"
+            onclick="recSlide(-1)"
+            aria-label="Önceki"
+            style="
+              position:absolute; left:.5rem; top:50%; transform:translateY(-50%);
+              width:2rem; height:2rem; border-radius:50%;
+              background:var(--surface); border:1px solid var(--border);
+              box-shadow:0 2px 8px rgba(0,0,0,.12);
+              display:flex; align-items:center; justify-content:center;
+              cursor:pointer; color:var(--text2); transition:all .15s; z-index:2;
+            "
+            onmouseover="this.style.borderColor='rgba(16,185,129,.4)'; this.style.color='#10b981';"
+            onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text2)';">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/></svg>
+    </button>
+    <button id="rec-next"
+            onclick="recSlide(1)"
+            aria-label="Sonraki"
+            style="
+              position:absolute; right:.5rem; top:50%; transform:translateY(-50%);
+              width:2rem; height:2rem; border-radius:50%;
+              background:var(--surface); border:1px solid var(--border);
+              box-shadow:0 2px 8px rgba(0,0,0,.12);
+              display:flex; align-items:center; justify-content:center;
+              cursor:pointer; color:var(--text2); transition:all .15s; z-index:2;
+            "
+            onmouseover="this.style.borderColor='rgba(16,185,129,.4)'; this.style.color='#10b981';"
+            onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text2)';">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/></svg>
+    </button>
+
+    {# Dot indikatörler #}
+    <div style="display:flex; justify-content:center; gap:.4rem; padding:.5rem 0 .75rem;">
+      {% for rec in recommended_articles %}
+      <button class="rec-dot"
+              onclick="recGoTo({{ forloop.counter0 }})"
+              style="
+                width:{% if forloop.first %}1.5rem{% else %}.45rem{% endif %};
+                height:.45rem; border-radius:999px; border:none; cursor:pointer;
+                background:{% if forloop.first %}#10b981{% else %}var(--border){% endif %};
+                transition:all .2s; padding:0;
+              "
+              data-index="{{ forloop.counter0 }}">
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+
+</section>
+
+<script>
+/* ── Recommendation Slider ── */
+(function(){
+  var slider = document.getElementById('rec-slider');
+  if (!slider) return;
+
+  var dots  = document.querySelectorAll('.rec-dot');
+  var cards = slider.querySelectorAll('a');
+  var current = 0;
+
+  function updateDots(idx) {
+    dots.forEach(function(d, i) {
+      d.style.background = (i === idx) ? '#10b981' : 'var(--border)';
+      d.style.width      = (i === idx) ? '1.5rem' : '.45rem';
+    });
+    current = idx;
+  }
+
+  window.recGoTo = function(idx) {
+    if (!cards[idx]) return;
+    var card   = cards[idx];
+    var offset = card.offsetLeft - slider.offsetLeft - 20;
+    slider.scrollTo({ left: offset, behavior: 'smooth' });
+    updateDots(idx);
+  };
+
+  window.recSlide = function(dir) {
+    var next = Math.min(Math.max(current + dir, 0), cards.length - 1);
+    recGoTo(next);
+  };
+
+  /* Scroll → dot sync */
+  var scrollTimer;
+  slider.addEventListener('scroll', function() {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+      var mid    = slider.scrollLeft + slider.clientWidth / 2;
+      var closest = 0, minDist = Infinity;
+      cards.forEach(function(c, i) {
+        var dist = Math.abs(c.offsetLeft + c.offsetWidth / 2 - slider.offsetLeft - mid);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      updateDots(closest);
+    }, 60);
+  }, { passive: true });
+
+  /* 2 veya daha az kart varsa nav butonlarını gizle */
+  if (cards.length <= 2) {
+    var prev = document.getElementById('rec-prev');
+    var next = document.getElementById('rec-next');
+    if (prev) prev.style.display = 'none';
+    if (next) next.style.display = 'none';
+  }
+})();
+</script>
+{% endif %}

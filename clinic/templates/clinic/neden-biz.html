@@ -1,15 +1,1222 @@
-{% load static %}
-{% load static i18n %}
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async onload="document.documentElement.classList.add('tailwind-loaded')" src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>{% trans "Neden Biz | Dr. Dt. Devrim Biriken Sipahi" %}</title>
+<meta name="description" content="{% trans '35 yıllık deneyim, etik protokol ve seçici bir yaklaşım. Doğru hasta için doğru klinik.' %}" />
+<link rel="canonical" href="https://www.devrimbirikensipahi.com.tr/neden-biz/" />
+<link rel="alternate" hreflang="tr"      href="https://www.devrimbirikensipahi.com.tr/neden-biz/" />
+<link rel="alternate" hreflang="en"      href="https://www.devrimbirikensipahi.com.tr/en/why-us/" />
+<link rel="alternate" hreflang="de"      href="https://www.devrimbirikensipahi.com.tr/de/warum-wir/" />
+<link rel="alternate" hreflang="nl"      href="https://www.devrimbirikensipahi.com.tr/nl/waarom-wij/" />
+<link rel="alternate" hreflang="x-default" href="https://www.devrimbirikensipahi.com.tr/neden-biz/" />
+<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
 
-  <title>{% trans 'Neden Bizi Tercih Etmelisiniz? | Dr. Devrim Biriken Sipahi – Şişli Diş Kliniği' %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!--Trust pilot-->
+  <meta name="trustpilot-one-time-domain-verification-id" content="0a808a8c-7a64-463b-9bef-2fdc8dc5c0d7"/>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1366216214467162');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1366216214467162&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
+
+  <script async onload="document.documentElement.classList.add('tailwind-loaded')" src="https://cdn.tailwindcss.com">
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGS2PYPNYG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-KGS2PYPNYG');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WTNPC78M');</script>
+
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17150773342">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17150773342');
+
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17150773342/zFNVCLinudcaEN6QkPI_'
+    });
+
+  </script>
+
+
+<style>
+/* ══════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════ */
+:root {
+  --gold:    #b99a5f;
+  --gold-hi: #d4b87a;
+  --gold-lo: rgba(185,154,95,.12);
+  --gold-bd: rgba(185,154,95,.30);
+
+  --bg:      #f6f3ee;
+  --bg-2:    #edeae3;
+  --bg-3:    #e4e0d7;
+  --bg-ink:  #141210;
+
+  --ink:     #1a1814;
+  --ink-70:  rgba(26,24,20,.68);
+  --ink-40:  rgba(26,24,20,.38);
+  --ink-15:  rgba(26,24,20,.15);
+
+  --ff-d: 'Cormorant', Georgia, serif;
+  --ff-b: 'Jost', system-ui, sans-serif;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #0e0c0a;
+    --bg-2:    #141210;
+    --bg-3:    #1b1916;
+    --bg-ink:  #070605;
+    --ink:     #ede9e1;
+    --ink-70:  rgba(237,233,225,.68);
+    --ink-40:  rgba(237,233,225,.36);
+    --ink-15:  rgba(237,233,225,.10);
+    --gold-lo: rgba(185,154,95,.09);
+    --gold-bd: rgba(185,154,95,.22);
+  }
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:var(--ff-b);
+  background:var(--bg); color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* Grain */
+body::after {
+  content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+  opacity:.02;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.eyebrow {
+  font-size:.67rem; font-weight:600;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold);
+}
+
+/* ══════════════════════════════════════════
+   HERO — 3 kolon: metin | doktor | değer
+   Orta: tam boy fotoğraf, kenarları kesen
+   Bu layout "doktorla tanışın" mesajı verir
+   hem de değer anlatısı yanında durur.
+══════════════════════════════════════════ */
+.hero {
+  min-height:100svh;
+  display:grid;
+  grid-template-columns: 1fr 420px 1fr;
+  background:var(--bg);
+  overflow:hidden;
+  position:relative;
+}
+
+/* Sol metin paneli */
+.h-left {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:clamp(6rem,9vw,9rem) clamp(2.5rem,4vw,4.5rem) clamp(6rem,9vw,9rem) clamp(3rem,5vw,6rem);
+  position:relative; z-index:3;
+}
+
+.h-left::before {
+  content:'';
+  position:absolute; left:0; top:18%; bottom:18%;
+  width:2.5px;
+  background:linear-gradient(to bottom, transparent, var(--gold) 40%, var(--gold-hi) 65%, transparent);
+}
+
+.h-ghost {
+  font-family:var(--ff-d);
+  font-size:clamp(7rem,14vw,13rem);
+  font-weight:700; line-height:.9; font-style:italic;
+  letter-spacing:-.04em;
+  color:var(--ink); opacity:.033;
+  position:absolute; bottom:2rem; right:-0.5rem;
+  pointer-events:none; user-select:none;
+}
+
+.h-eyebrow { margin-bottom:1.8rem; }
+
+.h-title {
+  font-family:var(--ff-d);
+  font-size:clamp(3.2rem,5.5vw,6rem);
+  font-weight:600; line-height:1; letter-spacing:-.025em;
+  color:var(--ink); margin-bottom:2rem;
+}
+.h-title em { font-style:italic; color:var(--gold); }
+
+.h-desc {
+  font-size:.95rem; font-weight:300;
+  line-height:1.9; color:var(--ink-70);
+  max-width:340px; margin-bottom:2.8rem;
+  border-left:2px solid var(--gold-bd);
+  padding-left:1.1rem;
+}
+.h-desc strong { font-weight:500; color:var(--ink); }
+
+.h-stats {
+  display:flex; gap:0;
+  padding-top:2rem; border-top:1px solid var(--ink-15);
+}
+.h-stat { padding-right:2rem; border-right:1px solid var(--ink-15); margin-right:2rem; }
+.h-stat:last-child { border-right:none; margin-right:0; }
+.h-stat-n { font-family:var(--ff-d); font-size:2.6rem; font-weight:600; line-height:1; display:block; color:var(--ink); }
+.h-stat-l { font-size:.62rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-40); display:block; margin-top:.28rem; }
+
+/* ── Orta: Doktor fotoğrafı ── */
+.h-doctor {
+  position:relative;
+  overflow:hidden;
+  background:var(--bg-2);
+  border-left:1px solid var(--ink-15);
+  border-right:1px solid var(--ink-15);
+}
+
+.h-doctor-img {
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  filter:saturate(.92) contrast(1.04);
+  transition:transform 8s ease;
+}
+.h-doctor:hover .h-doctor-img { transform:scale(1.03); }
+
+/* Alt gradient — isim floater'ı için */
+.h-doctor::after {
+  content:'';
+  position:absolute; bottom:0; left:0; right:0; height:55%;
+  background:linear-gradient(to top, rgba(14,12,10,.82) 0%, transparent 100%);
+  z-index:1;
+}
+
+/* İsim kartı — fotoğrafın altında */
+.h-doctor-info {
+  position:absolute; bottom:0; left:0; right:0;
+  z-index:2; padding:1.8rem 1.6rem;
+}
+
+.h-doctor-name {
+  font-family:var(--ff-d);
+  font-size:1.45rem; font-weight:600;
+  color:#ede9e1; line-height:1.15; margin-bottom:.3rem;
+}
+
+.h-doctor-title {
+  font-size:.72rem; font-weight:400;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(237,233,225,.52);
+}
+
+.h-doctor-badge {
+  display:inline-flex; align-items:center; gap:.45rem;
+  background:rgba(185,154,95,.18);
+  border:1px solid rgba(185,154,95,.38);
+  border-radius:999px;
+  padding:.28rem .75rem;
+  margin-top:.65rem;
+  font-size:.65rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--gold-hi);
+}
+.h-doctor-badge-dot {
+  width:5px; height:5px; border-radius:50%;
+  background:var(--gold); box-shadow:0 0 6px var(--gold);
+}
+
+/* Sağ değer paneli */
+.h-right {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:clamp(5rem,7vw,7rem) clamp(2.5rem,4vw,4.5rem) clamp(5rem,7vw,7rem) clamp(2.5rem,4vw,4rem);
+  background:var(--bg-2);
+  position:relative; z-index:3; overflow:hidden;
+}
+.h-right::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 70% at 100% 100%, var(--gold-lo) 0%, transparent 65%);
+  pointer-events:none;
+}
+.h-right > * { position:relative; z-index:1; }
+
+.price-label { display:inline-flex; align-items:center; gap:.7rem; margin-bottom:1.8rem; }
+.price-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 10px var(--gold); }
+
+.value-headline {
+  font-family:var(--ff-d);
+  font-size:clamp(1.7rem,2.6vw,2.5rem);
+  font-weight:600; line-height:1.1; letter-spacing:-.01em;
+  color:var(--ink); margin-bottom:.85rem;
+}
+.value-headline em { font-style:italic; color:var(--gold); }
+
+.value-intro {
+  font-size:.9rem; font-weight:300;
+  line-height:1.85; color:var(--ink-70);
+  margin-bottom:2.2rem; max-width:320px;
+}
+
+.value-list { display:flex; flex-direction:column; gap:.7rem; margin-bottom:2.5rem; }
+
+.vl-item {
+  display:flex; align-items:flex-start; gap:.9rem;
+  padding:.95rem 1.05rem;
+  border:1px solid var(--ink-15); border-radius:.7rem;
+  background:rgba(255,255,255,.38);
+  transition:border-color .3s, background .3s; cursor:default;
+}
+@media (prefers-color-scheme:dark) { .vl-item { background:rgba(255,255,255,.025); } }
+.vl-item:hover { border-color:var(--gold-bd); background:var(--gold-lo); }
+.vl-bar { width:3px; align-self:stretch; border-radius:99px; background:var(--gold); flex-shrink:0; }
+.vl-body h4 { font-size:.84rem; font-weight:500; color:var(--ink); margin-bottom:.18rem; line-height:1.3; }
+.vl-body p  { font-size:.75rem; font-weight:300; color:var(--ink-70); line-height:1.6; }
+
+.h-cta { display:flex; gap:.7rem; flex-wrap:wrap; }
+
+.btn-dark {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--ink); color:var(--bg);
+  padding:.85rem 1.8rem; border-radius:999px;
+  font-family:var(--ff-b); font-size:.78rem; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase;
+  text-decoration:none; border:1.5px solid var(--ink); transition:all .25s;
+}
+.btn-dark:hover { background:var(--gold); border-color:var(--gold); transform:translateY(-2px); }
+.btn-dark svg { width:13px; height:13px; }
+
+.btn-ghost-dark {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:transparent; color:var(--ink-70);
+  padding:.85rem 1.4rem; border-radius:999px;
+  border:1.5px solid var(--ink-15);
+  font-family:var(--ff-b); font-size:.78rem; font-weight:400;
+  letter-spacing:.06em; text-transform:uppercase;
+  text-decoration:none; transition:all .25s;
+}
+.btn-ghost-dark:hover { border-color:var(--gold-bd); color:var(--ink); }
+
+@media (max-width:1100px) {
+  .hero { grid-template-columns:1fr 360px 1fr; }
+}
+
+@media (max-width:900px) {
+  .hero {
+    grid-template-columns:1fr;
+    grid-template-rows:auto 70vw auto;
+  }
+  .h-left::before { display:none; }
+  .h-right { border-top:1px solid var(--ink-15); }
+  .h-ghost { display:none; }
+  .h-doctor { border-left:none; border-right:none; border-top:1px solid var(--ink-15); border-bottom:1px solid var(--ink-15); }
+}
+
+/* ══════════════════════════════════════════
+   MANİFESTO — doktor portreyle
+   Sol: büyük oval portre
+   Sağ: alıntı
+══════════════════════════════════════════ */
+.manifesto {
+  background:var(--bg-ink);
+  padding:clamp(5rem,9vw,9rem) clamp(2rem,6vw,7rem);
+  position:relative; overflow:hidden;
+}
+.manifesto::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 55% 80% at 15% 50%, rgba(185,154,95,.06) 0%, transparent 60%);
+  pointer-events:none;
+}
+
+.manifesto-inner {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:320px 1fr;
+  gap:6rem; align-items:center; position:relative;
+}
+
+/* Oval portre çerçevesi */
+.manifesto-portrait {
+  position:relative; flex-shrink:0;
+}
+
+.manifesto-portrait-frame {
+  width:100%; aspect-ratio:3/4;
+  border-radius:999px 999px 60% 60% / 999px 999px 40% 40%;
+  overflow:hidden;
+  border:1px solid var(--gold-bd);
+  position:relative;
+}
+
+.manifesto-portrait-img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+  display:block;
+  filter:saturate(.85) contrast(1.05);
+}
+
+/* Altın dekor halka */
+.manifesto-portrait::before {
+  content:'';
+  position:absolute;
+  inset:-8px;
+  border-radius:999px 999px 60% 60% / 999px 999px 40% 40%;
+  border:1px solid var(--gold-bd);
+  pointer-events:none;
+}
+
+/* Yıl etiketi */
+.manifesto-year-tag {
+  position:absolute; bottom:-1rem; left:50%; transform:translateX(-50%);
+  background:var(--bg-ink);
+  border:1px solid var(--gold-bd);
+  border-radius:999px;
+  padding:.45rem 1.2rem;
+  font-size:.65rem; font-weight:600;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); white-space:nowrap;
+}
+
+/* Sağ alıntı */
+.manifesto-content {}
+
+.manifesto-label { color:rgba(185,154,95,.55); margin-bottom:1.5rem; }
+
+.manifesto-q {
+  font-family:var(--ff-d);
+  font-size:clamp(2rem,3.8vw,3.6rem);
+  font-weight:500; font-style:italic; line-height:1.2;
+  color:#ede9e1; letter-spacing:-.01em; margin-bottom:2rem;
+}
+.manifesto-q em { font-style:normal; color:var(--gold-hi); font-weight:600; }
+
+.manifesto-attr {
+  font-size:.73rem; font-weight:400;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(237,233,225,.3); margin-bottom:2.5rem;
+}
+
+/* Dil notu — dürüst ve sıcak */
+.lang-note {
+  display:flex; align-items:flex-start; gap:1rem;
+  padding:1.2rem 1.4rem;
+  border:1px solid rgba(185,154,95,.2);
+  border-radius:.8rem;
+  background:rgba(185,154,95,.06);
+}
+.lang-note-icon { font-size:1.2rem; flex-shrink:0; margin-top:.05rem; }
+.lang-note p {
+  font-size:.82rem; font-weight:300;
+  line-height:1.7; color:rgba(237,233,225,.6);
+}
+.lang-note p strong { font-weight:500; color:rgba(237,233,225,.85); }
+
+@media (max-width:760px) {
+  .manifesto-inner { grid-template-columns:1fr; gap:3.5rem; }
+  .manifesto-portrait-frame { max-width:220px; margin:0 auto; }
+}
+
+/* ══════════════════════════════════════════
+   35 YIL — büyük fotoğraf + milestone grid
+   Sol: editorial fotoğraf, tam yükseklik
+   Sağ: başlık + 4 milestone kart
+══════════════════════════════════════════ */
+.deneyim-section {
+  background:var(--bg);
+  position:relative; overflow:hidden;
+}
+
+.deneyim-inner {
+  max-width:100%;
+  display:grid; grid-template-columns:1fr 1fr;
+  min-height:700px;
+}
+
+/* Sol fotoğraf */
+.deneyim-photo {
+  position:relative; overflow:hidden;
+  background:var(--bg-2);
+}
+
+.deneyim-photo-img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 20%;
+  display:block;
+  filter:saturate(.88) contrast(1.06);
+  transition:transform 8s ease;
+}
+.deneyim-photo:hover .deneyim-photo-img { transform:scale(1.04); }
+
+/* Sağ gradient overlay sol kenar */
+.deneyim-photo::after {
+  content:'';
+  position:absolute; top:0; right:0; bottom:0; width:40%;
+  background:linear-gradient(to right, transparent, var(--bg));
+  z-index:1; pointer-events:none;
+}
+
+/* Sağ içerik */
+.deneyim-content {
+  padding:clamp(4rem,8vw,8rem) clamp(3rem,5vw,6rem) clamp(4rem,8vw,8rem) clamp(2rem,3vw,4rem);
+  display:flex; flex-direction:column; justify-content:center;
+  background:var(--bg);
+}
+
+.deneyim-eyebrow { margin-bottom:1.2rem; }
+
+.deneyim-title {
+  font-family:var(--ff-d);
+  font-size:clamp(2.5rem,4vw,4rem);
+  font-weight:600; line-height:1.04; letter-spacing:-.025em;
+  color:var(--ink); margin-bottom:1.2rem;
+}
+.deneyim-title em { font-style:italic; color:var(--gold); }
+
+.deneyim-desc {
+  font-size:.92rem; font-weight:300;
+  line-height:1.88; color:var(--ink-70);
+  max-width:420px; margin-bottom:3.5rem;
+}
+
+.milestones {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:0; border-top:1px solid var(--ink-15); border-left:1px solid var(--ink-15);
+}
+.milestone {
+  padding:1.8rem 1.6rem;
+  border-right:1px solid var(--ink-15); border-bottom:1px solid var(--ink-15);
+  position:relative; overflow:hidden; transition:background .3s;
+}
+.milestone:hover { background:var(--gold-lo); }
+.milestone::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:var(--gold); transform:scaleX(0); transform-origin:left;
+  transition:transform .4s ease;
+}
+.milestone:hover::before { transform:scaleX(1); }
+.ms-num { font-family:var(--ff-d); font-size:3rem; font-weight:700; color:var(--ink); line-height:.95; letter-spacing:-.03em; display:block; margin-bottom:.55rem; }
+.ms-title { font-size:.82rem; font-weight:500; color:var(--ink); margin-bottom:.3rem; line-height:1.3; }
+.ms-desc { font-size:.74rem; font-weight:300; color:var(--ink-70); line-height:1.62; }
+
+@media (max-width:860px) {
+  .deneyim-inner { grid-template-columns:1fr; }
+  .deneyim-photo { min-height:55vw; }
+  .deneyim-photo::after { display:none; }
+}
+
+/* ══════════════════════════════════════════
+   ETİK PROTOKOL
+══════════════════════════════════════════ */
+.etik-section {
+  background:var(--bg-2);
+  padding:clamp(5rem,9vw,9rem) clamp(2rem,6vw,7rem);
+  position:relative; overflow:hidden;
+}
+.etik-section::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+  background:linear-gradient(to right, transparent, var(--gold-bd) 40%, var(--gold-bd) 60%, transparent);
+}
+.etik-inner { max-width:1180px; margin:0 auto; }
+
+.etik-header { max-width:640px; margin:0 auto 5rem; text-align:center; }
+.etik-title {
+  font-family:var(--ff-d);
+  font-size:clamp(2.4rem,4.5vw,4rem);
+  font-weight:600; line-height:1.05; letter-spacing:-.02em;
+  color:var(--ink); margin-top:.8rem; margin-bottom:1rem;
+}
+.etik-title em { font-style:italic; color:var(--gold); }
+.etik-sub { font-size:.92rem; font-weight:300; line-height:1.85; color:var(--ink-70); }
+
+.etik-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+
+.etik-card {
+  padding:2.5rem 2.2rem;
+  border:1px solid var(--ink-15); border-radius:.9rem;
+  background:rgba(255,255,255,.5);
+  position:relative; overflow:hidden;
+  transition:border-color .3s, transform .3s, background .3s;
+}
+@media (prefers-color-scheme:dark) { .etik-card { background:rgba(255,255,255,.025); } }
+.etik-card:hover { border-color:var(--gold-bd); transform:translateY(-5px); background:var(--gold-lo); }
+.etik-card::before {
+  content:''; position:absolute; top:0; left:2.2rem; right:2.2rem;
+  height:1.5px; background:var(--gold);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .5s ease; border-radius:99px;
+}
+.etik-card:hover::before { transform:scaleX(1); }
+.ec-icon { width:44px; height:44px; border-radius:.6rem; border:1px solid var(--ink-15); display:flex; align-items:center; justify-content:center; margin-bottom:1.6rem; transition:border-color .3s, background .3s; }
+.etik-card:hover .ec-icon { border-color:var(--gold-bd); background:var(--gold-lo); }
+.ec-icon svg { width:20px; height:20px; color:var(--gold); }
+.etik-card h3 { font-size:1.02rem; font-weight:500; color:var(--ink); margin-bottom:.65rem; line-height:1.3; }
+.etik-card p { font-size:.8rem; font-weight:300; color:var(--ink-70); line-height:1.72; }
+
+.etik-card.featured { background:var(--bg-ink); border-color:var(--bg-ink); }
+.etik-card.featured::before { background:var(--gold-hi); }
+.etik-card.featured h3 { color:#ede9e1; }
+.etik-card.featured p  { color:rgba(237,233,225,.6); }
+.etik-card.featured .ec-icon { border-color:rgba(185,154,95,.3); background:rgba(185,154,95,.1); }
+.etik-card.featured:hover { background:var(--bg-ink); transform:translateY(-5px); }
+
+@media (max-width:860px) { .etik-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:540px) { .etik-grid { grid-template-columns:1fr; } }
+
+/* ══════════════════════════════════════════
+   HASTA YORUMLARI
+══════════════════════════════════════════ */
+.yt-section {
+  background:var(--bg-3);
+  padding:clamp(5rem,9vw,9rem) clamp(2rem,6vw,7rem);
+  position:relative; overflow:hidden;
+}
+.yt-inner { max-width:1200px; margin:0 auto; }
+.yt-header { display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; margin-bottom:3.5rem; flex-wrap:wrap; }
+.yt-title { font-family:var(--ff-d); font-size:clamp(2rem,3.5vw,3.2rem); font-weight:600; line-height:1.06; color:var(--ink); margin-top:.7rem; }
+.yt-title em { font-style:italic; color:var(--gold); }
+.yt-sub { font-size:.87rem; font-weight:300; color:var(--ink-70); max-width:260px; line-height:1.7; }
+.yt-btn { display:inline-flex; align-items:center; gap:.5rem; background:#ff4444; color:#fff; padding:.7rem 1.4rem; border-radius:999px; font-family:var(--ff-b); font-size:.82rem; font-weight:600; text-decoration:none; transition:all .25s; box-shadow:0 4px 16px rgba(255,68,68,.28); white-space:nowrap; margin-top:.8rem; }
+.yt-btn:hover { background:#d93535; transform:translateY(-2px); }
+.yt-btn svg { width:15px; height:15px; }
+
+.shorts-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(195px,1fr)); gap:1.1rem; }
+.short-card { position:relative; border-radius:1rem; overflow:hidden; background:var(--bg-ink); cursor:pointer; aspect-ratio:9/16; border:1px solid var(--ink-15); box-shadow:0 4px 20px rgba(0,0,0,.1); transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s; }
+.short-card:hover { transform:translateY(-7px) scale(1.015); box-shadow:0 18px 50px rgba(0,0,0,.2); border-color:var(--gold-bd); }
+.short-thumb { width:100%; height:100%; object-fit:cover; display:block; transition:transform 6s ease; }
+.short-card:hover .short-thumb { transform:scale(1.04); }
+.short-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.1) 50%, transparent 100%); }
+.short-play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(.75); width:48px; height:48px; border-radius:50%; background:rgba(185,154,95,.85); display:flex; align-items:center; justify-content:center; opacity:0; transition:all .3s cubic-bezier(.34,1.56,.64,1); box-shadow:0 0 20px rgba(185,154,95,.4); }
+.short-card:hover .short-play { opacity:1; transform:translate(-50%,-50%) scale(1); }
+.short-play svg { width:17px; height:17px; color:#fff; margin-left:3px; }
+.short-info { position:absolute; bottom:0; left:0; right:0; padding:.95rem; }
+.short-tag { display:inline-flex; align-items:center; gap:.3rem; background:rgba(185,154,95,.18); border:1px solid rgba(185,154,95,.38); border-radius:999px; padding:.16rem .55rem; font-size:.62rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--gold-hi); margin-bottom:.3rem; }
+.short-name { font-size:.88rem; font-weight:600; color:#fff; line-height:1.3; }
+.short-desc { font-size:.71rem; color:rgba(255,255,255,.48); margin-top:.15rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.yt-badge { position:absolute; top:.75rem; right:.75rem; background:rgba(0,0,0,.6); backdrop-filter:blur(8px); border-radius:999px; padding:.18rem .5rem; display:flex; align-items:center; gap:.3rem; }
+.yt-badge svg { width:11px; height:11px; color:#ff4444; }
+.yt-badge span { font-size:.6rem; font-weight:600; color:rgba(255,255,255,.7); }
+.yt-footer { margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--ink-15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+.yt-footer p { font-size:.82rem; font-weight:300; color:var(--ink-40); }
+
+@media (max-width:640px) {
+  .shorts-grid { grid-template-columns:repeat(2,1fr); }
+  .short-play { opacity:1; transform:translate(-50%,-50%) scale(.85); }
+  .yt-header { flex-direction:column; align-items:flex-start; }
+}
+
+/* ══════════════════════════════════════════
+   DOĞRU HASTA
+══════════════════════════════════════════ */
+.fit-section { background:var(--bg); padding:clamp(5rem,9vw,9rem) clamp(2rem,6vw,7rem); }
+.fit-inner { max-width:1180px; margin:0 auto; }
+.fit-header { max-width:580px; margin:0 auto 5rem; text-align:center; }
+.fit-title { font-family:var(--ff-d); font-size:clamp(2.4rem,4.5vw,4rem); font-weight:600; line-height:1.05; letter-spacing:-.02em; color:var(--ink); margin-top:.8rem; margin-bottom:1rem; }
+.fit-title em { font-style:italic; color:var(--gold); }
+.fit-sub { font-size:.92rem; font-weight:300; line-height:1.85; color:var(--ink-70); }
+
+.fit-split { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.fit-col-head { font-family:var(--ff-d); font-size:1.45rem; font-weight:600; font-style:italic; color:var(--ink); margin-bottom:1.8rem; padding-bottom:1rem; border-bottom:1px solid var(--ink-15); }
+.fit-items { display:flex; flex-direction:column; gap:.85rem; }
+.fi { display:flex; align-items:flex-start; gap:.85rem; padding:1.1rem 1.2rem; border:1px solid var(--ink-15); border-radius:.75rem; background:rgba(255,255,255,.4); transition:border-color .25s, background .25s; cursor:default; }
+@media (prefers-color-scheme:dark) { .fi { background:rgba(255,255,255,.03); } }
+.fi:hover { border-color:var(--gold-bd); background:var(--gold-lo); }
+.fi-bar { width:4px; align-self:stretch; border-radius:99px; flex-shrink:0; margin-top:2px; }
+.fi h4 { font-size:.87rem; font-weight:500; color:var(--ink); margin-bottom:.18rem; line-height:1.3; }
+.fi p  { font-size:.76rem; font-weight:300; color:var(--ink-70); line-height:1.6; }
+
+.fit-note { margin-top:3.5rem; padding:2.5rem 3rem; border:1px solid var(--gold-bd); border-radius:1rem; background:var(--gold-lo); text-align:center; }
+.fit-note p { font-family:var(--ff-d); font-size:clamp(1.2rem,2vw,1.55rem); font-style:italic; font-weight:500; line-height:1.5; color:var(--ink); }
+.fit-note p em { font-style:normal; color:var(--gold); font-weight:600; }
+
+@media (max-width:640px) {
+  .fit-split { grid-template-columns:1fr; }
+  .fit-note { padding:1.8rem 1.5rem; }
+}
+
+/* ══════════════════════════════════════════
+   LEAD FORM
+══════════════════════════════════════════ */
+.form-section { background:var(--bg-2); padding:clamp(5rem,9vw,9rem) clamp(2rem,6vw,7rem); position:relative; overflow:hidden; }
+.form-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 50% 100%, var(--gold-lo) 0%, transparent 70%); pointer-events:none; }
+.form-inner { position:relative; max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.fl-eyebrow { margin-bottom:1.2rem; }
+.fl-title { font-family:var(--ff-d); font-size:clamp(2.2rem,4vw,3.5rem); font-weight:600; line-height:1.05; letter-spacing:-.02em; color:var(--ink); margin-bottom:1.1rem; }
+.fl-title em { font-style:italic; color:var(--gold); }
+.fl-lead { font-size:.92rem; font-weight:300; line-height:1.88; color:var(--ink-70); max-width:360px; margin-bottom:2.5rem; }
+.fl-assurance { display:flex; flex-direction:column; gap:.75rem; }
+.fl-ai { display:flex; align-items:center; gap:.75rem; font-size:.85rem; font-weight:300; color:var(--ink-70); }
+.fl-ai svg { width:16px; height:16px; color:var(--gold); flex-shrink:0; }
+.form-box { background:rgba(255,255,255,.55); border:1px solid var(--ink-15); border-radius:1.1rem; padding:2.5rem; backdrop-filter:blur(20px); position:sticky; top:2rem; }
+@media (prefers-color-scheme:dark) { .form-box { background:rgba(255,255,255,.035); } }
+.form-box label { display:block; font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-40); margin-bottom:.42rem; }
+.form-box input, .form-box textarea { width:100%; background:var(--bg); border:1px solid var(--ink-15); border-radius:.6rem; padding:.85rem 1rem; font-family:var(--ff-b); font-size:.92rem; color:var(--ink); outline:none; -webkit-appearance:none; transition:border-color .2s, box-shadow .2s; }
+.form-box input::placeholder, .form-box textarea::placeholder { color:var(--ink-40); }
+.form-box input:focus, .form-box textarea:focus { border-color:var(--gold-bd); box-shadow:0 0 0 3px var(--gold-lo); }
+.form-field { margin-bottom:1.1rem; }
+.form-box textarea { resize:vertical; min-height:90px; }
+.form-submit { width:100%; margin-top:.3rem; background:var(--ink); color:var(--bg); border:none; border-radius:999px; padding:1rem 2rem; font-family:var(--ff-b); font-size:.84rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:all .25s; }
+.form-submit:hover { background:var(--gold); transform:translateY(-2px); }
+.form-note { margin-top:.85rem; text-align:center; font-size:.71rem; font-weight:300; color:var(--ink-40); line-height:1.6; }
+@media (max-width:840px) { .form-inner { grid-template-columns:1fr; gap:3rem; } .form-box { position:static; padding:2rem; } }
+
+/* ══════════════════════════════════════════
+   SON CTA
+══════════════════════════════════════════ */
+.final-cta { background:var(--bg-ink); padding:clamp(5rem,10vw,10rem) clamp(2rem,7vw,9rem); text-align:center; position:relative; overflow:hidden; }
+.final-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 70% at 50% 110%, rgba(185,154,95,.07) 0%, transparent 60%); pointer-events:none; }
+.final-inner { position:relative; max-width:580px; margin:0 auto; }
+.final-eyebrow { color:rgba(185,154,95,.55); margin-bottom:1.5rem; }
+.final-title { font-family:var(--ff-d); font-size:clamp(2.5rem,5vw,4.5rem); font-weight:600; font-style:italic; line-height:1.06; color:#ede9e1; margin-bottom:1.2rem; letter-spacing:-.02em; }
+.final-title em { font-style:normal; color:var(--gold-hi); }
+.final-lead { font-size:.95rem; font-weight:300; line-height:1.88; color:rgba(237,233,225,.58); margin-bottom:3rem; }
+.final-btns { display:flex; justify-content:center; gap:.85rem; flex-wrap:wrap; }
+
+.btn-gold { display:inline-flex; align-items:center; gap:.55rem; background:var(--gold); color:#fff; padding:.95rem 2.2rem; border-radius:999px; font-family:var(--ff-b); font-size:.84rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; transition:all .25s; box-shadow:0 4px 20px rgba(185,154,95,.35); }
+.btn-gold:hover { background:var(--gold-hi); transform:translateY(-2px); box-shadow:0 8px 30px rgba(185,154,95,.45); }
+.btn-gold svg { width:14px; height:14px; }
+.btn-ghost-light { display:inline-flex; align-items:center; gap:.5rem; background:transparent; color:rgba(237,233,225,.65); padding:.95rem 1.8rem; border-radius:999px; border:1.5px solid rgba(237,233,225,.18); font-family:var(--ff-b); font-size:.84rem; font-weight:400; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; transition:all .25s; }
+.btn-ghost-light:hover { border-color:rgba(237,233,225,.45); color:#ede9e1; }
+
+/* FOOTER */
+.site-footer { background:var(--bg-3); border-top:1px solid var(--ink-15); padding:2.5rem clamp(2rem,6vw,7rem); text-align:center; }
+.site-footer p { font-size:.78rem; font-weight:300; color:var(--ink-40); line-height:1.9; }
+.site-footer a { color:var(--ink-70); text-decoration:underline; text-underline-offset:3px; transition:color .2s; }
+.site-footer a:hover { color:var(--gold); }
+
+/* ANİMASYONLAR */
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+.a1 { animation:fadeUp .7s .05s both; }
+.a2 { animation:fadeUp .7s .15s both; }
+.a3 { animation:fadeUp .7s .25s both; }
+.a4 { animation:fadeUp .7s .38s both; }
+.a5 { animation:fadeUp .7s .50s both; }
+.a6 { animation:fadeUp .7s .62s both; }
+
+[data-reveal] { opacity:0; transform:translateY(28px); transition:opacity .75s ease, transform .75s ease; }
+[data-reveal].is-visible { opacity:1; transform:translateY(0); }
+</style>
 </head>
 <body>
-    {% include 'partials/navbar.html' %}
+
+{% include 'partials/navbar.html' %}
+
+
+<!-- ══════════════════════════════════════════
+     HERO — metin | doktor | değer
+══════════════════════════════════════════ -->
+<section class="hero">
+
+  <!-- Sol: Başlık + stats -->
+  <div class="h-left">
+    <span class="h-ghost">35</span>
+
+    <p class="eyebrow h-eyebrow a1">{% trans "Neden Biz" %}</p>
+
+    <h1 class="h-title a2">
+      {% trans "Bazı şeyler" %}<br>
+      {% trans "yılla" %}<br>
+      <em>{% trans "olgunlaşır." %}</em>
+    </h1>
+
+    <p class="h-desc a3">
+      {% trans "35 yıl aynı koltuğun başında, aynı sorumlulukla." %}
+      <strong>{% trans "Tek hekim. Binlerce hasta. Hiç değişmeyen bir standart." %}</strong>
+    </p>
+
+    <div class="h-stats a4">
+      <div class="h-stat">
+        <span class="h-stat-n">35+</span>
+        <span class="h-stat-l">{% trans "Yıl" %}</span>
+      </div>
+      <div class="h-stat">
+        <span class="h-stat-n">10K+</span>
+        <span class="h-stat-l">{% trans "Hasta" %}</span>
+      </div>
+      <div class="h-stat">
+        <span class="h-stat-n">4</span>
+        <span class="h-stat-l">{% trans "Dil" %}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orta: Doktor fotoğrafı — sayfa boyunca uzanır -->
+  <div class="h-doctor a1">
+    <img
+      class="h-doctor-img"
+      src="{% static 'images/devrim1.jpg' %}"
+      alt="Dr. Dt. Devrim Biriken Sipahi"
+      loading="eager"
+    />
+    <div class="h-doctor-info">
+      <p class="h-doctor-name">Dr. Dt. Devrim<br>Biriken Sipahi</p>
+      <p class="h-doctor-title">{% trans "Diş Hekimi · İstanbul, Şişli" %}</p>
+      <div class="h-doctor-badge">
+        <span class="h-doctor-badge-dot"></span>
+        {% trans "35+ Yıl Aktif Pratik" %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Sağ: Değer anlatısı -->
+  <div class="h-right">
+    <div class="price-label a1">
+      <span class="price-dot"></span>
+      <span class="eyebrow">{% trans "Değer & Kalite" %}</span>
+    </div>
+
+    <h2 class="value-headline a2">
+      {% trans "En iyi yatırım," %}<br>
+      <em>{% trans "ikinci kez yapmamak." %}</em>
+    </h2>
+
+    <p class="value-intro a3">
+      {% trans "Avrupa'daki eşdeğer tedavilerin çok altında — ama 'ucuz' kelimesiyle hiç tanışmadık. Farkı malzemelerde, protokolde ve 35 yıllık ellerde hissediyorsunuz." %}
+    </p>
+
+    <div class="value-list a4">
+      <div class="vl-item">
+        <div class="vl-bar"></div>
+        <div class="vl-body">
+          <h4>{% trans "Kompozit lamina — dişiniz kesilmiyor" %}</h4>
+          <p>{% trans "Sağlıklı mine dokusu korunur. Geri dönüşü olan, koruyucu bir tercih." %}</p>
+        </div>
+      </div>
+      <div class="vl-item">
+        <div class="vl-bar"></div>
+        <div class="vl-body">
+          <h4>{% trans "Sabit fiyat. Başta söylenen, sonda ödenen." %}</h4>
+          <p>{% trans "Tedavi planı yazılı. Ek kalem yok, son dakika sürpriz yok." %}</p>
+        </div>
+      </div>
+      <div class="vl-item">
+        <div class="vl-bar"></div>
+        <div class="vl-body">
+          <h4>{% trans "Gereksiz olan önerilmez" %}</h4>
+          <p>{% trans "Bu bir tercih değil, protokolümüz. Yanlış gördüğümüzde 'hayır' deriz." %}</p>
+        </div>
+      </div>
+      <div class="vl-item">
+        <div class="vl-bar"></div>
+        <div class="vl-body">
+          <h4>{% trans "Sizi gören hekim, sizi tedavi eder" %}</h4>
+          <p>{% trans "Muayeneden bitiş seansına aynı göz, aynı el. Ekip değil, ilişki." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-cta a5">
+      <a href="#contact" class="btn-dark">
+        {% trans "Ön Değerlendirme" %}
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <a href="tel:+905055771883" class="btn-ghost-dark">{% trans "Hemen Ara" %}</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     MANİFESTO — oval portre + alıntı + dil notu
+══════════════════════════════════════════ -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+
+    <!-- Sol: Oval portre -->
+    <div class="manifesto-portrait" data-reveal>
+      <div class="manifesto-portrait-frame">
+        <img
+          class="manifesto-portrait-img"
+          src="{% static 'images/devrim2.jpg' %}"
+          alt="Dr. Dt. Devrim Biriken Sipahi"
+          loading="lazy"
+        />
+      </div>
+      <div class="manifesto-year-tag">{% trans "Pratik: 1989 – Bugün" %}</div>
+    </div>
+
+    <!-- Sağ: Alıntı + dil notu -->
+    <div data-reveal>
+      <p class="manifesto-label eyebrow">{% trans "Felsefemiz" %}</p>
+
+      <blockquote class="manifesto-q">
+        {% trans "İyi hekimlik bazen" %}
+        <em>{% trans "'hayır'" %}</em>
+        {% trans "diyebilmektir. Biz bunu her gün uyguluyoruz." %}
+      </blockquote>
+
+      <p class="manifesto-attr">— Dr. Dt. Devrim Biriken Sipahi · {% trans "35 Yıl Klinik Deneyim" %}</p>
+
+      <!-- Dil notu — dürüst, sıcak, güven verici -->
+      <div class="lang-note">
+        <span class="lang-note-icon">🌐</span>
+        <p>
+          {% trans "Dr. Sipahi" %}
+          <strong>{% trans "Türkçe ana dil, İngilizce ve Almanca akıcı" %}</strong>
+          {% trans "olmak üzere 4 dilde konsültasyon sunmaktadır. Rusça ve Hollandaca görüşmeler deneyimli tercüman desteğiyle yürütülür — iletişiminizde hiçbir şey kaybolmaz." %}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     35 YIL — büyük editorial fotoğraf + milestones
+══════════════════════════════════════════ -->
+<section class="deneyim-section">
+  <div class="deneyim-inner">
+
+    <!-- Sol: Editorial fotoğraf -->
+    <div class="deneyim-photo">
+      <img
+        class="deneyim-photo-img"
+        src="{% static 'images/devrim3.jpg' %}"
+        alt="{% trans 'Dr. Devrim Biriken Sipahi klinikte' %}"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Sağ: İçerik -->
+    <div class="deneyim-content" data-reveal>
+      <p class="eyebrow deneyim-eyebrow">{% trans "Deneyim" %}</p>
+      <h2 class="deneyim-title">
+        {% trans "35 yıl ne" %}<br>
+        <em>{% trans "öğretir?" %}</em>
+      </h2>
+      <p class="deneyim-desc">
+        {% trans "Her vakanın, her hatanın, her başarının getirdiği birikim. Bunu bir sertifika değil, ellerinizin üzerinde hissedebileceğiniz bir fark olarak anlıyoruz." %}
+      </p>
+
+      <div class="milestones">
+        <div class="milestone">
+          <span class="ms-num">35+</span>
+          <p class="ms-title">{% trans "Yıl Aktif Pratik" %}</p>
+          <p class="ms-desc">{% trans "Sürekli güncellenen protokollerle, aynı koltuğun başında, her gün." %}</p>
+        </div>
+        <div class="milestone">
+          <span class="ms-num">10K+</span>
+          <p class="ms-title">{% trans "Hasta Deneyimi" %}</p>
+          <p class="ms-desc">{% trans "Her hasta farklı. Bu çeşitlilik her vakayı daha iyi okumanızı sağlar." %}</p>
+        </div>
+        <div class="milestone">
+          <span class="ms-num">4</span>
+          <p class="ms-title">{% trans "Dil ile İletişim" %}</p>
+          <p class="ms-desc">{% trans "Türkçe, İngilizce, Almanca, Rusça. Sınır olmadan, kayıp olmadan." %}</p>
+        </div>
+        <div class="milestone">
+          <span class="ms-num">0</span>
+          <p class="ms-title">{% trans "Gizli Maliyet" %}</p>
+          <p class="ms-desc">{% trans "Yazdığımız fiyat, ödediğiniz fiyattır. Bu da bir tür uzmanlık gerektirir." %}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ETİK PROTOKOL
+══════════════════════════════════════════ -->
+<section class="etik-section" id="protokol">
+  <div class="etik-inner">
+
+    <div class="etik-header" data-reveal>
+      <p class="eyebrow">{% trans "Farklılaştırıcılar" %}</p>
+      <h2 class="etik-title">
+        {% trans "Çoğu klinik" %} <em>{% trans "yapmaz," %}</em><br>
+        {% trans "biz yaparız." %}
+      </h2>
+      <p class="etik-sub">
+        {% trans "Bunlar sloganlar değil. Her biri günlük pratiğimizden, bilinçli kararlardan oluşuyor." %}
+      </p>
+    </div>
+
+    <div class="etik-grid" data-reveal>
+
+      <div class="etik-card featured">
+        <div class="ec-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h3>{% trans "Kompozit lamina: dişiniz kesilmiyor" %}</h3>
+        <p>{% trans "Sağlıklı mine dokusu korunur. Diş yüzeyine ince tabaka eklenir, hiçbir zaman törpülenmez. Çoğu klinik bu ayrımı göz ardı eder — çünkü kesmek daha pratiktir. Biz korumayı tercih ederiz." %}</p>
+      </div>
+
+      <div class="etik-card">
+        <div class="ec-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3>{% trans "Gereksiz olan önerilmez" %}</h3>
+        <p>{% trans "Kazancı riskinden büyük değilse söylenmez. Bazen en iyi tedavi hiçbir şey yapmamaktır. Bunu söyleyebilmek için 35 yıl gerekti." %}</p>
+      </div>
+
+      <div class="etik-card">
+        <div class="ec-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </div>
+        <h3>{% trans "Tek hekim, baştan sona" %}</h3>
+        <p>{% trans "Sizi muayene eden hekim tedavinizi de yürütür. Dosyanızı devreden, kararı başkasına bırakan bir sistem yok." %}</p>
+      </div>
+
+      <div class="etik-card">
+        <div class="ec-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        </div>
+        <h3>{% trans "Yazılı plan, yazılı fiyat" %}</h3>
+        <p>{% trans "Tedavi başlamadan adımlar, süreler ve ücretler yazılır. Sonradan değişmez. Bunu yapabilmek de bir uzmanlıktır." %}</p>
+      </div>
+
+      <div class="etik-card">
+        <div class="ec-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064"/></svg>
+        </div>
+        <h3>{% trans "Uzaktan takip, kesintisiz" %}</h3>
+        <p>{% trans "Ülkenize döndükten sonra da devam eder. WhatsApp, video görüşme, gerekirse yönlendirme. Bir kez başlayan ilişki tamamlanır." %}</p>
+      </div>
+
+      <div class="etik-card">
+        <div class="ec-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3>{% trans "4 dilde şeffaf iletişim" %}</h3>
+        <p>{% trans "Türkçe ve İngilizce doktor direkt, Almanca ve Rusça tercüman desteğiyle. Neyin neden yapıldığını ana dilinizde anlayarak karar veriyorsunuz." %}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     HASTA YORUMLARI
+══════════════════════════════════════════ -->
+<section class="yt-section">
+  <div class="yt-inner">
+    <div class="yt-header" data-reveal>
+      <div>
+        <p class="eyebrow">{% trans "Hasta Deneyimleri" %}</p>
+        <h2 class="yt-title">{% trans "Söz bizim değil," %}<br><em>{% trans "onların." %}</em></h2>
+      </div>
+      <div>
+        <p class="yt-sub">{% trans "Düzenlenmemiş. Kendi sesleriyle. Kendi kararlarıyla." %}</p>
+        <a href="https://www.youtube.com/@devrimbirikensipahi/shorts" target="_blank" rel="noopener noreferrer" class="yt-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg>
+          {% trans "Tüm Yorumlar" %}
+        </a>
+      </div>
+    </div>
+
+    <div class="shorts-grid" data-reveal>
+      <div class="short-card" onclick="window.open('https://youtube.com/shorts/pArVqGBhSm4','_blank','noopener')">
+        <img class="short-thumb" src="https://i.ytimg.com/vi/pArVqGBhSm4/hqdefault.jpg" alt="Doruk O." />
+        <div class="short-overlay"></div>
+        <div class="yt-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg><span>Shorts</span></div>
+        <div class="short-play"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="short-info"><div class="short-tag">{% trans "İmplant" %}</div><div class="short-name">Doruk O.</div><div class="short-desc">{% trans "İmplant sonrası hayat kurtaran bir gerçek ortaya çıktı." %}</div></div>
+      </div>
+
+      <div class="short-card" onclick="window.open('https://youtube.com/shorts/rnLVclfU0Tc','_blank','noopener')">
+        <img class="short-thumb" src="https://i.ytimg.com/vi/rnLVclfU0Tc/hqdefault.jpg" alt="Nika" />
+        <div class="short-overlay"></div>
+        <div class="yt-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg><span>Shorts</span></div>
+        <div class="short-play"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="short-info"><div class="short-tag">{% trans "Kanal Tedavisi" %}</div><div class="short-name">Nika</div><div class="short-desc">{% trans "Rusya'dan geldi, tedavisini yaptırdı ve geri döndü." %}</div></div>
+      </div>
+
+      <div class="short-card" onclick="window.open('https://youtube.com/shorts/yEGBHXrapMM','_blank','noopener')">
+        <img class="short-thumb" src="https://i.ytimg.com/vi/yEGBHXrapMM/hqdefault.jpg" alt="Hazan" />
+        <div class="short-overlay"></div>
+        <div class="yt-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg><span>Shorts</span></div>
+        <div class="short-play"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="short-info"><div class="short-tag">{% trans "Kanal Tedavisi" %}</div><div class="short-name">Hazan</div><div class="short-desc">{% trans "Çekilecek dişi kanal tedavisiyle kurtarıldı." %}</div></div>
+      </div>
+
+      <div class="short-card" onclick="window.open('https://youtube.com/shorts/HlCQeyD0Zu4','_blank','noopener')">
+        <img class="short-thumb" src="https://i.ytimg.com/vi/HlCQeyD0Zu4/hqdefault.jpg" alt="Işık" />
+        <div class="short-overlay"></div>
+        <div class="yt-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg><span>Shorts</span></div>
+        <div class="short-play"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="short-info"><div class="short-tag">{% trans "Laminate" %}</div><div class="short-name">Işık</div><div class="short-desc">{% trans "Laminalarım çok güzel oldu." %}</div></div>
+      </div>
+
+      <div class="short-card" onclick="window.open('https://youtube.com/shorts/iVhUafgUj10','_blank','noopener')">
+        <img class="short-thumb" src="https://i.ytimg.com/vi/iVhUafgUj10/hqdefault.jpg" alt="Marissa G." />
+        <div class="short-overlay"></div>
+        <div class="yt-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg><span>Shorts</span></div>
+        <div class="short-play"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="short-info"><div class="short-tag">{% trans "Kompozit Lamina" %}</div><div class="short-name">Marissa G.</div><div class="short-desc">{% trans "Dişlerim hiç kesilmeden, çok güzel bir sonuç." %}</div></div>
+      </div>
+    </div>
+
+    <div class="yt-footer" data-reveal>
+      <p>{% trans "Tüm videolar hasta onayıyla yayınlanmaktadır." %}</p>
+      <a href="https://www.youtube.com/@devrimbirikensipahi/shorts" target="_blank" rel="noopener noreferrer" class="yt-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg>
+        {% trans "Tümünü İzle" %}
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     DOĞRU HASTA
+══════════════════════════════════════════ -->
+<section class="fit-section">
+  <div class="fit-inner">
+    <div class="fit-header" data-reveal>
+      <p class="eyebrow">{% trans "Doğru Uyum" %}</p>
+      <h2 class="fit-title">{% trans "Bizi" %} <em>{% trans "seçenler" %}</em><br>{% trans "genellikle şunu bilir:" %}</h2>
+      <p class="fit-sub">{% trans "Her klinik her hasta için ideal değildir. Biz kimi çektiğimizi iyi biliriz." %}</p>
+    </div>
+
+    <div class="fit-split" data-reveal>
+      <div>
+        <p class="fit-col-head">{% trans "Bizimle iyi çalışırsınız eğer…" %}</p>
+        <div class="fit-items">
+          <div class="fi"><div class="fi-bar" style="background:var(--gold)"></div><div><h4>{% trans "Süreci anlamak istiyorsanız" %}</h4><p>{% trans "Ne yapıldığını, neden yapıldığını sormayı seviyorsanız. Her soruya zaman ayırırız." %}</p></div></div>
+          <div class="fi"><div class="fi-bar" style="background:var(--gold)"></div><div><h4>{% trans "Kalıcı çözüm peşindeyseniz" %}</h4><p>{% trans "Hızlı kozmetik değil, uzun vadede ayakta duran bir sonuç istiyorsanız." %}</p></div></div>
+          <div class="fi"><div class="fi-bar" style="background:var(--gold)"></div><div><h4>{% trans "Hekim kararına güvenebiliyorsanız" %}</h4><p>{% trans "Tartışırız, açıklarız — ama son söz medikal gerçeğe aittir." %}</p></div></div>
+          <div class="fi"><div class="fi-bar" style="background:var(--gold)"></div><div><h4>{% trans "Planlamayı ciddiye alıyorsanız" %}</h4><p>{% trans "Değerlendirme, zaman çizelgesi, yazılı onay. Sistematik ilerleyen hastalarla çok verimli çalışıyoruz." %}</p></div></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="fit-col-head">{% trans "Bilmenizi isteriz ki…" %}</p>
+        <div class="fit-items">
+          <div class="fi"><div class="fi-bar" style="background:var(--ink-40)"></div><div><h4>{% trans "Fiyatlarımız sabittir" %}</h4><p>{% trans "Tedavi planında yazılan rakam değişmez. Bu güveni korumak için fiyat müzakeresi yapmıyoruz." %}</p></div></div>
+          <div class="fi"><div class="fi-bar" style="background:var(--ink-40)"></div><div><h4>{% trans "Her başvuru uygun bulunmayabilir" %}</h4><p>{% trans "Detaylı değerlendirme sonrası tedavi planı oluşturulur. Bazen en iyi tavsiyemiz farklı bir yöntem olabilir." %}</p></div></div>
+          <div class="fi"><div class="fi-bar" style="background:var(--ink-40)"></div><div><h4>{% trans "Estetik sonuçlar kişiseldir" %}</h4><p>{% trans "Yüz yapısına, diş durumuna göre değişir. Beklentileri önceden konuşur, yazılı netleştiririz." %}</p></div></div>
+          <div class="fi"><div class="fi-bar" style="background:var(--ink-40)"></div><div><h4>{% trans "Revizyon protokolümüz var" %}</h4><p>{% trans "Teknik bir sorun varsa çözümü de biz üstleniriz. Süreç yazılı, adımlar bellidir." %}</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fit-note" data-reveal>
+      <p>{% trans "Bu sayfayı okudunuz ve" %} <em>{% trans "'bu benim için'" %}</em> {% trans "dediniz mi? O zaman görüşelim." %}</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     LEAD FORM
+══════════════════════════════════════════ -->
+<section class="form-section" id="contact">
+  <div class="form-inner">
+    <div>
+      <p class="eyebrow fl-eyebrow">{% trans "Ücretsiz Ön Değerlendirme" %}</p>
+      <h2 class="fl-title">{% trans "Sizi biz" %}<br><em>{% trans "arayalım." %}</em></h2>
+      <p class="fl-lead">{% trans "İstanbul'a gelmeden önce kısa bir ön görüşme. Almanya'dan, Hollanda'dan, Rusya'dan — plan sizinle başlar." %}</p>
+      <div class="fl-assurance">
+        <div class="fl-ai"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>{% trans "24 saat içinde dönüş" %}</div>
+        <div class="fl-ai"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>{% trans "Herhangi bir yükümlülük yok" %}</div>
+        <div class="fl-ai"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>{% trans "Türkçe · İngilizce · Almanca · Rusça" %}</div>
+        <div class="fl-ai"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>{% trans "KVKK kapsamında veri güvencesi" %}</div>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <form method="post" aria-label="{% trans 'İletişim Formu' %}">
+        {% csrf_token %}
+        <div class="form-field"><label for="name">{% trans "Ad Soyad" %}</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="{% trans 'Adınız ve soyadınız' %}" /></div>
+        <div class="form-field"><label for="phone">{% trans "Telefon / WhatsApp" %}</label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+49 · +31 · +7 · +90" /></div>
+        <div class="form-field"><label for="message">{% trans "Mesaj" %} <span style="opacity:.42;font-size:.67rem;">({% trans "isteğe bağlı" %})</span></label><textarea id="message" name="message" rows="3" placeholder="{% trans 'İlgilendiğiniz tedavi veya sormak istediğiniz…' %}"></textarea></div>
+        <input type="hidden" name="gclid" id="gclid" />
+        <input type="hidden" name="client_info" id="client_info_input" />
+        <input type="hidden" name="page" value="{% trans 'Neden Biz Lead' %}" />
+        <button type="submit" class="form-submit">{% trans "Gönder — Sizi Arayalım" %}</button>
+      </form>
+      <p class="form-note">{% trans "Kişisel verileriniz KVKK kapsamında korunmaktadır." %}</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SON CTA
+══════════════════════════════════════════ -->
+<section class="final-cta">
+  <div class="final-inner">
+    <p class="eyebrow final-eyebrow">{% trans "Bir adım kaldı" %}</p>
+    <h2 class="final-title">{% trans "5 dakika." %}<br><em>{% trans "Fark görülür." %}</em></h2>
+    <p class="final-lead">{% trans "Karar vermek zorunda değilsiniz. Sadece konuşalım. Kliniği, hekimi ve süreci tanıyın. Geri kalanı size kalsın." %}</p>
+    <div class="final-btns">
+      <a href="https://wa.me/905055771883?text={{ 'Merhaba, neden-biz sayfasından yazıyorum.'|urlencode }}" target="_blank" rel="noopener noreferrer" class="btn-gold">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        {% trans "WhatsApp'tan Yazın" %}
+      </a>
+      <a href="tel:+905055771883" class="btn-ghost-light">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.95V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        +90 505 577 1883
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 Dr. Dt. Devrim Biriken Sipahi &nbsp;|&nbsp; Abide-i Hürriyet Cd No:148 D:11 Kat 4, 34360 Şişli / İstanbul</p>
+  <p style="margin-top:.5rem;"><a href="{% url 'kvkk-bilgilendirme' %}">{% trans "KVKK Aydınlatma Metni" %}</a></p>
+</footer>
+
+{% include "ui/buttons.html" %}
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
