@@ -18,8 +18,8 @@
 {% endblock %}
 
 {% block hreflang %}
-<link rel="alternate" hreflang="{{ question.language }}" href="{{ request.build_absolute_uri }}">
-<link rel="alternate" hreflang="x-default" href="{{ request.build_absolute_uri }}">
+<link rel="alternate" hreflang="{{ question.language }}" href="https://drdevrim.com{{ request.path }}">
+<link rel="alternate" hreflang="x-default" href="https://drdevrim.com{{ request.path }}">
 {% endblock %}
 
 {% block json_ld %}

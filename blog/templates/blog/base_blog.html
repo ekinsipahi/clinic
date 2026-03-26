@@ -8,14 +8,14 @@
 
   <title>{% block title %}{% block blog_title %}Dr Devrim Sipahi - Şişli Diş Kliniği - Bilgilendirici Yazılar{% endblock blog_title %}{% endblock title %}</title>
   <meta name="description" content="{% block meta_description %}{% block blog_description %}Kanal tedavisi, dolgu, implant ve estetik diş hekimliği hakkında güncel rehber yazıları.{% endblock blog_description %}{% endblock meta_description %}">
-  {% block canonical %}{% block blog_canonical %}<link rel="canonical" href="https://www.devrimbirikensipahi.com.tr/blog/">{% endblock blog_canonical %}{% endblock canonical %}
+  {% block canonical %}{% block blog_canonical %}<link rel="canonical" href="https://drdevrim.com/blog/">{% endblock blog_canonical %}{% endblock canonical %}
 
   {# Open Graph / Twitter defaults (sayfa özelinde override edebilirsin) #}
   <meta property="og:type" content="{% block og_type %}website{% endblock og_type %}">
   <meta property="og:site_name" content="Dr. Dt. Devrim Biriken Sipahi">
   <meta property="og:title" content="{% block og_title %}{% block og_title_fallback %}Blog{% endblock og_title_fallback %}{% endblock og_title %}">
   <meta property="og:description" content="{% block og_description %}{% block og_desc_fallback %}Diş tedavileri ve ipuçları.{% endblock og_desc_fallback %}{% endblock og_description %}">
-  <meta property="og:url" content="{% block og_url %}https://www.devrimbirikensipahi.com.tr/blog/{% endblock og_url %}">
+  <meta property="og:url" content="{% block og_url %}https://drdevrim.com/blog/{% endblock og_url %}">
   {% block og_image %}{% comment %}Detayda post cover ile override et{% endcomment %}{% endblock og_image %}
 
   <meta name="twitter:card" content="summary_large_image">
@@ -92,10 +92,10 @@
     "@context":"https://schema.org",
     "@type":"WebSite",
     "name":"Dr. Dt. Devrim Biriken Sipahi",
-    "url":"https://www.devrimbirikensipahi.com.tr/",
+    "url":"https://drdevrim.com/",
     "potentialAction":{
       "@type":"SearchAction",
-      "target":"https://www.devrimbirikensipahi.com.tr/blog/?q={search_term_string}",
+      "target":"https://drdevrim.com/blog/?q={search_term_string}",
       "query-input":"required name=search_term_string"
     }
   }
@@ -108,9 +108,9 @@
     "@context":"https://schema.org",
     "@type":"CollectionPage",
     "name":"Blog",
-    "url":"https://www.devrimbirikensipahi.com.tr/blog/",
+    "url":"https://drdevrim.com/blog/",
     "about":{"@type":"MedicalSpecialty","name":"Dentistry"},
-    "isPartOf":{"@type":"WebSite","url":"https://www.devrimbirikensipahi.com.tr/"}
+    "isPartOf":{"@type":"WebSite","url":"https://drdevrim.com/"}
   }
   </script>
   {% endblock json_ld %}

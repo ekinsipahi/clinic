@@ -18,15 +18,15 @@
 {% endblock %}
 
 {% block canonical %}
-<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<link rel="canonical" href="https://drdevrim.com{{ request.path }}">
 {% endblock %}
 
 {% block hreflang %}
-<link rel="alternate" hreflang="{{ article.language }}" href="{{ request.build_absolute_uri }}">
+<link rel="alternate" hreflang="{{ article.language }}" href="https://drdevrim.com{{ request.path }}">
 {% with alt=article.get_alternate_url %}{% if alt %}
-<link rel="alternate" hreflang="{% if article.language == 'tr' %}en{% else %}tr{% endif %}" href="{{ request.scheme }}://{{ request.get_host }}{{ alt }}">
+<link rel="alternate" hreflang="{% if article.language == 'tr' %}en{% else %}tr{% endif %}" href="https://drdevrim.com{{ request.path }}">
 {% endif %}{% endwith %}
-<link rel="alternate" hreflang="x-default" href="{{ request.build_absolute_uri }}">
+<link rel="alternate" hreflang="x-default" href="https://drdevrim.com{{ request.path }}">
 {% endblock %}
 
 {% block json_ld %}

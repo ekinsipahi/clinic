@@ -26,6 +26,7 @@ CSRF_TRUSTED_ORIGINS = os.getenv(
 # ------------------------------
 # Media / Static
 # ------------------------------
+SITE_BASE_URL = "https://drdevrim.com"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
@@ -74,6 +75,9 @@ INSTALLED_APPS = [
     "conversion_tracking",
 ]
 
+NEW_DOMAIN = "https://drdevrim.com"
+
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -83,6 +87,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "devrim_website.middleware.RedirectDomainMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 

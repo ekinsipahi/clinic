@@ -10,13 +10,13 @@
   <meta name="description" content="{% block meta_description %}{{ page_description|default:'' }}{% endblock %}">
   {% block meta_keywords %}{% endblock %}
   <meta name="robots" content="index, follow">
-  {% block canonical %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endblock %}
+  {% block canonical %}<link rel="canonical" href="https://drdevrim.com{{ request.path }}">{% endblock %}
   {% block hreflang %}{% endblock %}
   <meta property="og:type"        content="{% block og_type %}website{% endblock %}">
   <meta property="og:site_name"   content="Dr. Devrim Klinik">
   <meta property="og:title"       content="{{ page_title }}">
   <meta property="og:description" content="{{ page_description|default:'' }}">
-  <meta property="og:url"         content="{{ request.build_absolute_uri }}">
+  <meta property="og:url"         content="https://drdevrim.com{{ request.path }}">
   <meta property="og:locale"      content="{% if language == 'en' %}en_US{% else %}tr_TR{% endif %}">
   {% block og_image %}
   <meta property="og:image" content="{% static 'images/og-default.jpg' %}">

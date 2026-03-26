@@ -35,12 +35,18 @@
 {% endblock %}
 
 {% block canonical %}
-<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<link rel="canonical" href="https://drdevrim.com{{ request.path }}">
 {% endblock %}
 
 {% block hreflang %}
-<link rel="alternate" hreflang="tr" href="{{ request.scheme }}://{{ request.get_host }}/soru-cevap/makaleler/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}">
-<link rel="alternate" hreflang="en" href="{{ request.scheme }}://{{ request.get_host }}/question-and-answer/makaleler/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}">
+<!-- Türkçe -->
+<link rel="alternate" hreflang="tr" href="https://drdevrim.com/soru-cevap/makaleler/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}">
+
+<!-- İngilizce -->
+<link rel="alternate" hreflang="en" href="https://drdevrim.com/question-and-answer/artimakalelercles/{% if tag_slug %}?tag={{ tag_slug }}{% endif %}">
+
+<!-- x-default -->
+<link rel="alternate" hreflang="x-default" href="https://drdevrim.com{% if language == 'tr' %}/soru-cevap/makaleler/{% else %}/question-and-answer/makaleler/{% endif %}{% if tag_slug %}?tag={{ tag_slug }}{% endif %}">
 {% endblock %}
 
 {% block json_ld %}

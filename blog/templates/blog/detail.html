@@ -5,14 +5,14 @@
 {% block blog_title %}{{ post.meta_title|default:post.title }}{% endblock %}
 {% block blog_description %}{{ post.meta_description|default:post.excerpt|default:post.title }}{% endblock %}
 {% block blog_canonical %}
-  <link rel="canonical" href="{{ post.canonical_url|default:'https://www.devrimbirikensipahi.com.tr'|add:post.get_absolute_url }}">
+  <link rel="canonical" href="{{ post.canonical_url|default:'https://drdevrim.com'|add:post.get_absolute_url }}">
 {% endblock %}
 
 {# ---- Open Graph (Article) ---- #}
 {% block og_type %}article{% endblock %}
 {% block og_title %}{{ post.meta_title|default:post.title }}{% endblock %}
 {% block og_description %}{{ post.meta_description|default:post.excerpt|default:post.title }}{% endblock %}
-{% block og_url %}https://www.devrimbirikensipahi.com.tr{{ post.get_absolute_url }}{% endblock %}
+{% block og_url %}https://drdevrim.com{{ post.get_absolute_url }}{% endblock %}
 {% block og_image %}
   {% if post.og_image_abs_url %}
     <meta property="og:image" content="{{ post.og_image_abs_url }}">
@@ -108,7 +108,7 @@
     "author": {"@type": "Person", "name": "{{ post.author|default_if_none:'Klinik'|escapejs }}"},
     "publisher": {"@type": "Organization", "name": "Dr. Dt. Devrim Biriken Sipahi"},
     {% if post.category %}"articleSection": "{{ post.category.name|escapejs }}",{% endif %}
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.devrimbirikensipahi.com.tr{{ post.get_absolute_url }}"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://drdevrim.com{{ post.get_absolute_url }}"},
     "description": "{{ post.meta_description|default:post.excerpt|default:post.title|escapejs }}"
   }
   </script>
